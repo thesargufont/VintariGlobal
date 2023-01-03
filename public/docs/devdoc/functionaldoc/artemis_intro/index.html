@@ -1,0 +1,1077 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="ESD-Application">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Artemis Introduction - Artemis Development Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ef5350">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#pengenalan-artemis" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Artemis Development Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/favicon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Artemis Development Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Artemis Introduction
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Artemis Development Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../img/favicon.png" width="48" height="48">
+      
+    </a>
+    Artemis Development Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      For Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        For Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/git/" title="Git" class="md-nav__link">
+      Git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/composer/" title="Composer" class="md-nav__link">
+      Composer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/laravel_basic/" title="Laravel Basic" class="md-nav__link">
+      Laravel Basic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/laravel_db_setting/" title="Laravel Database Setting" class="md-nav__link">
+      Laravel Database Setting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/laravel_routing/" title="Laravel Routing" class="md-nav__link">
+      Laravel Routing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/laravel_blade/" title="Laravel Blade Templating" class="md-nav__link">
+      Laravel Blade Templating
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/laravel_db_query/" title="Laravel Database Query" class="md-nav__link">
+      Laravel Database Query
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/laravel_db_migration/" title="Laravel Database Migration" class="md-nav__link">
+      Laravel Database Migration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/laravel_eloquent/" title="Laravel Eloquent" class="md-nav__link">
+      Laravel Eloquent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/laravel_queue/" title="Laravel Queue" class="md-nav__link">
+      Laravel Queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/laravel_schedule/" title="Laravel Schedule" class="md-nav__link">
+      Laravel Schedule
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/laravel_class_testing/" title="Laravel Class Testing" class="md-nav__link">
+      Laravel Class Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/artemis_intro/" title="Artemis Introduction" class="md-nav__link">
+      Artemis Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/artemis_coding_standard/" title="Artemis Coding Standard" class="md-nav__link">
+      Artemis Coding Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/artemis_ui_standard/" title="Artemis UI Design Standard" class="md-nav__link">
+      Artemis UI Design Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/artemis_documentation_editing/" title="Artemis Documentation Editing" class="md-nav__link">
+      Artemis Documentation Editing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../developerdoc/tugas/" title="Tugas" class="md-nav__link">
+      Tugas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      For System Admins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        For System Admins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sysadmindoc/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      For Functionals
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        For Functionals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Artemis Introduction
+      </label>
+    
+    <a href="./" title="Artemis Introduction" class="md-nav__link md-nav__link--active">
+      Artemis Introduction
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#apa-itu-artemis" title="Apa itu Artemis" class="md-nav__link">
+    Apa itu Artemis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-artemis-antara-lain" title="Feature Artemis antara lain," class="md-nav__link">
+    Feature Artemis antara lain,
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-restful" title="Apa itu Restful" class="md-nav__link">
+    Apa itu Restful
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pengenalan-elemen-layar" title="Pengenalan Elemen Layar" class="md-nav__link">
+    Pengenalan Elemen Layar
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#halaman-sign-in" title="Halaman Sign-in" class="md-nav__link">
+    Halaman Sign-in
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struktur-halaman" title="Struktur Halaman" class="md-nav__link">
+    Struktur Halaman
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hak-akses-user-artemis-untuk-masing-masing-menu" title="Hak Akses User Artemis untuk masing-masing menu" class="md-nav__link">
+    Hak Akses User Artemis untuk masing-masing menu
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigation-menu-mempunyai-aturan-url-khusus" title="Navigation (menu) mempunyai aturan URL khusus" class="md-nav__link">
+    Navigation (menu) mempunyai aturan URL khusus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_ui_standard/" title="Artemis UI Design Standard" class="md-nav__link">
+      Artemis UI Design Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_db_and_model_objects/" title="Artemis Database and Model Objects" class="md-nav__link">
+      Artemis Database and Model Objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../phpmyadmin/" title="PhpMyAdmin Usage" class="md-nav__link">
+      PhpMyAdmin Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gitea/" title="Gitea Git Server Usage" class="md-nav__link">
+      Gitea Git Server Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_documentation_editing/" title="Artemis Documentation Editing" class="md-nav__link">
+      Artemis Documentation Editing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Artemis Projects
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Artemis Projects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      CORE
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        CORE
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/core/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/core/user_auth/" title="User Auth" class="md-nav__link">
+      User Auth
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      TMS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        TMS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/tms/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#apa-itu-artemis" title="Apa itu Artemis" class="md-nav__link">
+    Apa itu Artemis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-artemis-antara-lain" title="Feature Artemis antara lain," class="md-nav__link">
+    Feature Artemis antara lain,
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apa-itu-restful" title="Apa itu Restful" class="md-nav__link">
+    Apa itu Restful
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pengenalan-elemen-layar" title="Pengenalan Elemen Layar" class="md-nav__link">
+    Pengenalan Elemen Layar
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#halaman-sign-in" title="Halaman Sign-in" class="md-nav__link">
+    Halaman Sign-in
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struktur-halaman" title="Struktur Halaman" class="md-nav__link">
+    Struktur Halaman
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hak-akses-user-artemis-untuk-masing-masing-menu" title="Hak Akses User Artemis untuk masing-masing menu" class="md-nav__link">
+    Hak Akses User Artemis untuk masing-masing menu
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigation-menu-mempunyai-aturan-url-khusus" title="Navigation (menu) mempunyai aturan URL khusus" class="md-nav__link">
+    Navigation (menu) mempunyai aturan URL khusus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="pengenalan-artemis">Pengenalan Artemis</h1>
+<h2 id="apa-itu-artemis">Apa itu Artemis</h2>
+<blockquote>
+<p><img alt="Artemis Logo" src="../img/artemis_logo.png" title="Artemis Logo" /></p>
+<p>Artemis adalah aplikasi <em>inhouse</em> berbasis <em>web</em> yang dibuat dengan menggunakan PHP framework <em>Laravel</em>. Aplikasi ini berfungsi sebagai aplikasi <em>3rd party</em> pendukung ke aplikasi utama di PT.HIT yaitu SAP dan Epicor.</p>
+</blockquote>
+<p>Berikut ini adalah gambaran awal tentang hubungan antara Artemis dengan aplikasi lain.
+<img alt="gambar hubungan Artemis dengan aplikasi lain" src="../img/map_of_solutions.png" title="gambar hubungan Artemis dengan aplikasi lain" /></p>
+<h2 id="feature-artemis-antara-lain">Feature Artemis antara lain,</h2>
+<ul>
+<li>Sebagai aplikasi <em>3rd party</em> yang menjembatani SAP, Epicor dan HRIS.</li>
+<li>Berbasis <em>web</em>, sehingga dapat dijalankan di banyak platform pengguna tanpa instalasi.</li>
+<li>Dikembangkan secara <em>inhouse</em> PT.HIT, sehingga lebih dapat menyesuaikan kebutuhan.</li>
+<li>Dikembangkan dengan <em>Laravel PHP Framework</em>.</li>
+<li>Mendukung <em>web service</em> / API menggunakan Restful.</li>
+<li>Antar muka pengguna (<em>User Interface</em>) responsif menyesuaikan ukuran layar.</li>
+<li>Keamanan Server berlapis menggunakan protokol koneksi <em>HTTPS</em> dan <em>form POST encryption</em>.</li>
+<li>Ada notifikasi via <em>email</em> dan <em>UI Notification</em>.</li>
+<li>Menyediakan tampilan <em>dashboard</em>.</li>
+<li>Mendukung penggunaan pada mode KIOSK terminal.</li>
+<li>Mendukung authentikasi pengguna menggunakan <em>active directory</em>.</li>
+<li>Mendukung interfacing dengan perangkat IOT (<em>internet of thing</em>).</li>
+</ul>
+<h3 id="apa-itu-restful">Apa itu Restful</h3>
+<p>Kalo dalam SAP kita mengenal web service SAP menggunakan protokol SOAP, di dalam Artemis kita menggunakan protokol REST (<em>REpresentational State Transfer</em>). Pada dasarnya REST menggunakan protokol komunikasi HTTP (<em>Hyper Text Transfer Protocol</em>).
+Pada REST, REST Server menyediakan resources(sumber daya/data) dan REST client mengakses dan menampilkan resource tersebut untuk penggunaan selanjutnya. Setiap  resource diidentifikasi oleh URIs (<em>Universal Resource Identifiers</em>) atau <em>global ID</em>. Resource tersebut direpresentasikan dalam bentuk format teks, JSON atau XML.</p>
+<p>Metode HTTP yang umum digunakan dalam arsitektur berbasis REST,</p>
+<ul>
+<li>GET, menyediakan hanya akses baca pada resource</li>
+<li>PUT, digunakan untuk menciptakan resource baru</li>
+<li>DELETE, digunakan untuk menghapus resource</li>
+<li>POST, digunakan untuk memperbarui resource yang ada atau membuat resource baru</li>
+<li>OPTIONS, digunakan untuk mendapatkan operasi yang disupport pada resource</li>
+</ul>
+<h2 id="pengenalan-elemen-layar">Pengenalan Elemen Layar</h2>
+<h3 id="halaman-sign-in">Halaman Sign-in</h3>
+<p>Saat User belum signed-in, secara default akan diarahkan ke halaman Sign-in.
+Setelah User signed-in, User akan diarahkan ke halaman yang dituju sesuai URL yang dimasukkan sebelumnya.</p>
+<p><img alt="Gambar halaman sign-in" src="../img/sign_in_page.png" title="Gambar halaman sign-in" /></p>
+<h3 id="struktur-halaman">Struktur Halaman</h3>
+<p><img alt="Gambar tampilan halaman Artemis" src="../img/global_page_anotation.png" title="Gambar tampilan halaman Artemis" /></p>
+<p>Tampilan halaman terdiri dari</p>
+<ol>
+<li>Left-Side menu</li>
+<li>Top menu</li>
+<li>Footer</li>
+<li>Main content</li>
+</ol>
+<p>(lihat user documentation untuk informasi selengkapnya)</p>
+<h2 id="hak-akses-user-artemis-untuk-masing-masing-menu">Hak Akses User Artemis untuk masing-masing menu</h2>
+<p>Hak akses dasar menu Artemis dibagi menjadi:</p>
+<ul>
+<li>no access (tidak mempunyai akses)</li>
+<li>read only (hanya bisa membaca/report)</li>
+<li>write only (hanya bisa create/edit/delete)</li>
+<li>execute only (hanya bisa approve/confirm)</li>
+<li>read &amp; write (bisa read/create/edit/delete/report)</li>
+<li>read &amp; execute (bisa read/approve/confirm)</li>
+<li>full access (dapat melakukan semua hal)</li>
+</ul>
+<p>Jika seorang <em>user</em> tidak mempunyai hak akses untuk suatu <em>action</em>, maka <em>link</em> atau tombol untuk <em>action</em> tersebut akan disembunyikan (tidak ditampilkan).</p>
+<p>Otorisasi yang lebih detail misal per bagian atau per model tertentu akan diatur pada
+otorisasi tambahan per model sesuai kebutuhan.</p>
+<p>Mode akses masing-masing Group yang dimiliki User dikombinasikan dengan logika OR.</p>
+<p>Contoh:</p>
+<ul>
+<li>Group1: Read+Write</li>
+<li>Group2: Write+Execute</li>
+<li>Total hak akses Group: Read+Write+Execute</li>
+</ul>
+<p>Bila hak akses User didefinisikan, maka hak akses group akan diabaikan dan menggunakan
+hak akses User.</p>
+<p>Contoh:</p>
+<ul>
+<li>Total Hak akses group: Read+Write+Execute</li>
+<li>Hak akses User: Read</li>
+<li>Total hak akses: Read</li>
+</ul>
+<p>Navigation (menu) mempunyai mode</p>
+<ul>
+<li>0 = disabled navigation -&gt; tidak dapat diakses semua User.</li>
+<li>1 = enabled -&gt; akses mengikuti hak akses User dan Group, default akses 0.</li>
+<li>2 = public access -&gt; dapat diakses semua orang tanpa signed-in sekalipun, tetap mengikuti hak akses User dan Group, default akses 4.</li>
+</ul>
+<h3 id="navigation-menu-mempunyai-aturan-url-khusus">Navigation (menu) mempunyai aturan URL khusus</h3>
+<p>Jika URL dimulai dengan dash (-) maka Navigation tersebut akan membuka window baru saat diklik.</p>
+<p>Navigation memiliki TCODE agar memudahkan User dalam mencari Navigation tersebut.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../" title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../artemis_ui_standard/" title="Artemis UI Design Standard" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Artemis UI Design Standard
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy;2019 ESD-Application
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

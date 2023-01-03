@@ -1,0 +1,1390 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="ESD-Application">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Laravel Class Testing - Artemis Development Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ef5350">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#testing" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Artemis Development Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/favicon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Artemis Development Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Laravel Class Testing
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Artemis Development Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../img/favicon.png" width="48" height="48">
+      
+    </a>
+    Artemis Development Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      For Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        For Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git/" title="Git" class="md-nav__link">
+      Git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../composer/" title="Composer" class="md-nav__link">
+      Composer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_basic/" title="Laravel Basic" class="md-nav__link">
+      Laravel Basic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_setting/" title="Laravel Database Setting" class="md-nav__link">
+      Laravel Database Setting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_routing/" title="Laravel Routing" class="md-nav__link">
+      Laravel Routing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_blade/" title="Laravel Blade Templating" class="md-nav__link">
+      Laravel Blade Templating
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_query/" title="Laravel Database Query" class="md-nav__link">
+      Laravel Database Query
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_migration/" title="Laravel Database Migration" class="md-nav__link">
+      Laravel Database Migration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_eloquent/" title="Laravel Eloquent" class="md-nav__link">
+      Laravel Eloquent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_queue/" title="Laravel Queue" class="md-nav__link">
+      Laravel Queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_schedule/" title="Laravel Schedule" class="md-nav__link">
+      Laravel Schedule
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Laravel Class Testing" class="md-nav__link md-nav__link--active">
+      Laravel Class Testing
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_intro/" title="Artemis Introduction" class="md-nav__link">
+      Artemis Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_coding_standard/" title="Artemis Coding Standard" class="md-nav__link">
+      Artemis Coding Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_ui_standard/" title="Artemis UI Design Standard" class="md-nav__link">
+      Artemis UI Design Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_documentation_editing/" title="Artemis Documentation Editing" class="md-nav__link">
+      Artemis Documentation Editing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tugas/" title="Tugas" class="md-nav__link">
+      Tugas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      For System Admins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        For System Admins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sysadmindoc/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      For Functionals
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        For Functionals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_intro/" title="Artemis Introduction" class="md-nav__link">
+      Artemis Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_ui_standard/" title="Artemis UI Design Standard" class="md-nav__link">
+      Artemis UI Design Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_db_and_model_objects/" title="Artemis Database and Model Objects" class="md-nav__link">
+      Artemis Database and Model Objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/phpmyadmin/" title="PhpMyAdmin Usage" class="md-nav__link">
+      PhpMyAdmin Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/gitea/" title="Gitea Git Server Usage" class="md-nav__link">
+      Gitea Git Server Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_documentation_editing/" title="Artemis Documentation Editing" class="md-nav__link">
+      Artemis Documentation Editing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Artemis Projects
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Artemis Projects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      CORE
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        CORE
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/core/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/core/user_auth/" title="User Auth" class="md-nav__link">
+      User Auth
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      TMS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        TMS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/tms/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="testing">Testing</h1>
+<p>Introduction
+Laravel is built with testing in mind. In fact, support for testing with PHPUnit is included out of the box and a phpunit.xml file is already set up for your application. The framework also ships with convenient helper methods that allow you to expressively test your applications.</p>
+<p>By default, your application's tests directory contains two directories: Feature and Unit. Unit tests are tests that focus on a very small, isolated portion of your code. In fact, most unit tests probably focus on a single method. Feature tests may test a larger portion of your code, including how several objects interact with each other or even a full HTTP request to a JSON endpoint.</p>
+<p>An ExampleTest.php file is provided in both the Feature and Unit test directories. After installing a new Laravel application, run phpunit on the command line to run your tests.</p>
+<p>Environment
+When running tests via phpunit, Laravel will automatically set the configuration environment to testing because of the environment variables defined in the phpunit.xml file. Laravel also automatically configures the session and cache to the array driver while testing, meaning no session or cache data will be persisted while testing.</p>
+<p>You are free to define other testing environment configuration values as necessary. The  testing environment variables may be configured in the phpunit.xml file, but make sure to clear your configuration cache using the config:clear Artisan command before running your tests!</p>
+<p>In addition, you may create a .env.testing file in the root of your project. This file will override the .env file when running PHPUnit tests or executing Artisan commands with the  --env=testing option.</p>
+<p>Creating &amp; Running Tests
+To create a new test case, use the make:test Artisan command:</p>
+<p>// Create a test in the Feature directory...
+php artisan make:test UserTest</p>
+<p>// Create a test in the Unit directory...
+php artisan make:test UserTest --unit
+Once the test has been generated, you may define test methods as you normally would using PHPUnit. To run your tests, execute the phpunit command from your terminal:</p>
+<?php
+
+<p>namespace Tests\Unit;</p>
+<p>use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;</p>
+<p>class ExampleTest extends TestCase
+{
+    /*<em>
+     * A basic test example.
+     *
+     * @return void
+     </em>/
+    public function testBasicTest()
+    {
+        $this-&gt;assertTrue(true);
+    }
+}
+If you define your own setUp / tearDown methods within a test class, be sure to call the respective parent::setUp() / parent::tearDown() methods on the parent class.</p>
+<h1 id="http-testing">HTTP Testing</h1>
+<p>Introduction
+Laravel provides a very fluent API for making HTTP requests to your application and examining the output. For example, take a look at the test defined below:</p>
+<?php
+
+<p>namespace Tests\Feature;</p>
+<p>use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;</p>
+<p>class ExampleTest extends TestCase
+{
+    /*<em>
+     * A basic test example.
+     *
+     * @return void
+     </em>/
+    public function testBasicTest()
+    {
+        $response = $this-&gt;get('/');</p>
+<pre><code>    $response-&gt;assertStatus(200);
+}
+</code></pre>
+<p>}
+The get method makes a GET request into the application, while the assertStatus method asserts that the returned response should have the given HTTP status code. In addition to this simple assertion, Laravel also contains a variety of assertions for inspecting the response headers, content, JSON structure, and more.</p>
+<p>Customizing Request Headers
+You may use the withHeaders method to customize the request's headers before it is sent to the application. This allows you to add any custom headers you would like to the request:</p>
+<?php
+
+<p>class ExampleTest extends TestCase
+{
+    /*<em>
+     * A basic functional test example.
+     *
+     * @return void
+     </em>/
+    public function testBasicExample()
+    {
+        $response = $this-&gt;withHeaders([
+            'X-Header' =&gt; 'Value',
+        ])-&gt;json('POST', '/user', ['name' =&gt; 'Sally']);</p>
+<pre><code>    $response
+        -&gt;assertStatus(201)
+        -&gt;assertJson([
+            'created' =&gt; true,
+        ]);
+}
+</code></pre>
+<p>}
+The CSRF middleware is automatically disabled when running tests.</p>
+<p>Debugging Responses
+After making a test request to your application, the dump and dumpHeaders methods may be used to examine and debug the response contents:</p>
+<?php
+
+<p>namespace Tests\Feature;</p>
+<p>use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;</p>
+<p>class ExampleTest extends TestCase
+{
+    /*<em>
+     * A basic test example.
+     *
+     * @return void
+     </em>/
+    public function testBasicTest()
+    {
+        $response = $this-&gt;get('/');</p>
+<pre><code>    $response-&gt;dumpHeaders();
+
+    $response-&gt;dump();
+}
+</code></pre>
+<p>}</p>
+<p>Session / Authentication
+Laravel provides several helpers for working with the session during HTTP testing. First, you may set the session data to a given array using the withSession method. This is useful for loading the session with data before issuing a request to your application:</p>
+<?php
+
+<p>class ExampleTest extends TestCase
+{
+    public function testApplication()
+    {
+        $response = $this-&gt;withSession(['foo' =&gt; 'bar'])
+                         -&gt;get('/');
+    }
+}
+One common use of the session is for maintaining state for the authenticated user. The  actingAs helper method provides a simple way to authenticate a given user as the current user. For example, we may use a model factory to generate and authenticate a user:</p>
+<?php
+
+<p>use App\User;</p>
+<p>class ExampleTest extends TestCase
+{
+    public function testApplication()
+    {
+        $user = factory(User::class)-&gt;create();</p>
+<pre><code>    $response = $this-&gt;actingAs($user)
+                     -&gt;withSession(['foo' =&gt; 'bar'])
+                     -&gt;get('/');
+}
+</code></pre>
+<p>}
+You may also specify which guard should be used to authenticate the given user by passing the guard name as the second argument to the actingAs method:</p>
+<p>$this-&gt;actingAs($user, 'api')</p>
+<p>Testing JSON APIs
+Laravel also provides several helpers for testing JSON APIs and their responses. For example, the json, get, post, put, patch, and delete methods may be used to issue requests with various HTTP verbs. You may also easily pass data and headers to these methods. To get started, let's write a test to make a POST request to /user and assert that the expected data was returned:</p>
+<?php
+
+<p>class ExampleTest extends TestCase
+{
+    /*<em>
+     * A basic functional test example.
+     *
+     * @return void
+     </em>/
+    public function testBasicExample()
+    {
+        $response = $this-&gt;json('POST', '/user', ['name' =&gt; 'Sally']);</p>
+<pre><code>    $response
+        -&gt;assertStatus(201)
+        -&gt;assertJson([
+            'created' =&gt; true,
+        ]);
+}
+</code></pre>
+<p>}
+The assertJson method converts the response to an array and utilizes  PHPUnit::assertArraySubset to verify that the given array exists within the JSON response returned by the application. So, if there are other properties in the JSON response, this test will still pass as long as the given fragment is present.</p>
+<p>Verifying An Exact JSON Match
+If you would like to verify that the given array is an exact match for the JSON returned by the application, you should use the assertExactJson method:</p>
+<?php
+
+<p>class ExampleTest extends TestCase
+{
+    /*<em>
+     * A basic functional test example.
+     *
+     * @return void
+     </em>/
+    public function testBasicExample()
+    {
+        $response = $this-&gt;json('POST', '/user', ['name' =&gt; 'Sally']);</p>
+<pre><code>    $response
+        -&gt;assertStatus(201)
+        -&gt;assertExactJson([
+            'created' =&gt; true,
+        ]);
+}
+</code></pre>
+<p>}</p>
+<p>Testing File Uploads
+The Illuminate\Http\UploadedFile class provides a fake method which may be used to generate dummy files or images for testing. This, combined with the Storage facade's fake method greatly simplifies the testing of file uploads. For example, you may combine these two features to easily test an avatar upload form:</p>
+<?php
+
+<p>namespace Tests\Feature;</p>
+<p>use Tests\TestCase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;</p>
+<p>class ExampleTest extends TestCase
+{
+    public function testAvatarUpload()
+    {
+        Storage::fake('avatars');</p>
+<pre><code>    $file = UploadedFile::fake()-&gt;image('avatar.jpg');
+
+    $response = $this-&gt;json('POST', '/avatar', [
+        'avatar' =&gt; $file,
+    ]);
+
+    // Assert the file was stored...
+    Storage::disk('avatars')-&gt;assertExists($file-&gt;hashName());
+
+    // Assert a file does not exist...
+    Storage::disk('avatars')-&gt;assertMissing('missing.jpg');
+}
+</code></pre>
+<p>}
+Fake File Customization
+When creating files using the fake method, you may specify the width, height, and size of the image in order to better test your validation rules:</p>
+<p>UploadedFile::fake()-&gt;image('avatar.jpg', $width, $height)-&gt;size(100);
+In addition to creating images, you may create files of any other type using the create method:</p>
+<p>UploadedFile::fake()-&gt;create('document.pdf', $sizeInKilobytes);</p>
+<p>Available Assertions</p>
+<p>Response Assertions
+Laravel provides a variety of custom assertion methods for your PHPUnit tests. These assertions may be accessed on the response that is returned from the json, get, post, put, and delete test methods:</p>
+<p>assertCookie
+assertCookieExpired
+assertCookieNotExpired
+assertCookieMissing
+assertDontSee
+assertDontSeeText
+assertExactJson
+assertForbidden
+assertHeader
+assertHeaderMissing
+assertJson
+assertJsonCount
+assertJsonFragment
+assertJsonMissing
+assertJsonMissingExact
+assertJsonMissingValidationErrors
+assertJsonStructure
+assertJsonValidationErrors
+assertLocation
+assertNotFound
+assertOk
+assertPlainCookie
+assertRedirect
+assertSee
+assertSeeInOrder
+assertSeeText
+assertSeeTextInOrder
+assertSessionHas
+assertSessionHasAll
+assertSessionHasErrors
+assertSessionHasErrorsIn
+assertSessionHasNoErrors
+assertSessionDoesntHaveErrors
+assertSessionMissing
+assertStatus
+assertSuccessful
+assertUnauthorized
+assertViewHas
+assertViewHasAll
+assertViewIs
+assertViewMissing</p>
+<p>assertCookie
+Assert that the response contains the given cookie:</p>
+<p>$response-&gt;assertCookie($cookieName, $value = null);</p>
+<p>assertCookieExpired
+Assert that the response contains the given cookie and it is expired:</p>
+<p>$response-&gt;assertCookieExpired($cookieName);</p>
+<p>assertCookieNotExpired
+Assert that the response contains the given cookie and it is not expired:</p>
+<p>$response-&gt;assertCookieNotExpired($cookieName);</p>
+<p>assertCookieMissing
+Assert that the response does not contains the given cookie:</p>
+<p>$response-&gt;assertCookieMissing($cookieName);</p>
+<p>assertDontSee
+Assert that the given string is not contained within the response:</p>
+<p>$response-&gt;assertDontSee($value);</p>
+<p>assertDontSeeText
+Assert that the given string is not contained within the response text:</p>
+<p>$response-&gt;assertDontSeeText($value);</p>
+<p>assertExactJson
+Assert that the response contains an exact match of the given JSON data:</p>
+<p>$response-&gt;assertExactJson(array $data);</p>
+<p>assertForbidden
+Assert that the response has a forbidden status code:</p>
+<p>$response-&gt;assertForbidden();</p>
+<p>assertHeader
+Assert that the given header is present on the response:</p>
+<p>$response-&gt;assertHeader($headerName, $value = null);</p>
+<p>assertHeaderMissing
+Assert that the given header is not present on the response:</p>
+<p>$response-&gt;assertHeaderMissing($headerName);</p>
+<p>assertJson
+Assert that the response contains the given JSON data:</p>
+<p>$response-&gt;assertJson(array $data);</p>
+<p>assertJsonCount
+Assert that the response JSON has an array with the expected number of items at the given key:</p>
+<p>$response-&gt;assertJsonCount($count, $key = null);</p>
+<p>assertJsonFragment
+Assert that the response contains the given JSON fragment:</p>
+<p>$response-&gt;assertJsonFragment(array $data);</p>
+<p>assertJsonMissing
+Assert that the response does not contain the given JSON fragment:</p>
+<p>$response-&gt;assertJsonMissing(array $data);</p>
+<p>assertJsonMissingExact
+Assert that the response does not contain the exact JSON fragment:</p>
+<p>$response-&gt;assertJsonMissingExact(array $data);</p>
+<p>assertJsonMissingValidationErrors
+Assert that the response has no JSON validation errors for the given keys:</p>
+<p>$response-&gt;assertJsonMissingValidationErrors($keys);</p>
+<p>assertJsonStructure
+Assert that the response has a given JSON structure:</p>
+<p>$response-&gt;assertJsonStructure(array $structure);</p>
+<p>assertJsonValidationErrors
+Assert that the response has the given JSON validation errors:</p>
+<p>$response-&gt;assertJsonValidationErrors(array $data);</p>
+<p>assertLocation
+Assert that the response has the given URI value in the Location header:</p>
+<p>$response-&gt;assertLocation($uri);</p>
+<p>assertNotFound
+Assert that the response has a not found status code:</p>
+<p>$response-&gt;assertNotFound();</p>
+<p>assertOk
+Assert that the response has a 200 status code:</p>
+<p>$response-&gt;assertOk();</p>
+<p>assertPlainCookie
+Assert that the response contains the given cookie (unencrypted):</p>
+<p>$response-&gt;assertPlainCookie($cookieName, $value = null);</p>
+<p>assertRedirect
+Assert that the response is a redirect to a given URI:</p>
+<p>$response-&gt;assertRedirect($uri);</p>
+<p>assertSee
+Assert that the given string is contained within the response:</p>
+<p>$response-&gt;assertSee($value);</p>
+<p>assertSeeInOrder
+Assert that the given strings are contained in order within the response:</p>
+<p>$response-&gt;assertSeeInOrder(array $values);</p>
+<p>assertSeeText
+Assert that the given string is contained within the response text:</p>
+<p>$response-&gt;assertSeeText($value);</p>
+<p>assertSeeTextInOrder
+Assert that the given strings are contained in order within the response text:</p>
+<p>$response-&gt;assertSeeTextInOrder(array $values);</p>
+<p>assertSessionHas
+Assert that the session contains the given piece of data:</p>
+<p>$response-&gt;assertSessionHas($key, $value = null);</p>
+<p>assertSessionHasAll
+Assert that the session has a given list of values:</p>
+<p>$response-&gt;assertSessionHasAll(array $data);</p>
+<p>assertSessionHasErrors
+Assert that the session contains an error for the given field:</p>
+<p>$response-&gt;assertSessionHasErrors(array $keys, $format = null, $errorBag = 'default');</p>
+<p>assertSessionHasErrorsIn
+Assert that the session has the given errors:</p>
+<p>$response-&gt;assertSessionHasErrorsIn($errorBag, $keys = [], $format = null);</p>
+<p>assertSessionHasNoErrors
+Assert that the session has no errors:</p>
+<p>$response-&gt;assertSessionHasNoErrors();</p>
+<p>assertSessionDoesntHaveErrors
+Assert that the session has no errors for the given keys:</p>
+<p>$response-&gt;assertSessionDoesntHaveErrors($keys = [], $format = null, $errorBag = 'default');</p>
+<p>assertSessionMissing
+Assert that the session does not contain the given key:</p>
+<p>$response-&gt;assertSessionMissing($key);</p>
+<p>assertStatus
+Assert that the response has a given code:</p>
+<p>$response-&gt;assertStatus($code);</p>
+<p>assertSuccessful
+Assert that the response has a successful (200) status code:</p>
+<p>$response-&gt;assertSuccessful();</p>
+<p>assertUnauthorized
+Assert that the response has an unauthorized (401) status code:</p>
+<p>$response-&gt;assertUnauthorized();</p>
+<p>assertViewHas
+Assert that the response view was given a piece of data:</p>
+<p>$response-&gt;assertViewHas($key, $value = null);</p>
+<p>assertViewHasAll
+Assert that the response view has a given list of data:</p>
+<p>$response-&gt;assertViewHasAll(array $data);</p>
+<p>assertViewIs
+Assert that the given view was returned by the route:</p>
+<p>$response-&gt;assertViewIs($value);</p>
+<p>assertViewMissing
+Assert that the response view is missing a piece of bound data:</p>
+<p>$response-&gt;assertViewMissing($key);</p>
+<p>Authentication Assertions
+Laravel also provides a variety of authentication related assertions for your PHPUnit tests:</p>
+<p>Method  Description
+$this-&gt;assertAuthenticated($guard = null);  Assert that the user is authenticated.
+$this-&gt;assertGuest($guard = null);  Assert that the user is not authenticated.
+$this-&gt;assertAuthenticatedAs($user, $guard = null); Assert that the given user is authenticated.
+$this-&gt;assertCredentials(array $credentials, $guard = null);    Assert that the given credentials are valid.
+$this-&gt;assertInvalidCredentials(array $credentials, $guard = null); Assert that the given credentials are invalid.</p>
+<h1 id="console-test">Console Test</h1>
+<p>Introduction
+In addition to simplifying HTTP testing, Laravel provides a simple API for testing console applications that ask for user input.</p>
+<p>Expecting Input / Output
+Laravel allows you to easily "mock" user input for your console commands using the expectsQuestion method. In addition, you may specify the exit code and text that you expect to be output by the console command using the assertExitCode and expectsOutput methods. For example, consider the following console command:</p>
+<p>Artisan::command('question', function () {
+    $name = $this-&gt;ask('What is your name?');</p>
+<pre><code>$language = $this-&gt;choice('Which language do you program in?', [
+    'PHP',
+    'Ruby',
+    'Python',
+]);
+
+$this-&gt;line('Your name is '.$name.' and you program in '.$language.'.');
+</code></pre>
+<p>});
+You may test this command with the following test which utilizes the expectsQuestion,  expectsOutput, and assertExitCode methods:</p>
+<p>/*<em>
+ * Test a console command.
+ *
+ * @return void
+ </em>/
+public function test_console_command()
+{
+    $this-&gt;artisan('question')
+         -&gt;expectsQuestion('What is your name?', 'Taylor Otwell')
+         -&gt;expectsQuestion('Which language do you program in?', 'PHP')
+         -&gt;expectsOutput('Your name is Taylor Otwell and you program in PHP.')
+         -&gt;assertExitCode(0);
+}</p>
+<h1 id="database-testing">Database Testing</h1>
+<p>Introduction
+Laravel provides a variety of helpful tools to make it easier to test your database driven applications. First, you may use the assertDatabaseHas helper to assert that data exists in the database matching a given set of criteria. For example, if you would like to verify that there is a record in the users table with the email value of sally@example.com, you can do the following:</p>
+<p>public function testDatabase()
+{
+    // Make call to application...</p>
+<pre><code>$this-&gt;assertDatabaseHas('users', [
+    'email' =&gt; 'sally@example.com'
+]);
+</code></pre>
+<p>}
+You can also use the assertDatabaseMissing helper to assert that data does not exist in the database.</p>
+<p>The assertDatabaseHas method and other helpers like it are for convenience. You are free to use any of PHPUnit's built-in assertion methods to supplement your tests.</p>
+<p>Generating Factories
+To create a factory, use the make:factory Artisan command:</p>
+<p>php artisan make:factory PostFactory
+The new factory will be placed in your database/factories directory.</p>
+<p>The --model option may be used to indicate the name of the model created by the factory. This option will pre-fill the generated factory file with the given model:</p>
+<p>php artisan make:factory PostFactory --model=Post</p>
+<p>Resetting The Database After Each Test
+It is often useful to reset your database after each test so that data from a previous test does not interfere with subsequent tests. The RefreshDatabase trait takes the most optimal approach to migrating your test database depending on if you are using an in-memory database or a traditional database. Use the trait on your test class and everything will be handled for you:</p>
+<?php
+
+<p>namespace Tests\Feature;</p>
+<p>use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;</p>
+<p>class ExampleTest extends TestCase
+{
+    use RefreshDatabase;</p>
+<pre><code>/**
+ * A basic functional test example.
+ *
+ * @return void
+ */
+public function testBasicExample()
+{
+    $response = $this-&gt;get('/');
+
+    // ...
+}
+</code></pre>
+<p>}</p>
+<p>Writing Factories
+When testing, you may need to insert a few records into your database before executing your test. Instead of manually specifying the value of each column when you create this test data, Laravel allows you to define a default set of attributes for each of your Eloquent models using model factories. To get started, take a look at the database/factories/UserFactory.php file in your application. Out of the box, this file contains one factory definition:</p>
+<p>use Illuminate\Support\Str;
+use Faker\Generator as Faker;</p>
+<p>$factory-&gt;define(App\User::class, function (Faker $faker) {
+    return [
+        'name' =&gt; $faker-&gt;name,
+        'email' =&gt; $faker-&gt;unique()-&gt;safeEmail,
+        'email_verified_at' =&gt; now(),
+        'password' =&gt; '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'remember_token' =&gt; Str::random(10),
+    ];
+});
+Within the Closure, which serves as the factory definition, you may return the default test values of all attributes on the model. The Closure will receive an instance of the Faker PHP library, which allows you to conveniently generate various kinds of random data for testing.</p>
+<p>You may also create additional factory files for each model for better organization. For example, you could create UserFactory.php and CommentFactory.php files within your  database/factories directory. All of the files within the factories directory will automatically be loaded by Laravel.</p>
+<p>You can set the Faker locale by adding a faker_locale option to your  config/app.php configuration file.</p>
+<p>Factory States
+States allow you to define discrete modifications that can be applied to your model factories in any combination. For example, your User model might have a delinquent state that modifies one of its default attribute values. You may define your state transformations using the state method. For simple states, you may pass an array of attribute modifications:</p>
+<p>$factory-&gt;state(App\User::class, 'delinquent', [
+    'account_status' =&gt; 'delinquent',
+]);
+If your state requires calculation or a $faker instance, you may use a Closure to calculate the state's attribute modifications:</p>
+<p>$factory-&gt;state(App\User::class, 'address', function ($faker) {
+    return [
+        'address' =&gt; $faker-&gt;address,
+    ];
+});</p>
+<p>Factory Callbacks
+Factory callbacks are registered using the afterMaking and afterCreating methods, and allow you to perform additional tasks after making or creating a model. For example, you may use callbacks to relate additional models to the created model:</p>
+<p>$factory-&gt;afterMaking(App\User::class, function ($user, $faker) {
+    // ...
+});</p>
+<p>$factory-&gt;afterCreating(App\User::class, function ($user, $faker) {
+    $user-&gt;accounts()-&gt;save(factory(App\Account::class)-&gt;make());
+});
+You may also define callbacks for factory states:</p>
+<p>$factory-&gt;afterMakingState(App\User::class, 'delinquent', function ($user, $faker) {
+    // ...
+});</p>
+<p>$factory-&gt;afterCreatingState(App\User::class, 'delinquent', function ($user, $faker) {
+    // ...
+});</p>
+<p>Using Factories</p>
+<p>Creating Models
+Once you have defined your factories, you may use the global factory function in your tests or seed files to generate model instances. So, let's take a look at a few examples of creating models. First, we'll use the make method to create models but not save them to the database:</p>
+<p>public function testDatabase()
+{
+    $user = factory(App\User::class)-&gt;make();</p>
+<pre><code>// Use model in tests...
+</code></pre>
+<p>}
+You may also create a Collection of many models or create models of a given type:</p>
+<p>// Create three App\User instances...
+$users = factory(App\User::class, 3)-&gt;make();
+Applying States
+You may also apply any of your states to the models. If you would like to apply multiple state transformations to the models, you should specify the name of each state you would like to apply:</p>
+<p>$users = factory(App\User::class, 5)-&gt;states('delinquent')-&gt;make();</p>
+<p>$users = factory(App\User::class, 5)-&gt;states('premium', 'delinquent')-&gt;make();
+Overriding Attributes
+If you would like to override some of the default values of your models, you may pass an array of values to the make method. Only the specified values will be replaced while the rest of the values remain set to their default values as specified by the factory:</p>
+<p>$user = factory(App\User::class)-&gt;make([
+    'name' =&gt; 'Abigail',
+]);</p>
+<p>Persisting Models
+The create method not only creates the model instances but also saves them to the database using Eloquent's save method:</p>
+<p>public function testDatabase()
+{
+    // Create a single App\User instance...
+    $user = factory(App\User::class)-&gt;create();</p>
+<pre><code>// Create three App\User instances...
+$users = factory(App\User::class, 3)-&gt;create();
+
+// Use model in tests...
+</code></pre>
+<p>}
+You may override attributes on the model by passing an array to the create method:</p>
+<p>$user = factory(App\User::class)-&gt;create([
+    'name' =&gt; 'Abigail',
+]);</p>
+<p>Relationships
+In this example, we'll attach a relation to some created models. When using the create method to create multiple models, an Eloquent collection instance is returned, allowing you to use any of the convenient functions provided by the collection, such as each:</p>
+<p>$users = factory(App\User::class, 3)
+           -&gt;create()
+           -&gt;each(function ($user) {
+                $user-&gt;posts()-&gt;save(factory(App\Post::class)-&gt;make());
+            });
+Relations &amp; Attribute Closures
+You may also attach relationships to models using Closure attributes in your factory definitions. For example, if you would like to create a new User instance when creating a Post, you may do the following:</p>
+<p>$factory-&gt;define(App\Post::class, function ($faker) {
+    return [
+        'title' =&gt; $faker-&gt;title,
+        'content' =&gt; $faker-&gt;paragraph,
+        'user_id' =&gt; function () {
+            return factory(App\User::class)-&gt;create()-&gt;id;
+        }
+    ];
+});
+These Closures also receive the evaluated attribute array of the factory that defines them:</p>
+<p>$factory-&gt;define(App\Post::class, function ($faker) {
+    return [
+        'title' =&gt; $faker-&gt;title,
+        'content' =&gt; $faker-&gt;paragraph,
+        'user_id' =&gt; function () {
+            return factory(App\User::class)-&gt;create()-&gt;id;
+        },
+        'user_type' =&gt; function (array $post) {
+            return App\User::find($post['user_id'])-&gt;type;
+        }
+    ];
+});</p>
+<p>Available Assertions
+Laravel provides several database assertions for your PHPUnit tests:</p>
+<p>Method  Description
+$this-&gt;assertDatabaseHas($table, array $data);  Assert that a table in the database contains the given data.
+$this-&gt;assertDatabaseMissing($table, array $data);  Assert that a table in the database does not contain the given data.
+$this-&gt;assertSoftDeleted($table, array $data);  Assert that the given record has been soft deleted.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../laravel_schedule/" title="Laravel Schedule" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Laravel Schedule
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../artemis_intro/" title="Artemis Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Artemis Introduction
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy;2019 ESD-Application
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

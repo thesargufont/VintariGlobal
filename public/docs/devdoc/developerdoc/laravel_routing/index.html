@@ -1,0 +1,4339 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="ESD-Application">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Laravel Routing - Artemis Development Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ef5350">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#laravel-routing" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Artemis Development Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/favicon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Artemis Development Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Laravel Routing
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Artemis Development Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../img/favicon.png" width="48" height="48">
+      
+    </a>
+    Artemis Development Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      For Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        For Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git/" title="Git" class="md-nav__link">
+      Git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../composer/" title="Composer" class="md-nav__link">
+      Composer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_basic/" title="Laravel Basic" class="md-nav__link">
+      Laravel Basic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_setting/" title="Laravel Database Setting" class="md-nav__link">
+      Laravel Database Setting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Laravel Routing
+      </label>
+    
+    <a href="./" title="Laravel Routing" class="md-nav__link md-nav__link--active">
+      Laravel Routing
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-routing" title="Basic Routing" class="md-nav__link">
+    Basic Routing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-default-route" title="File Default Route" class="md-nav__link">
+    File Default Route
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-router-methods" title="Available Router Methods" class="md-nav__link">
+    Available Router Methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csrf-protection" title="CSRF Protection" class="md-nav__link">
+    CSRF Protection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redirect-routes" title="Redirect Routes" class="md-nav__link">
+    Redirect Routes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-routes" title="View Routes" class="md-nav__link">
+    View Routes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-parameters" title="Route Parameters" class="md-nav__link">
+    Route Parameters
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters" title="Required Parameters" class="md-nav__link">
+    Required Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-parameters" title="Optional Parameters" class="md-nav__link">
+    Optional Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regular-expression-constraints" title="Regular Expression Constraints" class="md-nav__link">
+    Regular Expression Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-constraints" title="Global Constraints" class="md-nav__link">
+    Global Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoded-forward-slashes" title="Encoded Forward Slashes" class="md-nav__link">
+    Encoded Forward Slashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-routes" title="Named Routes" class="md-nav__link">
+    Named Routes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-urls-to-named-routes" title="Generating URLs To Named Routes" class="md-nav__link">
+    Generating URLs To Named Routes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-the-current-route" title="Inspecting The Current Route" class="md-nav__link">
+    Inspecting The Current Route
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-groups" title="Route Groups" class="md-nav__link">
+    Route Groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middleware" title="Middleware" class="md-nav__link">
+    Middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespaces" title="Namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-domain-routing" title="Sub-Domain Routing" class="md-nav__link">
+    Sub-Domain Routing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-prefixes" title="Route Prefixes" class="md-nav__link">
+    Route Prefixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-name-prefixes" title="Route Name Prefixes" class="md-nav__link">
+    Route Name Prefixes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-model-binding" title="Route Model Binding" class="md-nav__link">
+    Route Model Binding
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implicit-binding" title="Implicit Binding" class="md-nav__link">
+    Implicit Binding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-the-key-name" title="Customizing The Key Name" class="md-nav__link">
+    Customizing The Key Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicit-binding" title="Explicit Binding" class="md-nav__link">
+    Explicit Binding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-the-resolution-logic" title="Customizing The Resolution Logic" class="md-nav__link">
+    Customizing The Resolution Logic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fallback-routes" title="Fallback Routes" class="md-nav__link">
+    Fallback Routes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting" title="Rate Limiting" class="md-nav__link">
+    Rate Limiting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-rate-limiting" title="Dynamic Rate Limiting" class="md-nav__link">
+    Dynamic Rate Limiting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-method-spoofing" title="Form Method Spoofing" class="md-nav__link">
+    Form Method Spoofing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-the-current-route" title="Accessing The Current Route" class="md-nav__link">
+    Accessing The Current Route
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_blade/" title="Laravel Blade Templating" class="md-nav__link">
+      Laravel Blade Templating
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_query/" title="Laravel Database Query" class="md-nav__link">
+      Laravel Database Query
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_migration/" title="Laravel Database Migration" class="md-nav__link">
+      Laravel Database Migration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_eloquent/" title="Laravel Eloquent" class="md-nav__link">
+      Laravel Eloquent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_queue/" title="Laravel Queue" class="md-nav__link">
+      Laravel Queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_schedule/" title="Laravel Schedule" class="md-nav__link">
+      Laravel Schedule
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_class_testing/" title="Laravel Class Testing" class="md-nav__link">
+      Laravel Class Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_intro/" title="Artemis Introduction" class="md-nav__link">
+      Artemis Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_coding_standard/" title="Artemis Coding Standard" class="md-nav__link">
+      Artemis Coding Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_ui_standard/" title="Artemis UI Design Standard" class="md-nav__link">
+      Artemis UI Design Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_documentation_editing/" title="Artemis Documentation Editing" class="md-nav__link">
+      Artemis Documentation Editing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tugas/" title="Tugas" class="md-nav__link">
+      Tugas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      For System Admins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        For System Admins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sysadmindoc/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      For Functionals
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        For Functionals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_intro/" title="Artemis Introduction" class="md-nav__link">
+      Artemis Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_ui_standard/" title="Artemis UI Design Standard" class="md-nav__link">
+      Artemis UI Design Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_db_and_model_objects/" title="Artemis Database and Model Objects" class="md-nav__link">
+      Artemis Database and Model Objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/phpmyadmin/" title="PhpMyAdmin Usage" class="md-nav__link">
+      PhpMyAdmin Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/gitea/" title="Gitea Git Server Usage" class="md-nav__link">
+      Gitea Git Server Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_documentation_editing/" title="Artemis Documentation Editing" class="md-nav__link">
+      Artemis Documentation Editing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Artemis Projects
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Artemis Projects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      CORE
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        CORE
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/core/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/core/user_auth/" title="User Auth" class="md-nav__link">
+      User Auth
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      TMS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        TMS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/tms/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-routing" title="Basic Routing" class="md-nav__link">
+    Basic Routing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-default-route" title="File Default Route" class="md-nav__link">
+    File Default Route
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-router-methods" title="Available Router Methods" class="md-nav__link">
+    Available Router Methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csrf-protection" title="CSRF Protection" class="md-nav__link">
+    CSRF Protection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redirect-routes" title="Redirect Routes" class="md-nav__link">
+    Redirect Routes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-routes" title="View Routes" class="md-nav__link">
+    View Routes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-parameters" title="Route Parameters" class="md-nav__link">
+    Route Parameters
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-parameters" title="Required Parameters" class="md-nav__link">
+    Required Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-parameters" title="Optional Parameters" class="md-nav__link">
+    Optional Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regular-expression-constraints" title="Regular Expression Constraints" class="md-nav__link">
+    Regular Expression Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-constraints" title="Global Constraints" class="md-nav__link">
+    Global Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoded-forward-slashes" title="Encoded Forward Slashes" class="md-nav__link">
+    Encoded Forward Slashes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-routes" title="Named Routes" class="md-nav__link">
+    Named Routes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-urls-to-named-routes" title="Generating URLs To Named Routes" class="md-nav__link">
+    Generating URLs To Named Routes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspecting-the-current-route" title="Inspecting The Current Route" class="md-nav__link">
+    Inspecting The Current Route
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-groups" title="Route Groups" class="md-nav__link">
+    Route Groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middleware" title="Middleware" class="md-nav__link">
+    Middleware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespaces" title="Namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-domain-routing" title="Sub-Domain Routing" class="md-nav__link">
+    Sub-Domain Routing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-prefixes" title="Route Prefixes" class="md-nav__link">
+    Route Prefixes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-name-prefixes" title="Route Name Prefixes" class="md-nav__link">
+    Route Name Prefixes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-model-binding" title="Route Model Binding" class="md-nav__link">
+    Route Model Binding
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implicit-binding" title="Implicit Binding" class="md-nav__link">
+    Implicit Binding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-the-key-name" title="Customizing The Key Name" class="md-nav__link">
+    Customizing The Key Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicit-binding" title="Explicit Binding" class="md-nav__link">
+    Explicit Binding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-the-resolution-logic" title="Customizing The Resolution Logic" class="md-nav__link">
+    Customizing The Resolution Logic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fallback-routes" title="Fallback Routes" class="md-nav__link">
+    Fallback Routes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting" title="Rate Limiting" class="md-nav__link">
+    Rate Limiting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-rate-limiting" title="Dynamic Rate Limiting" class="md-nav__link">
+    Dynamic Rate Limiting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#form-method-spoofing" title="Form Method Spoofing" class="md-nav__link">
+    Form Method Spoofing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-the-current-route" title="Accessing The Current Route" class="md-nav__link">
+    Accessing The Current Route
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="laravel-routing">Laravel Routing</h1>
+<h2 id="basic-routing">Basic Routing</h2>
+<p>Route paling dasar di Laravel adalah menerima URI dan sebuah closure, contoh:</p>
+<pre><code>Route::get('foo', function () {
+    return 'Hello World';
+});
+</code></pre>
+
+<h2 id="file-default-route">File Default Route</h2>
+<p>Semua route Laravel didefinisikan dalam file-file route, yang terletak di folder <code>routes</code>.
+File-file ini dimuat secara otomatis oleh framework. File <code>routes/web.php</code> berisi definisi route untuk web interface. Route ini diset untuk menggunakan <code>web middleware group</code>, yang menyediakan fungsi seperti <code>session state</code> dan <code>CSRF protection</code>. Route di dalam <code>routes/api.php</code> bersifat <code>stateless</code> dan menggunakan <code>api middleware group</code>.</p>
+<p>Kebanyakan aplikasi, dimulai dengan mendefinisikan route di dalam <code>routes/web.php</code>. Route yang didefinisikan di dalam <code>routes/web.php</code> dapat diakses dengan browser pada URLroute tersebut. contoh, Anda dapat mengakses route berikut dengan mengarahkan browser Anda ke <code>http://your-app.test/user</code>:</p>
+<pre><code>Route::get('/user', 'UserController@index');
+</code></pre>
+
+<p>Route yang didefinisikan di dalam <code>routes/api.php</code> akan ditambah prefix URI <code>/api</code>. Prefix dapat diedit dalam class <code>RouteServiceProvider</code>.</p>
+<h2 id="available-router-methods">Available Router Methods</h2>
+<p>Router mengijinkan Anda untuk mendaftarkan route Anda yang merespon HTTP verb berikut ini,</p>
+<ul>
+<li>Route::get($uri, $callback);</li>
+<li>Route::post($uri, $callback);</li>
+<li>Route::put($uri, $callback);</li>
+<li>Route::patch($uri, $callback);</li>
+<li>Route::delete($uri, $callback);</li>
+<li>Route::options($uri, $callback);</li>
+</ul>
+<p>Jika Anda ingin mendefinisikan satu route untuk beberapa HTTP verb, gunakan seperti contoh di bawah ini,</p>
+<pre><code>Route::match(['get', 'post'], '/', function () {
+    //
+});
+</code></pre>
+
+<pre><code>Route::any('/', function () {
+    //
+});
+</code></pre>
+
+<h2 id="csrf-protection">CSRF Protection</h2>
+<p>Setiap form HTML yang mengirimkan request ke route dengan HTTP verb POST, PUT, or DELETE yang diedfinisikan dalam file <code>routes/web.php</code> harus menyertakan CSRF token dalam request-nya. Kalau tidak menyertakan, request akan ditolak.</p>
+<pre><code>&lt;form method=&quot;POST&quot; action=&quot;/profile&quot;&gt;
+    @csrf
+    ...
+&lt;/form&gt;
+</code></pre>
+
+<h2 id="redirect-routes">Redirect Routes</h2>
+<p>Jika Anda mendefinisikan route yang mengalihkan request ke URI lain, Anda dapat menggunakan <code>Route::redirect</code>. Cara ini menyediakan pintasan yang memudahkan Anda agar tidak perlu mendefinisikan secara lengkap route atau controller untuk redirect yang sederhana:</p>
+<pre><code>Route::redirect('/here', '/there');
+</code></pre>
+
+<p>Secara default, <code>Route::redirect</code> mengembalikan kode status 302. Anda dapat mengubahn kode status dengan parameter ketiga (optional):</p>
+<pre><code>Route::redirect('/here', '/there', 301);
+</code></pre>
+
+<p>Anda dapat menggunakan <code>Route::permanentRedirect</code> untuk mengembalikan kode status 301:</p>
+<pre><code>Route::permanentRedirect('/here', '/there');
+</code></pre>
+
+<h2 id="view-routes">View Routes</h2>
+<p>Jika Anda menggunakan route yang hanya mengembalikan <code>view</code>, Anda dapat menggunakan <code>Route::view</code>. Contoh:</p>
+<pre><code>Route::view('/welcome', 'welcome');
+Route::view('/welcome', 'welcome', ['name' =&gt; 'Taylor']);
+</code></pre>
+
+<h2 id="route-parameters">Route Parameters</h2>
+<h3 id="required-parameters">Required Parameters</h3>
+<p>Kadang Anda perlu menangkap bagian dari URI dalam route Anda. Anda dapat mendefinisikan route Anda untuk menerima parameter.</p>
+<pre><code>Route::get('user/{id}', function ($id) {
+    return 'User '.$id;
+});
+</code></pre>
+
+<p>Anda dapat mendefinisikan parameter route sebagai keharusan yang harus dipenuhi dari request yang diterima:</p>
+<pre><code>Route::get('posts/{post}/comments/{comment}', function ($postId, $commentId) {
+    //
+});
+</code></pre>
+
+<p>Parameter route selalu diapit dengan tanda kurung kurawal {} dan terdiri dari karakter alpanumerik, dan tidak boleh berisi karakter dash <code>-</code>. Anda dapat menggunakan karakter underscore <code>_</code>. Parameter route akan dimasukkan ke <code>route callbacks</code> / <code>controller</code> berdasarkan urutan mereka - nama-nama pada argument fungsi callback / controller tidak berpengaruh.</p>
+<h3 id="optional-parameters">Optional Parameters</h3>
+<p>Parameter route dapat bersifat opsional, kalau ada digunakan, kalau tidak ada juga dijalankan dengan nilai parameter null.</p>
+<pre><code>Route::get('user/{name?}', function ($name = null) {
+    return $name;
+});
+
+Route::get('user/{name?}', function ($name = 'John') {
+    return $name;
+});
+</code></pre>
+
+<h3 id="regular-expression-constraints">Regular Expression Constraints</h3>
+<p>Anda dapat menentukan format parameter yang dianggap valid  dengan <code>regular expression</code>:</p>
+<pre><code>Route::get('user/{name}', function ($name) {
+    //
+})-&gt;where('name', '[A-Za-z]+');
+
+Route::get('user/{id}', function ($id) {
+    //
+})-&gt;where('id', '[0-9]+');
+
+Route::get('user/{id}/{name}', function ($id, $name) {
+    //
+})-&gt;where(['id' =&gt; '[0-9]+', 'name' =&gt; '[a-z]+']);
+</code></pre>
+
+<h3 id="global-constraints">Global Constraints</h3>
+<p>Jika Anda ingin suatu nama parameter selalu divalidasi formatnya dengan <code>regular expression</code>, Anda dapat mendefinisikan secara global di <code>RouteServiceProvider</code>:</p>
+<pre><code>/**
+ * Define your route model bindings, pattern filters, etc.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Route::pattern('id', '[0-9]+');
+
+    parent::boot();
+}
+</code></pre>
+
+<p>Format yang didefinisikan di atas akan selalu digunakan untuk validasi format parameter route dengan nama tersebut:</p>
+<pre><code>Route::get('user/{id}', function ($id) {
+    // Only executed if {id} is numeric...
+});
+</code></pre>
+
+<h3 id="encoded-forward-slashes">Encoded Forward Slashes</h3>
+<p>Komponen route Laravel mengijinkan pemakaian semua karakter selain garis miring (<code>/</code>). Jika Anda menggunakannya, Anda harus secara eksplisit mengijinkan karakter (<code>/</code>) dengan regular expression berikut:</p>
+<pre><code>Route::get('search/{search}', function ($search) {
+    return $search;
+})-&gt;where('search', '.*');
+</code></pre>
+
+<p><code>Encoded forward slashes</code> hanya didukung untuk bagian terakhir dari route.</p>
+<h3 id="named-routes">Named Routes</h3>
+<p>Route yang diberi nama mengijinkan pembentukan URL atau pengalihan menggunakan nama tersebut.</p>
+<pre><code>Route::get('user/profile', function () {
+    //
+})-&gt;name('profile');
+</code></pre>
+
+<p>Anda juga dapat memberi nama route untuk controller actions:</p>
+<pre><code>Route::get('user/profile', 'UserProfileController@show')-&gt;name('profile');
+</code></pre>
+
+<h3 id="generating-urls-to-named-routes">Generating URLs To Named Routes</h3>
+<p>Untuk menuju route yang memiliki nama, Anda dapat menggunakan fungsi berikut:</p>
+<pre><code>// Generating URLs...
+$url = route('profile');
+// Generating Redirects...
+return redirect()-&gt;route('profile');
+</code></pre>
+
+<p>Jika route yang diberi nama mengandung parameter, Anda dapat memanggilnya dengan memasukkan parameter sebagai parameter kedua di fungsi redirect ataupun pembentukan URL:</p>
+<pre><code>Route::get('user/{id}/profile', function ($id) {
+    //
+})-&gt;name('profile');
+</code></pre>
+
+<pre><code>$url = route('profile', ['id' =&gt; 1]);
+</code></pre>
+
+<h3 id="inspecting-the-current-route">Inspecting The Current Route</h3>
+<p>Jika Anda ingin mengetahui apakah route yang digunakan untuk request saat ini menggunakan route dengan nama tertentu, Anda dapat menggunakan method <code>name</code> dari instansi route saat ini:</p>
+<pre><code>/**
+ * Handle an incoming request.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @param  \Closure  $next
+ * @return mixed
+ */
+public function handle($request, Closure $next)
+{
+    if ($request-&gt;route()-&gt;named('profile')) {
+        //
+    }
+
+    return $next($request);
+}
+</code></pre>
+
+<h3 id="route-groups">Route Groups</h3>
+<p>Route group memudahkan Anda untuk berbagi atribut dari route, misal middleware atau namespace, ke banyak route tanpa perlu mendefinisikan satu persatu pada masing-masing route. Atribut yang  dibagi didefinisikan dengan format array di parameter pertama dari method <code>Route::group</code>.</p>
+<p>Group dapat berisi group lain, dan akan secara otomatis merge atribut yang dipunyainya. Middleware dan kondisi <code>where</code> di-merge, tetapi name, namespace, dan prefix di-append (ditambahkan dibelakangnya). Delimiter namespace dan garis miring di URI prefix secara otomatis ditambahkan sesuai proporsinya.</p>
+<h3 id="middleware">Middleware</h3>
+<p>Untuk memasang middleware ke semua route dalam group, Anda dapat menggunakanmethod <code>middleware</code> sebelum mendefinisikan group. Middleware dijalankan sesuai urutan dalam array tersebut:</p>
+<pre><code>Route::middleware(['first', 'second'])-&gt;group(function () {
+    Route::get('/', function () {
+        // Uses first &amp; second Middleware
+    });
+
+    Route::get('user/profile', function () {
+        // Uses first &amp; second Middleware
+    });
+});
+</code></pre>
+
+<h3 id="namespaces">Namespaces</h3>
+<p>Route group juga dapat digunakan untuk memasang namespace ke kelompok controller dengan method <code>namespace</code>:</p>
+<pre><code>Route::namespace('Admin')-&gt;group(function () {
+    // Controllers Within The &quot;App\Http\Controllers\Admin&quot; Namespace
+});
+</code></pre>
+
+<blockquote>
+<p>Ingat, secara default, RouteServiceProvider memasukkan file-file route dalam sebuah namespace group, sehingga Anda dapat mendaftarkan route controller tanpa menuliskan lengkap prefix dari controller <code>App\Http\Controllers</code>. Jadi Anda cukup menuliskan bagian namespace setelah namespace <code>App\Http\Controllers</code>.</p>
+</blockquote>
+<h3 id="sub-domain-routing">Sub-Domain Routing</h3>
+<p>Route group juga dapat digunakan untuk menangani sub-domain routing. Sub-domain dapat dipasangkan sebagai parameter seperti URI route lain, sehingga Anda dapat membaca nilai bagian sub-domain untuk digunakan pada route atau controller Anda.</p>
+<pre><code>Route::domain('{account}.myapp.com')-&gt;group(function () {
+    Route::get('user/{id}', function ($account, $id) {
+        //
+    });
+});
+</code></pre>
+
+<p>Untuk memastikan route sub-domain dapat diakses, Anda harus mendaftarkan route sub-domain sebelum route <code>root domain</code>. Agar definisinya tidak ditimpa route dari <code>root domain</code> yang mempunyai URI path yang sama.</p>
+<h3 id="route-prefixes">Route Prefixes</h3>
+<p>Method <code>prefix</code> dapat digunakan untuk menambah prefiks setiap URI route dalam group.</p>
+<pre><code>Route::prefix('admin')-&gt;group(function () {
+    Route::get('users', function () {
+        // Matches The &quot;/admin/users&quot; URL
+    });
+});
+</code></pre>
+
+<h3 id="route-name-prefixes">Route Name Prefixes</h3>
+<p>Method <code>name</code> dapat digunakan untuk menambahkan prefiks setiap nama route dalam group.</p>
+<pre><code>Route::name('admin.')-&gt;group(function () {
+    Route::get('users', function () {
+        // Route assigned name &quot;admin.users&quot;...
+    })-&gt;name('users');
+});
+</code></pre>
+
+<h2 id="route-model-binding">Route Model Binding</h2>
+<p>Ketika memasukkan sebuah ID model ke sebuah route atau controller action, Anda akan  berulang kali menjalankan query untuk mendapatkan model sesuai ID tersebut. Dengan Laravel route model binding, Anda dapat memasukkan instansi model tersebut ke route Anda, sehingga Anda hanya perlu melakukan query di awal saja.</p>
+<h3 id="implicit-binding">Implicit Binding</h3>
+<p>Laravel secara otomatis mengenali Eloquent model yang didefinisikan di dalam route atau controller action dengan petunjuk nama variable sesuai nama segmen route. contoh:</p>
+<pre><code>Route::get('api/users/{user}', function (App\User $user) {
+    return $user-&gt;email;
+});
+</code></pre>
+
+<p>Karena variable <code>$user</code> mengacu <code>App\User Eloquent model</code> dan nama variable sesuai <code>{user} URI segment</code>, Laravel secara otomatis akan memasukkan (inject) instansi model tersebut yang mempunyai ID sesuai nilai yang diperoleh dari request URI. Jika instansi model yang sesuai tidak ditemukan dalam database, akan dikembalikan <code>404 HTTP response</code> ke client browser.</p>
+<h3 id="customizing-the-key-name">Customizing The Key Name</h3>
+<p>Jika Anda ingin menggunakan kolom lain selain ID, Anda dapat melakukan override method <code>getRouteKeyName</code> pada Eloquent model:</p>
+<pre><code>/**
+ * Get the route key for the model.
+ *
+ * @return string
+ */
+public function getRouteKeyName()
+{
+    return 'slug';
+}
+</code></pre>
+
+<h3 id="explicit-binding">Explicit Binding</h3>
+<p>Untuk mendaftarkan binding secara eksplisit, gunakan method <code>model</code> dari router. Ini didefinisikan dalam method <code>boot</code> pada class <code>RouteServiceProvider</code>:</p>
+<pre><code>public function boot()
+{
+    parent::boot();
+
+    Route::model('user', App\User::class);
+}
+</code></pre>
+
+<p>Selanjutnya, definisikan sebuah route yang berisi parameter {user}:</p>
+<pre><code>Route::get('profile/{user}', function (App\User $user) {
+    //
+});
+</code></pre>
+
+<p>Karena kita mengikatkan semua parameter <code>{user}</code> ke model <code>App\User</code>, instansi <code>User</code> akan dimasukkan ke dalam route. Jadi, sebagai contoh, request ke profile/1 akan memasukkan instansi User dari database yang mempunyai ID = 1.</p>
+<h3 id="customizing-the-resolution-logic">Customizing The Resolution Logic</h3>
+<p>Jika Anda ingin menggunakan logika resolusi Anda sendiri, Anda dapat menggunakan method  Route::bind. Closure yang Anda lewatkan pada method <code>bind</code> akan menerima nilai dari segmen URI dan harus mengembalikan instansi dari class yang harus dimasukkan ke dalam route:</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    parent::boot();
+
+    Route::bind('user', function ($value) {
+        return App\User::where('name', $value)-&gt;first() ?? abort(404);
+    });
+}
+</code></pre>
+
+<p>Sebagai alternatif, Anda dapat meng-overrride method <code>resolveRouteBinding</code> pada <code>Eloquent model</code> Anda. Method ini akan menerima nilai dari segmen URI dan harus mengembalikan instansi dari class yang harus dimasukkan ke dalam route:</p>
+<pre><code>/**
+ * Retrieve the model for a bound value.
+ *
+ * @param  mixed  $value
+ * @return \Illuminate\Database\Eloquent\Model|null
+ */
+public function resolveRouteBinding($value)
+{
+    return $this-&gt;where('name', $value)-&gt;first() ?? abort(404);
+}
+</code></pre>
+
+<h2 id="fallback-routes">Fallback Routes</h2>
+<p>Menggunakan method <code>Route::fallback</code>, Anda dapat mendefinisikan sebuah route yang akan dijalankan ketika tidak ada route yang lain yang sesuai dengan request masuk.</p>
+<p>Umumnya, request yang tidak ditangani akan  secara otomatis mengembalikan halaman "404" via <code>exception handler</code> aplikasi Anda.</p>
+<p>Meskipun demikian, karena Anda boleh mendefinisikan route fallback dalam <code>routes/web.php</code> , maka semua middleware dalam web middleware group akan dijalankan untuk route tersebut. Anda bebas menambahkan middleware tambahan pada route tersebut jika dibutuhkan:</p>
+<pre><code>Route::fallback(function () {
+    //
+});
+</code></pre>
+
+<p>Route fallback harus selalu menjadi route terakhir yang didaftarkan.</p>
+<h2 id="rate-limiting">Rate Limiting</h2>
+<p>Laravel menyertakan sebuah middleware untuk membatasi jumlah akses ke route-route dalam aplikasi Anda. Untuk mencobanya, pasangkan <code>throttle middleware</code> ke sebuah route atau sebuah group route. <code>Throttle middleware</code> mempunyai 2 parameter yang menentukan maksimum jumlah request yang dapat diterima dalam sejumlah menit. Contoh, suatu group didefinisikan boleh menerima request dari user yang terauthentikasi maksimum 60x request per menit:</p>
+<pre><code>Route::middleware('auth:api', 'throttle:60,1')-&gt;group(function () {
+    Route::get('/user', function () {
+        //
+    });
+});
+</code></pre>
+
+<h2 id="dynamic-rate-limiting">Dynamic Rate Limiting</h2>
+<p>Anda juga dapat mendefinisikan nilai maksimum akses secara dinamis
+Sebagai contoh jika User model mempunyai atribut rate_limit,</p>
+<pre><code>Route::middleware('auth:api', 'throttle:rate_limit,1')-&gt;group(function () {
+    Route::get('/user', function () {
+        //
+    });
+});
+</code></pre>
+
+<h2 id="form-method-spoofing">Form Method Spoofing</h2>
+<p>HTML form tidak mendukung action: PUT, PATCH atau DELETE. Maka, ketika mendefinisikan route PUT, PATCH atau  DELETE yang dipanggil dari HTML form, Anda perlu menambahkan <code>hidden _method field</code> ke dalam form. Nilai yang dikirimkan dengan field <code>_method</code> akan digunakan sebagai <code>HTTP request method</code>:</p>
+<pre><code>&lt;form action=&quot;/foo/bar&quot; method=&quot;POST&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;PUT&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;_token&quot; value=&quot;{{ csrf_token() }}&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Anda dapat menggunakan <code>@method</code> pada  Blade untuk membentuk field <code>_method</code>:</p>
+<pre><code>&lt;form action=&quot;/foo/bar&quot; method=&quot;POST&quot;&gt;
+    @method('PUT')
+    @csrf
+&lt;/form&gt;
+</code></pre>
+
+<h2 id="accessing-the-current-route">Accessing The Current Route</h2>
+<p>Anda dapat mengetahui route saat ini yang digunakan dengan method <code>current</code>, <code>currentRouteName</code>, dan <code>currentRouteAction</code> pada <code>Route facade</code>:</p>
+<pre><code>$route = Route::current();
+$name = Route::currentRouteName();
+$action = Route::currentRouteAction();
+</code></pre>
+
+<h1 id="laravel-middleware">Laravel Middleware</h1>
+<p>Middleware provide a convenient mechanism for filtering HTTP requests entering your application. For example, Laravel includes a middleware that verifies the user of your application is authenticated. If the user is not authenticated, the middleware will redirect the user to the login screen. However, if the user is authenticated, the middleware will allow the request to proceed further into the application.</p>
+<p>Additional middleware can be written to perform a variety of tasks besides authentication. A CORS middleware might be responsible for adding the proper headers to all responses leaving your application. A logging middleware might log all incoming requests to your application.</p>
+<p>There are several middleware included in the Laravel framework, including middleware for authentication and CSRF protection. All of these middleware are located in the  app/Http/Middleware directory.</p>
+<p>Defining Middleware
+To create a new middleware, use the make:middleware Artisan command:</p>
+<p>php artisan make:middleware CheckAge
+This command will place a new CheckAge class within your app/Http/Middleware directory. In this middleware, we will only allow access to the route if the supplied age is greater than 200. Otherwise, we will redirect the users back to the home URI:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class CheckAge
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        if ($request-&gt;age &lt;= 200) {
+            return redirect('home');
+        }
+
+        return $next($request);
+    }
+}
+</code></pre>
+
+<p>As you can see, if the given age is less than or equal to 200, the middleware will return an HTTP redirect to the client; otherwise, the request will be passed further into the application. To pass the request deeper into the application (allowing the middleware to "pass"), call the  $next callback with the $request.</p>
+<p>It's best to envision middleware as a series of "layers" HTTP requests must pass through before they hit your application. Each layer can examine the request and even reject it entirely.</p>
+<p>All middleware are resolved via the service container, so you may type-hint any dependencies you need within a middleware's constructor.</p>
+<p>Before &amp; After Middleware
+Whether a middleware runs before or after a request depends on the middleware itself. For example, the following middleware would perform some task before the request is handled by the application:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class BeforeMiddleware
+{
+    public function handle($request, Closure $next)
+    {
+        // Perform action
+
+        return $next($request);
+    }
+}
+</code></pre>
+
+<p>However, this middleware would perform its task after the request is handled by the application:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class AfterMiddleware
+{
+    public function handle($request, Closure $next)
+    {
+        $response = $next($request);
+
+        // Perform action
+
+        return $response;
+    }
+}
+</code></pre>
+
+<h2 id="registering-middleware">Registering Middleware</h2>
+<p>Global Middleware
+If you want a middleware to run during every HTTP request to your application, list the middleware class in the $middleware property of your app/Http/Kernel.php class.</p>
+<h2 id="assigning-middleware-to-routes">Assigning Middleware To Routes</h2>
+<p>If you would like to assign middleware to specific routes, you should first assign the middleware a key in your app/Http/Kernel.php file. By default, the $routeMiddleware property of this class contains entries for the middleware included with Laravel. To add your own, append it to this list and assign it a key of your choosing:</p>
+<pre><code>// Within App\Http\Kernel Class...
+
+protected $routeMiddleware = [
+    'auth' =&gt; \App\Http\Middleware\Authenticate::class,
+    'auth.basic' =&gt; \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+    'bindings' =&gt; \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    'cache.headers' =&gt; \Illuminate\Http\Middleware\SetCacheHeaders::class,
+    'can' =&gt; \Illuminate\Auth\Middleware\Authorize::class,
+    'guest' =&gt; \App\Http\Middleware\RedirectIfAuthenticated::class,
+    'signed' =&gt; \Illuminate\Routing\Middleware\ValidateSignature::class,
+    'throttle' =&gt; \Illuminate\Routing\Middleware\ThrottleRequests::class,
+    'verified' =&gt; \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+];
+</code></pre>
+
+<p>Once the middleware has been defined in the HTTP kernel, you may use the middleware method to assign middleware to a route:</p>
+<pre><code>Route::get('admin/profile', function () {
+    //
+})-&gt;middleware('auth');
+</code></pre>
+
+<p>You may also assign multiple middleware to the route:</p>
+<pre><code>Route::get('/', function () {
+    //
+})-&gt;middleware('first', 'second');
+</code></pre>
+
+<p>When assigning middleware, you may also pass the fully qualified class name:</p>
+<pre><code>use App\Http\Middleware\CheckAge;
+
+Route::get('admin/profile', function () {
+    //
+})-&gt;middleware(CheckAge::class);
+</code></pre>
+
+<h2 id="middleware-groups">Middleware Groups</h2>
+<p>Sometimes you may want to group several middleware under a single key to make them easier to assign to routes. You may do this using the $middlewareGroups property of your HTTP kernel.</p>
+<p>Out of the box, Laravel comes with web and api middleware groups that contain common middleware you may want to apply to your web UI and API routes:</p>
+<pre><code>/**
+ * The application's route middleware groups.
+ *
+ * @var array
+ */
+protected $middlewareGroups = [
+    'web' =&gt; [
+        \App\Http\Middleware\EncryptCookies::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \App\Http\Middleware\VerifyCsrfToken::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    ],
+
+    'api' =&gt; [
+        'throttle:60,1',
+        'auth:api',
+    ],
+];
+</code></pre>
+
+<p>Middleware groups may be assigned to routes and controller actions using the same syntax as individual middleware. Again, middleware groups make it more convenient to assign many middleware to a route at once:</p>
+<pre><code>Route::get('/', function () {
+    //
+})-&gt;middleware('web');
+
+Route::group(['middleware' =&gt; ['web']], function () {
+    //
+});
+</code></pre>
+
+<p>Out of the box, the web middleware group is automatically applied to your  routes/web.php file by the RouteServiceProvider.</p>
+<h2 id="sorting-middleware">Sorting Middleware</h2>
+<p>Rarely, you may need your middleware to execute in a specific order but not have control over their order when they are assigned to the route. In this case, you may specify your middleware priority using the $middlewarePriority property of your app/Http/Kernel.php file:</p>
+<pre><code>/**
+ * The priority-sorted list of middleware.
+ *
+ * This forces non-global middleware to always be in the given order.
+ *
+ * @var array
+ */
+protected $middlewarePriority = [
+    \Illuminate\Session\Middleware\StartSession::class,
+    \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+    \App\Http\Middleware\Authenticate::class,
+    \Illuminate\Session\Middleware\AuthenticateSession::class,
+    \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    \Illuminate\Auth\Middleware\Authorize::class,
+];
+</code></pre>
+
+<h2 id="middleware-parameters">Middleware Parameters</h2>
+<p>Middleware can also receive additional parameters. For example, if your application needs to verify that the authenticated user has a given "role" before performing a given action, you could create a CheckRole middleware that receives a role name as an additional argument.</p>
+<p>Additional middleware parameters will be passed to the middleware after the $next argument:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class CheckRole
+{
+    /**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  string  $role
+     * @return mixed
+     */
+    public function handle($request, Closure $next, $role)
+    {
+        if (! $request-&gt;user()-&gt;hasRole($role)) {
+            // Redirect...
+        }
+
+        return $next($request);
+    }
+
+}
+</code></pre>
+
+<p>Middleware parameters may be specified when defining the route by separating the middleware name and parameters with a :. Multiple parameters should be delimited by commas:</p>
+<pre><code>Route::put('post/{id}', function ($id) {
+    //
+})-&gt;middleware('role:editor');
+</code></pre>
+
+<h2 id="terminable-middleware">Terminable Middleware</h2>
+<p>Sometimes a middleware may need to do some work after the HTTP response has been sent to the browser. For example, the "session" middleware included with Laravel writes the session data to storage after the response has been sent to the browser. If you define a terminate method on your middleware and your web server is using FastCGI, the terminate method will automatically be called after the response is sent to the browser.</p>
+<pre><code>&lt;?php
+
+namespace Illuminate\Session\Middleware;
+
+use Closure;
+
+class StartSession
+{
+    public function handle($request, Closure $next)
+    {
+        return $next($request);
+    }
+
+    public function terminate($request, $response)
+    {
+        // Store the session data...
+    }
+}
+</code></pre>
+
+<p>The terminate method should receive both the request and the response. Once you have defined a terminable middleware, you should add it to the list of route or global middleware in the app/Http/Kernel.php file.</p>
+<p>When calling the terminate method on your middleware, Laravel will resolve a fresh instance of the middleware from the service container. If you would like to use the same middleware instance when the handle and terminate methods are called, register the middleware with the container using the container's singleton method.</p>
+<h1 id="csrf-protection_1">CSRF Protection</h1>
+<p>Introduction
+Laravel makes it easy to protect your application from cross-site request forgery (CSRF) attacks. Cross-site request forgeries are a type of malicious exploit whereby unauthorized commands are performed on behalf of an authenticated user.</p>
+<p>Laravel automatically generates a CSRF "token" for each active user session managed by the application. This token is used to verify that the authenticated user is the one actually making the requests to the application.</p>
+<p>Anytime you define an HTML form in your application, you should include a hidden CSRF token field in the form so that the CSRF protection middleware can validate the request. You may use the @csrf Blade directive to generate the token field:</p>
+<pre><code>&lt;form method=&quot;POST&quot; action=&quot;/profile&quot;&gt;
+    @csrf
+    ...
+&lt;/form&gt;
+</code></pre>
+
+<p>The VerifyCsrfToken middleware, which is included in the web middleware group, will automatically verify that the token in the request input matches the token stored in the session.</p>
+<h2 id="csrf-tokens-javascript">CSRF Tokens &amp; JavaScript</h2>
+<p>When building JavaScript driven applications, it is convenient to have your JavaScript HTTP library automatically attach the CSRF token to every outgoing request. By default, the  resources/js/bootstrap.js file registers the value of the csrf-token meta tag with the Axios HTTP library. If you are not using this library, you will need to manually configure this behavior for your application.</p>
+<p>Excluding URIs From CSRF Protection
+Sometimes you may wish to exclude a set of URIs from CSRF protection. For example, if you are using Stripe to process payments and are utilizing their webhook system, you will need to exclude your Stripe webhook handler route from CSRF protection since Stripe will not know what CSRF token to send to your routes.</p>
+<p>Typically, you should place these kinds of routes outside of the web middleware group that the  RouteServiceProvider applies to all routes in the routes/web.php file. However, you may also exclude the routes by adding their URIs to the $except property of the VerifyCsrfToken middleware:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
+
+class VerifyCsrfToken extends Middleware
+{
+    /**
+     * The URIs that should be excluded from CSRF verification.
+     *
+     * @var array
+     */
+    protected $except = [
+        'stripe/*',
+        'http://example.com/foo/bar',
+        'http://example.com/foo/*',
+    ];
+}
+</code></pre>
+
+<p>The CSRF middleware is automatically disabled when running tests.</p>
+<h2 id="x-csrf-token">X-CSRF-TOKEN</h2>
+<p>In addition to checking for the CSRF token as a POST parameter, the VerifyCsrfToken middleware will also check for the X-CSRF-TOKEN request header. You could, for example, store the token in an HTML meta tag:</p>
+<pre><code>&lt;meta name=&quot;csrf-token&quot; content=&quot;{{ csrf_token() }}&quot;&gt;
+</code></pre>
+
+<p>Then, once you have created the meta tag, you can instruct a library like jQuery to automatically add the token to all request headers. This provides simple, convenient CSRF protection for your AJAX based applications:</p>
+<pre><code>$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name=&quot;csrf-token&quot;]').attr('content')
+    }
+});
+</code></pre>
+
+<p>By default, the resources/js/bootstrap.js file registers the value of the csrf-token meta tag with the Axios HTTP library. If you are not using this library, you will need to manually configure this behavior for your application.</p>
+<h2 id="x-xsrf-token">X-XSRF-TOKEN</h2>
+<p>Laravel stores the current CSRF token in a XSRF-TOKEN cookie that is included with each response generated by the framework. You can use the cookie value to set the X-XSRF-TOKEN request header.</p>
+<p>This cookie is primarily sent as a convenience since some JavaScript frameworks and libraries, like Angular and Axios, automatically place its value in the X-XSRF-TOKEN header.</p>
+<h1 id="laravel-controller">Laravel Controller</h1>
+<p>Instead of defining all of your request handling logic as Closures in route files, you may wish to organize this behavior using Controller classes. Controllers can group related request handling logic into a single class. Controllers are stored in the app/Http/Controllers directory.</p>
+<h2 id="basic-controllers">Basic Controllers</h2>
+<p>Defining Controllers
+Below is an example of a basic controller class. Note that the controller extends the base controller class included with Laravel. The base class provides a few convenience methods such as the middleware method, which may be used to attach middleware to controller actions:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\User;
+use App\Http\Controllers\Controller;
+
+class UserController extends Controller
+{
+    /**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return View
+     */
+    public function show($id)
+    {
+        return view('user.profile', ['user' =&gt; User::findOrFail($id)]);
+    }
+}
+</code></pre>
+
+<p>You can define a route to this controller action like so:</p>
+<p>Route::get('user/{id}', 'UserController@show');
+Now, when a request matches the specified route URI, the show method on the  UserController class will be executed. The route parameters will also be passed to the method.</p>
+<p>Controllers are not required to extend a base class. However, you will not have access to convenience features such as the middleware, validate, and dispatch methods.</p>
+<h2 id="controllers-namespaces">Controllers &amp; Namespaces</h2>
+<p>It is very important to note that we did not need to specify the full controller namespace when defining the controller route. Since the RouteServiceProvider loads your route files within a route group that contains the namespace, we only specified the portion of the class name that comes after the App\Http\Controllers portion of the namespace.</p>
+<p>If you choose to nest your controllers deeper into the App\Http\Controllers directory, use the specific class name relative to the App\Http\Controllers root namespace. So, if your full controller class is App\Http\Controllers\Photos\AdminController, you should register routes to the controller like so:</p>
+<pre><code>Route::get('foo', 'Photos\AdminController@method');
+</code></pre>
+
+<p>Single Action Controllers
+If you would like to define a controller that only handles a single action, you may place a single  __invoke method on the controller:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\User;
+use App\Http\Controllers\Controller;
+
+class ShowProfile extends Controller
+{
+    /**
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return View
+     */
+    public function __invoke($id)
+    {
+        return view('user.profile', ['user' =&gt; User::findOrFail($id)]);
+    }
+}
+</code></pre>
+
+<p>When registering routes for single action controllers, you do not need to specify a method:</p>
+<pre><code>Route::get('user/{id}', 'ShowProfile');
+</code></pre>
+
+<p>You may generate an invokable controller by using the --invokable option of the  make:controller Artisan command:</p>
+<pre><code>php artisan make:controller ShowProfile --invokable
+</code></pre>
+
+<h2 id="controller-middleware">Controller Middleware</h2>
+<p>Middleware may be assigned to the controller's routes in your route files:</p>
+<pre><code>Route::get('profile', 'UserController@show')-&gt;middleware('auth');
+</code></pre>
+
+<p>However, it is more convenient to specify middleware within your controller's constructor. Using the middleware method from your controller's constructor, you may easily assign middleware to the controller's action. You may even restrict the middleware to only certain methods on the controller class:</p>
+<pre><code>class UserController extends Controller
+{
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this-&gt;middleware('auth');
+
+        $this-&gt;middleware('log')-&gt;only('index');
+
+        $this-&gt;middleware('subscribed')-&gt;except('store');
+    }
+}
+</code></pre>
+
+<p>Controllers also allow you to register middleware using a Closure. This provides a convenient way to define a middleware for a single controller without defining an entire middleware class:</p>
+<pre><code>$this-&gt;middleware(function ($request, $next) {
+    // ...
+
+    return $next($request);
+});
+</code></pre>
+
+<p>You may assign middleware to a subset of controller actions; however, it may indicate your controller is growing too large. Instead, consider breaking your controller into multiple, smaller controllers.</p>
+<h2 id="resource-controllers">Resource Controllers</h2>
+<p>Laravel resource routing assigns the typical "CRUD" routes to a controller with a single line of code. For example, you may wish to create a controller that handles all HTTP requests for "photos" stored by your application. Using the make:controller Artisan command, we can quickly create such a controller:</p>
+<pre><code>php artisan make:controller PhotoController --resource
+</code></pre>
+
+<p>This command will generate a controller at app/Http/Controllers/PhotoController.php. The controller will contain a method for each of the available resource operations.</p>
+<p>Next, you may register a resourceful route to the controller:</p>
+<pre><code>Route::resource('photos', 'PhotoController');
+</code></pre>
+
+<p>This single route declaration creates multiple routes to handle a variety of actions on the resource. The generated controller will already have methods stubbed for each of these actions, including notes informing you of the HTTP verbs and URIs they handle.</p>
+<p>You may register many resource controllers at once by passing an array to the resources method:</p>
+<pre><code>Route::resources([
+    'photos' =&gt; 'PhotoController',
+    'posts' =&gt; 'PostController'
+]);
+</code></pre>
+
+<p>Actions Handled By Resource Controller</p>
+<table>
+<thead>
+<tr>
+<th>Verb</th>
+<th>URI</th>
+<th>Action</th>
+<th>Route Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>/photos</td>
+<td>index</td>
+<td>photos.index</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/create</td>
+<td>create</td>
+<td>photos.create</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/photos</td>
+<td>store</td>
+<td>photos.store</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/{photo}</td>
+<td>show</td>
+<td>photos.show</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/photos/{photo}/edit</td>
+<td>edit</td>
+<td>photos.edit</td>
+</tr>
+<tr>
+<td>PUT/PATCH</td>
+<td>/photos/{photo}</td>
+<td>update</td>
+<td>photos.update</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/photos/{photo}</td>
+<td>destroy</td>
+<td>photos.destroy</td>
+</tr>
+</tbody>
+</table>
+<h2 id="specifying-the-resource-model">Specifying The Resource Model</h2>
+<p>If you are using route model binding and would like the resource controller's methods to type-hint a model instance, you may use the --model option when generating the controller:</p>
+<p>php artisan make:controller PhotoController --resource --model=Photo
+Spoofing Form Methods
+Since HTML forms can't make PUT, PATCH, or DELETE requests, you will need to add a hidden  _method field to spoof these HTTP verbs. The @method Blade directive can create this field for you:</p>
+<pre><code>&lt;form action=&quot;/foo/bar&quot; method=&quot;POST&quot;&gt;
+    @method('PUT')
+&lt;/form&gt;
+</code></pre>
+
+<h2 id="partial-resource-routes">Partial Resource Routes</h2>
+<p>When declaring a resource route, you may specify a subset of actions the controller should handle instead of the full set of default actions:</p>
+<pre><code>Route::resource('photos', 'PhotoController')-&gt;only([
+    'index', 'show'
+]);
+</code></pre>
+
+<pre><code>Route::resource('photos', 'PhotoController')-&gt;except([
+    'create', 'store', 'update', 'destroy'
+]);
+</code></pre>
+
+<h2 id="api-resource-routes">API Resource Routes</h2>
+<p>When declaring resource routes that will be consumed by APIs, you will commonly want to exclude routes that present HTML templates such as create and edit. For convenience, you may use the apiResource method to automatically exclude these two routes:</p>
+<pre><code>Route::apiResource('photos', 'PhotoController');
+</code></pre>
+
+<p>You may register many API resource controllers at once by passing an array to the  apiResources method:</p>
+<pre><code>Route::apiResources([
+    'photos' =&gt; 'PhotoController',
+    'posts' =&gt; 'PostController'
+]);
+</code></pre>
+
+<p>To quickly generate an API resource controller that does not include the create or edit methods, use the --api switch when executing the make:controller command:</p>
+<pre><code>php artisan make:controller API/PhotoController --api
+</code></pre>
+
+<h2 id="naming-resource-routes">Naming Resource Routes</h2>
+<p>By default, all resource controller actions have a route name; however, you can override these names by passing a names array with your options:</p>
+<pre><code>Route::resource('photos', 'PhotoController')-&gt;names([
+    'create' =&gt; 'photos.build'
+]);
+</code></pre>
+
+<h2 id="naming-resource-route-parameters">Naming Resource Route Parameters</h2>
+<p>By default, Route::resource will create the route parameters for your resource routes based on the "singularized" version of the resource name. You can easily override this on a per resource basis by using the parameters method. The array passed into the parameters method should be an associative array of resource names and parameter names:</p>
+<pre><code>Route::resource('users', 'AdminUserController')-&gt;parameters([
+    'users' =&gt; 'admin_user'
+]);
+</code></pre>
+
+<p>The example above generates the following URIs for the resource's show route:</p>
+<pre><code>/users/{admin_user}
+</code></pre>
+
+<h2 id="localizing-resource-uris">Localizing Resource URIs</h2>
+<p>By default, Route::resource will create resource URIs using English verbs. If you need to localize the create and edit action verbs, you may use the Route::resourceVerbs method. This may be done in the boot method of your AppServiceProvider:</p>
+<pre><code>use Illuminate\Support\Facades\Route;
+
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Route::resourceVerbs([
+        'create' =&gt; 'crear',
+        'edit' =&gt; 'editar',
+    ]);
+}
+</code></pre>
+
+<p>Once the verbs have been customized, a resource route registration such as  Route::resource('fotos', 'PhotoController') will produce the following URIs:</p>
+<pre><code>/fotos/crear
+
+/fotos/{foto}/editar
+</code></pre>
+
+<h2 id="supplementing-resource-controllers">Supplementing Resource Controllers</h2>
+<p>If you need to add additional routes to a resource controller beyond the default set of resource routes, you should define those routes before your call to Route::resource; otherwise, the routes defined by the resource method may unintentionally take precedence over your supplemental routes:</p>
+<pre><code>Route::get('photos/popular', 'PhotoController@method');
+</code></pre>
+
+<pre><code>Route::resource('photos', 'PhotoController');
+</code></pre>
+
+<p>Remember to keep your controllers focused. If you find yourself routinely needing methods outside of the typical set of resource actions, consider splitting your controller into two, smaller controllers.</p>
+<h2 id="dependency-injection-controllers">Dependency Injection &amp; Controllers</h2>
+<h3 id="constructor-injection">Constructor Injection</h3>
+<p>The Laravel service container is used to resolve all Laravel controllers. As a result, you are able to type-hint any dependencies your controller may need in its constructor. The declared dependencies will automatically be resolved and injected into the controller instance:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Repositories\UserRepository;
+
+class UserController extends Controller
+{
+    /**
+     * The user repository instance.
+     */
+    protected $users;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param  UserRepository  $users
+     * @return void
+     */
+    public function __construct(UserRepository $users)
+    {
+        $this-&gt;users = $users;
+    }
+}
+</code></pre>
+
+<p>You may also type-hint any Laravel contract. If the container can resolve it, you can type-hint it. Depending on your application, injecting your dependencies into your controller may provide better testability.</p>
+<h2 id="method-injection">Method Injection</h2>
+<p>In addition to constructor injection, you may also type-hint dependencies on your controller's methods. A common use-case for method injection is injecting the Illuminate\Http\Request instance into your controller methods:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    /**
+     * Store a new user.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        $name = $request-&gt;name;
+
+        //
+    }
+}
+</code></pre>
+
+<p>If your controller method is also expecting input from a route parameter, list your route arguments after your other dependencies. For example, if your route is defined like so:</p>
+<pre><code>Route::put('user/{id}', 'UserController@update');
+</code></pre>
+
+<p>You may still type-hint the Illuminate\Http\Request and access your id parameter by defining your controller method as follows:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    /**
+     * Update the given user.
+     *
+     * @param  Request  $request
+     * @param  string  $id
+     * @return Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+}
+</code></pre>
+
+<h2 id="route-caching">Route Caching</h2>
+<p>Closure based routes cannot be cached. To use route caching, you must convert any Closure routes to controller classes.</p>
+<p>If your application is exclusively using controller based routes, you should take advantage of Laravel's route cache. Using the route cache will drastically decrease the amount of time it takes to register all of your application's routes. In some cases, your route registration may even be up to 100x faster. To generate a route cache, just execute the route:cache Artisan command:</p>
+<pre><code>php artisan route:cache
+</code></pre>
+
+<p>After running this command, your cached routes file will be loaded on every request. Remember, if you add any new routes you will need to generate a fresh route cache. Because of this, you should only run the route:cache command during your project's deployment.</p>
+<p>You may use the route:clear command to clear the route cache:</p>
+<p>php artisan route:clear</p>
+<h1 id="request">Request</h1>
+<p>Accessing The Request
+To obtain an instance of the current HTTP request via dependency injection, you should type-hint the Illuminate\Http\Request class on your controller method. The incoming request instance will automatically be injected by the service container:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    /**
+     * Store a new user.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        $name = $request-&gt;input('name');
+
+        //
+    }
+}
+</code></pre>
+
+<h2 id="dependency-injection-route-parameters">Dependency Injection &amp; Route Parameters</h2>
+<p>If your controller method is also expecting input from a route parameter you should list your route parameters after your other dependencies. For example, if your route is defined like so:</p>
+<pre><code>Route::put('user/{id}', 'UserController@update');
+</code></pre>
+
+<p>You may still type-hint the Illuminate\Http\Request and access your route parameter id by defining your controller method as follows:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    /**
+     * Update the specified user.
+     *
+     * @param  Request  $request
+     * @param  string  $id
+     * @return Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+}
+</code></pre>
+
+<h2 id="accessing-the-request-via-route-closures">Accessing The Request Via Route Closures</h2>
+<p>You may also type-hint the Illuminate\Http\Request class on a route Closure. The service container will automatically inject the incoming request into the Closure when it is executed:</p>
+<pre><code>use Illuminate\Http\Request;
+
+Route::get('/', function (Request $request) {
+    //
+});
+</code></pre>
+
+<h2 id="request-path-method">Request Path &amp; Method</h2>
+<p>The Illuminate\Http\Request instance provides a variety of methods for examining the HTTP request for your application and extends the Symfony\Component\HttpFoundation\Request class. We will discuss a few of the most important methods below.</p>
+<h2 id="retrieving-the-request-path">Retrieving The Request Path</h2>
+<p>The path method returns the request's path information. So, if the incoming request is targeted at http://domain.com/foo/bar, the path method will return foo/bar:</p>
+<pre><code>$uri = $request-&gt;path();
+</code></pre>
+
+<p>The is method allows you to verify that the incoming request path matches a given pattern. You may use the * character as a wildcard when utilizing this method:</p>
+<pre><code>if ($request-&gt;is('admin/*')) {
+    //
+}
+</code></pre>
+
+<h2 id="retrieving-the-request-url">Retrieving The Request URL</h2>
+<p>To retrieve the full URL for the incoming request you may use the url or fullUrl methods. The url method will return the URL without the query string, while the fullUrl method includes the query string:</p>
+<pre><code>// Without Query String...
+$url = $request-&gt;url();
+
+// With Query String...
+$url = $request-&gt;fullUrl();
+</code></pre>
+
+<h2 id="retrieving-the-request-method">Retrieving The Request Method</h2>
+<p>The method method will return the HTTP verb for the request. You may use the isMethod method to verify that the HTTP verb matches a given string:</p>
+<p>$method = $request-&gt;method();</p>
+<p>if ($request-&gt;isMethod('post')) {
+    //
+}</p>
+<h2 id="psr-7-requests">PSR-7 Requests</h2>
+<p>The PSR-7 standard specifies interfaces for HTTP messages, including requests and responses. If you would like to obtain an instance of a PSR-7 request instead of a Laravel request, you will first need to install a few libraries. Laravel uses the Symfony HTTP Message Bridge component to convert typical Laravel requests and responses into PSR-7 compatible implementations:</p>
+<pre><code>composer require symfony/psr-http-message-bridge
+composer require zendframework/zend-diactoros
+</code></pre>
+
+<p>Once you have installed these libraries, you may obtain a PSR-7 request by type-hinting the request interface on your route Closure or controller method:</p>
+<pre><code>use Psr\Http\Message\ServerRequestInterface;
+
+Route::get('/', function (ServerRequestInterface $request) {
+    //
+});
+</code></pre>
+
+<p>If you return a PSR-7 response instance from a route or controller, it will automatically be converted back to a Laravel response instance and be displayed by the framework.</p>
+<h2 id="input-trimming-normalization">Input Trimming &amp; Normalization</h2>
+<p>By default, Laravel includes the TrimStrings and ConvertEmptyStringsToNull middleware in your application's global middleware stack. These middleware are listed in the stack by the  App\Http\Kernel class. These middleware will automatically trim all incoming string fields on the request, as well as convert any empty string fields to null. This allows you to not have to worry about these normalization concerns in your routes and controllers.</p>
+<p>If you would like to disable this behavior, you may remove the two middleware from your application's middleware stack by removing them from the $middleware property of your  App\Http\Kernel class.</p>
+<h2 id="retrieving-input">Retrieving Input</h2>
+<p>Retrieving All Input Data
+You may also retrieve all of the input data as an array using the all method:</p>
+<pre><code>$input = $request-&gt;all();
+</code></pre>
+
+<h2 id="retrieving-an-input-value">Retrieving An Input Value</h2>
+<p>Using a few simple methods, you may access all of the user input from your  Illuminate\Http\Request instance without worrying about which HTTP verb was used for the request. Regardless of the HTTP verb, the input method may be used to retrieve user input:</p>
+<pre><code>$name = $request-&gt;input('name');
+</code></pre>
+
+<p>You may pass a default value as the second argument to the input method. This value will be returned if the requested input value is not present on the request:</p>
+<pre><code>$name = $request-&gt;input('name', 'Sally');
+</code></pre>
+
+<p>When working with forms that contain array inputs, use "dot" notation to access the arrays:</p>
+<pre><code>$name = $request-&gt;input('products.0.name');
+</code></pre>
+
+<pre><code>$names = $request-&gt;input('products.*.name');
+</code></pre>
+
+<p>You may call the input method without any arguments in order to retrieve all of the input values as an associative array:</p>
+<pre><code>$input = $request-&gt;input();
+</code></pre>
+
+<h2 id="retrieving-input-from-the-query-string">Retrieving Input From The Query String</h2>
+<p>While the input method retrieves values from entire request payload (including the query string), the query method will only retrieve values from the query string:</p>
+<pre><code>$name = $request-&gt;query('name');
+</code></pre>
+
+<p>If the requested query string value data is not present, the second argument to this method will be returned:</p>
+<pre><code>$name = $request-&gt;query('name', 'Helen');
+</code></pre>
+
+<p>You may call the query method without any arguments in order to retrieve all of the query string values as an associative array:</p>
+<pre><code>$query = $request-&gt;query();
+</code></pre>
+
+<h2 id="retrieving-input-via-dynamic-properties">Retrieving Input Via Dynamic Properties</h2>
+<p>You may also access user input using dynamic properties on the Illuminate\Http\Request instance. For example, if one of your application's forms contains a name field, you may access the value of the field like so:</p>
+<pre><code>$name = $request-&gt;name;
+</code></pre>
+
+<p>When using dynamic properties, Laravel will first look for the parameter's value in the request payload. If it is not present, Laravel will search for the field in the route parameters.</p>
+<h2 id="retrieving-json-input-values">Retrieving JSON Input Values</h2>
+<p>When sending JSON requests to your application, you may access the JSON data via the input method as long as the Content-Type header of the request is properly set to application/json. You may even use "dot" syntax to dig into JSON arrays:</p>
+<pre><code>$name = $request-&gt;input('user.name');
+</code></pre>
+
+<h2 id="retrieving-a-portion-of-the-input-data">Retrieving A Portion Of The Input Data</h2>
+<p>If you need to retrieve a subset of the input data, you may use the only and except methods. Both of these methods accept a single array or a dynamic list of arguments:</p>
+<pre><code>$input = $request-&gt;only(['username', 'password']);
+
+$input = $request-&gt;only('username', 'password');
+
+$input = $request-&gt;except(['credit_card']);
+
+$input = $request-&gt;except('credit_card');
+</code></pre>
+
+<p>The only method returns all of the key / value pairs that you request; however, it will not return key / value pairs that are not present on the request.</p>
+<h2 id="determining-if-an-input-value-is-present">Determining If An Input Value Is Present</h2>
+<p>You should use the has method to determine if a value is present on the request. The has method returns true if the value is present on the request:</p>
+<pre><code>if ($request-&gt;has('name')) {
+    //
+}
+</code></pre>
+
+<p>When given an array, the has method will determine if all of the specified values are present:</p>
+<pre><code>if ($request-&gt;has(['name', 'email'])) {
+    //
+}
+</code></pre>
+
+<p>If you would like to determine if a value is present on the request and is not empty, you may use the filled method:</p>
+<pre><code>if ($request-&gt;filled('name')) {
+    //
+}
+</code></pre>
+
+<h2 id="old-input">Old Input</h2>
+<p>Laravel allows you to keep input from one request during the next request. This feature is particularly useful for re-populating forms after detecting validation errors. However, if you are using Laravel's included validation features, it is unlikely you will need to manually use these methods, as some of Laravel's built-in validation facilities will call them automatically.</p>
+<h2 id="flashing-input-to-the-session">Flashing Input To The Session</h2>
+<p>The flash method on the Illuminate\Http\Request class will flash the current input to the session so that it is available during the user's next request to the application:</p>
+<pre><code>$request-&gt;flash();
+</code></pre>
+
+<p>You may also use the flashOnly and flashExcept methods to flash a subset of the request data to the session. These methods are useful for keeping sensitive information such as passwords out of the session:</p>
+<pre><code>$request-&gt;flashOnly(['username', 'email']);
+</code></pre>
+
+<pre><code>$request-&gt;flashExcept('password');
+</code></pre>
+
+<h2 id="flashing-input-then-redirecting">Flashing Input Then Redirecting</h2>
+<p>Since you often will want to flash input to the session and then redirect to the previous page, you may easily chain input flashing onto a redirect using the withInput method:</p>
+<pre><code>return redirect('form')-&gt;withInput();
+
+return redirect('form')-&gt;withInput(
+    $request-&gt;except('password')
+);
+</code></pre>
+
+<h2 id="retrieving-old-input">Retrieving Old Input</h2>
+<p>To retrieve flashed input from the previous request, use the old method on the Request instance. The old method will pull the previously flashed input data from the session:</p>
+<pre><code>$username = $request-&gt;old('username');
+</code></pre>
+
+<p>Laravel also provides a global old helper. If you are displaying old input within a Blade template, it is more convenient to use the old helper. If no old input exists for the given field,  null will be returned:</p>
+<pre><code>&lt;input type=&quot;text&quot; name=&quot;username&quot; value=&quot;{{ old('username') }}&quot;&gt;
+</code></pre>
+
+<h2 id="cookies">Cookies</h2>
+<p>Retrieving Cookies From Requests
+All cookies created by the Laravel framework are encrypted and signed with an authentication code, meaning they will be considered invalid if they have been changed by the client. To retrieve a cookie value from the request, use the cookie method on a  Illuminate\Http\Request instance:</p>
+<pre><code>$value = $request-&gt;cookie('name');
+</code></pre>
+
+<p>Alternatively, you may use the Cookie facade to access cookie values:</p>
+<pre><code>$value = Cookie::get('name');
+</code></pre>
+
+<h2 id="attaching-cookies-to-responses">Attaching Cookies To Responses</h2>
+<p>You may attach a cookie to an outgoing Illuminate\Http\Response instance using the cookie method. You should pass the name, value, and number of minutes the cookie should be considered valid to this method:</p>
+<pre><code>return response('Hello World')-&gt;cookie(
+    'name', 'value', $minutes
+);
+</code></pre>
+
+<p>The cookie method also accepts a few more arguments which are used less frequently. Generally, these arguments have the same purpose and meaning as the arguments that would be given to PHP's native setcookie method:</p>
+<pre><code>return response('Hello World')-&gt;cookie(
+    'name', 'value', $minutes, $path, $domain, $secure, $httpOnly
+);
+</code></pre>
+
+<p>Alternatively, you can use the Cookie facade to "queue" cookies for attachment to the outgoing response from your application. The queue method accepts a Cookie instance or the arguments needed to create a Cookie instance. These cookies will be attached to the outgoing response before it is sent to the browser:</p>
+<pre><code>Cookie::queue(Cookie::make('name', 'value', $minutes));
+
+Cookie::queue('name', 'value', $minutes);
+</code></pre>
+
+<h2 id="generating-cookie-instances">Generating Cookie Instances</h2>
+<p>If you would like to generate a Symfony\Component\HttpFoundation\Cookie instance that can be given to a response instance at a later time, you may use the global cookie helper. This cookie will not be sent back to the client unless it is attached to a response instance:</p>
+<p>$cookie = cookie('name', 'value', $minutes);</p>
+<p>return response('Hello World')-&gt;cookie($cookie);</p>
+<p>Files</p>
+<p>Retrieving Uploaded Files
+You may access uploaded files from a Illuminate\Http\Request instance using the file method or using dynamic properties. The file method returns an instance of the  Illuminate\Http\UploadedFile class, which extends the PHP SplFileInfo class and provides a variety of methods for interacting with the file:</p>
+<p>$file = $request-&gt;file('photo');</p>
+<p>$file = $request-&gt;photo;
+You may determine if a file is present on the request using the hasFile method:</p>
+<p>if ($request-&gt;hasFile('photo')) {
+    //
+}
+Validating Successful Uploads
+In addition to checking if the file is present, you may verify that there were no problems uploading the file via the isValid method:</p>
+<p>if ($request-&gt;file('photo')-&gt;isValid()) {
+    //
+}
+File Paths &amp; Extensions
+The UploadedFile class also contains methods for accessing the file's fully-qualified path and its extension. The extension method will attempt to guess the file's extension based on its contents. This extension may be different from the extension that was supplied by the client:</p>
+<p>$path = $request-&gt;photo-&gt;path();</p>
+<p>$extension = $request-&gt;photo-&gt;extension();
+Other File Methods
+There are a variety of other methods available on UploadedFile instances. Check out the API documentation for the class for more information regarding these methods.</p>
+<p>Storing Uploaded Files
+To store an uploaded file, you will typically use one of your configured filesystems. The  UploadedFile class has a store method which will move an uploaded file to one of your disks, which may be a location on your local filesystem or even a cloud storage location like Amazon S3.</p>
+<p>The store method accepts the path where the file should be stored relative to the filesystem's configured root directory. This path should not contain a file name, since a unique ID will automatically be generated to serve as the file name.</p>
+<p>The store method also accepts an optional second argument for the name of the disk that should be used to store the file. The method will return the path of the file relative to the disk's root:</p>
+<p>$path = $request-&gt;photo-&gt;store('images');</p>
+<p>$path = $request-&gt;photo-&gt;store('images', 's3');
+If you do not want a file name to be automatically generated, you may use the storeAs method, which accepts the path, file name, and disk name as its arguments:</p>
+<p>$path = $request-&gt;photo-&gt;storeAs('images', 'filename.jpg');</p>
+<p>$path = $request-&gt;photo-&gt;storeAs('images', 'filename.jpg', 's3');</p>
+<p>Configuring Trusted Proxies
+When running your applications behind a load balancer that terminates TLS / SSL certificates, you may notice your application sometimes does not generate HTTPS links. Typically this is because your application is being forwarded traffic from your load balancer on port 80 and does not know it should generate secure links.</p>
+<p>To solve this, you may use the App\Http\Middleware\TrustProxies middleware that is included in your Laravel application, which allows you to quickly customize the load balancers or proxies that should be trusted by your application. Your trusted proxies should be listed as an array on the $proxies property of this middleware. In addition to configuring the trusted proxies, you may configure the proxy $headers that should be trusted:</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Http\Request;
+use Fideloper\Proxy\TrustProxies as Middleware;
+
+class TrustProxies extends Middleware
+{
+    /**
+     * The trusted proxies for this application.
+     *
+     * @var array
+     */
+    protected $proxies = [
+        '192.168.1.1',
+        '192.168.1.2',
+    ];
+
+    /**
+     * The headers that should be used to detect proxies.
+     *
+     * @var string
+     */
+    protected $headers = Request::HEADER_X_FORWARDED_ALL;
+}
+</code></pre>
+
+<p>If you are using AWS Elastic Load Balancing, your $headers value should be  Request::HEADER_X_FORWARDED_AWS_ELB. For more information on the constants that may be used in the $headers property, check out Symfony's documentation on trusting proxies.</p>
+<h2 id="trusting-all-proxies">Trusting All Proxies</h2>
+<p>If you are using Amazon AWS or another "cloud" load balancer provider, you may not know the IP addresses of your actual balancers. In this case, you may use * to trust all proxies:</p>
+<pre><code>/**
+ * The trusted proxies for this application.
+ *
+ * @var array
+ */
+protected $proxies = '*';
+</code></pre>
+
+<h1 id="response">Response</h1>
+<h3 id="creating-responses">Creating Responses</h3>
+<h4 id="strings-arrays">Strings &amp; Arrays</h4>
+<p>All routes and controllers should return a response to be sent back to the user's browser. Laravel provides several different ways to return responses. The most basic response is returning a string from a route or controller. The framework will automatically convert the string into a full HTTP response:</p>
+<pre><code>Route::get('/', function () {
+    return 'Hello World';
+});
+</code></pre>
+
+<p>In addition to returning strings from your routes and controllers, you may also return arrays. The framework will automatically convert the array into a JSON response:</p>
+<pre><code>Route::get('/', function () {
+    return [1, 2, 3];
+});
+</code></pre>
+
+<p>Did you know you can also return Eloquent collections from your routes or controllers? They will automatically be converted to JSON. Give it a shot!</p>
+<h4 id="response-objects">Response Objects</h4>
+<p>Typically, you won't just be returning simple strings or arrays from your route actions. Instead, you will be returning full Illuminate\Http\Response instances or views.</p>
+<p>Returning a full Response instance allows you to customize the response's HTTP status code and headers. A Response instance inherits from the  Symfony\Component\HttpFoundation\Response class, which provides a variety of methods for building HTTP responses:</p>
+<pre><code>Route::get('home', function () {
+    return response('Hello World', 200)
+                  -&gt;header('Content-Type', 'text/plain');
+});
+</code></pre>
+
+<p>Attaching Headers To Responses
+Keep in mind that most response methods are chainable, allowing for the fluent construction of response instances. For example, you may use the header method to add a series of headers to the response before sending it back to the user:</p>
+<p>return response($content)
+            -&gt;header('Content-Type', $type)
+            -&gt;header('X-Header-One', 'Header Value')
+            -&gt;header('X-Header-Two', 'Header Value');
+Or, you may use the withHeaders method to specify an array of headers to be added to the response:</p>
+<p>return response($content)
+            -&gt;withHeaders([
+                'Content-Type' =&gt; $type,
+                'X-Header-One' =&gt; 'Header Value',
+                'X-Header-Two' =&gt; 'Header Value',
+            ]);
+Cache Control Middleware
+Laravel includes a cache.headers middleware, which may be used to quickly set the  Cache-Control header for a group of routes. If etag is specified in the list of directives, an MD5 hash of the response content will automatically be set as the ETag identifier:</p>
+<p>Route::middleware('cache.headers:public;max_age=2628000;etag')-&gt;group(function() {
+    Route::get('privacy', function () {
+        // ...
+    });</p>
+<pre><code>Route::get('terms', function () {
+    // ...
+});
+</code></pre>
+<p>});</p>
+<p>Attaching Cookies To Responses
+The cookie method on response instances allows you to easily attach cookies to the response. For example, you may use the cookie method to generate a cookie and fluently attach it to the response instance like so:</p>
+<p>return response($content)
+                -&gt;header('Content-Type', $type)
+                -&gt;cookie('name', 'value', $minutes);
+The cookie method also accepts a few more arguments which are used less frequently. Generally, these arguments have the same purpose and meaning as the arguments that would be given to PHP's native setcookie method:</p>
+<p>-&gt;cookie($name, $value, $minutes, $path, $domain, $secure, $httpOnly)
+Alternatively, you can use the Cookie facade to "queue" cookies for attachment to the outgoing response from your application. The queue method accepts a Cookie instance or the arguments needed to create a Cookie instance. These cookies will be attached to the outgoing response before it is sent to the browser:</p>
+<p>Cookie::queue(Cookie::make('name', 'value', $minutes));</p>
+<p>Cookie::queue('name', 'value', $minutes);</p>
+<p>Cookies &amp; Encryption
+By default, all cookies generated by Laravel are encrypted and signed so that they can't be modified or read by the client. If you would like to disable encryption for a subset of cookies generated by your application, you may use the $except property of the  App\Http\Middleware\EncryptCookies middleware, which is located in the app/Http/Middleware directory:</p>
+<p>/*<em>
+ * The names of the cookies that should not be encrypted.
+ *
+ * @var array
+ </em>/
+protected $except = [
+    'cookie_name',
+];</p>
+<p>Redirects
+Redirect responses are instances of the Illuminate\Http\RedirectResponse class, and contain the proper headers needed to redirect the user to another URL. There are several ways to generate a RedirectResponse instance. The simplest method is to use the global redirect helper:</p>
+<p>Route::get('dashboard', function () {
+    return redirect('home/dashboard');
+});
+Sometimes you may wish to redirect the user to their previous location, such as when a submitted form is invalid. You may do so by using the global back helper function. Since this feature utilizes the session, make sure the route calling the back function is using the web middleware group or has all of the session middleware applied:</p>
+<p>Route::post('user/profile', function () {
+    // Validate the request...</p>
+<pre><code>return back()-&gt;withInput();
+</code></pre>
+<p>});</p>
+<p>Redirecting To Named Routes
+When you call the redirect helper with no parameters, an instance of  Illuminate\Routing\Redirector is returned, allowing you to call any method on the Redirector instance. For example, to generate a RedirectResponse to a named route, you may use the  route method:</p>
+<p>return redirect()-&gt;route('login');
+If your route has parameters, you may pass them as the second argument to the route method:</p>
+<p>// For a route with the following URI: profile/{id}</p>
+<p>return redirect()-&gt;route('profile', ['id' =&gt; 1]);
+Populating Parameters Via Eloquent Models
+If you are redirecting to a route with an "ID" parameter that is being populated from an Eloquent model, you may pass the model itself. The ID will be extracted automatically:</p>
+<p>// For a route with the following URI: profile/{id}</p>
+<p>return redirect()-&gt;route('profile', [$user]);
+If you would like to customize the value that is placed in the route parameter, you should override the getRouteKey method on your Eloquent model:</p>
+<p>/*<em>
+ * Get the value of the model's route key.
+ *
+ * @return mixed
+ </em>/
+public function getRouteKey()
+{
+    return $this-&gt;slug;
+}</p>
+<p>Redirecting To Controller Actions
+You may also generate redirects to controller actions. To do so, pass the controller and action name to the action method. Remember, you do not need to specify the full namespace to the controller since Laravel's RouteServiceProvider will automatically set the base controller namespace:</p>
+<p>return redirect()-&gt;action('HomeController@index');
+If your controller route requires parameters, you may pass them as the second argument to the  action method:</p>
+<p>return redirect()-&gt;action(
+    'UserController@profile', ['id' =&gt; 1]
+);</p>
+<p>Redirecting To External Domains
+Sometimes you may need to redirect to a domain outside of your application. You may do so by calling the away method, which creates a RedirectResponse without any additional URL encoding, validation, or verification:</p>
+<p>return redirect()-&gt;away('https://www.google.com');</p>
+<p>Redirecting With Flashed Session Data
+Redirecting to a new URL and flashing data to the session are usually done at the same time. Typically, this is done after successfully performing an action when you flash a success message to the session. For convenience, you may create a RedirectResponse instance and flash data to the session in a single, fluent method chain:</p>
+<p>Route::post('user/profile', function () {
+    // Update the user's profile...</p>
+<pre><code>return redirect('dashboard')-&gt;with('status', 'Profile updated!');
+</code></pre>
+<p>});
+After the user is redirected, you may display the flashed message from the session. For example, using Blade syntax:</p>
+<p>@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif</p>
+<p>Other Response Types
+The response helper may be used to generate other types of response instances. When the  response helper is called without arguments, an implementation of the  Illuminate\Contracts\Routing\ResponseFactory contract is returned. This contract provides several helpful methods for generating responses.</p>
+<p>View Responses
+If you need control over the response's status and headers but also need to return a view as the response's content, you should use the view method:</p>
+<p>return response()
+            -&gt;view('hello', $data, 200)
+            -&gt;header('Content-Type', $type);
+Of course, if you do not need to pass a custom HTTP status code or custom headers, you should use the global view helper function.</p>
+<p>JSON Responses
+The json method will automatically set the Content-Type header to application/json, as well as convert the given array to JSON using the json_encode PHP function:</p>
+<p>return response()-&gt;json([
+    'name' =&gt; 'Abigail',
+    'state' =&gt; 'CA'
+]);
+If you would like to create a JSONP response, you may use the json method in combination with the withCallback method:</p>
+<p>return response()
+            -&gt;json(['name' =&gt; 'Abigail', 'state' =&gt; 'CA'])
+            -&gt;withCallback($request-&gt;input('callback'));</p>
+<p>File Downloads
+The download method may be used to generate a response that forces the user's browser to download the file at the given path. The download method accepts a file name as the second argument to the method, which will determine the file name that is seen by the user downloading the file. Finally, you may pass an array of HTTP headers as the third argument to the method:</p>
+<p>return response()-&gt;download($pathToFile);</p>
+<p>return response()-&gt;download($pathToFile, $name, $headers);</p>
+<p>return response()-&gt;download($pathToFile)-&gt;deleteFileAfterSend();
+Symfony HttpFoundation, which manages file downloads, requires the file being downloaded to have an ASCII file name.</p>
+<p>Streamed Downloads
+Sometimes you may wish to turn the string response of a given operation into a downloadable response without having to write the contents of the operation to disk. You may use the  streamDownload method in this scenario. This method accepts a callback, file name, and an optional array of headers as its arguments:</p>
+<p>return response()-&gt;streamDownload(function () {
+    echo GitHub::api('repo')
+                -&gt;contents()
+                -&gt;readme('laravel', 'laravel')['contents'];
+}, 'laravel-readme.md');</p>
+<p>File Responses
+The file method may be used to display a file, such as an image or PDF, directly in the user's browser instead of initiating a download. This method accepts the path to the file as its first argument and an array of headers as its second argument:</p>
+<p>return response()-&gt;file($pathToFile);</p>
+<p>return response()-&gt;file($pathToFile, $headers);</p>
+<p>Response Macros
+If you would like to define a custom response that you can re-use in a variety of your routes and controllers, you may use the macro method on the Response facade. For example, from a service provider's boot method:</p>
+<?php
+
+<p>namespace App\Providers;</p>
+<p>use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Response;</p>
+<p>class ResponseMacroServiceProvider extends ServiceProvider
+{
+    /*<em>
+     * Register the application's response macros.
+     *
+     * @return void
+     </em>/
+    public function boot()
+    {
+        Response::macro('caps', function ($value) {
+            return Response::make(strtoupper($value));
+        });
+    }
+}
+The macro function accepts a name as its first argument, and a Closure as its second. The macro's Closure will be executed when calling the macro name from a ResponseFactory implementation or the response helper:</p>
+<p>return response()-&gt;caps('foo');</p>
+<h1 id="view">View</h1>
+<p>Creating Views
+Looking for more information on how to write Blade templates? Check out the full Blade documentation to get started.</p>
+<p>Views contain the HTML served by your application and separate your controller / application logic from your presentation logic. Views are stored in the resources/views directory. A simple view might look something like this:</p>
+<!-- View stored in resources/views/greeting.blade.php -->
+
+<p><html>
+    <body>
+        <h1>Hello, {{ $name }}</h1>
+    </body>
+</html>
+Since this view is stored at resources/views/greeting.blade.php, we may return it using the global view helper like so:</p>
+<p>Route::get('/', function () {
+    return view('greeting', ['name' =&gt; 'James']);
+});
+As you can see, the first argument passed to the view helper corresponds to the name of the view file in the resources/views directory. The second argument is an array of data that should be made available to the view. In this case, we are passing the name variable, which is displayed in the view using Blade syntax.</p>
+<p>Views may also be nested within sub-directories of the resources/views directory. "Dot" notation may be used to reference nested views. For example, if your view is stored at  resources/views/admin/profile.blade.php, you may reference it like so:</p>
+<p>return view('admin.profile', $data);
+Determining If A View Exists
+If you need to determine if a view exists, you may use the View facade. The exists method will return true if the view exists:</p>
+<p>use Illuminate\Support\Facades\View;</p>
+<p>if (View::exists('emails.customer')) {
+    //
+}
+Creating The First Available View
+Using the first method, you may create the first view that exists in a given array of views. This is useful if your application or package allows views to be customized or overwritten:</p>
+<p>return view()-&gt;first(['custom.admin', 'admin'], $data);
+You may also call this method via the View facade:</p>
+<p>use Illuminate\Support\Facades\View;</p>
+<p>return View::first(['custom.admin', 'admin'], $data);</p>
+<p>Passing Data To Views
+As you saw in the previous examples, you may pass an array of data to views:</p>
+<p>return view('greetings', ['name' =&gt; 'Victoria']);
+When passing information in this manner, the data should be an array with key / value pairs. Inside your view, you can then access each value using its corresponding key, such as  &lt;?php echo $key; ?&gt;. As an alternative to passing a complete array of data to the view helper function, you may use the with method to add individual pieces of data to the view:</p>
+<p>return view('greeting')-&gt;with('name', 'Victoria');</p>
+<p>Sharing Data With All Views
+Occasionally, you may need to share a piece of data with all views that are rendered by your application. You may do so using the view facade's share method. Typically, you should place calls to share within a service provider's boot method. You are free to add them to the  AppServiceProvider or generate a separate service provider to house them:</p>
+<?php
+
+<p>namespace App\Providers;</p>
+<p>use Illuminate\Support\Facades\View;</p>
+<p>class AppServiceProvider extends ServiceProvider
+{
+    /*<em>
+     * Register any application services.
+     *
+     * @return void
+     </em>/
+    public function register()
+    {
+        //
+    }</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    View::share('key', 'value');
+}
+</code></pre>
+<p>}</p>
+<p>View Composers
+View composers are callbacks or class methods that are called when a view is rendered. If you have data that you want to be bound to a view each time that view is rendered, a view composer can help you organize that logic into a single location.</p>
+<p>For this example, let's register the view composers within a service provider. We'll use the  View facade to access the underlying Illuminate\Contracts\View\Factory contract implementation. Remember, Laravel does not include a default directory for view composers. You are free to organize them however you wish. For example, you could create an  app/Http/View/Composers directory:</p>
+<?php
+
+<p>namespace App\Providers;</p>
+<p>use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;</p>
+<p>class ViewServiceProvider extends ServiceProvider
+{
+    /*<em>
+     * Register any application services.
+     *
+     * @return void
+     </em>/
+    public function register()
+    {
+        //
+    }</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    // Using class based composers...
+    View::composer(
+        'profile', 'App\Http\View\Composers\ProfileComposer'
+    );
+
+    // Using Closure based composers...
+    View::composer('dashboard', function ($view) {
+        //
+    });
+}
+</code></pre>
+<p>}
+Remember, if you create a new service provider to contain your view composer registrations, you will need to add the service provider to the providers array in the  config/app.php configuration file.</p>
+<p>Now that we have registered the composer, the ProfileComposer@compose method will be executed each time the profile view is being rendered. So, let's define the composer class:</p>
+<?php
+
+<p>namespace App\Http\View\Composers;</p>
+<p>use Illuminate\View\View;
+use App\Repositories\UserRepository;</p>
+<p>class ProfileComposer
+{
+    /*<em>
+     * The user repository implementation.
+     *
+     * @var UserRepository
+     </em>/
+    protected $users;</p>
+<pre><code>/**
+ * Create a new profile composer.
+ *
+ * @param  UserRepository  $users
+ * @return void
+ */
+public function __construct(UserRepository $users)
+{
+    // Dependencies automatically resolved by service container...
+    $this-&gt;users = $users;
+}
+
+/**
+ * Bind data to the view.
+ *
+ * @param  View  $view
+ * @return void
+ */
+public function compose(View $view)
+{
+    $view-&gt;with('count', $this-&gt;users-&gt;count());
+}
+</code></pre>
+<p>}
+Just before the view is rendered, the composer's compose method is called with the  Illuminate\View\View instance. You may use the with method to bind data to the view.</p>
+<p>All view composers are resolved via the service container, so you may type-hint any dependencies you need within a composer's constructor.</p>
+<p>Attaching A Composer To Multiple Views
+You may attach a view composer to multiple views at once by passing an array of views as the first argument to the composer method:</p>
+<p>View::composer(
+    ['profile', 'dashboard'],
+    'App\Http\View\Composers\MyViewComposer'
+);
+The composer method also accepts the * character as a wildcard, allowing you to attach a composer to all views:</p>
+<p>View::composer('*', function ($view) {
+    //
+});
+View Creators
+View creators are very similar to view composers; however, they are executed immediately after the view is instantiated instead of waiting until the view is about to render. To register a view creator, use the creator method:</p>
+<p>View::creator('profile', 'App\Http\View\Creators\ProfileCreator');</p>
+<h1 id="url-generation">Url Generation</h1>
+<p>Introduction
+Laravel provides several helpers to assist you in generating URLs for your application. These are mainly helpful when building links in your templates and API responses, or when generating redirect responses to another part of your application.</p>
+<p>The Basics</p>
+<p>Generating Basic URLs
+The url helper may be used to generate arbitrary URLs for your application. The generated URL will automatically use the scheme (HTTP or HTTPS) and host from the current request:</p>
+<p>$post = App\Post::find(1);</p>
+<p>echo url("/posts/{$post-&gt;id}");</p>
+<p>// http://example.com/posts/1</p>
+<p>Accessing The Current URL
+If no path is provided to the url helper, a Illuminate\Routing\UrlGenerator instance is returned, allowing you to access information about the current URL:</p>
+<p>// Get the current URL without the query string...
+echo url()-&gt;current();</p>
+<p>// Get the current URL including the query string...
+echo url()-&gt;full();</p>
+<p>// Get the full URL for the previous request...
+echo url()-&gt;previous();
+Each of these methods may also be accessed via the URL facade:</p>
+<p>use Illuminate\Support\Facades\URL;</p>
+<p>echo URL::current();</p>
+<p>URLs For Named Routes
+The route helper may be used to generate URLs to named routes. Named routes allow you to generate URLs without being coupled to the actual URL defined on the route. Therefore, if the route's URL changes, no changes need to be made to your route function calls. For example, imagine your application contains a route defined like the following:</p>
+<p>Route::get('/post/{post}', function () {
+    //
+})-&gt;name('post.show');
+To generate a URL to this route, you may use the route helper like so:</p>
+<p>echo route('post.show', ['post' =&gt; 1]);</p>
+<p>// http://example.com/post/1
+You will often be generating URLs using the primary key of Eloquent models. For this reason, you may pass Eloquent models as parameter values. The route helper will automatically extract the model's primary key:</p>
+<p>echo route('post.show', ['post' =&gt; $post]);
+The route helper may also be used to generate URLs for routes with multiple parameters:</p>
+<p>Route::get('/post/{post}/comment/{comment}', function () {
+    //
+})-&gt;name('comment.show');</p>
+<p>echo route('comment.show', ['post' =&gt; 1, 'comment' =&gt; 3]);</p>
+<p>// http://example.com/post/1/comment/3</p>
+<p>Signed URLs
+Laravel allows you to easily create "signed" URLs to named routes. These URLs have a "signature" hash appended to the query string which allows Laravel to verify that the URL has not been modified since it was created. Signed URLs are especially useful for routes that are publicly accessible yet need a layer of protection against URL manipulation.</p>
+<p>For example, you might use signed URLs to implement a public "unsubscribe" link that is emailed to your customers. To create a signed URL to a named route, use the signedRoute method of the URL facade:</p>
+<p>use Illuminate\Support\Facades\URL;</p>
+<p>return URL::signedRoute('unsubscribe', ['user' =&gt; 1]);
+If you would like to generate a temporary signed route URL that expires, you may use the  temporarySignedRoute method:</p>
+<p>use Illuminate\Support\Facades\URL;</p>
+<p>return URL::temporarySignedRoute(
+    'unsubscribe', now()-&gt;addMinutes(30), ['user' =&gt; 1]
+);
+Validating Signed Route Requests
+To verify that an incoming request has a valid signature, you should call the hasValidSignature method on the incoming Request:</p>
+<p>use Illuminate\Http\Request;</p>
+<p>Route::get('/unsubscribe/{user}', function (Request $request) {
+    if (! $request-&gt;hasValidSignature()) {
+        abort(401);
+    }</p>
+<pre><code>// ...
+</code></pre>
+<p>})-&gt;name('unsubscribe');
+Alternatively, you may assign the Illuminate\Routing\Middleware\ValidateSignature middleware to the route. If it is not already present, you should assign this middleware a key in your HTTP kernel's routeMiddleware array:</p>
+<p>/*<em>
+ * The application's route middleware.
+ *
+ * These middleware may be assigned to groups or used individually.
+ *
+ * @var array
+ </em>/
+protected $routeMiddleware = [
+    'signed' =&gt; \Illuminate\Routing\Middleware\ValidateSignature::class,
+];
+Once you have registered the middleware in your kernel, you may attach it to a route. If the incoming request does not have a valid signature, the middleware will automatically return a  403 error response:</p>
+<p>Route::post('/unsubscribe/{user}', function (Request $request) {
+    // ...
+})-&gt;name('unsubscribe')-&gt;middleware('signed');</p>
+<p>URLs For Controller Actions
+The action function generates a URL for the given controller action. You do not need to pass the full namespace of the controller. Instead, pass the controller class name relative to the  App\Http\Controllers namespace:</p>
+<p>$url = action('HomeController@index');
+You may also reference actions with a "callable" array syntax:</p>
+<p>use App\Http\Controllers\HomeController;</p>
+<p>$url = action([HomeController::class, 'index']);
+If the controller method accepts route parameters, you may pass them as the second argument to the function:</p>
+<p>$url = action('UserController@profile', ['id' =&gt; 1]);</p>
+<p>Default Values
+For some applications, you may wish to specify request-wide default values for certain URL parameters. For example, imagine many of your routes define a {locale} parameter:</p>
+<p>Route::get('/{locale}/posts', function () {
+    //
+})-&gt;name('post.index');
+It is cumbersome to always pass the locale every time you call the route helper. So, you may use the URL::defaults method to define a default value for this parameter that will always be applied during the current request. You may wish to call this method from a route middleware so that you have access to the current request:</p>
+<?php
+
+<p>namespace App\Http\Middleware;</p>
+<p>use Closure;
+use Illuminate\Support\Facades\URL;</p>
+<p>class SetDefaultLocaleForUrls
+{
+    public function handle($request, Closure $next)
+    {
+        URL::defaults(['locale' =&gt; $request-&gt;user()-&gt;locale]);</p>
+<pre><code>    return $next($request);
+}
+</code></pre>
+<p>}
+Once the default value for the locale parameter has been set, you are no longer required to pass its value when generating URLs via the route helper.</p>
+<h1 id="session">Session</h1>
+<p>Introduction
+Since HTTP driven applications are stateless, sessions provide a way to store information about the user across multiple requests. Laravel ships with a variety of session backends that are accessed through an expressive, unified API. Support for popular backends such as Memcached, Redis, and databases is included out of the box.</p>
+<p>Configuration
+The session configuration file is stored at config/session.php. Be sure to review the options available to you in this file. By default, Laravel is configured to use the file session driver, which will work well for many applications. In production applications, you may consider using the memcached or redis drivers for even faster session performance.</p>
+<p>The session driver configuration option defines where session data will be stored for each request. Laravel ships with several great drivers out of the box:</p>
+<p>file - sessions are stored in storage/framework/sessions.
+cookie - sessions are stored in secure, encrypted cookies.
+database - sessions are stored in a relational database.
+memcached / redis - sessions are stored in one of these fast, cache based stores.
+array - sessions are stored in a PHP array and will not be persisted.
+The array driver is used during testing and prevents the data stored in the session from being persisted.</p>
+<p>Driver Prerequisites
+Database
+When using the database session driver, you will need to create a table to contain the session items. Below is an example Schema declaration for the table:</p>
+<p>Schema::create('sessions', function ($table) {
+    $table-&gt;string('id')-&gt;unique();
+    $table-&gt;unsignedInteger('user_id')-&gt;nullable();
+    $table-&gt;string('ip_address', 45)-&gt;nullable();
+    $table-&gt;text('user_agent')-&gt;nullable();
+    $table-&gt;text('payload');
+    $table-&gt;integer('last_activity');
+});
+You may use the session:table Artisan command to generate this migration:</p>
+<p>php artisan session:table</p>
+<p>php artisan migrate
+Redis
+Before using Redis sessions with Laravel, you will need to install the predis/predis package (~1.0) via Composer. You may configure your Redis connections in the database configuration file. In the session configuration file, the connection option may be used to specify which Redis connection is used by the session.</p>
+<p>Using The Session</p>
+<p>Retrieving Data
+There are two primary ways of working with session data in Laravel: the global session helper and via a Request instance. First, let's look at accessing the session via a Request instance, which can be type-hinted on a controller method. Remember, controller method dependencies are automatically injected via the Laravel service container:</p>
+<?php
+
+<p>namespace App\Http\Controllers;</p>
+<p>use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;</p>
+<p>class UserController extends Controller
+{
+    /*<em>
+     * Show the profile for the given user.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     </em>/
+    public function show(Request $request, $id)
+    {
+        $value = $request-&gt;session()-&gt;get('key');</p>
+<pre><code>    //
+}
+</code></pre>
+<p>}
+When you retrieve an item from the session, you may also pass a default value as the second argument to the get method. This default value will be returned if the specified key does not exist in the session. If you pass a Closure as the default value to the get method and the requested key does not exist, the Closure will be executed and its result returned:</p>
+<p>$value = $request-&gt;session()-&gt;get('key', 'default');</p>
+<p>$value = $request-&gt;session()-&gt;get('key', function () {
+    return 'default';
+});
+The Global Session Helper
+You may also use the global session PHP function to retrieve and store data in the session. When the session helper is called with a single, string argument, it will return the value of that session key. When the helper is called with an array of key / value pairs, those values will be stored in the session:</p>
+<p>Route::get('home', function () {
+    // Retrieve a piece of data from the session...
+    $value = session('key');</p>
+<pre><code>// Specifying a default value...
+$value = session('key', 'default');
+
+// Store a piece of data in the session...
+session(['key' =&gt; 'value']);
+</code></pre>
+<p>});
+There is little practical difference between using the session via an HTTP request instance versus using the global session helper. Both methods are testable via the  assertSessionHas method which is available in all of your test cases.</p>
+<p>Retrieving All Session Data
+If you would like to retrieve all the data in the session, you may use the all method:</p>
+<p>$data = $request-&gt;session()-&gt;all();
+Determining If An Item Exists In The Session
+To determine if an item is present in the session, you may use the has method. The has method returns true if the item is present and is not null:</p>
+<p>if ($request-&gt;session()-&gt;has('users')) {
+    //
+}
+To determine if an item is present in the session, even if its value is null, you may use the  exists method. The exists method returns true if the item is present:</p>
+<p>if ($request-&gt;session()-&gt;exists('users')) {
+    //
+}</p>
+<p>Storing Data
+To store data in the session, you will typically use the put method or the session helper:</p>
+<p>// Via a request instance...
+$request-&gt;session()-&gt;put('key', 'value');</p>
+<p>// Via the global helper...
+session(['key' =&gt; 'value']);
+Pushing To Array Session Values
+The push method may be used to push a new value onto a session value that is an array. For example, if the user.teams key contains an array of team names, you may push a new value onto the array like so:</p>
+<p>$request-&gt;session()-&gt;push('user.teams', 'developers');
+Retrieving &amp; Deleting An Item
+The pull method will retrieve and delete an item from the session in a single statement:</p>
+<p>$value = $request-&gt;session()-&gt;pull('key', 'default');</p>
+<p>Flash Data
+Sometimes you may wish to store items in the session only for the next request. You may do so using the flash method. Data stored in the session using this method will only be available during the subsequent HTTP request, and then will be deleted. Flash data is primarily useful for short-lived status messages:</p>
+<p>$request-&gt;session()-&gt;flash('status', 'Task was successful!');
+If you need to keep your flash data around for several requests, you may use the reflash method, which will keep all of the flash data for an additional request. If you only need to keep specific flash data, you may use the keep method:</p>
+<p>$request-&gt;session()-&gt;reflash();</p>
+<p>$request-&gt;session()-&gt;keep(['username', 'email']);</p>
+<p>Deleting Data
+The forget method will remove a piece of data from the session. If you would like to remove all data from the session, you may use the flush method:</p>
+<p>// Forget a single key...
+$request-&gt;session()-&gt;forget('key');</p>
+<p>// Forget multiple keys...
+$request-&gt;session()-&gt;forget(['key1', 'key2']);</p>
+<p>$request-&gt;session()-&gt;flush();</p>
+<p>Regenerating The Session ID
+Regenerating the session ID is often done in order to prevent malicious users from exploiting a session fixation attack on your application.</p>
+<p>Laravel automatically regenerates the session ID during authentication if you are using the built-in LoginController; however, if you need to manually regenerate the session ID, you may use the regenerate method.</p>
+<p>$request-&gt;session()-&gt;regenerate();</p>
+<p>Adding Custom Session Drivers</p>
+<p>Implementing The Driver
+Your custom session driver should implement the SessionHandlerInterface. This interface contains just a few simple methods we need to implement. A stubbed MongoDB implementation looks something like this:</p>
+<?php
+
+<p>namespace App\Extensions;</p>
+<p>class MongoSessionHandler implements \SessionHandlerInterface
+{
+    public function open($savePath, $sessionName) {}
+    public function close() {}
+    public function read($sessionId) {}
+    public function write($sessionId, $data) {}
+    public function destroy($sessionId) {}
+    public function gc($lifetime) {}
+}
+Laravel does not ship with a directory to contain your extensions. You are free to place them anywhere you like. In this example, we have created an Extensions directory to house the MongoSessionHandler.</p>
+<p>Since the purpose of these methods is not readily understandable, let's quickly cover what each of the methods do:</p>
+<p>The open method would typically be used in file based session store systems. Since Laravel ships with a file session driver, you will almost never need to put anything in this method. You can leave it as an empty stub. It is a fact of poor interface design (which we'll discuss later) that PHP requires us to implement this method.
+The close method, like the open method, can also usually be disregarded. For most drivers, it is not needed.
+The read method should return the string version of the session data associated with the given $sessionId. There is no need to do any serialization or other encoding when retrieving or storing session data in your driver, as Laravel will perform the serialization for you.
+The write method should write the given $data string associated with the  $sessionId to some persistent storage system, such as MongoDB, Dynamo, etc. Again, you should not perform any serialization - Laravel will have already handled that for you.
+The destroy method should remove the data associated with the $sessionId from persistent storage.
+The gc method should destroy all session data that is older than the given  $lifetime, which is a UNIX timestamp. For self-expiring systems like Memcached and Redis, this method may be left empty.</p>
+<p>Registering The Driver
+Once your driver has been implemented, you are ready to register it with the framework. To add additional drivers to Laravel's session backend, you may use the extend method on the  Session facade. You should call the extend method from the boot method of a service provider. You may do this from the existing AppServiceProvider or create an entirely new provider:</p>
+<?php
+
+<p>namespace App\Providers;</p>
+<p>use App\Extensions\MongoSessionHandler;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\ServiceProvider;</p>
+<p>class SessionServiceProvider extends ServiceProvider
+{
+    /*<em>
+     * Register bindings in the container.
+     *
+     * @return void
+     </em>/
+    public function register()
+    {
+        //
+    }</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Session::extend('mongo', function ($app) {
+        // Return implementation of SessionHandlerInterface...
+        return new MongoSessionHandler;
+    });
+}
+</code></pre>
+<p>}
+Once the session driver has been registered, you may use the mongo driver in your  config/session.php configuration file.</p>
+<h1 id="validation">Validation</h1>
+<p>Introduction
+Laravel provides several different approaches to validate your application's incoming data. By default, Laravel's base controller class uses a ValidatesRequests trait which provides a convenient method to validate incoming HTTP request with a variety of powerful validation rules.</p>
+<p>Validation Quickstart
+To learn about Laravel's powerful validation features, let's look at a complete example of validating a form and displaying the error messages back to the user.</p>
+<p>Defining The Routes
+First, let's assume we have the following routes defined in our routes/web.php file:</p>
+<p>Route::get('post/create', 'PostController@create');</p>
+<p>Route::post('post', 'PostController@store');
+The GET route will display a form for the user to create a new blog post, while the POST route will store the new blog post in the database.</p>
+<p>Creating The Controller
+Next, let's take a look at a simple controller that handles these routes. We'll leave the store method empty for now:</p>
+<?php
+
+<p>namespace App\Http\Controllers;</p>
+<p>use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;</p>
+<p>class PostController extends Controller
+{
+    /*<em>
+     * Show the form to create a new blog post.
+     *
+     * @return Response
+     </em>/
+    public function create()
+    {
+        return view('post.create');
+    }</p>
+<pre><code>/**
+ * Store a new blog post.
+ *
+ * @param  Request  $request
+ * @return Response
+ */
+public function store(Request $request)
+{
+    // Validate and store the blog post...
+}
+</code></pre>
+<p>}</p>
+<p>Writing The Validation Logic
+Now we are ready to fill in our store method with the logic to validate the new blog post. To do this, we will use the validate method provided by the Illuminate\Http\Request object. If the validation rules pass, your code will keep executing normally; however, if validation fails, an exception will be thrown and the proper error response will automatically be sent back to the user. In the case of a traditional HTTP request, a redirect response will be generated, while a JSON response will be sent for AJAX requests.</p>
+<p>To get a better understanding of the validate method, let's jump back into the store method:</p>
+<p>/*<em>
+ * Store a new blog post.
+ *
+ * @param  Request  $request
+ * @return Response
+ </em>/
+public function store(Request $request)
+{
+    $validatedData = $request-&gt;validate([
+        'title' =&gt; 'required|unique:posts|max:255',
+        'body' =&gt; 'required',
+    ]);</p>
+<pre><code>// The blog post is valid...
+</code></pre>
+<p>}
+As you can see, we pass the desired validation rules into the validate method. Again, if the validation fails, the proper response will automatically be generated. If the validation passes, our controller will continue executing normally.</p>
+<p>Stopping On First Validation Failure
+Sometimes you may wish to stop running validation rules on an attribute after the first validation failure. To do so, assign the bail rule to the attribute:</p>
+<p>$request-&gt;validate([
+    'title' =&gt; 'bail|required|unique:posts|max:255',
+    'body' =&gt; 'required',
+]);
+In this example, if the unique rule on the title attribute fails, the max rule will not be checked. Rules will be validated in the order they are assigned.</p>
+<p>A Note On Nested Attributes
+If your HTTP request contains "nested" parameters, you may specify them in your validation rules using "dot" syntax:</p>
+<p>$request-&gt;validate([
+    'title' =&gt; 'required|unique:posts|max:255',
+    'author.name' =&gt; 'required',
+    'author.description' =&gt; 'required',
+]);</p>
+<p>Displaying The Validation Errors
+So, what if the incoming request parameters do not pass the given validation rules? As mentioned previously, Laravel will automatically redirect the user back to their previous location. In addition, all of the validation errors will automatically be flashed to the session.</p>
+<p>Again, notice that we did not have to explicitly bind the error messages to the view in our GET route. This is because Laravel will check for errors in the session data, and automatically bind them to the view if they are available. The $errors variable will be an instance of  Illuminate\Support\MessageBag. For more information on working with this object, check out its documentation.</p>
+<p>The $errors variable is bound to the view by the  Illuminate\View\Middleware\ShareErrorsFromSession middleware, which is provided by the web middleware group. When this middleware is applied an $errors variable will always be available in your views, allowing you to conveniently assume the $errors variable is always defined and can be safely used.</p>
+<p>So, in our example, the user will be redirected to our controller's create method when validation fails, allowing us to display the error messages in the view:</p>
+<!-- /resources/views/post/create.blade.php -->
+
+<h1>Create Post</h1>
+
+<p>@if ($errors-&gt;any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors-&gt;all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif</p>
+<!-- Create Post Form -->
+
+<p>The @error Directive
+You may also use the @error Blade directive to quickly check if validation error messages exist for a given attribute. Within an @error directive, you may echo the $message variable to display the error message:</p>
+<!-- /resources/views/post/create.blade.php -->
+
+<p><label for="title">Post Title</label></p>
+<p><input id="title" type="text" class="@error('title') is-invalid @enderror"></p>
+<p>@error('title')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror</p>
+<p>A Note On Optional Fields
+By default, Laravel includes the TrimStrings and ConvertEmptyStringsToNull middleware in your application's global middleware stack. These middleware are listed in the stack by the  App\Http\Kernel class. Because of this, you will often need to mark your "optional" request fields as nullable if you do not want the validator to consider null values as invalid. For example:</p>
+<p>$request-&gt;validate([
+    'title' =&gt; 'required|unique:posts|max:255',
+    'body' =&gt; 'required',
+    'publish_at' =&gt; 'nullable|date',
+]);
+In this example, we are specifying that the publish_at field may be either null or a valid date representation. If the nullable modifier is not added to the rule definition, the validator would consider null an invalid date.</p>
+<p>AJAX Requests &amp; Validation
+In this example, we used a traditional form to send data to the application. However, many applications use AJAX requests. When using the validate method during an AJAX request, Laravel will not generate a redirect response. Instead, Laravel generates a JSON response containing all of the validation errors. This JSON response will be sent with a 422 HTTP status code.</p>
+<p>Form Request Validation</p>
+<p>Creating Form Requests
+For more complex validation scenarios, you may wish to create a "form request". Form requests are custom request classes that contain validation logic. To create a form request class, use the  make:request Artisan CLI command:</p>
+<p>php artisan make:request StoreBlogPost
+The generated class will be placed in the app/Http/Requests directory. If this directory does not exist, it will be created when you run the make:request command. Let's add a few validation rules to the rules method:</p>
+<p>/*<em>
+ * Get the validation rules that apply to the request.
+ *
+ * @return array
+ </em>/
+public function rules()
+{
+    return [
+        'title' =&gt; 'required|unique:posts|max:255',
+        'body' =&gt; 'required',
+    ];
+}
+You may type-hint any dependencies you need within the rules method's signature. They will automatically be resolved via the Laravel service container.</p>
+<p>So, how are the validation rules evaluated? All you need to do is type-hint the request on your controller method. The incoming form request is validated before the controller method is called, meaning you do not need to clutter your controller with any validation logic:</p>
+<p>/*<em>
+ * Store the incoming blog post.
+ *
+ * @param  StoreBlogPost  $request
+ * @return Response
+ </em>/
+public function store(StoreBlogPost $request)
+{
+    // The incoming request is valid...</p>
+<pre><code>// Retrieve the validated input data...
+$validated = $request-&gt;validated();
+</code></pre>
+<p>}
+If validation fails, a redirect response will be generated to send the user back to their previous location. The errors will also be flashed to the session so they are available for display. If the request was an AJAX request, a HTTP response with a 422 status code will be returned to the user including a JSON representation of the validation errors.</p>
+<p>Adding After Hooks To Form Requests
+If you would like to add an "after" hook to a form request, you may use the withValidator method. This method receives the fully constructed validator, allowing you to call any of its methods before the validation rules are actually evaluated:</p>
+<p>/*<em>
+ * Configure the validator instance.
+ *
+ * @param  \Illuminate\Validation\Validator  $validator
+ * @return void
+ </em>/
+public function withValidator($validator)
+{
+    $validator-&gt;after(function ($validator) {
+        if ($this-&gt;somethingElseIsInvalid()) {
+            $validator-&gt;errors()-&gt;add('field', 'Something is wrong with this field!');
+        }
+    });
+}</p>
+<p>Authorizing Form Requests
+The form request class also contains an authorize method. Within this method, you may check if the authenticated user actually has the authority to update a given resource. For example, you may determine if a user actually owns a blog comment they are attempting to update:</p>
+<p>/*<em>
+ * Determine if the user is authorized to make this request.
+ *
+ * @return bool
+ </em>/
+public function authorize()
+{
+    $comment = Comment::find($this-&gt;route('comment'));</p>
+<pre><code>return $comment &amp;&amp; $this-&gt;user()-&gt;can('update', $comment);
+</code></pre>
+<p>}
+Since all form requests extend the base Laravel request class, we may use the user method to access the currently authenticated user. Also note the call to the route method in the example above. This method grants you access to the URI parameters defined on the route being called, such as the {comment} parameter in the example below:</p>
+<p>Route::post('comment/{comment}');
+If the authorize method returns false, a HTTP response with a 403 status code will automatically be returned and your controller method will not execute.</p>
+<p>If you plan to have authorization logic in another part of your application, return true from the  authorize method:</p>
+<p>/*<em>
+ * Determine if the user is authorized to make this request.
+ *
+ * @return bool
+ </em>/
+public function authorize()
+{
+    return true;
+}
+You may type-hint any dependencies you need within the authorize method's signature. They will automatically be resolved via the Laravel service container.</p>
+<p>Customizing The Error Messages
+You may customize the error messages used by the form request by overriding the messages method. This method should return an array of attribute / rule pairs and their corresponding error messages:</p>
+<p>/*<em>
+ * Get the error messages for the defined validation rules.
+ *
+ * @return array
+ </em>/
+public function messages()
+{
+    return [
+        'title.required' =&gt; 'A title is required',
+        'body.required'  =&gt; 'A message is required',
+    ];
+}</p>
+<p>Customizing The Validation Attributes
+If you would like the :attribute portion of your validation message to be replaced with a custom attribute name, you may specify the custom names by overriding the attributes method. This method should return an array of attribute / name pairs:</p>
+<p>/*<em>
+ * Get custom attributes for validator errors.
+ *
+ * @return array
+ </em>/
+public function attributes()
+{
+    return [
+        'email' =&gt; 'email address',
+    ];
+}</p>
+<p>Manually Creating Validators
+If you do not want to use the validate method on the request, you may create a validator instance manually using the Validator facade. The make method on the facade generates a new validator instance:</p>
+<?php
+
+<p>namespace App\Http\Controllers;</p>
+<p>use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;</p>
+<p>class PostController extends Controller
+{
+    /*<em>
+     * Store a new blog post.
+     *
+     * @param  Request  $request
+     * @return Response
+     </em>/
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request-&gt;all(), [
+            'title' =&gt; 'required|unique:posts|max:255',
+            'body' =&gt; 'required',
+        ]);</p>
+<pre><code>    if ($validator-&gt;fails()) {
+        return redirect('post/create')
+                    -&gt;withErrors($validator)
+                    -&gt;withInput();
+    }
+
+    // Store the blog post...
+}
+</code></pre>
+<p>}
+The first argument passed to the make method is the data under validation. The second argument is the validation rules that should be applied to the data.</p>
+<p>After checking if the request validation failed, you may use the withErrors method to flash the error messages to the session. When using this method, the $errors variable will automatically be shared with your views after redirection, allowing you to easily display them back to the user. The withErrors method accepts a validator, a MessageBag, or a PHP array.</p>
+<p>Automatic Redirection
+If you would like to create a validator instance manually but still take advantage of the automatic redirection offered by the requests's validate method, you may call the validate method on an existing validator instance. If validation fails, the user will automatically be redirected or, in the case of an AJAX request, a JSON response will be returned:</p>
+<p>Validator::make($request-&gt;all(), [
+    'title' =&gt; 'required|unique:posts|max:255',
+    'body' =&gt; 'required',
+])-&gt;validate();</p>
+<p>Named Error Bags
+If you have multiple forms on a single page, you may wish to name the MessageBag of errors, allowing you to retrieve the error messages for a specific form. Pass a name as the second argument to withErrors:</p>
+<p>return redirect('register')
+            -&gt;withErrors($validator, 'login');
+You may then access the named MessageBag instance from the $errors variable:</p>
+<p>{{ $errors-&gt;login-&gt;first('email') }}</p>
+<p>After Validation Hook
+The validator also allows you to attach callbacks to be run after validation is completed. This allows you to easily perform further validation and even add more error messages to the message collection. To get started, use the after method on a validator instance:</p>
+<p>$validator = Validator::make(...);</p>
+<p>$validator-&gt;after(function ($validator) {
+    if ($this-&gt;somethingElseIsInvalid()) {
+        $validator-&gt;errors()-&gt;add('field', 'Something is wrong with this field!');
+    }
+});</p>
+<p>if ($validator-&gt;fails()) {
+    //
+}</p>
+<p>Working With Error Messages
+After calling the errors method on a Validator instance, you will receive an  Illuminate\Support\MessageBag instance, which has a variety of convenient methods for working with error messages. The $errors variable that is automatically made available to all views is also an instance of the MessageBag class.</p>
+<p>Retrieving The First Error Message For A Field
+To retrieve the first error message for a given field, use the first method:</p>
+<p>$errors = $validator-&gt;errors();</p>
+<p>echo $errors-&gt;first('email');
+Retrieving All Error Messages For A Field
+If you need to retrieve an array of all the messages for a given field, use the get method:</p>
+<p>foreach ($errors-&gt;get('email') as $message) {
+    //
+}
+If you are validating an array form field, you may retrieve all of the messages for each of the array elements using the * character:</p>
+<p>foreach ($errors-&gt;get('attachments.*') as $message) {
+    //
+}
+Retrieving All Error Messages For All Fields
+To retrieve an array of all messages for all fields, use the all method:</p>
+<p>foreach ($errors-&gt;all() as $message) {
+    //
+}
+Determining If Messages Exist For A Field
+The has method may be used to determine if any error messages exist for a given field:</p>
+<p>if ($errors-&gt;has('email')) {
+    //
+}</p>
+<p>Custom Error Messages
+If needed, you may use custom error messages for validation instead of the defaults. There are several ways to specify custom messages. First, you may pass the custom messages as the third argument to the Validator::make method:</p>
+<p>$messages = [
+    'required' =&gt; 'The :attribute field is required.',
+];</p>
+<p>$validator = Validator::make($input, $rules, $messages);
+In this example, the :attribute placeholder will be replaced by the actual name of the field under validation. You may also utilize other placeholders in validation messages. For example:</p>
+<p>$messages = [
+    'same'    =&gt; 'The :attribute and :other must match.',
+    'size'    =&gt; 'The :attribute must be exactly :size.',
+    'between' =&gt; 'The :attribute value :input is not between :min - :max.',
+    'in'      =&gt; 'The :attribute must be one of the following types: :values',
+];
+Specifying A Custom Message For A Given Attribute
+Sometimes you may wish to specify a custom error message only for a specific field. You may do so using "dot" notation. Specify the attribute's name first, followed by the rule:</p>
+<p>$messages = [
+    'email.required' =&gt; 'We need to know your e-mail address!',
+];</p>
+<p>Specifying Custom Messages In Language Files
+In most cases, you will probably specify your custom messages in a language file instead of passing them directly to the Validator. To do so, add your messages to custom array in the  resources/lang/xx/validation.php language file.</p>
+<p>'custom' =&gt; [
+    'email' =&gt; [
+        'required' =&gt; 'We need to know your e-mail address!',
+    ],
+],
+Specifying Custom Attributes In Language Files
+If you would like the :attribute portion of your validation message to be replaced with a custom attribute name, you may specify the custom name in the attributes array of your  resources/lang/xx/validation.php language file:</p>
+<p>'attributes' =&gt; [
+    'email' =&gt; 'email address',
+],
+Specifying Custom Values In Language Files
+Sometimes you may need the :value portion of your validation message to be replaced with a custom representation of the value. For example, consider the following rule that specifies that a credit card number is required if the payment_type has a value of cc:</p>
+<p>$request-&gt;validate([
+    'credit_card_number' =&gt; 'required_if:payment_type,cc'
+]);
+If this validation rule fails, it will produce the following error message:</p>
+<p>The credit card number field is required when payment type is cc.
+Instead of displaying cc as the payment type value, you may specify a custom value representation in your validation language file by defining a values array:</p>
+<p>'values' =&gt; [
+    'payment_type' =&gt; [
+        'cc' =&gt; 'credit card'
+    ],
+],
+Now if the validation rule fails it will produce the following message:</p>
+<p>The credit card number field is required when payment type is credit card.</p>
+<p>Available Validation Rules
+Below is a list of all available validation rules and their function:</p>
+<p>Accepted
+Active URL
+After (Date)
+After Or Equal (Date)
+Alpha
+Alpha Dash
+Alpha Numeric
+Array
+Bail
+Before (Date)
+Before Or Equal (Date)
+Between
+Boolean
+Confirmed
+Date
+Date Equals
+Date Format
+Different
+Digits
+Digits Between
+Dimensions (Image Files)
+Distinct
+E-Mail
+Ends With
+Exists (Database)
+File
+Filled
+Greater Than
+Greater Than Or Equal
+Image (File)
+In
+In Array
+Integer
+IP Address
+JSON
+Less Than
+Less Than Or Equal
+Max
+MIME Types
+MIME Type By File Extension
+Min
+Not In
+Not Regex
+Nullable
+Numeric
+Present
+Regular Expression
+Required
+Required If
+Required Unless
+Required With
+Required With All
+Required Without
+Required Without All
+Same
+Size
+Sometimes
+Starts With
+String
+Timezone
+Unique (Database)
+URL
+UUID</p>
+<p>accepted
+The field under validation must be yes, on, 1, or true. This is useful for validating "Terms of Service" acceptance.</p>
+<p>active_url
+The field under validation must have a valid A or AAAA record according to the dns_get_record PHP function.</p>
+<p>after:date
+The field under validation must be a value after a given date. The dates will be passed into the  strtotime PHP function:</p>
+<p>'start_date' =&gt; 'required|date|after:tomorrow'
+Instead of passing a date string to be evaluated by strtotime, you may specify another field to compare against the date:</p>
+<p>'finish_date' =&gt; 'required|date|after:start_date'</p>
+<p>after_or_equal:date
+The field under validation must be a value after or equal to the given date. For more information, see the after rule.</p>
+<p>alpha
+The field under validation must be entirely alphabetic characters.</p>
+<p>alpha_dash
+The field under validation may have alpha-numeric characters, as well as dashes and underscores.</p>
+<p>alpha_num
+The field under validation must be entirely alpha-numeric characters.</p>
+<p>array
+The field under validation must be a PHP array.</p>
+<p>bail
+Stop running validation rules after the first validation failure.</p>
+<p>before:date
+The field under validation must be a value preceding the given date. The dates will be passed into the PHP strtotime function. In addition, like the after rule, the name of another field under validation may be supplied as the value of date.</p>
+<p>before_or_equal:date
+The field under validation must be a value preceding or equal to the given date. The dates will be passed into the PHP strtotime function. In addition, like the after rule, the name of another field under validation may be supplied as the value of date.</p>
+<p>between:min,max
+The field under validation must have a size between the given min and max. Strings, numerics, arrays, and files are evaluated in the same fashion as the size rule.</p>
+<p>boolean
+The field under validation must be able to be cast as a boolean. Accepted input are true,  false, 1, 0, "1", and "0".</p>
+<p>confirmed
+The field under validation must have a matching field of foo_confirmation. For example, if the field under validation is password, a matching password_confirmation field must be present in the input.</p>
+<p>date
+The field under validation must be a valid, non-relative date according to the strtotime PHP function.</p>
+<p>date_equals:date
+The field under validation must be equal to the given date. The dates will be passed into the PHP strtotime function.</p>
+<p>date_format:format
+The field under validation must match the given format. You should use either date or  date_format when validating a field, not both.</p>
+<p>different:field
+The field under validation must have a different value than field.</p>
+<p>digits:value
+The field under validation must be numeric and must have an exact length of value.</p>
+<p>digits_between:min,max
+The field under validation must have a length between the given min and max.</p>
+<p>dimensions
+The file under validation must be an image meeting the dimension constraints as specified by the rule's parameters:</p>
+<p>'avatar' =&gt; 'dimensions:min_width=100,min_height=200'
+Available constraints are: min_width, max_width, min_height, max_height, width, height, ratio.</p>
+<p>A ratio constraint should be represented as width divided by height. This can be specified either by a statement like 3/2 or a float like 1.5:</p>
+<p>'avatar' =&gt; 'dimensions:ratio=3/2'
+Since this rule requires several arguments, you may use the Rule::dimensions method to fluently construct the rule:</p>
+<p>use Illuminate\Validation\Rule;</p>
+<p>Validator::make($data, [
+    'avatar' =&gt; [
+        'required',
+        Rule::dimensions()-&gt;maxWidth(1000)-&gt;maxHeight(500)-&gt;ratio(3 / 2),
+    ],
+]);</p>
+<p>distinct
+When working with arrays, the field under validation must not have any duplicate values.</p>
+<p>'foo.*.id' =&gt; 'distinct'</p>
+<p>email
+The field under validation must be formatted as an e-mail address.</p>
+<p>ends_with:foo,bar,...
+The field under validation must end with one of the given values.</p>
+<p>exists:table,column
+The field under validation must exist on a given database table.</p>
+<p>Basic Usage Of Exists Rule
+'state' =&gt; 'exists:states'
+If the column option is not specified, the field name will be used.</p>
+<p>Specifying A Custom Column Name
+'state' =&gt; 'exists:states,abbreviation'
+Occasionally, you may need to specify a specific database connection to be used for the  exists query. You can accomplish this by prepending the connection name to the table name using "dot" syntax:</p>
+<p>'email' =&gt; 'exists:connection.staff,email'
+If you would like to customize the query executed by the validation rule, you may use the Rule class to fluently define the rule. In this example, we'll also specify the validation rules as an array instead of using the | character to delimit them:</p>
+<p>use Illuminate\Validation\Rule;</p>
+<p>Validator::make($data, [
+    'email' =&gt; [
+        'required',
+        Rule::exists('staff')-&gt;where(function ($query) {
+            $query-&gt;where('account_id', 1);
+        }),
+    ],
+]);</p>
+<p>file
+The field under validation must be a successfully uploaded file.</p>
+<p>filled
+The field under validation must not be empty when it is present.</p>
+<p>gt:field
+The field under validation must be greater than the given field. The two fields must be of the same type. Strings, numerics, arrays, and files are evaluated using the same conventions as the  size rule.</p>
+<p>gte:field
+The field under validation must be greater than or equal to the given field. The two fields must be of the same type. Strings, numerics, arrays, and files are evaluated using the same conventions as the size rule.</p>
+<p>image
+The file under validation must be an image (jpeg, png, bmp, gif, or svg)</p>
+<p>in:foo,bar,...
+The field under validation must be included in the given list of values. Since this rule often requires you to implode an array, the Rule::in method may be used to fluently construct the rule:</p>
+<p>use Illuminate\Validation\Rule;</p>
+<p>Validator::make($data, [
+    'zones' =&gt; [
+        'required',
+        Rule::in(['first-zone', 'second-zone']),
+    ],
+]);</p>
+<p>in_array:anotherfield.*
+The field under validation must exist in anotherfield's values.</p>
+<p>integer
+The field under validation must be an integer.</p>
+<p>ip
+The field under validation must be an IP address.</p>
+<p>ipv4
+The field under validation must be an IPv4 address.</p>
+<p>ipv6
+The field under validation must be an IPv6 address.</p>
+<p>json
+The field under validation must be a valid JSON string.</p>
+<p>lt:field
+The field under validation must be less than the given field. The two fields must be of the same type. Strings, numerics, arrays, and files are evaluated using the same conventions as the size rule.</p>
+<p>lte:field
+The field under validation must be less than or equal to the given field. The two fields must be of the same type. Strings, numerics, arrays, and files are evaluated using the same conventions as the size rule.</p>
+<p>max:value
+The field under validation must be less than or equal to a maximum value. Strings, numerics, arrays, and files are evaluated in the same fashion as the size rule.</p>
+<p>mimetypes:text/plain,...
+The file under validation must match one of the given MIME types:</p>
+<p>'video' =&gt; 'mimetypes:video/avi,video/mpeg,video/quicktime'
+To determine the MIME type of the uploaded file, the file's contents will be read and the framework will attempt to guess the MIME type, which may be different from the client provided MIME type.</p>
+<p>mimes:foo,bar,...
+The file under validation must have a MIME type corresponding to one of the listed extensions.</p>
+<p>Basic Usage Of MIME Rule
+'photo' =&gt; 'mimes:jpeg,bmp,png'
+Even though you only need to specify the extensions, this rule actually validates against the MIME type of the file by reading the file's contents and guessing its MIME type.</p>
+<p>A full listing of MIME types and their corresponding extensions may be found at the following location: https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types</p>
+<p>min:value
+The field under validation must have a minimum value. Strings, numerics, arrays, and files are evaluated in the same fashion as the size rule.</p>
+<p>not_in:foo,bar,...
+The field under validation must not be included in the given list of values. The Rule::notIn method may be used to fluently construct the rule:</p>
+<p>use Illuminate\Validation\Rule;</p>
+<p>Validator::make($data, [
+    'toppings' =&gt; [
+        'required',
+        Rule::notIn(['sprinkles', 'cherries']),
+    ],
+]);</p>
+<p>not_regex:pattern
+The field under validation must not match the given regular expression.</p>
+<p>Internally, this rule uses the PHP preg_match function. The pattern specified should obey the same formatting required by preg_match and thus also include valid delimiters. For example:  'email' =&gt; 'not_regex:/^.+$/i'.</p>
+<p>Note: When using the regex / not_regex patterns, it may be necessary to specify rules in an array instead of using pipe delimiters, especially if the regular expression contains a pipe character.</p>
+<p>nullable
+The field under validation may be null. This is particularly useful when validating primitive such as strings and integers that can contain null values.</p>
+<p>numeric
+The field under validation must be numeric.</p>
+<p>present
+The field under validation must be present in the input data but can be empty.</p>
+<p>regex:pattern
+The field under validation must match the given regular expression.</p>
+<p>Internally, this rule uses the PHP preg_match function. The pattern specified should obey the same formatting required by preg_match and thus also include valid delimiters. For example:  'email' =&gt; 'regex:/^.+@.+$/i'.</p>
+<p>Note: When using the regex / not_regex patterns, it may be necessary to specify rules in an array instead of using pipe delimiters, especially if the regular expression contains a pipe character.</p>
+<p>required
+The field under validation must be present in the input data and not empty. A field is considered "empty" if one of the following conditions are true:</p>
+<p>The value is null.
+The value is an empty string.
+The value is an empty array or empty Countable object.
+The value is an uploaded file with no path.</p>
+<p>required_if:anotherfield,value,...
+The field under validation must be present and not empty if the anotherfield field is equal to any value.</p>
+<p>If you would like to construct a more complex condition for the required_if rule, you may use the Rule::requiredIf method. This methods accepts a boolean or a Closure. When passed a Closure, the Closure should return true or false to indicate if the field under validation is required:</p>
+<p>use Illuminate\Validation\Rule;</p>
+<p>Validator::make($request-&gt;all(), [
+    'role_id' =&gt; Rule::requiredIf($request-&gt;user()-&gt;is_admin),
+]);</p>
+<p>Validator::make($request-&gt;all(), [
+    'role_id' =&gt; Rule::requiredIf(function () use ($request) {
+        return $request-&gt;user()-&gt;is_admin;
+    }),
+]);</p>
+<p>required_unless:anotherfield,value,...
+The field under validation must be present and not empty unless the anotherfield field is equal to any value.</p>
+<p>required_with:foo,bar,...
+The field under validation must be present and not empty only if any of the other specified fields are present.</p>
+<p>required_with_all:foo,bar,...
+The field under validation must be present and not empty only if all of the other specified fields are present.</p>
+<p>required_without:foo,bar,...
+The field under validation must be present and not empty only when any of the other specified fields are not present.</p>
+<p>required_without_all:foo,bar,...
+The field under validation must be present and not empty only when all of the other specified fields are not present.</p>
+<p>same:field
+The given field must match the field under validation.</p>
+<p>size:value
+The field under validation must have a size matching the given value. For string data, value corresponds to the number of characters. For numeric data, value corresponds to a given integer value. For an array, size corresponds to the count of the array. For files, size corresponds to the file size in kilobytes.</p>
+<p>starts_with:foo,bar,...
+The field under validation must start with one of the given values.</p>
+<p>string
+The field under validation must be a string. If you would like to allow the field to also be null, you should assign the nullable rule to the field.</p>
+<p>timezone
+The field under validation must be a valid timezone identifier according to the  timezone_identifiers_list PHP function.</p>
+<p>unique:table,column,except,idColumn
+The field under validation must not exist within the given database table.</p>
+<p>Specifying A Custom Column Name:</p>
+<p>The column option may be used to specify the field's corresponding database column. If the  column option is not specified, the field name will be used.</p>
+<p>'email' =&gt; 'unique:users,email_address'
+Custom Database Connection</p>
+<p>Occasionally, you may need to set a custom connection for database queries made by the Validator. As seen above, setting unique:users as a validation rule will use the default database connection to query the database. To override this, specify the connection and the table name using "dot" syntax:</p>
+<p>'email' =&gt; 'unique:connection.users,email_address'
+Forcing A Unique Rule To Ignore A Given ID:</p>
+<p>Sometimes, you may wish to ignore a given ID during the unique check. For example, consider an "update profile" screen that includes the user's name, e-mail address, and location. You will probably want to verify that the e-mail address is unique. However, if the user only changes the name field and not the e-mail field, you do not want a validation error to be thrown because the user is already the owner of the e-mail address.</p>
+<p>To instruct the validator to ignore the user's ID, we'll use the Rule class to fluently define the rule. In this example, we'll also specify the validation rules as an array instead of using the | character to delimit the rules:</p>
+<p>use Illuminate\Validation\Rule;</p>
+<p>Validator::make($data, [
+    'email' =&gt; [
+        'required',
+        Rule::unique('users')-&gt;ignore($user-&gt;id),
+    ],
+]);
+You should never pass any user controlled request input into the ignore method. Instead, you should only pass a system generated unique ID such as an auto-incrementing ID or UUID from an Eloquent model instance. Otherwise, your application will be vulnerable to an SQL injection attack.</p>
+<p>Instead of passing the model key's value to the ignore method, you may pass the entire model instance. Laravel will automatically extract the key from the model:</p>
+<p>Rule::unique('users')-&gt;ignore($user)
+If your table uses a primary key column name other than id, you may specify the name of the column when calling the ignore method:</p>
+<p>Rule::unique('users')-&gt;ignore($user-&gt;id, 'user_id')
+By default, the unique rule will check the uniqueness of the column matching the name of the attribute being validated. However, you may pass a different column name as the second argument to the unique method:</p>
+<p>Rule::unique('users', 'email_address')-&gt;ignore($user-&gt;id),
+Adding Additional Where Clauses:</p>
+<p>You may also specify additional query constraints by customizing the query using the where method. For example, let's add a constraint that verifies the account_id is 1:</p>
+<p>'email' =&gt; Rule::unique('users')-&gt;where(function ($query) {
+    return $query-&gt;where('account_id', 1);
+})</p>
+<p>url
+The field under validation must be a valid URL.</p>
+<p>uuid
+The field under validation must be a valid RFC 4122 (version 1, 3, 4, or 5) universally unique identifier (UUID).</p>
+<p>Conditionally Adding Rules
+Validating When Present
+In some situations, you may wish to run validation checks against a field only if that field is present in the input array. To quickly accomplish this, add the sometimes rule to your rule list:</p>
+<p>$v = Validator::make($data, [
+    'email' =&gt; 'sometimes|required|email',
+]);
+In the example above, the email field will only be validated if it is present in the $data array.</p>
+<p>If you are attempting to validate a field that should always be present but may be empty, check out this note on optional fields</p>
+<p>Complex Conditional Validation
+Sometimes you may wish to add validation rules based on more complex conditional logic. For example, you may wish to require a given field only if another field has a greater value than 100. Or, you may need two fields to have a given value only when another field is present. Adding these validation rules doesn't have to be a pain. First, create a Validator instance with your static rules that never change:</p>
+<p>$v = Validator::make($data, [
+    'email' =&gt; 'required|email',
+    'games' =&gt; 'required|numeric',
+]);
+Let's assume our web application is for game collectors. If a game collector registers with our application and they own more than 100 games, we want them to explain why they own so many games. For example, perhaps they run a game resale shop, or maybe they just enjoy collecting. To conditionally add this requirement, we can use the sometimes method on the  Validator instance.</p>
+<p>$v-&gt;sometimes('reason', 'required|max:500', function ($input) {
+    return $input-&gt;games &gt;= 100;
+});
+The first argument passed to the sometimes method is the name of the field we are conditionally validating. The second argument is the rules we want to add. If the Closure passed as the third argument returns true, the rules will be added. This method makes it a breeze to build complex conditional validations. You may even add conditional validations for several fields at once:</p>
+<p>$v-&gt;sometimes(['reason', 'cost'], 'required', function ($input) {
+    return $input-&gt;games &gt;= 100;
+});
+The $input parameter passed to your Closure will be an instance of  Illuminate\Support\Fluent and may be used to access your input and files.</p>
+<p>Validating Arrays
+Validating array based form input fields doesn't have to be a pain. You may use "dot notation" to validate attributes within an array. For example, if the incoming HTTP request contains a  photos[profile] field, you may validate it like so:</p>
+<p>$validator = Validator::make($request-&gt;all(), [
+    'photos.profile' =&gt; 'required|image',
+]);
+You may also validate each element of an array. For example, to validate that each e-mail in a given array input field is unique, you may do the following:</p>
+<p>$validator = Validator::make($request-&gt;all(), [
+    'person.<em>.email' =&gt; 'email|unique:users',
+    'person.</em>.first_name' =&gt; 'required_with:person.*.last_name',
+]);
+Likewise, you may use the * character when specifying your validation messages in your language files, making it a breeze to use a single validation message for array based fields:</p>
+<p>'custom' =&gt; [
+    'person.*.email' =&gt; [
+        'unique' =&gt; 'Each person must have a unique e-mail address',
+    ]
+],</p>
+<p>Custom Validation Rules</p>
+<p>Using Rule Objects
+Laravel provides a variety of helpful validation rules; however, you may wish to specify some of your own. One method of registering custom validation rules is using rule objects. To generate a new rule object, you may use the make:rule Artisan command. Let's use this command to generate a rule that verifies a string is uppercase. Laravel will place the new rule in the  app/Rules directory:</p>
+<p>php artisan make:rule Uppercase
+Once the rule has been created, we are ready to define its behavior. A rule object contains two methods: passes and message. The passes method receives the attribute value and name, and should return true or false depending on whether the attribute value is valid or not. The  message method should return the validation error message that should be used when validation fails:</p>
+<?php
+
+<p>namespace App\Rules;</p>
+<p>use Illuminate\Contracts\Validation\Rule;</p>
+<p>class Uppercase implements Rule
+{
+    /*<em>
+     * Determine if the validation rule passes.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @return bool
+     </em>/
+    public function passes($attribute, $value)
+    {
+        return strtoupper($value) === $value;
+    }</p>
+<pre><code>/**
+ * Get the validation error message.
+ *
+ * @return string
+ */
+public function message()
+{
+    return 'The :attribute must be uppercase.';
+}
+</code></pre>
+<p>}
+You may call the trans helper from your message method if you would like to return an error message from your translation files:</p>
+<p>/*<em>
+ * Get the validation error message.
+ *
+ * @return string
+ </em>/
+public function message()
+{
+    return trans('validation.uppercase');
+}
+Once the rule has been defined, you may attach it to a validator by passing an instance of the rule object with your other validation rules:</p>
+<p>use App\Rules\Uppercase;</p>
+<p>$request-&gt;validate([
+    'name' =&gt; ['required', 'string', new Uppercase],
+]);</p>
+<p>Using Closures
+If you only need the functionality of a custom rule once throughout your application, you may use a Closure instead of a rule object. The Closure receives the attribute's name, the attribute's value, and a $fail callback that should be called if validation fails:</p>
+<p>$validator = Validator::make($request-&gt;all(), [
+    'title' =&gt; [
+        'required',
+        'max:255',
+        function ($attribute, $value, $fail) {
+            if ($value === 'foo') {
+                $fail($attribute.' is invalid.');
+            }
+        },
+    ],
+]);</p>
+<p>Using Extensions
+Another method of registering custom validation rules is using the extend method on the  Validator facade. Let's use this method within a service provider to register a custom validation rule:</p>
+<?php
+
+<p>namespace App\Providers;</p>
+<p>use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;</p>
+<p>class AppServiceProvider extends ServiceProvider
+{
+    /*<em>
+     * Register any application services.
+     *
+     * @return void
+     </em>/
+    public function register()
+    {
+        //
+    }</p>
+<pre><code>/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Validator::extend('foo', function ($attribute, $value, $parameters, $validator) {
+        return $value == 'foo';
+    });
+}
+</code></pre>
+<p>}
+The custom validator Closure receives four arguments: the name of the $attribute being validated, the $value of the attribute, an array of $parameters passed to the rule, and the  Validator instance.</p>
+<p>You may also pass a class and method to the extend method instead of a Closure:</p>
+<p>Validator::extend('foo', 'FooValidator@validate');
+Defining The Error Message
+You will also need to define an error message for your custom rule. You can do so either using an inline custom message array or by adding an entry in the validation language file. This message should be placed in the first level of the array, not within the custom array, which is only for attribute-specific error messages:</p>
+<p>"foo" =&gt; "Your input was invalid!",</p>
+<p>"accepted" =&gt; "The :attribute must be accepted.",</p>
+<p>// The rest of the validation error messages...
+When creating a custom validation rule, you may sometimes need to define custom placeholder replacements for error messages. You may do so by creating a custom Validator as described above then making a call to the replacer method on the Validator facade. You may do this within the boot method of a service provider:</p>
+<p>/*<em>
+ * Bootstrap any application services.
+ *
+ * @return void
+ </em>/
+public function boot()
+{
+    Validator::extend(...);</p>
+<pre><code>Validator::replacer('foo', function ($message, $attribute, $rule, $parameters) {
+    return str_replace(...);
+});
+</code></pre>
+<p>}</p>
+<p>Implicit Extensions
+By default, when an attribute being validated is not present or contains an empty string, normal validation rules, including custom extensions, are not run. For example, the unique rule will not be run against an empty string:</p>
+<p>$rules = ['name' =&gt; 'unique:users,name'];</p>
+<p>$input = ['name' =&gt; ''];</p>
+<p>Validator::make($input, $rules)-&gt;passes(); // true
+For a rule to run even when an attribute is empty, the rule must imply that the attribute is required. To create such an "implicit" extension, use the Validator::extendImplicit() method:</p>
+<p>Validator::extendImplicit('foo', function ($attribute, $value, $parameters, $validator) {
+    return $value == 'foo';
+});
+An "implicit" extension only implies that the attribute is required. Whether it actually invalidates a missing or empty attribute is up to you.</p>
+<p>Implicit Rule Objects
+If you would like a rule object to run when an attribute is empty, you should implement the  Illuminate\Contracts\Validation\ImplicitRule interface. This interface serves as a "marker interface" for the validator; therefore, it does not contain any methods you need to implement.</p>
+<h1 id="error-handling">Error Handling</h1>
+<p>Introduction
+When you start a new Laravel project, error and exception handling is already configured for you. The App\Exceptions\Handler class is where all exceptions triggered by your application are logged and then rendered back to the user. We'll dive deeper into this class throughout this documentation.</p>
+<p>Configuration
+The debug option in your config/app.php configuration file determines how much information about an error is actually displayed to the user. By default, this option is set to respect the value of the APP_DEBUG environment variable, which is stored in your .env file.</p>
+<p>For local development, you should set the APP_DEBUG environment variable to true. In your production environment, this value should always be false. If the value is set to true in production, you risk exposing sensitive configuration values to your application's end users.</p>
+<p>The Exception Handler</p>
+<p>The Report Method
+All exceptions are handled by the App\Exceptions\Handler class. This class contains two methods: report and render. We'll examine each of these methods in detail. The report method is used to log exceptions or send them to an external service like Bugsnag or Sentry. By default, the report method passes the exception to the base class where the exception is logged. However, you are free to log exceptions however you wish.</p>
+<p>For example, if you need to report different types of exceptions in different ways, you may use the PHP instanceof comparison operator:</p>
+<p>/*<em>
+ * Report or log an exception.
+ *
+ * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+ *
+ * @param  \Exception  $exception
+ * @return void
+ </em>/
+public function report(Exception $exception)
+{
+    if ($exception instanceof CustomException) {
+        //
+    }</p>
+<pre><code>parent::report($exception);
+</code></pre>
+<p>}
+Instead of making a lot of instanceof checks in your report method, consider using reportable exceptions</p>
+<p>Global Log Context
+If available, Laravel automatically adds the current user's ID to every exception's log message as contextual data. You may define your own global contextual data by overriding the context method of your application's App\Exceptions\Handler class. This information will be included in every exception's log message written by your application:</p>
+<p>/*<em>
+ * Get the default context variables for logging.
+ *
+ * @return array
+ </em>/
+protected function context()
+{
+    return array_merge(parent::context(), [
+        'foo' =&gt; 'bar',
+    ]);
+}
+The report Helper
+Sometimes you may need to report an exception but continue handling the current request. The  report helper function allows you to quickly report an exception using your exception handler's report method without rendering an error page:</p>
+<p>public function isValid($value)
+{
+    try {
+        // Validate the value...
+    } catch (Exception $e) {
+        report($e);</p>
+<pre><code>    return false;
+}
+</code></pre>
+<p>}
+Ignoring Exceptions By Type
+The $dontReport property of the exception handler contains an array of exception types that will not be logged. For example, exceptions resulting from 404 errors, as well as several other types of errors, are not written to your log files. You may add other exception types to this array as needed:</p>
+<p>/*<em>
+ * A list of the exception types that should not be reported.
+ *
+ * @var array
+ </em>/
+protected $dontReport = [
+    \Illuminate\Auth\AuthenticationException::class,
+    \Illuminate\Auth\Access\AuthorizationException::class,
+    \Symfony\Component\HttpKernel\Exception\HttpException::class,
+    \Illuminate\Database\Eloquent\ModelNotFoundException::class,
+    \Illuminate\Validation\ValidationException::class,
+];</p>
+<p>The Render Method
+The render method is responsible for converting a given exception into an HTTP response that should be sent back to the browser. By default, the exception is passed to the base class which generates a response for you. However, you are free to check the exception type or return your own custom response:</p>
+<p>/*<em>
+ * Render an exception into an HTTP response.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @param  \Exception  $exception
+ * @return \Illuminate\Http\Response
+ </em>/
+public function render($request, Exception $exception)
+{
+    if ($exception instanceof CustomException) {
+        return response()-&gt;view('errors.custom', [], 500);
+    }</p>
+<pre><code>return parent::render($request, $exception);
+</code></pre>
+<p>}</p>
+<p>Reportable &amp; Renderable Exceptions
+Instead of type-checking exceptions in the exception handler's report and render methods, you may define report and render methods directly on your custom exception. When these methods exist, they will be called automatically by the framework:</p>
+<?php
+
+<p>namespace App\Exceptions;</p>
+<p>use Exception;</p>
+<p>class RenderException extends Exception
+{
+    /*<em>
+     * Report the exception.
+     *
+     * @return void
+     </em>/
+    public function report()
+    {
+        //
+    }</p>
+<pre><code>/**
+ * Render the exception into an HTTP response.
+ *
+ * @param  \Illuminate\Http\Request
+ * @return \Illuminate\Http\Response
+ */
+public function render($request)
+{
+    return response(...);
+}
+</code></pre>
+<p>}
+You may type-hint any required dependencies of the report method and they will automatically be injected into the method by Laravel's service container.</p>
+<p>HTTP Exceptions
+Some exceptions describe HTTP error codes from the server. For example, this may be a "page not found" error (404), an "unauthorized error" (401) or even a developer generated 500 error. In order to generate such a response from anywhere in your application, you may use the  abort helper:</p>
+<p>abort(404);
+The abort helper will immediately raise an exception which will be rendered by the exception handler. Optionally, you may provide the response text:</p>
+<p>abort(403, 'Unauthorized action.');</p>
+<p>Custom HTTP Error Pages
+Laravel makes it easy to display custom error pages for various HTTP status codes. For example, if you wish to customize the error page for 404 HTTP status codes, create a  resources/views/errors/404.blade.php. This file will be served on all 404 errors generated by your application. The views within this directory should be named to match the HTTP status code they correspond to. The HttpException instance raised by the abort function will be passed to the view as an $exception variable:</p>
+<h2>{{ $exception->getMessage() }}</h2>
+
+<p>You may publish Laravel's error page templates using the vendor:publish Artisan command. Once the templates have been published, you may customize them to your liking:</p>
+<p>php artisan vendor:publish --tag=laravel-errors</p>
+<h1 id="logging">Logging</h1>
+<p>Introduction
+To help you learn more about what's happening within your application, Laravel provides robust logging services that allow you to log messages to files, the system error log, and even to Slack to notify your entire team.</p>
+<p>Under the hood, Laravel utilizes the Monolog library, which provides support for a variety of powerful log handlers. Laravel makes it a cinch to configure these handlers, allowing you to mix and match them to customize your application's log handling.</p>
+<p>Configuration
+All of the configuration for your application's logging system is housed in the  config/logging.php configuration file. This file allows you to configure your application's log channels, so be sure to review each of the available channels and their options. We'll review a few common options below.</p>
+<p>By default, Laravel will use the stack channel when logging messages. The stack channel is used to aggregate multiple log channels into a single channel. For more information on building stacks, check out the documentation below.</p>
+<p>Configuring The Channel Name
+By default, Monolog is instantiated with a "channel name" that matches the current environment, such as production or local. To change this value, add a name option to your channel's configuration:</p>
+<p>'stack' =&gt; [
+    'driver' =&gt; 'stack',
+    'name' =&gt; 'channel-name',
+    'channels' =&gt; ['single', 'slack'],
+],
+Available Channel Drivers
+Name    Description
+stack   A wrapper to facilitate creating "multi-channel" channels
+single  A single file or path based logger channel (StreamHandler)
+daily   A RotatingFileHandler based Monolog driver which rotates daily
+slack   A SlackWebhookHandler based Monolog driver
+papertrail  A SyslogUdpHandler based Monolog driver
+syslog  A SyslogHandler based Monolog driver
+errorlog    A ErrorLogHandler based Monolog driver
+monolog A Monolog factory driver that may use any supported Monolog handler
+custom  A driver that calls a specified factory to create a channel
+Check out the documentation on advanced channel customization to learn more about the monolog and custom drivers.</p>
+<p>Configuring The Single and Daily Channels
+The single and daily channels have three optional configuration options: bubble,  permission, and locking.</p>
+<p>Name    Description Default
+bubble  Indicates if messages should bubble up to other channels after being handled    true
+permission  The log file's permissions  0644
+locking Attempt to lock the log file before writing to it   false
+Configuring The Papertrail Channel
+The papertrail channel requires the url and port configuration options. You can obtain these values from Papertrail.</p>
+<p>Configuring The Slack Channel
+The slack channel requires a url configuration option. This URL should match a URL for an incoming webhook that you have configured for your Slack team.</p>
+<p>Building Log Stacks
+As previously mentioned, the stack driver allows you to combine multiple channels into a single log channel. To illustrate how to use log stacks, let's take a look at an example configuration that you might see in a production application:</p>
+<p>'channels' =&gt; [
+    'stack' =&gt; [
+        'driver' =&gt; 'stack',
+        'channels' =&gt; ['syslog', 'slack'],
+    ],</p>
+<pre><code>'syslog' =&gt; [
+    'driver' =&gt; 'syslog',
+    'level' =&gt; 'debug',
+],
+
+'slack' =&gt; [
+    'driver' =&gt; 'slack',
+    'url' =&gt; env('LOG_SLACK_WEBHOOK_URL'),
+    'username' =&gt; 'Laravel Log',
+    'emoji' =&gt; ':boom:',
+    'level' =&gt; 'critical',
+],
+</code></pre>
+<p>],
+Let's dissect this configuration. First, notice our stack channel aggregates two other channels via its channels option: syslog and slack. So, when logging messages, both of these channels will have the opportunity to log the message.</p>
+<p>Log Levels
+Take note of the level configuration option present on the syslog and slack channel configurations in the example above. This option determines the minimum "level" a message must be in order to be logged by the channel. Monolog, which powers Laravel's logging services, offers all of the log levels defined in the RFC 5424 specification: emergency, alert, critical, error, warning, notice, info, and debug.</p>
+<p>So, imagine we log a message using the debug method:</p>
+<p>Log::debug('An informational message.');
+Given our configuration, the syslog channel will write the message to the system log; however, since the error message is not critical or above, it will not be sent to Slack. However, if we log an emergency message, it will be sent to both the system log and Slack since the emergency level is above our minimum level threshold for both channels:</p>
+<p>Log::emergency('The system is down!');</p>
+<p>Writing Log Messages
+You may write information to the logs using the Log facade. As previously mentioned, the logger provides the eight logging levels defined in the RFC 5424 specification: emergency, alert, critical, error, warning, notice, info and debug:</p>
+<p>Log::emergency($message);
+Log::alert($message);
+Log::critical($message);
+Log::error($message);
+Log::warning($message);
+Log::notice($message);
+Log::info($message);
+Log::debug($message);
+So, you may call any of these methods to log a message for the corresponding level. By default, the message will be written to the default log channel as configured by your  config/logging.php configuration file:</p>
+<?php
+
+<p>namespace App\Http\Controllers;</p>
+<p>use App\User;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;</p>
+<p>class UserController extends Controller
+{
+    /*<em>
+     * Show the profile for the given user.
+     *
+     * @param  int  $id
+     * @return Response
+     </em>/
+    public function showProfile($id)
+    {
+        Log::info('Showing user profile for user: '.$id);</p>
+<pre><code>    return view('user.profile', ['user' =&gt; User::findOrFail($id)]);
+}
+</code></pre>
+<p>}
+Contextual Information
+An array of contextual data may also be passed to the log methods. This contextual data will be formatted and displayed with the log message:</p>
+<p>Log::info('User failed to login.', ['id' =&gt; $user-&gt;id]);</p>
+<p>Writing To Specific Channels
+Sometimes you may wish to log a message to a channel other than your application's default channel. You may use the channel method on the Log facade to retrieve and log to any channel defined in your configuration file:</p>
+<p>Log::channel('slack')-&gt;info('Something happened!');
+If you would like to create an on-demand logging stack consisting of multiple channels, you may use the stack method:</p>
+<p>Log::stack(['single', 'slack'])-&gt;info('Something happened!');</p>
+<p>Advanced Monolog Channel Customization</p>
+<p>Customizing Monolog For Channels
+Sometimes you may need complete control over how Monolog is configured for an existing channel. For example, you may want to configure a custom Monolog FormatterInterface implementation for a given channel's handlers.</p>
+<p>To get started, define a tap array on the channel's configuration. The tap array should contain a list of classes that should have an opportunity to customize (or "tap" into) the Monolog instance after it is created:</p>
+<p>'single' =&gt; [
+    'driver' =&gt; 'single',
+    'tap' =&gt; [App\Logging\CustomizeFormatter::class],
+    'path' =&gt; storage_path('logs/laravel.log'),
+    'level' =&gt; 'debug',
+],
+Once you have configured the tap option on your channel, you're ready to define the class that will customize your Monolog instance. This class only needs a single method: __invoke, which receives an Illuminate\Log\Logger instance. The Illuminate\Log\Logger instance proxies all method calls to the underlying Monolog instance:</p>
+<?php
+
+<p>namespace App\Logging;</p>
+<p>class CustomizeFormatter
+{
+    /*<em>
+     * Customize the given logger instance.
+     *
+     * @param  \Illuminate\Log\Logger  $logger
+     * @return void
+     </em>/
+    public function __invoke($logger)
+    {
+        foreach ($logger-&gt;getHandlers() as $handler) {
+            $handler-&gt;setFormatter(...);
+        }
+    }
+}
+All of your "tap" classes are resolved by the service container, so any constructor dependencies they require will automatically be injected.</p>
+<p>Creating Monolog Handler Channels
+Monolog has a variety of available handlers. In some cases, the type of logger you wish to create is merely a Monolog driver with an instance of a specific handler. These channels can be created using the monolog driver.</p>
+<p>When using the monolog driver, the handler configuration option is used to specify which handler will be instantiated. Optionally, any constructor parameters the handler needs may be specified using the with configuration option:</p>
+<p>'logentries' =&gt; [
+    'driver'  =&gt; 'monolog',
+    'handler' =&gt; Monolog\Handler\SyslogUdpHandler::class,
+    'with' =&gt; [
+        'host' =&gt; 'my.logentries.internal.datahubhost.company.com',
+        'port' =&gt; '10000',
+    ],
+],
+Monolog Formatters
+When using the monolog driver, the Monolog LineFormatter will be used as the default formatter. However, you may customize the type of formatter passed to the handler using the  formatter and formatter_with configuration options:</p>
+<p>'browser' =&gt; [
+    'driver' =&gt; 'monolog',
+    'handler' =&gt; Monolog\Handler\BrowserConsoleHandler::class,
+    'formatter' =&gt; Monolog\Formatter\HtmlFormatter::class,
+    'formatter_with' =&gt; [
+        'dateFormat' =&gt; 'Y-m-d',
+    ],
+],
+If you are using a Monolog handler that is capable of providing its own formatter, you may set the value of the formatter configuration option to default:</p>
+<p>'newrelic' =&gt; [
+    'driver' =&gt; 'monolog',
+    'handler' =&gt; Monolog\Handler\NewRelicHandler::class,
+    'formatter' =&gt; 'default',
+],</p>
+<p>Creating Channels Via Factories
+If you would like to define an entirely custom channel in which you have full control over Monolog's instantiation and configuration, you may specify a custom driver type in your  config/logging.php configuration file. Your configuration should include a via option to point to the factory class which will be invoked to create the Monolog instance:</p>
+<p>'channels' =&gt; [
+    'custom' =&gt; [
+        'driver' =&gt; 'custom',
+        'via' =&gt; App\Logging\CreateCustomLogger::class,
+    ],
+],
+Once you have configured the custom channel, you're ready to define the class that will create your Monolog instance. This class only needs a single method: __invoke, which should return the Monolog instance:</p>
+<?php
+
+<p>namespace App\Logging;</p>
+<p>use Monolog\Logger;</p>
+<p>class CreateCustomLogger
+{
+    /*<em>
+     * Create a custom Monolog instance.
+     *
+     * @param  array  $config
+     * @return \Monolog\Logger
+     </em>/
+    public function __invoke(array $config)
+    {
+        return new Logger(...);
+    }
+}</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../laravel_db_setting/" title="Laravel Database Setting" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Laravel Database Setting
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../laravel_blade/" title="Laravel Blade Templating" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Laravel Blade Templating
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy;2019 ESD-Application
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
