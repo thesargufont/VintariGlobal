@@ -1,5 +1,5 @@
 <?php
-namespace artemis\Helpers;
+namespace App\Helpers;
 use Carbon\Carbon;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;

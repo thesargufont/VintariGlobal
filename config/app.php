@@ -17,6 +17,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Title
+    |--------------------------------------------------------------------------
+    */
+    
+    'title' => env('APP_TITLE','Vintari'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
@@ -67,7 +75,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Jakarta',
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +88,10 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'id',
+
+    'decimal_point' => env('DECIMAL_POINT', ','),
+    'thousand_separator' => env('THOUSAND_SEPARATOR', '.'),
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +176,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Yajra\DataTables\DataTablesServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -173,6 +185,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\ArtHelperProvider::class,
         App\Providers\RouteServiceProvider::class,
 
     ],
@@ -225,6 +238,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Datatables' => Yajra\DataTables\Facades\DataTables::class,
+        'ArtHelper' => App\Helpers\ArtHelper::class,
 
     ],
 
