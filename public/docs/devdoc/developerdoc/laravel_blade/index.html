@@ -1,0 +1,2396 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="ESD-Application">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Laravel Blade Templating - Artemis Development Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ef5350">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#laravel-blade-templating" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Artemis Development Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/favicon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Artemis Development Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Laravel Blade Templating
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Artemis Development Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../img/favicon.png" width="48" height="48">
+      
+    </a>
+    Artemis Development Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      For Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        For Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git/" title="Git" class="md-nav__link">
+      Git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../composer/" title="Composer" class="md-nav__link">
+      Composer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_basic/" title="Laravel Basic" class="md-nav__link">
+      Laravel Basic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_setting/" title="Laravel Database Setting" class="md-nav__link">
+      Laravel Database Setting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_routing/" title="Laravel Routing" class="md-nav__link">
+      Laravel Routing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Laravel Blade Templating
+      </label>
+    
+    <a href="./" title="Laravel Blade Templating" class="md-nav__link md-nav__link--active">
+      Laravel Blade Templating
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#template-inheritance" title="Template Inheritance" class="md-nav__link">
+    Template Inheritance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defining-a-layout" title="Defining A Layout" class="md-nav__link">
+    Defining A Layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-a-layout" title="Extending A Layout" class="md-nav__link">
+    Extending A Layout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components-slots" title="Components &amp; Slots" class="md-nav__link">
+    Components &amp; Slots
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passing-additional-data-to-components" title="Passing Additional Data To Components" class="md-nav__link">
+    Passing Additional Data To Components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aliasing-components" title="Aliasing Components" class="md-nav__link">
+    Aliasing Components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#displaying-data" title="Displaying Data" class="md-nav__link">
+    Displaying Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#displaying-unescaped-data" title="Displaying Unescaped Data" class="md-nav__link">
+    Displaying Unescaped Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendering-json" title="Rendering JSON" class="md-nav__link">
+    Rendering JSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html-entity-encoding" title="HTML Entity Encoding" class="md-nav__link">
+    HTML Entity Encoding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blade-javascript-frameworks" title="Blade &amp; JavaScript Frameworks" class="md-nav__link">
+    Blade &amp; JavaScript Frameworks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-verbatim-directive" title="The @verbatim Directive" class="md-nav__link">
+    The @verbatim Directive
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-structures" title="Control Structures" class="md-nav__link">
+    Control Structures
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-statements" title="If Statements" class="md-nav__link">
+    If Statements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-directives" title="Authentication Directives" class="md-nav__link">
+    Authentication Directives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-directives" title="Section Directives" class="md-nav__link">
+    Section Directives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-statements" title="Switch Statements" class="md-nav__link">
+    Switch Statements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loops" title="Loops" class="md-nav__link">
+    Loops
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-loop-variable" title="The Loop Variable" class="md-nav__link">
+    The Loop Variable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" title="Comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php" title="PHP" class="md-nav__link">
+    PHP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forms" title="Forms" class="md-nav__link">
+    Forms
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csrf-field" title="CSRF Field" class="md-nav__link">
+    CSRF Field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-field" title="Method Field" class="md-nav__link">
+    Method Field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-errors" title="Validation Errors" class="md-nav__link">
+    Validation Errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#including-sub-views" title="Including Sub-Views" class="md-nav__link">
+    Including Sub-Views
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aliasing-includes" title="Aliasing Includes" class="md-nav__link">
+    Aliasing Includes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-views-for-collections" title="Rendering Views For Collections" class="md-nav__link">
+    Rendering Views For Collections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stacks" title="Stacks" class="md-nav__link">
+    Stacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-injection" title="Service Injection" class="md-nav__link">
+    Service Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-blade" title="Extending Blade" class="md-nav__link">
+    Extending Blade
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-if-statements" title="Custom If Statements" class="md-nav__link">
+    Custom If Statements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_query/" title="Laravel Database Query" class="md-nav__link">
+      Laravel Database Query
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_migration/" title="Laravel Database Migration" class="md-nav__link">
+      Laravel Database Migration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_eloquent/" title="Laravel Eloquent" class="md-nav__link">
+      Laravel Eloquent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_queue/" title="Laravel Queue" class="md-nav__link">
+      Laravel Queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_schedule/" title="Laravel Schedule" class="md-nav__link">
+      Laravel Schedule
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_class_testing/" title="Laravel Class Testing" class="md-nav__link">
+      Laravel Class Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_intro/" title="Artemis Introduction" class="md-nav__link">
+      Artemis Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_coding_standard/" title="Artemis Coding Standard" class="md-nav__link">
+      Artemis Coding Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_ui_standard/" title="Artemis UI Design Standard" class="md-nav__link">
+      Artemis UI Design Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_documentation_editing/" title="Artemis Documentation Editing" class="md-nav__link">
+      Artemis Documentation Editing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tugas/" title="Tugas" class="md-nav__link">
+      Tugas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      For System Admins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        For System Admins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sysadmindoc/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      For Functionals
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        For Functionals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_intro/" title="Artemis Introduction" class="md-nav__link">
+      Artemis Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_ui_standard/" title="Artemis UI Design Standard" class="md-nav__link">
+      Artemis UI Design Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_db_and_model_objects/" title="Artemis Database and Model Objects" class="md-nav__link">
+      Artemis Database and Model Objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/phpmyadmin/" title="PhpMyAdmin Usage" class="md-nav__link">
+      PhpMyAdmin Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/gitea/" title="Gitea Git Server Usage" class="md-nav__link">
+      Gitea Git Server Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_documentation_editing/" title="Artemis Documentation Editing" class="md-nav__link">
+      Artemis Documentation Editing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Artemis Projects
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Artemis Projects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      CORE
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        CORE
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/core/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/core/user_auth/" title="User Auth" class="md-nav__link">
+      User Auth
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      TMS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        TMS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/tms/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#template-inheritance" title="Template Inheritance" class="md-nav__link">
+    Template Inheritance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defining-a-layout" title="Defining A Layout" class="md-nav__link">
+    Defining A Layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-a-layout" title="Extending A Layout" class="md-nav__link">
+    Extending A Layout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components-slots" title="Components &amp; Slots" class="md-nav__link">
+    Components &amp; Slots
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passing-additional-data-to-components" title="Passing Additional Data To Components" class="md-nav__link">
+    Passing Additional Data To Components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aliasing-components" title="Aliasing Components" class="md-nav__link">
+    Aliasing Components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#displaying-data" title="Displaying Data" class="md-nav__link">
+    Displaying Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#displaying-unescaped-data" title="Displaying Unescaped Data" class="md-nav__link">
+    Displaying Unescaped Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendering-json" title="Rendering JSON" class="md-nav__link">
+    Rendering JSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html-entity-encoding" title="HTML Entity Encoding" class="md-nav__link">
+    HTML Entity Encoding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blade-javascript-frameworks" title="Blade &amp; JavaScript Frameworks" class="md-nav__link">
+    Blade &amp; JavaScript Frameworks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-verbatim-directive" title="The @verbatim Directive" class="md-nav__link">
+    The @verbatim Directive
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-structures" title="Control Structures" class="md-nav__link">
+    Control Structures
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-statements" title="If Statements" class="md-nav__link">
+    If Statements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-directives" title="Authentication Directives" class="md-nav__link">
+    Authentication Directives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-directives" title="Section Directives" class="md-nav__link">
+    Section Directives
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-statements" title="Switch Statements" class="md-nav__link">
+    Switch Statements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loops" title="Loops" class="md-nav__link">
+    Loops
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-loop-variable" title="The Loop Variable" class="md-nav__link">
+    The Loop Variable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" title="Comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#php" title="PHP" class="md-nav__link">
+    PHP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forms" title="Forms" class="md-nav__link">
+    Forms
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csrf-field" title="CSRF Field" class="md-nav__link">
+    CSRF Field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-field" title="Method Field" class="md-nav__link">
+    Method Field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-errors" title="Validation Errors" class="md-nav__link">
+    Validation Errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#including-sub-views" title="Including Sub-Views" class="md-nav__link">
+    Including Sub-Views
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aliasing-includes" title="Aliasing Includes" class="md-nav__link">
+    Aliasing Includes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-views-for-collections" title="Rendering Views For Collections" class="md-nav__link">
+    Rendering Views For Collections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stacks" title="Stacks" class="md-nav__link">
+    Stacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-injection" title="Service Injection" class="md-nav__link">
+    Service Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-blade" title="Extending Blade" class="md-nav__link">
+    Extending Blade
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-if-statements" title="Custom If Statements" class="md-nav__link">
+    Custom If Statements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="laravel-blade-templating">Laravel Blade Templating</h1>
+<p>Blade is the simple, yet powerful templating engine provided with Laravel. Unlike other popular PHP templating engines, Blade does not restrict you from using plain PHP code in your views. In fact, all Blade views are compiled into plain PHP code and cached until they are modified, meaning Blade adds essentially zero overhead to your application. Blade view files use the  .blade.php file extension and are typically stored in the resources/views directory.</p>
+<h2 id="template-inheritance">Template Inheritance</h2>
+<h3 id="defining-a-layout">Defining A Layout</h3>
+<p>Two of the primary benefits of using Blade are template inheritance and sections. To get started, let's take a look at a simple example. First, we will examine a "master" page layout. Since most web applications maintain the same general layout across various pages, it's convenient to define this layout as a single Blade view:</p>
+<pre><code>&lt;!-- Stored in resources/views/layouts/app.blade.php --&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;App Name - @yield('title')&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        @section('sidebar')
+            This is the master sidebar.
+        @show
+
+        &lt;div class=&quot;container&quot;&gt;
+            @yield('content')
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>As you can see, this file contains typical HTML mark-up. However, take note of the <code>@section</code> and <code>@yield</code> directives. The @section directive, as the name implies, defines a section of content, while the <code>@yield</code> directive is used to display the contents of a given section.</p>
+<p>Now that we have defined a layout for our application, let's define a child page that inherits the layout.</p>
+<h3 id="extending-a-layout">Extending A Layout</h3>
+<p>When defining a child view, use the Blade @extends directive to specify which layout the child view should "inherit". Views which extend a Blade layout may inject content into the layout's sections using @section directives. Remember, as seen in the example above, the contents of these sections will be displayed in the layout using @yield:</p>
+<pre><code>&lt;!-- Stored in resources/views/child.blade.php --&gt;
+
+@extends('layouts.app')
+
+@section('title', 'Page Title')
+
+@section('sidebar')
+    @parent
+
+    &lt;p&gt;This is appended to the master sidebar.&lt;/p&gt;
+@endsection
+
+@section('content')
+    &lt;p&gt;This is my body content.&lt;/p&gt;
+@endsection
+</code></pre>
+
+<p>In this example, the sidebar section is utilizing the @parent directive to append (rather than overwriting) content to the layout's sidebar. The @parent directive will be replaced by the content of the layout when the view is rendered.</p>
+<p>Contrary to the previous example, this sidebar section ends with @endsection instead of @show. The @endsection directive will only define a section while @show will define and immediately yield the section.</p>
+<p>The @yield directive also accepts a default value as its second parameter. This value will be rendered if the section being yielded is undefined:</p>
+<pre><code>@yield('content', View::make('view.name'))
+</code></pre>
+
+<p>Blade views may be returned from routes using the global view helper:</p>
+<pre><code>Route::get('blade', function () {
+    return view('child');
+});
+</code></pre>
+
+<h2 id="components-slots">Components &amp; Slots</h2>
+<p>Components and slots provide similar benefits to sections and layouts; however, some may find the mental model of components and slots easier to understand. First, let's imagine a reusable "alert" component we would like to reuse throughout our application:</p>
+<pre><code>&lt;!-- /resources/views/alert.blade.php --&gt;
+
+&lt;div class=&quot;alert alert-danger&quot;&gt;
+    {{ $slot }}
+&lt;/div&gt;
+</code></pre>
+
+<p>The {{ $slot }} variable will contain the content we wish to inject into the component. Now, to construct this component, we can use the @component Blade directive:</p>
+<pre><code>@component('alert')
+    &lt;strong&gt;Whoops!&lt;/strong&gt; Something went wrong!
+@endcomponent
+</code></pre>
+
+<p>To instruct Laravel to load the first view that exists from a given array of possible views for the component, you may use the componentFirst directive:</p>
+<pre><code>@componentFirst(['custom.alert', 'alert'])
+    &lt;strong&gt;Whoops!&lt;/strong&gt; Something went wrong!
+@endcomponent
+</code></pre>
+
+<p>Sometimes it is helpful to define multiple slots for a component. Let's modify our alert component to allow for the injection of a "title". Named slots may be displayed by "echoing" the variable that matches their name:</p>
+<pre><code>&lt;!-- /resources/views/alert.blade.php --&gt;
+
+&lt;div class=&quot;alert alert-danger&quot;&gt;
+    &lt;div class=&quot;alert-title&quot;&gt;{{ $title }}&lt;/div&gt;
+
+    {{ $slot }}
+&lt;/div&gt;
+</code></pre>
+
+<p>Now, we can inject content into the named slot using the @slot directive. Any content not within a @slot directive will be passed to the component in the $slot variable:</p>
+<pre><code>@component('alert')
+    @slot('title')
+        Forbidden
+    @endslot
+    You are not allowed to access this resource!
+@endcomponent
+</code></pre>
+
+<h3 id="passing-additional-data-to-components">Passing Additional Data To Components</h3>
+<p>Sometimes you may need to pass additional data to a component. For this reason, you can pass an array of data as the second argument to the @component directive. All of the data will be made available to the component template as variables:</p>
+<pre><code>@component('alert', ['foo' =&gt; 'bar'])
+    ...
+@endcomponent
+</code></pre>
+
+<h3 id="aliasing-components">Aliasing Components</h3>
+<p>If your Blade components are stored in a sub-directory, you may wish to alias them for easier access. For example, imagine a Blade component that is stored at  resources/views/components/alert.blade.php. You may use the component method to alias the component from components.alert to alert. Typically, this should be done in the boot method of your AppServiceProvider:</p>
+<pre><code>use Illuminate\Support\Facades\Blade;
+
+Blade::component('components.alert', 'alert');
+</code></pre>
+
+<p>Once the component has been aliased, you may render it using a directive:</p>
+<pre><code>@alert(['type' =&gt; 'danger'])
+    You are not allowed to access this resource!
+@endalert
+</code></pre>
+
+<p>You may omit the component parameters if it has no additional slots:</p>
+<pre><code>@alert
+    You are not allowed to access this resource!
+@endalert
+</code></pre>
+
+<h2 id="displaying-data">Displaying Data</h2>
+<p>You may display data passed to your Blade views by wrapping the variable in curly braces. For example, given the following route:</p>
+<pre><code>Route::get('greeting', function () {
+    return view('welcome', ['name' =&gt; 'Samantha']);
+});
+</code></pre>
+
+<p>You may display the contents of the name variable like so:</p>
+<pre><code>Hello, {{ $name }}.
+</code></pre>
+
+<p>Blade {{ }} statements are automatically sent through PHP's htmlspecialchars function to prevent XSS attacks.</p>
+<p>You are not limited to displaying the contents of the variables passed to the view. You may also echo the results of any PHP function. In fact, you can put any PHP code you wish inside of a Blade echo statement:</p>
+<pre><code>The current UNIX timestamp is {{ time() }}.
+</code></pre>
+
+<h3 id="displaying-unescaped-data">Displaying Unescaped Data</h3>
+<p>By default, Blade {{ }} statements are automatically sent through PHP's htmlspecialchars function to prevent XSS attacks. If you do not want your data to be escaped, you may use the following syntax:</p>
+<pre><code>Hello, {!! $name !!}.
+</code></pre>
+
+<blockquote>
+<p>Be very careful when echoing content that is supplied by users of your application. Always use the escaped, double curly brace syntax to prevent XSS attacks when displaying user supplied data.</p>
+</blockquote>
+<h3 id="rendering-json">Rendering JSON</h3>
+<p>Sometimes you may pass an array to your view with the intention of rendering it as JSON in order to initialize a JavaScript variable. For example:</p>
+<pre><code>&lt;script&gt;
+    var app = &lt;?php echo json_encode($array); ?&gt;;
+&lt;/script&gt;
+</code></pre>
+
+<p>However, instead of manually calling json_encode, you may use the @json Blade directive. The  @json directive accepts the same arguments as PHP's json_encode function:</p>
+<pre><code>&lt;script&gt;
+    var app = @json($array);
+
+    var app = @json($array, JSON_PRETTY_PRINT);
+&lt;/script&gt;
+</code></pre>
+
+<p>You should only use the @json directive to render existing variables as JSON. The Blade templating is based on regular expressions and attempts to pass a complex expression to the directive may cause unexpected failures.</p>
+<p>The @json directive is also useful for seeding Vue components or data-* attributes:</p>
+<pre><code>&lt;example-component :some-prop='@json($array)'&gt;&lt;/example-component&gt;
+</code></pre>
+
+<p>Using @json in element attributes requires that it be surrounded by single quotes.</p>
+<h3 id="html-entity-encoding">HTML Entity Encoding</h3>
+<p>By default, Blade (and the Laravel e helper) will double encode HTML entities. If you would like to disable double encoding, call the Blade::withoutDoubleEncoding method from the boot method of your AppServiceProvider:</p>
+<pre><code>&lt;?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Blade::withoutDoubleEncoding();
+    }
+}
+</code></pre>
+
+<h2 id="blade-javascript-frameworks">Blade &amp; JavaScript Frameworks</h2>
+<p>Since many JavaScript frameworks also use "curly" braces to indicate a given expression should be displayed in the browser, you may use the @ symbol to inform the Blade rendering engine an expression should remain untouched. For example:</p>
+<pre><code>&lt;h1&gt;Laravel&lt;/h1&gt;
+
+Hello, @{{ name }}.
+</code></pre>
+
+<p>In this example, the @ symbol will be removed by Blade; however, {{ name }} expression will remain untouched by the Blade engine, allowing it to instead be rendered by your JavaScript framework.</p>
+<h3 id="the-verbatim-directive">The @verbatim Directive</h3>
+<p>If you are displaying JavaScript variables in a large portion of your template, you may wrap the HTML in the @verbatim directive so that you do not have to prefix each Blade echo statement with an @ symbol:</p>
+<pre><code>@verbatim
+    &lt;div class=&quot;container&quot;&gt;
+        Hello, {{ name }}.
+    &lt;/div&gt;
+@endverbatim
+</code></pre>
+
+<h2 id="control-structures">Control Structures</h2>
+<p>In addition to template inheritance and displaying data, Blade also provides convenient shortcuts for common PHP control structures, such as conditional statements and loops. These shortcuts provide a very clean, terse way of working with PHP control structures, while also remaining familiar to their PHP counterparts.</p>
+<h3 id="if-statements">If Statements</h3>
+<p>You may construct if statements using the @if, @elseif, @else, and @endif directives. These directives function identically to their PHP counterparts:</p>
+<pre><code>@if (count($records) === 1)
+    I have one record!
+@elseif (count($records) &gt; 1)
+    I have multiple records!
+@else
+    I don't have any records!
+@endif
+</code></pre>
+
+<p>For convenience, Blade also provides an @unless directive:</p>
+<pre><code>@unless (Auth::check())
+    You are not signed in.
+@endunless
+</code></pre>
+
+<p>In addition to the conditional directives already discussed, the @isset and @empty directives may be used as convenient shortcuts for their respective PHP functions:</p>
+<pre><code>@isset($records)
+    // $records is defined and is not null...
+@endisset
+</code></pre>
+
+<pre><code>@empty($records)
+    // $records is &quot;empty&quot;...
+@endempty
+</code></pre>
+
+<h3 id="authentication-directives">Authentication Directives</h3>
+<p>The @auth and @guest directives may be used to quickly determine if the current user is authenticated or is a guest:</p>
+<pre><code>@auth
+    // The user is authenticated...
+@endauth
+</code></pre>
+
+<pre><code>@guest
+    // The user is not authenticated...
+@endguest
+</code></pre>
+
+<p>If needed, you may specify the authentication guard that should be checked when using the  @auth and @guest directives:</p>
+<pre><code>@auth('admin')
+    // The user is authenticated...
+@endauth
+</code></pre>
+
+<pre><code>@guest('admin')
+    // The user is not authenticated...
+@endguest
+</code></pre>
+
+<h3 id="section-directives">Section Directives</h3>
+<p>You may check if a section has content using the @hasSection directive:</p>
+<pre><code>@hasSection('navigation')
+    &lt;div class=&quot;pull-right&quot;&gt;
+        @yield('navigation')
+    &lt;/div&gt;
+
+    &lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;
+@endif
+</code></pre>
+
+<h3 id="switch-statements">Switch Statements</h3>
+<p>Switch statements can be constructed using the @switch, @case, @break, @default and  @endswitch directives:</p>
+<pre><code>@switch($i)
+    @case(1)
+        First case...
+        @break
+
+    @case(2)
+        Second case...
+        @break
+
+    @default
+        Default case...
+@endswitch
+</code></pre>
+
+<h3 id="loops">Loops</h3>
+<p>In addition to conditional statements, Blade provides simple directives for working with PHP's loop structures. Again, each of these directives functions identically to their PHP counterparts:</p>
+<pre><code>@for ($i = 0; $i &lt; 10; $i++)
+    The current value is {{ $i }}
+@endfor
+</code></pre>
+
+<pre><code>@foreach ($users as $user)
+    &lt;p&gt;This is user {{ $user-&gt;id }}&lt;/p&gt;
+@endforeach
+</code></pre>
+
+<pre><code>@forelse ($users as $user)
+    &lt;li&gt;{{ $user-&gt;name }}&lt;/li&gt;
+@empty
+    &lt;p&gt;No users&lt;/p&gt;
+@endforelse
+</code></pre>
+
+<pre><code>@while (true)
+    &lt;p&gt;I'm looping forever.&lt;/p&gt;
+@endwhile
+</code></pre>
+
+<p>When looping, you may use the loop variable to gain valuable information about the loop, such as whether you are in the first or last iteration through the loop.</p>
+<p>When using loops you may also end the loop or skip the current iteration:</p>
+<pre><code>@foreach ($users as $user)
+    @if ($user-&gt;type == 1)
+        @continue
+    @endif
+
+    &lt;li&gt;{{ $user-&gt;name }}&lt;/li&gt;
+
+    @if ($user-&gt;number == 5)
+        @break
+    @endif
+@endforeach
+</code></pre>
+
+<p>You may also include the condition with the directive declaration in one line:</p>
+<pre><code>@foreach ($users as $user)
+    @continue($user-&gt;type == 1)
+
+    &lt;li&gt;{{ $user-&gt;name }}&lt;/li&gt;
+
+    @break($user-&gt;number == 5)
+@endforeach
+</code></pre>
+
+<h3 id="the-loop-variable">The Loop Variable</h3>
+<p>When looping, a $loop variable will be available inside of your loop. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:</p>
+<pre><code>@foreach ($users as $user)
+    @if ($loop-&gt;first)
+        This is the first iteration.
+    @endif
+
+    @if ($loop-&gt;last)
+        This is the last iteration.
+    @endif
+
+    &lt;p&gt;This is user {{ $user-&gt;id }}&lt;/p&gt;
+@endforeach
+</code></pre>
+
+<p>If you are in a nested loop, you may access the parent loop's $loop variable via the parent property:</p>
+<pre><code>@foreach ($users as $user)
+    @foreach ($user-&gt;posts as $post)
+        @if ($loop-&gt;parent-&gt;first)
+            This is first iteration of the parent loop.
+        @endif
+    @endforeach
+@endforeach
+</code></pre>
+
+<p>The $loop variable also contains a variety of other useful properties:
+| Property | Description |
+| --- | --- |
+|$loop-&gt;index | The index of the current loop iteration (starts at 0). |
+|$loop-&gt;iteration | The current loop iteration (starts at 1). |
+|$loop-&gt;remaining | The iterations remaining in the loop. |
+|$loop-&gt;count | The total number of items in the array being iterated. |
+|$loop-&gt;first | Whether this is the first iteration through the loop. |
+|$loop-&gt;last | Whether this is the last iteration through the loop. |
+|$loop-&gt;even | Whether this is an even iteration through the loop. |
+|$loop-&gt;odd | Whether this is an odd iteration through the loop. |
+|$loop-&gt;depth | The nesting level of the current loop. |
+|$loop-&gt;parent | When in a nested loop, the parent's loop variable. |</p>
+<h2 id="comments">Comments</h2>
+<p>Blade also allows you to define comments in your views. However, unlike HTML comments, Blade comments are not included in the HTML returned by your application:</p>
+<pre><code>{{-- This comment will not be present in the rendered HTML --}}
+</code></pre>
+
+<h2 id="php">PHP</h2>
+<p>In some situations, it's useful to embed PHP code into your views. You can use the Blade @php directive to execute a block of plain PHP within your template:</p>
+<pre><code>@php
+    //
+@endphp
+</code></pre>
+
+<p>While Blade provides this feature, using it frequently may be a signal that you have too much logic embedded within your template.</p>
+<h2 id="forms">Forms</h2>
+<h3 id="csrf-field">CSRF Field</h3>
+<p>Anytime you define an HTML form in your application, you should include a hidden CSRF token field in the form so that the CSRF protection middleware can validate the request. You may use the @csrf Blade directive to generate the token field:</p>
+<pre><code>&lt;form method=&quot;POST&quot; action=&quot;/profile&quot;&gt;
+    @csrf
+
+    ...
+&lt;/form&gt;
+</code></pre>
+
+<h3 id="method-field">Method Field</h3>
+<p>Since HTML forms can't make PUT, PATCH, or DELETE requests, you will need to add a hidden  _method field to spoof these HTTP verbs. The @method Blade directive can create this field for you:</p>
+<pre><code>&lt;form action=&quot;/foo/bar&quot; method=&quot;POST&quot;&gt;
+    @method('PUT')
+
+    ...
+&lt;/form&gt;
+</code></pre>
+
+<h3 id="validation-errors">Validation Errors</h3>
+<p>The @error directive may be used to quickly check if validation error messages exist for a given attribute. Within an @error directive, you may echo the $message variable to display the error message:</p>
+<pre><code>&lt;!-- /resources/views/post/create.blade.php --&gt;
+
+&lt;label for=&quot;title&quot;&gt;Post Title&lt;/label&gt;
+
+&lt;input id=&quot;title&quot; type=&quot;text&quot; class=&quot;@error('title') is-invalid @enderror&quot;&gt;
+
+@error('title')
+    &lt;div class=&quot;alert alert-danger&quot;&gt;{{ $message }}&lt;/div&gt;
+@enderror
+</code></pre>
+
+<h2 id="including-sub-views">Including Sub-Views</h2>
+<p>Blade's @include directive allows you to include a Blade view from within another view. All variables that are available to the parent view will be made available to the included view:</p>
+<pre><code>&lt;div&gt;
+    @include('shared.errors')
+
+    &lt;form&gt;
+        &lt;!-- Form Contents --&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Even though the included view will inherit all data available in the parent view, you may also pass an array of extra data to the included view:</p>
+<pre><code>@include('view.name', ['some' =&gt; 'data'])
+</code></pre>
+
+<p>If you attempt to @include a view which does not exist, Laravel will throw an error. If you would like to include a view that may or may not be present, you should use the @includeIf directive:</p>
+<pre><code>@includeIf('view.name', ['some' =&gt; 'data'])
+</code></pre>
+
+<p>If you would like to @include a view depending on a given boolean condition, you may use the  @includeWhen directive:</p>
+<pre><code>@includeWhen($boolean, 'view.name', ['some' =&gt; 'data'])
+</code></pre>
+
+<p>To include the first view that exists from a given array of views, you may use the includeFirst directive:</p>
+<pre><code>@includeFirst(['custom.admin', 'admin'], ['some' =&gt; 'data'])
+</code></pre>
+
+<p>You should avoid using the <strong>DIR</strong> and <strong>FILE</strong> constants in your Blade views, since they will refer to the location of the cached, compiled view.</p>
+<h3 id="aliasing-includes">Aliasing Includes</h3>
+<p>If your Blade includes are stored in a sub-directory, you may wish to alias them for easier access. For example, imagine a Blade include that is stored at  resources/views/includes/input.blade.php with the following content:</p>
+<pre><code>&lt;input type=&quot;{{ $type ?? 'text' }}&quot;&gt;
+</code></pre>
+
+<p>You may use the include method to alias the include from includes.input to input. Typically, this should be done in the boot method of your AppServiceProvider:</p>
+<pre><code>use Illuminate\Support\Facades\Blade;
+
+Blade::include('includes.input', 'input');
+</code></pre>
+
+<p>Once the include has been aliased, you may render it using the alias name as the Blade directive:</p>
+<pre><code>@input(['type' =&gt; 'email'])
+</code></pre>
+
+<h2 id="rendering-views-for-collections">Rendering Views For Collections</h2>
+<p>You may combine loops and includes into one line with Blade's @each directive:</p>
+<pre><code>@each('view.name', $jobs, 'job')
+</code></pre>
+
+<p>The first argument is the view partial to render for each element in the array or collection. The second argument is the array or collection you wish to iterate over, while the third argument is the variable name that will be assigned to the current iteration within the view. So, for example, if you are iterating over an array of jobs, typically you will want to access each job as a job variable within your view partial. The key for the current iteration will be available as the key variable within your view partial.</p>
+<p>You may also pass a fourth argument to the @each directive. This argument determines the view that will be rendered if the given array is empty.</p>
+<pre><code>@each('view.name', $jobs, 'job', 'view.empty')
+</code></pre>
+
+<p>Views rendered via @each do not inherit the variables from the parent view. If the child view requires these variables, you should use @foreach and @include instead.</p>
+<h2 id="stacks">Stacks</h2>
+<p>Blade allows you to push to named stacks which can be rendered somewhere else in another view or layout. This can be particularly useful for specifying any JavaScript libraries required by your child views:</p>
+<pre><code>@push('scripts')
+    &lt;script src=&quot;/example.js&quot;&gt;&lt;/script&gt;
+@endpush
+</code></pre>
+
+<p>You may push to a stack as many times as needed. To render the complete stack contents, pass the name of the stack to the @stack directive:</p>
+<pre><code>&lt;head&gt;
+    &lt;!-- Head Contents --&gt;
+
+    @stack('scripts')
+&lt;/head&gt;
+</code></pre>
+
+<p>If you would like to prepend content onto the beginning of a stack, you should use the  @prepend directive:</p>
+<pre><code>@push('scripts')
+    This will be second...
+@endpush
+
+// Later...
+
+@prepend('scripts')
+    This will be first...
+@endprepend
+</code></pre>
+
+<h2 id="service-injection">Service Injection</h2>
+<p>The @inject directive may be used to retrieve a service from the Laravel service container. The first argument passed to @inject is the name of the variable the service will be placed into, while the second argument is the class or interface name of the service you wish to resolve:</p>
+<pre><code>@inject('metrics', 'App\Services\MetricsService')
+
+&lt;div&gt;
+    Monthly Revenue: {{ $metrics-&gt;monthlyRevenue() }}.
+&lt;/div&gt;
+</code></pre>
+
+<h2 id="extending-blade">Extending Blade</h2>
+<p>Blade allows you to define your own custom directives using the directive method. When the Blade compiler encounters the custom directive, it will call the provided callback with the expression that the directive contains.</p>
+<p>The following example creates a @datetime($var) directive which formats a given $var, which should be an instance of DateTime:</p>
+<pre><code>&lt;?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register bindings in the container.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Blade::directive('datetime', function ($expression) {
+            return &quot;&lt;?php echo ($expression)-&gt;format('m/d/Y H:i'); ?&gt;&quot;;
+        });
+    }
+}
+</code></pre>
+
+<p>As you can see, we will chain the format method onto whatever expression is passed into the directive. So, in this example, the final PHP generated by this directive will be:</p>
+<pre><code>&lt;?php echo ($var)-&gt;format('m/d/Y H:i'); ?&gt;
+</code></pre>
+
+<p>After updating the logic of a Blade directive, you will need to delete all of the cached Blade views. The cached Blade views may be removed using the view:clear Artisan command.</p>
+<h3 id="custom-if-statements">Custom If Statements</h3>
+<p>Programming a custom directive is sometimes more complex than necessary when defining simple, custom conditional statements. For that reason, Blade provides a Blade::if method which allows you to quickly define custom conditional directives using Closures. For example, let's define a custom conditional that checks the current application environment. We may do this in the boot method of our AppServiceProvider:</p>
+<pre><code>use Illuminate\Support\Facades\Blade;
+
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Blade::if('env', function ($environment) {
+        return app()-&gt;environment($environment);
+    });
+}
+</code></pre>
+
+<p>Once the custom conditional has been defined, we can easily use it on our templates:</p>
+<pre><code>@env('local')
+    // The application is in the local environment...
+@elseenv('testing')
+    // The application is in the testing environment...
+@else
+    // The application is not in the local or testing environment...
+@endenv
+</code></pre>
+
+<h1 id="localization">Localization</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Laravel's localization features provide a convenient way to retrieve strings in various languages, allowing you to easily support multiple languages within your application. Language strings are stored in files within the resources/lang directory. Within this directory there should be a subdirectory for each language supported by the application:</p>
+<pre><code>/resources
+    /lang
+        /en
+            messages.php
+        /es
+            messages.php
+</code></pre>
+
+<p>All language files return an array of keyed strings. For example:</p>
+<pre><code>&lt;?php
+
+return [
+    'welcome' =&gt; 'Welcome to our application'
+];
+</code></pre>
+
+<h2 id="configuring-the-locale">Configuring The Locale</h2>
+<p>The default language for your application is stored in the config/app.php configuration file. You may modify this value to suit the needs of your application. You may also change the active language at runtime using the setLocale method on the App facade:</p>
+<pre><code>Route::get('welcome/{locale}', function ($locale) {
+    App::setLocale($locale);
+
+    //
+});
+</code></pre>
+
+<p>You may configure a "fallback language", which will be used when the active language does not contain a given translation string. Like the default language, the fallback language is also configured in the config/app.php configuration file:</p>
+<pre><code>'fallback_locale' =&gt; 'en',
+</code></pre>
+
+<h2 id="determining-the-current-locale">Determining The Current Locale</h2>
+<p>You may use the getLocale and isLocale methods on the App facade to determine the current locale or check if the locale is a given value:</p>
+<pre><code>$locale = App::getLocale();
+
+if (App::isLocale('en')) {
+    //
+}
+</code></pre>
+
+<h2 id="defining-translation-strings">Defining Translation Strings</h2>
+<h3 id="using-short-keys">Using Short Keys</h3>
+<p>Typically, translation strings are stored in files within the resources/lang directory. Within this directory there should be a subdirectory for each language supported by the application:</p>
+<pre><code>/resources
+    /lang
+        /en
+            messages.php
+        /es
+            messages.php
+</code></pre>
+
+<p>All language files return an array of keyed strings. For example:</p>
+<pre><code>&lt;?php
+
+// resources/lang/en/messages.php
+
+return [
+    'welcome' =&gt; 'Welcome to our application'
+];
+</code></pre>
+
+<h3 id="using-translation-strings-as-keys">Using Translation Strings As Keys</h3>
+<p>For applications with heavy translation requirements, defining every string with a "short key" can become quickly confusing when referencing them in your views. For this reason, Laravel also provides support for defining translation strings using the "default" translation of the string as the key.</p>
+<p>Translation files that use translation strings as keys are stored as JSON files in the  resources/lang directory. For example, if your application has a Spanish translation, you should create a resources/lang/es.json file:</p>
+<pre><code>{
+    &quot;I love programming.&quot;: &quot;Me encanta programar.&quot;
+}
+</code></pre>
+
+<h3 id="retrieving-translation-strings">Retrieving Translation Strings</h3>
+<p>You may retrieve lines from language files using the <strong> helper function. The </strong> method accepts the file and key of the translation string as its first argument. For example, let's retrieve the welcome translation string from the resources/lang/messages.php language file:</p>
+<pre><code>echo __('messages.welcome');
+</code></pre>
+
+<pre><code>echo __('I love programming.');
+</code></pre>
+
+<p>If you are using the Blade templating engine, you may use the {{ }} syntax to echo the translation string or use the @lang directive:</p>
+<pre><code>{{ __('messages.welcome') }}
+</code></pre>
+
+<pre><code>@lang('messages.welcome')
+</code></pre>
+
+<p>If the specified translation string does not exist, the <strong> function will return the translation string key. So, using the example above, the </strong> function would return messages.welcome if the translation string does not exist.</p>
+<p>The @lang directive does not escape any output. You are fully responsible for escaping your own output when using this directive.</p>
+<h3 id="replacing-parameters-in-translation-strings">Replacing Parameters In Translation Strings</h3>
+<p>If you wish, you may define placeholders in your translation strings. All placeholders are prefixed with a :. For example, you may define a welcome message with a placeholder name:</p>
+<pre><code>'welcome' =&gt; 'Welcome, :name',
+</code></pre>
+
+<p>To replace the placeholders when retrieving a translation string, pass an array of replacements as the second argument to the __ function:</p>
+<pre><code>echo __('messages.welcome', ['name' =&gt; 'dayle']);
+</code></pre>
+
+<p>If your placeholder contains all capital letters, or only has its first letter capitalized, the translated value will be capitalized accordingly:</p>
+<pre><code>'welcome' =&gt; 'Welcome, :NAME', // Welcome, DAYLE
+'goodbye' =&gt; 'Goodbye, :Name', // Goodbye, Dayle
+</code></pre>
+
+<h3 id="pluralization">Pluralization</h3>
+<p>Pluralization is a complex problem, as different languages have a variety of complex rules for pluralization. By using a "pipe" character, you may distinguish singular and plural forms of a string:</p>
+<pre><code>'apples' =&gt; 'There is one apple|There are many apples',
+</code></pre>
+
+<p>You may even create more complex pluralization rules which specify translation strings for multiple number ranges:</p>
+<pre><code>'apples' =&gt; '{0} There are none|[1,19] There are some|[20,*] There are many',
+</code></pre>
+
+<p>After defining a translation string that has pluralization options, you may use the trans_choice function to retrieve the line for a given "count". In this example, since the count is greater than one, the plural form of the translation string is returned:</p>
+<pre><code>echo trans_choice('messages.apples', 10);
+</code></pre>
+
+<p>You may also define placeholder attributes in pluralization strings. These placeholders may be replaced by passing an array as the third argument to the trans_choice function:</p>
+<pre><code>'minutes_ago' =&gt; '{1} :value minute ago|[2,*] :value minutes ago',
+
+echo trans_choice('time.minutes_ago', 5, ['value' =&gt; 5]);
+</code></pre>
+
+<p>If you would like to display the integer value that was passed to the trans_choice function, you may use the :count placeholder:</p>
+<pre><code>'apples' =&gt; '{0} There are none|{1} There is one|[2,*] There are :count',
+</code></pre>
+
+<h3 id="overriding-package-language-files">Overriding Package Language Files</h3>
+<p>Some packages may ship with their own language files. Instead of changing the package's core files to tweak these lines, you may override them by placing files in the  resources/lang/vendor/{package}/{locale} directory.</p>
+<p>So, for example, if you need to override the English translation strings in messages.php for a package named skyrim/hearthfire, you should place a language file at:  resources/lang/vendor/hearthfire/en/messages.php. Within this file, you should only define the translation strings you wish to override. Any translation strings you don't override will still be loaded from the package's original language files.</p>
+<h1 id="javascript-and-css-scaffolding">Javascript and CSS Scaffolding</h1>
+<p>While Laravel does not dictate which JavaScript or CSS pre-processors you use, it does provide a basic starting point using Bootstrap and Vue that will be helpful for many applications. By default, Laravel uses NPM to install both of these frontend packages.</p>
+<h2 id="css">CSS</h2>
+<p>Laravel Mix provides a clean, expressive API over compiling SASS or Less, which are extensions of plain CSS that add variables, mixins, and other powerful features that make working with CSS much more enjoyable. In this document, we will briefly discuss CSS compilation in general; however, you should consult the full Laravel Mix documentation for more information on compiling SASS or Less.</p>
+<h2 id="javascript">JavaScript</h2>
+<p>Laravel does not require you to use a specific JavaScript framework or library to build your applications. In fact, you don't have to use JavaScript at all. However, Laravel does include some basic scaffolding to make it easier to get started writing modern JavaScript using the Vue library. Vue provides an expressive API for building robust JavaScript applications using components. As with CSS, we may use Laravel Mix to easily compile JavaScript components into a single, browser-ready JavaScript file.</p>
+<h2 id="removing-the-frontend-scaffolding">Removing The Frontend Scaffolding</h2>
+<p>If you would like to remove the frontend scaffolding from your application, you may use the  preset Artisan command. This command, when combined with the none option, will remove the Bootstrap and Vue scaffolding from your application, leaving only a blank SASS file and a few common JavaScript utility libraries:</p>
+<pre><code>php artisan preset none
+</code></pre>
+
+<h2 id="writing-css">Writing CSS</h2>
+<p>Laravel's package.json file includes the bootstrap package to help you get started prototyping your application's frontend using Bootstrap. However, feel free to add or remove packages from the package.json file as needed for your own application. You are not required to use the Bootstrap framework to build your Laravel application - it is provided as a good starting point for those who choose to use it.</p>
+<p>Before compiling your CSS, install your project's frontend dependencies using the Node package manager (NPM):</p>
+<pre><code>npm install
+</code></pre>
+
+<p>Once the dependencies have been installed using npm install, you can compile your SASS files to plain CSS using Laravel Mix. The npm run dev command will process the instructions in your  webpack.mix.js file. Typically, your compiled CSS will be placed in the public/css directory:</p>
+<pre><code>npm run dev
+</code></pre>
+
+<p>The default webpack.mix.js included with Laravel will compile the resources/sass/app.scss SASS file. This app.scss file imports a file of SASS variables and loads Bootstrap, which provides a good starting point for most applications. Feel free to customize the app.scss file however you wish or even use an entirely different pre-processor by configuring Laravel Mix.</p>
+<h2 id="writing-javascript">Writing JavaScript</h2>
+<p>All of the JavaScript dependencies required by your application can be found in the  package.json file in the project's root directory. This file is similar to a composer.json file except it specifies JavaScript dependencies instead of PHP dependencies. You can install these dependencies using the Node package manager (NPM):</p>
+<pre><code>npm install
+</code></pre>
+
+<p>By default, the Laravel package.json file includes a few packages such as vue and  axios to help you get started building your JavaScript application. Feel free to add or remove from the package.json file as needed for your own application.</p>
+<p>Once the packages are installed, you can use the npm run dev command to compile your assets. Webpack is a module bundler for modern JavaScript applications. When you run the  npm run dev command, Webpack will execute the instructions in your webpack.mix.js file:</p>
+<pre><code>npm run dev
+</code></pre>
+
+<p>By default, the Laravel webpack.mix.js file compiles your SASS and the resources/js/app.js file. Within the app.js file you may register your Vue components or, if you prefer a different framework, configure your own JavaScript application. Your compiled JavaScript will typically be placed in the public/js directory.</p>
+<p>The app.js file will load the resources/js/bootstrap.js file which bootstraps and configures Vue, Axios, jQuery, and all other JavaScript dependencies. If you have additional JavaScript dependencies to configure, you may do so in this file.</p>
+<h2 id="writing-vue-components">Writing Vue Components</h2>
+<p>By default, fresh Laravel applications contain an ExampleComponent.vue Vue component located in the resources/js/components directory. The ExampleComponent.vue file is an example of a single file Vue component which defines its JavaScript and HTML template in the same file. Single file components provide a very convenient approach to building JavaScript driven applications. The example component is registered in your app.js file:</p>
+<pre><code>Vue.component(
+    'example-component',
+    require('./components/ExampleComponent.vue')
+);
+</code></pre>
+
+<p>To use the component in your application, you may drop it into one of your HTML templates. For example, after running the make:auth Artisan command to scaffold your application's authentication and registration screens, you could drop the component into the  home.blade.php Blade template:</p>
+<pre><code>@extends('layouts.app')
+
+@section('content')
+    &lt;example-component&gt;&lt;/example-component&gt;
+@endsection
+</code></pre>
+
+<p>Remember, you should run the npm run dev command each time you change a Vue component. Or, you may run the npm run watch command to monitor and automatically recompile your components each time they are modified.</p>
+<p>If you are interested in learning more about writing Vue components, you should read the Vue documentation, which provides a thorough, easy-to-read overview of the entire Vue framework.</p>
+<h2 id="using-react">Using React</h2>
+<p>If you prefer to use React to build your JavaScript application, Laravel makes it a cinch to swap the Vue scaffolding with React scaffolding. On any fresh Laravel application, you may use the  preset command with the react option:</p>
+<p>php artisan preset react
+This single command will remove the Vue scaffolding and replace it with React scaffolding, including an example component.</p>
+<h1 id="compiling-assets-laravel-mix">Compiling assets (Laravel Mix)</h1>
+<p>Introduction
+Laravel Mix provides a fluent API for defining Webpack build steps for your Laravel application using several common CSS and JavaScript pre-processors. Through simple method chaining, you can fluently define your asset pipeline. For example:</p>
+<pre><code>mix.js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css');
+</code></pre>
+
+<p>If you've ever been confused and overwhelmed about getting started with Webpack and asset compilation, you will love Laravel Mix. However, you are not required to use it while developing your application; you are free to use any asset pipeline tool you wish, or even none at all.</p>
+<h2 id="installation-setup">Installation &amp; Setup</h2>
+<h3 id="installing-node">Installing Node</h3>
+<p>Before triggering Mix, you must first ensure that Node.js and NPM are installed on your machine.</p>
+<pre><code>node -v
+npm -v
+</code></pre>
+
+<p>By default, Laravel Homestead includes everything you need; however, if you aren't using Vagrant, then you can easily install the latest version of Node and NPM using simple graphical installers from their download page.</p>
+<h3 id="laravel-mix">Laravel Mix</h3>
+<p>The only remaining step is to install Laravel Mix. Within a fresh installation of Laravel, you'll find a package.json file in the root of your directory structure. The default package.json file includes everything you need to get started. Think of this like your composer.json file, except it defines Node dependencies instead of PHP. You may install the dependencies it references by running:</p>
+<pre><code>npm install
+</code></pre>
+
+<h2 id="running-mix">Running Mix</h2>
+<p>Mix is a configuration layer on top of Webpack, so to run your Mix tasks you only need to execute one of the NPM scripts that is included with the default Laravel package.json file:</p>
+<pre><code>// Run all Mix tasks...
+npm run dev
+
+// Run all Mix tasks and minify output...
+npm run production
+</code></pre>
+
+<h2 id="watching-assets-for-changes">Watching Assets For Changes</h2>
+<p>The npm run watch command will continue running in your terminal and watch all relevant files for changes. Webpack will then automatically recompile your assets when it detects a change:</p>
+<pre><code>npm run watch
+</code></pre>
+
+<p>You may find that in certain environments Webpack isn't updating when your files change. If this is the case on your system, consider using the watch-poll command:</p>
+<pre><code>npm run watch-poll
+</code></pre>
+
+<h2 id="working-with-stylesheets">Working With Stylesheets</h2>
+<p>The webpack.mix.js file is your entry point for all asset compilation. Think of it as a light configuration wrapper around Webpack. Mix tasks can be chained together to define exactly how your assets should be compiled.</p>
+<h3 id="less">Less</h3>
+<p>The less method may be used to compile Less into CSS. Let's compile our primary app.less file to public/css/app.css.</p>
+<pre><code>mix.less('resources/less/app.less', 'public/css');
+</code></pre>
+
+<p>Multiple calls to the less method may be used to compile multiple files:</p>
+<pre><code>mix.less('resources/less/app.less', 'public/css')
+   .less('resources/less/admin.less', 'public/css');
+</code></pre>
+
+<p>If you wish to customize the file name of the compiled CSS, you may pass a full file path as the second argument to the less method:</p>
+<pre><code>mix.less('resources/less/app.less', 'public/stylesheets/styles.css');
+</code></pre>
+
+<p>If you need to override the underlying Less plug-in options, you may pass an object as the third argument to mix.less():</p>
+<pre><code>mix.less('resources/less/app.less', 'public/css', {
+    strictMath: true
+});
+</code></pre>
+
+<h3 id="sass">Sass</h3>
+<p>The sass method allows you to compile Sass into CSS. You may use the method like so:</p>
+<pre><code>mix.sass('resources/sass/app.scss', 'public/css');
+</code></pre>
+
+<p>Again, like the less method, you may compile multiple Sass files into their own respective CSS files and even customize the output directory of the resulting CSS:</p>
+<pre><code>mix.sass('resources/sass/app.sass', 'public/css')
+   .sass('resources/sass/admin.sass', 'public/css/admin');
+</code></pre>
+
+<p>Additional Node-Sass plug-in options may be provided as the third argument:</p>
+<pre><code>mix.sass('resources/sass/app.sass', 'public/css', {
+    precision: 5
+});
+</code></pre>
+
+<h2 id="stylus">Stylus</h2>
+<p>Similar to Less and Sass, the stylus method allows you to compile Stylus into CSS:</p>
+<pre><code>mix.stylus('resources/stylus/app.styl', 'public/css');
+</code></pre>
+
+<p>You may also install additional Stylus plug-ins, such as Rupture. First, install the plug-in in question through NPM (npm install rupture) and then require it in your call to mix.stylus():</p>
+<pre><code>mix.stylus('resources/stylus/app.styl', 'public/css', {
+    use: [
+        require('rupture')()
+    ]
+});
+</code></pre>
+
+<h2 id="postcss">PostCSS</h2>
+<p>PostCSS, a powerful tool for transforming your CSS, is included with Laravel Mix out of the box. By default, Mix leverages the popular Autoprefixer plug-in to automatically apply all necessary CSS3 vendor prefixes. However, you're free to add any additional plug-ins that are appropriate for your application. First, install the desired plug-in through NPM and then reference it in your  webpack.mix.js file:</p>
+<pre><code>mix.sass('resources/sass/app.scss', 'public/css')
+   .options({
+        postCss: [
+            require('postcss-css-variables')()
+        ]
+   });
+</code></pre>
+
+<h2 id="plain-css">Plain CSS</h2>
+<p>If you would just like to concatenate some plain CSS stylesheets into a single file, you may use the styles method.</p>
+<pre><code>mix.styles([
+    'public/css/vendor/normalize.css',
+    'public/css/vendor/videojs.css'
+], 'public/css/all.css');
+</code></pre>
+
+<h1 id="url-processing">URL Processing</h1>
+<p>Because Laravel Mix is built on top of Webpack, it's important to understand a few Webpack concepts. For CSS compilation, Webpack will rewrite and optimize any url() calls within your stylesheets. While this might initially sound strange, it's an incredibly powerful piece of functionality. Imagine that we want to compile Sass that includes a relative URL to an image:</p>
+<pre><code>.example {
+    background: url('../images/example.png');
+}
+</code></pre>
+
+<p>Absolute paths for any given url() will be excluded from URL-rewriting. For example, url('/images/thing.png') or url('http://example.com/images/thing.png') won't be modified.</p>
+<p>By default, Laravel Mix and Webpack will find example.png, copy it to your public/images folder, and then rewrite the url() within your generated stylesheet. As such, your compiled CSS will be:</p>
+<pre><code>.example {
+    background: url(/images/example.png?d41d8cd98f00b204e9800998ecf8427e);
+}
+</code></pre>
+
+<p>As useful as this feature may be, it's possible that your existing folder structure is already configured in a way you like. If this is the case, you may disable url() rewriting like so:</p>
+<pre><code>mix.sass('resources/app/app.scss', 'public/css')
+   .options({
+      processCssUrls: false
+   });
+</code></pre>
+
+<p>With this addition to your webpack.mix.js file, Mix will no longer match any url() or copy assets to your public directory. In other words, the compiled CSS will look just like how you originally typed it:</p>
+<pre><code>.example {
+    background: url(&quot;../images/thing.png&quot;);
+}
+</code></pre>
+
+<h2 id="source-maps">Source Maps</h2>
+<p>Though disabled by default, source maps may be activated by calling the mix.sourceMaps() method in your webpack.mix.js file. Though it comes with a compile/performance cost, this will provide extra debugging information to your browser's developer tools when using compiled assets.</p>
+<pre><code>mix.js('resources/js/app.js', 'public/js')
+   .sourceMaps();
+</code></pre>
+
+<h2 id="working-with-javascript">Working With JavaScript</h2>
+<p>Mix provides several features to help you work with your JavaScript files, such as compiling ECMAScript 2015, module bundling, minification, and concatenating plain JavaScript files. Even better, this all works seamlessly, without requiring an ounce of custom configuration:</p>
+<pre><code>mix.js('resources/js/app.js', 'public/js');
+</code></pre>
+
+<p>With this single line of code, you may now take advantage of:
+* ES2015 syntax.
+* Modules
+* Compilation of .vue files.
+* Minification for production environments.</p>
+<h3 id="vendor-extraction">Vendor Extraction</h3>
+<p>One potential downside to bundling all application-specific JavaScript with your vendor libraries is that it makes long-term caching more difficult. For example, a single update to your application code will force the browser to re-download all of your vendor libraries even if they haven't changed.</p>
+<p>If you intend to make frequent updates to your application's JavaScript, you should consider extracting all of your vendor libraries into their own file. This way, a change to your application code will not affect the caching of your large vendor.js file. Mix's extract method makes this a breeze:</p>
+<pre><code>mix.js('resources/js/app.js', 'public/js')
+   .extract(['vue'])
+</code></pre>
+
+<p>The extract method accepts an array of all libraries or modules that you wish to extract into a  vendor.js file. Using the above snippet as an example, Mix will generate the following files:
+* public/js/manifest.js: The Webpack manifest runtime
+* public/js/vendor.js: Your vendor libraries
+* public/js/app.js: Your application code</p>
+<p>To avoid JavaScript errors, be sure to load these files in the proper order:</p>
+<pre><code>&lt;script src=&quot;/js/manifest.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/js/vendor.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/js/app.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h2 id="react">React</h2>
+<p>Mix can automatically install the Babel plug-ins necessary for React support. To get started, replace your mix.js() call with mix.react():</p>
+<p>mix.react('resources/js/app.jsx', 'public/js');
+Behind the scenes, Mix will download and include the appropriate babel-preset-react Babel plug-in.</p>
+<h2 id="vanilla-js">Vanilla JS</h2>
+<p>Similar to combining stylesheets with mix.styles(), you may also combine and minify any number of JavaScript files with the scripts() method:</p>
+<pre><code>mix.scripts([
+    'public/js/admin.js',
+    'public/js/dashboard.js'
+], 'public/js/all.js');
+</code></pre>
+
+<p>This option is particularly useful for legacy projects where you don't require Webpack compilation for your JavaScript.</p>
+<p>A slight variation of mix.scripts() is mix.babel(). Its method signature is identical to scripts; however, the concatenated file will receive Babel compilation, which translates any ES2015 code to vanilla JavaScript that all browsers will understand.</p>
+<h2 id="custom-webpack-configuration">Custom Webpack Configuration</h2>
+<p>Behind the scenes, Laravel Mix references a pre-configured webpack.config.js file to get you up and running as quickly as possible. Occasionally, you may need to manually modify this file. You might have a special loader or plug-in that needs to be referenced, or maybe you prefer to use Stylus instead of Sass. In such instances, you have two choices:</p>
+<p>Merging Custom Configuration
+Mix provides a useful webpackConfig method that allows you to merge any short Webpack configuration overrides. This is a particularly appealing choice, as it doesn't require you to copy and maintain your own copy of the webpack.config.js file. The webpackConfig method accepts an object, which should contain any Webpack-specific configuration that you wish to apply.</p>
+<pre><code>mix.webpackConfig({
+    resolve: {
+        modules: [
+            path.resolve(__dirname, 'vendor/laravel/spark/resources/assets/js')
+        ]
+    }
+});
+</code></pre>
+
+<h3 id="custom-configuration-files">Custom Configuration Files</h3>
+<p>If you would like to completely customize your Webpack configuration, copy the  node_modules/laravel-mix/setup/webpack.config.js file to your project's root directory. Next, point all of the --config references in your package.json file to the newly copied configuration file. If you choose to take this approach to customization, any future upstream updates to Mix's webpack.config.js must be manually merged into your customized file.</p>
+<h3 id="copying-files-directories">Copying Files &amp; Directories</h3>
+<p>The copy method may be used to copy files and directories to new locations. This can be useful when a particular asset within your node_modules directory needs to be relocated to your public folder.</p>
+<pre><code>mix.copy('node_modules/foo/bar.css', 'public/css/bar.css');
+</code></pre>
+
+<p>When copying a directory, the copy method will flatten the directory's structure. To maintain the directory's original structure, you should use the copyDirectory method instead:</p>
+<pre><code>mix.copyDirectory('resources/img', 'public/img');
+</code></pre>
+
+<h3 id="versioning-cache-busting">Versioning / Cache Busting</h3>
+<p>Many developers suffix their compiled assets with a timestamp or unique token to force browsers to load the fresh assets instead of serving stale copies of the code. Mix can handle this for you using the version method.</p>
+<p>The version method will automatically append a unique hash to the filenames of all compiled files, allowing for more convenient cache busting:</p>
+<pre><code>mix.js('resources/js/app.js', 'public/js')
+   .version();
+</code></pre>
+
+<p>After generating the versioned file, you won't know the exact file name. So, you should use Laravel's global mix function within your views to load the appropriately hashed asset. The  mix function will automatically determine the current name of the hashed file:</p>
+<pre><code>&lt;script src=&quot;{{ mix('/js/app.js') }}&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Because versioned files are usually unnecessary in development, you may instruct the versioning process to only run during npm run production:</p>
+<pre><code>mix.js('resources/js/app.js', 'public/js');
+
+if (mix.inProduction()) {
+    mix.version();
+}
+</code></pre>
+
+<h2 id="browsersync-reloading">Browsersync Reloading</h2>
+<p>BrowserSync can automatically monitor your files for changes, and inject your changes into the browser without requiring a manual refresh. You may enable support by calling the  mix.browserSync() method:</p>
+<pre><code>mix.browserSync('my-domain.test');
+
+// Or...
+
+// https://browsersync.io/docs/options
+mix.browserSync({
+    proxy: 'my-domain.test'
+});
+</code></pre>
+
+<p>You may pass either a string (proxy) or object (BrowserSync settings) to this method. Next, start Webpack's dev server using the npm run watch command. Now, when you modify a script or PHP file, watch as the browser instantly refreshes the page to reflect your changes.</p>
+<h2 id="environment-variables">Environment Variables</h2>
+<p>You may inject environment variables into Mix by prefixing a key in your .env file with MIX_:</p>
+<pre><code>MIX_SENTRY_DSN_PUBLIC=http://example.com
+</code></pre>
+
+<p>After the variable has been defined in your .env file, you may access via the process.env object. If the value changes while you are running a watch task, you will need to restart the task:</p>
+<pre><code>process.env.MIX_SENTRY_DSN_PUBLIC
+</code></pre>
+
+<h2 id="notifications">Notifications</h2>
+<p>When available, Mix will automatically display OS notifications for each bundle. This will give you instant feedback, as to whether the compilation was successful or not. However, there may be instances when you'd prefer to disable these notifications. One such example might be triggering Mix on your production server. Notifications may be deactivated, via the  disableNotifications method.</p>
+<pre><code>mix.disableNotifications();
+</code></pre>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../laravel_routing/" title="Laravel Routing" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Laravel Routing
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../laravel_db_query/" title="Laravel Database Query" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Laravel Database Query
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy;2019 ESD-Application
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

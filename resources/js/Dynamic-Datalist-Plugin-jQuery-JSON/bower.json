@@ -1,0 +1,37 @@
+{
+  "name": "jquery-json-to-datalist",
+  "description": "This jQuery plugin will get data in a JSON file and create datalist after a input field.",
+  "homepage": "https://github.com/stevenMouret/jquery-json-to-datalist",
+  "main": "jquery-json-to-datalist.js",
+  "version": "0.1.0",
+  "keywords": [
+    "JSON",
+    "datalist",
+    "html 5",
+    "field",
+    "jQuery Plugin",
+    "jQueryPlugin"
+  ],
+  "authors": [
+    {
+      "name": "steven Mouret",
+      "email": "steven.mouret@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.0.0"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git://github.com/stevenMouret/jquery-json-to-datalist.git"
+    }
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "README.md"
+  ]
+}

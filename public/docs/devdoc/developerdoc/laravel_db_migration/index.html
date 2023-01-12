@@ -1,0 +1,1176 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="ESD-Application">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Laravel Database Migration - Artemis Development Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ef5350">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#database-seeding" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Artemis Development Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../img/favicon.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Artemis Development Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Laravel Database Migration
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Artemis Development Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../img/favicon.png" width="48" height="48">
+      
+    </a>
+    Artemis Development Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      For Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        For Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../git/" title="Git" class="md-nav__link">
+      Git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../composer/" title="Composer" class="md-nav__link">
+      Composer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_basic/" title="Laravel Basic" class="md-nav__link">
+      Laravel Basic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_setting/" title="Laravel Database Setting" class="md-nav__link">
+      Laravel Database Setting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_routing/" title="Laravel Routing" class="md-nav__link">
+      Laravel Routing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_blade/" title="Laravel Blade Templating" class="md-nav__link">
+      Laravel Blade Templating
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_db_query/" title="Laravel Database Query" class="md-nav__link">
+      Laravel Database Query
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Laravel Database Migration" class="md-nav__link md-nav__link--active">
+      Laravel Database Migration
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_eloquent/" title="Laravel Eloquent" class="md-nav__link">
+      Laravel Eloquent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_queue/" title="Laravel Queue" class="md-nav__link">
+      Laravel Queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_schedule/" title="Laravel Schedule" class="md-nav__link">
+      Laravel Schedule
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../laravel_class_testing/" title="Laravel Class Testing" class="md-nav__link">
+      Laravel Class Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_intro/" title="Artemis Introduction" class="md-nav__link">
+      Artemis Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_coding_standard/" title="Artemis Coding Standard" class="md-nav__link">
+      Artemis Coding Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_ui_standard/" title="Artemis UI Design Standard" class="md-nav__link">
+      Artemis UI Design Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../artemis_documentation_editing/" title="Artemis Documentation Editing" class="md-nav__link">
+      Artemis Documentation Editing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tugas/" title="Tugas" class="md-nav__link">
+      Tugas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      For System Admins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        For System Admins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sysadmindoc/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      For Functionals
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        For Functionals
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_intro/" title="Artemis Introduction" class="md-nav__link">
+      Artemis Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_ui_standard/" title="Artemis UI Design Standard" class="md-nav__link">
+      Artemis UI Design Standard
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_db_and_model_objects/" title="Artemis Database and Model Objects" class="md-nav__link">
+      Artemis Database and Model Objects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/phpmyadmin/" title="PhpMyAdmin Usage" class="md-nav__link">
+      PhpMyAdmin Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/gitea/" title="Gitea Git Server Usage" class="md-nav__link">
+      Gitea Git Server Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functionaldoc/artemis_documentation_editing/" title="Artemis Documentation Editing" class="md-nav__link">
+      Artemis Documentation Editing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Artemis Projects
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Artemis Projects
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      CORE
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        CORE
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/core/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/core/user_auth/" title="User Auth" class="md-nav__link">
+      User Auth
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      TMS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        TMS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../projects/tms/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>Introduction
+Migrations are like version control for your database, allowing your team to easily modify and share the application's database schema. Migrations are typically paired with Laravel's schema builder to easily build your application's database schema. If you have ever had to tell a teammate to manually add a column to their local database schema, you've faced the problem that database migrations solve.</p>
+<p>The Laravel Schema facade provides database agnostic support for creating and manipulating tables across all of Laravel's supported database systems.</p>
+<p>Generating Migrations
+To create a migration, use the make:migration Artisan command:</p>
+<p>php artisan make:migration create_users_table
+The new migration will be placed in your database/migrations directory. Each migration file name contains a timestamp which allows Laravel to determine the order of the migrations.</p>
+<p>The --table and --create options may also be used to indicate the name of the table and whether the migration will be creating a new table. These options pre-fill the generated migration stub file with the specified table:</p>
+<p>php artisan make:migration create_users_table --create=users</p>
+<p>php artisan make:migration add_votes_to_users_table --table=users
+If you would like to specify a custom output path for the generated migration, you may use the  --path option when executing the make:migration command. The given path should be relative to your application's base path.</p>
+<p>Migration Structure
+A migration class contains two methods: up and down. The up method is used to add new tables, columns, or indexes to your database, while the down method should reverse the operations performed by the up method.</p>
+<p>Within both of these methods you may use the Laravel schema builder to expressively create and modify tables. To learn about all of the methods available on the Schema builder, check out its documentation. For example, this migration example creates a flights table:</p>
+<?php
+
+<p>use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;</p>
+<p>class CreateFlightsTable extends Migration
+{
+    /*<em>
+     * Run the migrations.
+     *
+     * @return void
+     </em>/
+    public function up()
+    {
+        Schema::create('flights', function (Blueprint $table) {
+            $table-&gt;bigIncrements('id');
+            $table-&gt;string('name');
+            $table-&gt;string('airline');
+            $table-&gt;timestamps();
+        });
+    }</p>
+<pre><code>/**
+ * Reverse the migrations.
+ *
+ * @return void
+ */
+public function down()
+{
+    Schema::drop('flights');
+}
+</code></pre>
+<p>}</p>
+<p>Running Migrations
+To run all of your outstanding migrations, execute the migrate Artisan command:</p>
+<p>php artisan migrate
+If you are using the Homestead virtual machine, you should run this command from within your virtual machine.</p>
+<p>Forcing Migrations To Run In Production
+Some migration operations are destructive, which means they may cause you to lose data. In order to protect you from running these commands against your production database, you will be prompted for confirmation before the commands are executed. To force the commands to run without a prompt, use the --force flag:</p>
+<p>php artisan migrate --force</p>
+<p>Rolling Back Migrations
+To rollback the latest migration operation, you may use the rollback command. This command rolls back the last "batch" of migrations, which may include multiple migration files:</p>
+<p>php artisan migrate:rollback
+You may rollback a limited number of migrations by providing the step option to the rollback command. For example, the following command will rollback the last five migrations:</p>
+<p>php artisan migrate:rollback --step=5
+The migrate:reset command will roll back all of your application's migrations:</p>
+<p>php artisan migrate:reset
+Rollback &amp; Migrate In Single Command
+The migrate:refresh command will roll back all of your migrations and then execute the  migrate command. This command effectively re-creates your entire database:</p>
+<p>php artisan migrate:refresh</p>
+<p>// Refresh the database and run all database seeds...
+php artisan migrate:refresh --seed
+You may rollback &amp; re-migrate a limited number of migrations by providing the step option to the refresh command. For example, the following command will rollback &amp; re-migrate the last five migrations:</p>
+<p>php artisan migrate:refresh --step=5
+Drop All Tables &amp; Migrate
+The migrate:fresh command will drop all tables from the database and then execute the  migrate command:</p>
+<p>php artisan migrate:fresh</p>
+<p>php artisan migrate:fresh --seed</p>
+<p>Tables</p>
+<p>Creating Tables
+To create a new database table, use the create method on the Schema facade. The create method accepts two arguments. The first is the name of the table, while the second is a  Closure which receives a Blueprint object that may be used to define the new table:</p>
+<p>Schema::create('users', function (Blueprint $table) {
+    $table-&gt;bigIncrements('id');
+});
+When creating the table, you may use any of the schema builder's column methods to define the table's columns.</p>
+<p>Checking For Table / Column Existence
+You may easily check for the existence of a table or column using the hasTable and hasColumn methods:</p>
+<p>if (Schema::hasTable('users')) {
+    //
+}</p>
+<p>if (Schema::hasColumn('users', 'email')) {
+    //
+}
+Database Connection &amp; Table Options
+If you want to perform a schema operation on a database connection that is not your default connection, use the connection method:</p>
+<p>Schema::connection('foo')-&gt;create('users', function (Blueprint $table) {
+    $table-&gt;bigIncrements('id');
+});
+You may use the following commands on the schema builder to define the table's options:</p>
+<p>Command Description
+$table-&gt;engine = 'InnoDB';  Specify the table storage engine (MySQL).
+$table-&gt;charset = 'utf8';   Specify a default character set for the table (MySQL).
+$table-&gt;collation = 'utf8_unicode_ci';  Specify a default collation for the table (MySQL).
+$table-&gt;temporary();    Create a temporary table (except SQL Server).</p>
+<p>Renaming / Dropping Tables
+To rename an existing database table, use the rename method:</p>
+<p>Schema::rename($from, $to);
+To drop an existing table, you may use the drop or dropIfExists methods:</p>
+<p>Schema::drop('users');</p>
+<p>Schema::dropIfExists('users');
+Renaming Tables With Foreign Keys
+Before renaming a table, you should verify that any foreign key constraints on the table have an explicit name in your migration files instead of letting Laravel assign a convention based name. Otherwise, the foreign key constraint name will refer to the old table name.</p>
+<p>Columns</p>
+<p>Creating Columns
+The table method on the Schema facade may be used to update existing tables. Like the  create method, the table method accepts two arguments: the name of the table and a  Closure that receives a Blueprint instance you may use to add columns to the table:</p>
+<p>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('email');
+});
+Available Column Types
+The schema builder contains a variety of column types that you may specify when building your tables:</p>
+<p>Command Description
+$table-&gt;bigIncrements('id');    Auto-incrementing UNSIGNED BIGINT (primary key) equivalent column.
+$table-&gt;bigInteger('votes');    BIGINT equivalent column.
+$table-&gt;binary('data'); BLOB equivalent column.
+$table-&gt;boolean('confirmed');   BOOLEAN equivalent column.
+$table-&gt;char('name', 100);  CHAR equivalent column with an optional length.
+$table-&gt;date('created_at'); DATE equivalent column.
+$table-&gt;dateTime('created_at'); DATETIME equivalent column.
+$table-&gt;dateTimeTz('created_at');   DATETIME (with timezone) equivalent column.
+$table-&gt;decimal('amount', 8, 2);    DECIMAL equivalent column with a precision (total digits) and scale (decimal digits).
+$table-&gt;double('amount', 8, 2); DOUBLE equivalent column with a precision (total digits) and scale (decimal digits).
+$table-&gt;enum('level', ['easy', 'hard']);    ENUM equivalent column.
+$table-&gt;float('amount', 8, 2);  FLOAT equivalent column with a precision (total digits) and scale (decimal digits).
+$table-&gt;geometry('positions');  GEOMETRY equivalent column.
+$table-&gt;geometryCollection('positions');    GEOMETRYCOLLECTION equivalent column.
+$table-&gt;increments('id');   Auto-incrementing UNSIGNED INTEGER (primary key) equivalent column.
+$table-&gt;integer('votes');   INTEGER equivalent column.
+$table-&gt;ipAddress('visitor');   IP address equivalent column.
+$table-&gt;json('options');    JSON equivalent column.
+$table-&gt;jsonb('options');   JSONB equivalent column.
+$table-&gt;lineString('positions');    LINESTRING equivalent column.
+$table-&gt;longText('description');    LONGTEXT equivalent column.
+$table-&gt;macAddress('device');   MAC address equivalent column.
+$table-&gt;mediumIncrements('id'); Auto-incrementing UNSIGNED MEDIUMINT (primary key) equivalent column.
+$table-&gt;mediumInteger('votes'); MEDIUMINT equivalent column.
+$table-&gt;mediumText('description');  MEDIUMTEXT equivalent column.
+$table-&gt;morphs('taggable'); Adds taggable_id UNSIGNED BIGINT and taggable_type VARCHAR equivalent columns.
+$table-&gt;multiLineString('positions');   MULTILINESTRING equivalent column.
+$table-&gt;multiPoint('positions');    MULTIPOINT equivalent column.
+$table-&gt;multiPolygon('positions');  MULTIPOLYGON equivalent column.
+$table-&gt;nullableMorphs('taggable'); Adds nullable versions of  morphs() columns.
+$table-&gt;nullableTimestamps();   Alias of timestamps() method.
+$table-&gt;point('position');  POINT equivalent column.
+$table-&gt;polygon('positions');   POLYGON equivalent column.
+$table-&gt;rememberToken();    Adds a nullable remember_token VARCHAR(100) equivalent column.
+$table-&gt;set('flavors', ['strawberry', 'vanilla']);  SET equivalent column.
+$table-&gt;smallIncrements('id');  Auto-incrementing UNSIGNED SMALLINT (primary key) equivalent column.
+$table-&gt;smallInteger('votes');  SMALLINT equivalent column.
+$table-&gt;softDeletes();  Adds a nullable deleted_at TIMESTAMP equivalent column for soft deletes.
+$table-&gt;softDeletesTz();    Adds a nullable deleted_at TIMESTAMP (with timezone) equivalent column for soft deletes.
+$table-&gt;string('name', 100);    VARCHAR equivalent column with a optional length.
+$table-&gt;text('description');    TEXT equivalent column.
+$table-&gt;time('sunrise');    TIME equivalent column.
+$table-&gt;timeTz('sunrise');  TIME (with timezone) equivalent column.
+$table-&gt;timestamp('added_on');  TIMESTAMP equivalent column.
+$table-&gt;timestampTz('added_on');    TIMESTAMP (with timezone) equivalent column.
+$table-&gt;timestamps();   Adds nullable created_at and  updated_at TIMESTAMP equivalent columns.
+$table-&gt;timestampsTz(); Adds nullable created_at and  updated_at TIMESTAMP (with timezone) equivalent columns.
+$table-&gt;tinyIncrements('id');   Auto-incrementing UNSIGNED TINYINT (primary key) equivalent column.
+$table-&gt;tinyInteger('votes');   TINYINT equivalent column.
+$table-&gt;unsignedBigInteger('votes');    UNSIGNED BIGINT equivalent column.
+$table-&gt;unsignedDecimal('amount', 8, 2);    UNSIGNED DECIMAL equivalent column with a precision (total digits) and scale (decimal digits).
+$table-&gt;unsignedInteger('votes');   UNSIGNED INTEGER equivalent column.
+$table-&gt;unsignedMediumInteger('votes'); UNSIGNED MEDIUMINT equivalent column.
+$table-&gt;unsignedSmallInteger('votes');  UNSIGNED SMALLINT equivalent column.
+$table-&gt;unsignedTinyInteger('votes');   UNSIGNED TINYINT equivalent column.
+$table-&gt;uuid('id'); UUID equivalent column.
+$table-&gt;year('birth_year'); YEAR equivalent column.</p>
+<p>Column Modifiers
+In addition to the column types listed above, there are several column "modifiers" you may use while adding a column to a database table. For example, to make the column "nullable", you may use the nullable method:</p>
+<p>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('email')-&gt;nullable();
+});
+Below is a list of all the available column modifiers. This list does not include the index modifiers:</p>
+<p>Modifier    Description
+-&gt;after('column')   Place the column "after" another column (MySQL)
+-&gt;autoIncrement()   Set INTEGER columns as auto-increment (primary key)
+-&gt;charset('utf8')   Specify a character set for the column (MySQL)
+-&gt;collation('utf8_unicode_ci')  Specify a collation for the column (MySQL/SQL Server)
+-&gt;comment('my comment') Add a comment to a column (MySQL/PostgreSQL)
+-&gt;default($value)   Specify a "default" value for the column
+-&gt;first()   Place the column "first" in the table (MySQL)
+-&gt;nullable($value = true)   Allows (by default) NULL values to be inserted into the column
+-&gt;storedAs($expression) Create a stored generated column (MySQL)
+-&gt;unsigned()    Set INTEGER columns as UNSIGNED (MySQL)
+-&gt;useCurrent()  Set TIMESTAMP columns to use CURRENT_TIMESTAMP as default value
+-&gt;virtualAs($expression)    Create a virtual generated column (MySQL)
+-&gt;generatedAs($expression)  Create an identity column with specified sequence options (PostgreSQL)
+-&gt;always()  Defines the precedence of sequence values over input for an identity column (PostgreSQL)</p>
+<p>Modifying Columns
+Prerequisites
+Before modifying a column, be sure to add the doctrine/dbal dependency to your  composer.json file. The Doctrine DBAL library is used to determine the current state of the column and create the SQL queries needed to make the specified adjustments to the column:</p>
+<p>composer require doctrine/dbal
+Updating Column Attributes
+The change method allows you to modify some existing column types to a new type or modify the column's attributes. For example, you may wish to increase the size of a string column. To see the change method in action, let's increase the size of the name column from 25 to 50:</p>
+<p>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('name', 50)-&gt;change();
+});
+We could also modify a column to be nullable:</p>
+<p>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;string('name', 50)-&gt;nullable()-&gt;change();
+});
+Only the following column types can be "changed": bigInteger, binary, boolean, date, dateTime, dateTimeTz, decimal, integer, json, longText, mediumText, smallInteger, string, text, time, unsignedBigInteger, unsignedInteger and unsignedSmallInteger.</p>
+<p>Renaming Columns
+To rename a column, you may use the renameColumn method on the Schema builder. Before renaming a column, be sure to add the doctrine/dbal dependency to your composer.json file:</p>
+<p>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;renameColumn('from', 'to');
+});
+Renaming any column in a table that also has a column of type enum is not currently supported.</p>
+<p>Dropping Columns
+To drop a column, use the dropColumn method on the Schema builder. Before dropping columns from a SQLite database, you will need to add the doctrine/dbal dependency to your  composer.json file and run the composer update command in your terminal to install the library:</p>
+<p>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;dropColumn('votes');
+});
+You may drop multiple columns from a table by passing an array of column names to the  dropColumn method:</p>
+<p>Schema::table('users', function (Blueprint $table) {
+    $table-&gt;dropColumn(['votes', 'avatar', 'location']);
+});
+Dropping or modifying multiple columns within a single migration while using a SQLite database is not supported.</p>
+<p>Available Command Aliases
+Command Description
+$table-&gt;dropMorphs('morphable');    Drop the morphable_id and morphable_type columns.
+$table-&gt;dropRememberToken();    Drop the remember_token column.
+$table-&gt;dropSoftDeletes();  Drop the deleted_at column.
+$table-&gt;dropSoftDeletesTz();    Alias of dropSoftDeletes() method.
+$table-&gt;dropTimestamps();   Drop the created_at and updated_at columns.
+$table-&gt;dropTimestampsTz(); Alias of dropTimestamps() method.</p>
+<p>Indexes</p>
+<p>Creating Indexes
+The schema builder supports several types of indexes. First, let's look at an example that specifies a column's values should be unique. To create the index, we can chain the unique method onto the column definition:</p>
+<p>$table-&gt;string('email')-&gt;unique();
+Alternatively, you may create the index after defining the column. For example:</p>
+<p>$table-&gt;unique('email');
+You may even pass an array of columns to an index method to create a compound (or composite) index:</p>
+<p>$table-&gt;index(['account_id', 'created_at']);
+Laravel will automatically generate a reasonable index name, but you may pass a second argument to the method to specify the name yourself:</p>
+<p>$table-&gt;unique('email', 'unique_email');
+Available Index Types
+Each index method accepts an optional second argument to specify the name of the index. If omitted, the name will be derived from the names of the table and column(s).</p>
+<p>Command Description
+$table-&gt;primary('id');  Adds a primary key.
+$table-&gt;primary(['id', 'parent_id']);   Adds composite keys.
+$table-&gt;unique('email');    Adds a unique index.
+$table-&gt;index('state'); Adds a plain index.
+$table-&gt;spatialIndex('location');   Adds a spatial index. (except SQLite)
+Index Lengths &amp; MySQL / MariaDB
+Laravel uses the utf8mb4 character set by default, which includes support for storing "emojis" in the database. If you are running a version of MySQL older than the 5.7.7 release or MariaDB older than the 10.2.2 release, you may need to manually configure the default string length generated by migrations in order for MySQL to create indexes for them. You may configure this by calling the Schema::defaultStringLength method within your AppServiceProvider:</p>
+<p>use Illuminate\Support\Facades\Schema;</p>
+<p>/*<em>
+ * Bootstrap any application services.
+ *
+ * @return void
+ </em>/
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+Alternatively, you may enable the innodb_large_prefix option for your database. Refer to your database's documentation for instructions on how to properly enable this option.</p>
+<p>Renaming Indexes
+To rename an index, you may use the renameIndex method. This method accepts the current index name as its first argument and the desired name as its second argument:</p>
+<p>$table-&gt;renameIndex('from', 'to')</p>
+<p>Dropping Indexes
+To drop an index, you must specify the index's name. By default, Laravel automatically assigns a reasonable name to the indexes. Concatenate the table name, the name of the indexed column, and the index type. Here are some examples:</p>
+<p>Command Description
+$table-&gt;dropPrimary('users_id_primary');    Drop a primary key from the "users" table.
+$table-&gt;dropUnique('users_email_unique');   Drop a unique index from the "users" table.
+$table-&gt;dropIndex('geo_state_index');   Drop a basic index from the "geo" table.
+$table-&gt;dropSpatialIndex('geo_location_spatialindex');  Drop a spatial index from the "geo" table (except SQLite).
+If you pass an array of columns into a method that drops indexes, the conventional index name will be generated based on the table name, columns and key type:</p>
+<p>Schema::table('geo', function (Blueprint $table) {
+    $table-&gt;dropIndex(['state']); // Drops index 'geo_state_index'
+});</p>
+<p>Foreign Key Constraints
+Laravel also provides support for creating foreign key constraints, which are used to force referential integrity at the database level. For example, let's define a user_id column on the  posts table that references the id column on a users table:</p>
+<p>Schema::table('posts', function (Blueprint $table) {
+    $table-&gt;unsignedBigInteger('user_id');</p>
+<pre><code>$table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users');
+</code></pre>
+<p>});
+You may also specify the desired action for the "on delete" and "on update" properties of the constraint:</p>
+<p>$table-&gt;foreign('user_id')
+      -&gt;references('id')-&gt;on('users')
+      -&gt;onDelete('cascade');
+To drop a foreign key, you may use the dropForeign method. Foreign key constraints use the same naming convention as indexes. So, we will concatenate the table name and the columns in the constraint then suffix the name with "_foreign":</p>
+<p>$table-&gt;dropForeign('posts_user_id_foreign');
+Or, you may pass an array value which will automatically use the conventional constraint name when dropping:</p>
+<p>$table-&gt;dropForeign(['user_id']);
+You may enable or disable foreign key constraints within your migrations by using the following methods:</p>
+<p>Schema::enableForeignKeyConstraints();</p>
+<p>Schema::disableForeignKeyConstraints();
+SQLite disables foreign key constraints by default. When using SQLite, make sure to enable foreign key support in your database configuration before attempting to create them in your migrations.</p>
+<h1 id="database-seeding">Database Seeding</h1>
+<p>Introduction
+Laravel includes a simple method of seeding your database with test data using seed classes. All seed classes are stored in the database/seeds directory. Seed classes may have any name you wish, but probably should follow some sensible convention, such as UsersTableSeeder, etc. By default, a DatabaseSeeder class is defined for you. From this class, you may use the call method to run other seed classes, allowing you to control the seeding order.</p>
+<p>Writing Seeders
+To generate a seeder, execute the make:seeder Artisan command. All seeders generated by the framework will be placed in the database/seeds directory:</p>
+<p>php artisan make:seeder UsersTableSeeder
+A seeder class only contains one method by default: run. This method is called when the  db:seed Artisan command is executed. Within the run method, you may insert data into your database however you wish. You may use the query builder to manually insert data or you may use Eloquent model factories.</p>
+<p>Mass assignment protection is automatically disabled during database seeding.</p>
+<p>As an example, let's modify the default DatabaseSeeder class and add a database insert statement to the run method:</p>
+<?php
+
+<p>use Illuminate\Support\Str;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;</p>
+<p>class DatabaseSeeder extends Seeder
+{
+    /*<em>
+     * Run the database seeds.
+     *
+     * @return void
+     </em>/
+    public function run()
+    {
+        DB::table('users')-&gt;insert([
+            'name' =&gt; Str::random(10),
+            'email' =&gt; Str::random(10).'@gmail.com',
+            'password' =&gt; bcrypt('secret'),
+        ]);
+    }
+}
+You may type-hint any dependencies you need within the run method's signature. They will automatically be resolved via the Laravel service container.</p>
+<p>Using Model Factories
+Of course, manually specifying the attributes for each model seed is cumbersome. Instead, you can use model factories to conveniently generate large amounts of database records. First, review the model factory documentation to learn how to define your factories. Once you have defined your factories, you may use the factory helper function to insert records into your database.</p>
+<p>For example, let's create 50 users and attach a relationship to each user:</p>
+<p>/*<em>
+ * Run the database seeds.
+ *
+ * @return void
+ </em>/
+public function run()
+{
+    factory(App\User::class, 50)-&gt;create()-&gt;each(function ($user) {
+        $user-&gt;posts()-&gt;save(factory(App\Post::class)-&gt;make());
+    });
+}</p>
+<p>Calling Additional Seeders
+Within the DatabaseSeeder class, you may use the call method to execute additional seed classes. Using the call method allows you to break up your database seeding into multiple files so that no single seeder class becomes overwhelmingly large. Pass the name of the seeder class you wish to run:</p>
+<p>/*<em>
+ * Run the database seeds.
+ *
+ * @return void
+ </em>/
+public function run()
+{
+    $this-&gt;call([
+        UsersTableSeeder::class,
+        PostsTableSeeder::class,
+        CommentsTableSeeder::class,
+    ]);
+}</p>
+<p>Running Seeders
+Once you have written your seeder, you may need to regenerate Composer's autoloader using the dump-autoload command:</p>
+<p>composer dump-autoload
+Now you may use the db:seed Artisan command to seed your database. By default, the  db:seed command runs the DatabaseSeeder class, which may be used to call other seed classes. However, you may use the --class option to specify a specific seeder class to run individually:</p>
+<p>php artisan db:seed</p>
+<p>php artisan db:seed --class=UsersTableSeeder
+You may also seed your database using the migrate:refresh command, which will also rollback and re-run all of your migrations. This command is useful for completely re-building your database:</p>
+<p>php artisan migrate:refresh --seed</p>
+<p>Forcing Seeders To Run In Production
+Some seeding operations may cause you to alter or lose data. In order to protect you from running seeding commands against your production database, you will be prompted for confirmation before the seeders are executed. To force the seeders to run without a prompt, use the --force flag:</p>
+<p>php artisan db:seed --force</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../laravel_db_query/" title="Laravel Database Query" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Laravel Database Query
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../laravel_eloquent/" title="Laravel Eloquent" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Laravel Eloquent
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy;2019 ESD-Application
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

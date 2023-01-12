@@ -15,13 +15,13 @@ class CreateTableAbouts202212272025 extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('history')->default('');
-            $table->text('history_en')->default('');
-            $table->text('visi')->default('');
-            $table->text('visi_en')->default('');
-            $table->text('misi')->default('');
-            $table->text('misi_en')->default('');
-            $table->text('image_path')->default('');
+            $table->text('history');
+            $table->text('history_en');
+            $table->text('visi');
+            $table->text('visi_en');
+            $table->text('misi');
+            $table->text('misi_en');
+            $table->text('image_path');
             $table->string('url_alibaba', 255)->default('');
             $table->string('telp', 50)->default('');
             $table->string('email', 50)->default('');
