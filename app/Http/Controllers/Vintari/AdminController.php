@@ -499,4 +499,8 @@ class AdminController extends Controller
             'message'   => ucfirst(__('vintari.success_delete_data'))
         ]);
     }
+
+    public function uploadFile($var) {
+        
+    }
 }
