@@ -38,7 +38,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('vintari.index');
+        return view('vintari.admin.index');
     }
 
     /**
@@ -46,9 +46,36 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($var)
     {
-        
+        if (strtoupper($var) == 'BANNERS') {
+           $create = 'BANNERS';
+        } else if (strtoupper($var) == 'BRANDS') {
+            $create = 'BRANDS';
+        } else if (strtoupper($var) == 'ABOUTS') {
+            $create = 'ABOUTS';
+        } else if (strtoupper($var) == 'PRODUCT') {
+            $create = 'PRODUCT';
+        } else if (strtoupper($var) == 'CATEGORY') {
+            $create = 'CATEGORY';
+        } else if (strtoupper($var) == 'COUNTRIES') {
+            $create = 'COUNTRIES';
+        } else if (strtoupper($var) == 'ACTIVITES') {
+            $create = 'ACTIVITES';
+        } else if (strtoupper($var) == 'FAQS') {
+            $create = 'FAQS';
+        } else if (strtoupper($var) == 'CONTACTS') {
+            $create = 'CONTACTS';
+        } else if (strtoupper($var) == 'USER') {
+            $create = 'USER';
+        }
+
+        return view ('vintari.admin.form_input', [
+            'create'        => true,
+            'show'          => false,
+            'edit'          => false,
+            'create'        => $create
+        ]);
     }
 
     /**
@@ -498,5 +525,9 @@ class AdminController extends Controller
             'success'   => true,
             'message'   => ucfirst(__('vintari.success_delete_data'))
         ]);
+    }
+
+    public function uploadFile($var) {
+        
     }
 }
