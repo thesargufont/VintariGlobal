@@ -567,7 +567,12 @@
                 success: function(data) {
                     if (data.success) {
                         if (data.create == 'BANNER') {
-
+                            $('#header').val(data.header);
+                            $('#header_en').val(data.header_en);
+                            $('#desc1').html(data.desc1);
+                            $('#desc1_en').html(data.desc1_en);
+                            $('#desc2').html(data.desc2);
+                            $('#desc2_en').html(data.desc2_en);
                         } else if (data.create == 'BRAND') {
 
                         } else if (data.create == 'ABOUT') {

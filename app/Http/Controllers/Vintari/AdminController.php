@@ -719,6 +719,7 @@ class AdminController extends Controller
             $desc1En    = $banner->desc1_en;
             $desc2      = $banner->desc2;
             $desc2En    = $banner->desc2_en;
+            $imagePath  = $banner->image_path;
             return response()->json([
                 'success'       => true,
                 'create'        => $create,
@@ -727,15 +728,18 @@ class AdminController extends Controller
                 'desc1'         => $desc1,
                 'desc1_en'      => $desc1En,
                 'desc2'         => $desc2,
-                'desc2_en'      => $desv2En
+                'desc2_en'      => $desv2En,
+                'image_path'    => $imagePath
             ]);
         } else if ($create == 'BRAND') {
             $brand = Brand::find($request->id);
             $name  = $brand->name;
+            $imagePath  = $brand->image_path;
             return response()->json([
-                'success'   => true,
-                'create'    => $create,
-                'name'      => $name
+                'success'       => true,
+                'create'        => $create,
+                'name'          => $name,
+                'image_path'    => $imagePath
             ]);
         } else if ($create == 'ABOUT') {
             $about = About::find($request->id);
