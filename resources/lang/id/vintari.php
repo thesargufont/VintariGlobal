@@ -46,4 +46,10 @@ return [
     "answer_en"             => "Jawaban EN",
     "description"           => "Deskripsi",
     "description_en"        => "Deskripsi EN",
+    "menu_not_found"        => "Menu tidak ditemukan",
+    "save_data"             => "Apakah anda yakin akan menyimpan data?",
+    "error_save"            => "Terjadi kesalahan saat simpan",
+    "file_corrupt"          => "file corrupt 0KB or file > 2MB",
+    "file_max"              => "file max 2MB",
+    "success_add_photo"     => "berhasil tambah foto"
 ];

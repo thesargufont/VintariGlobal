@@ -1,9 +1,4 @@
 @php
-  /**
-   *   file       : layout/layout1.blade.php
-   *   description: main blade for this layout  
-   *   created    : rudy.gunawan@polytron.co.id 2019/05/15
-   */
   global $refDoc, $tcode, $currentMenu;    
 @endphp
 <!DOCTYPE html>
