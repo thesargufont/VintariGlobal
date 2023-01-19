@@ -46,5 +46,11 @@ return [
     "answer_en"             => "Answer EN",
     "description"           => "Description",
     "description_en"        => "Description EN",
+    "menu_not_found"        => "Menu not found",
+    "save_data"             => "Are you sure want to save data?",
+    "error_save"            => "Error save",
+    "file_corrupt"          => "file corrupt 0KB or file > 2MB",
+    "file_max"              => "file max 2MB",
+    "success_add_photo"     => "success add photo"
 
 ];
