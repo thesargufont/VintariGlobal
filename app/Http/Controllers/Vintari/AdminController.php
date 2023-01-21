@@ -65,9 +65,10 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->create, $request->name);
         $create = strtoupper($request->create);
         DB::beginTransaction();
-        $user   = Auth::user()->id;
+        // $user   = Auth::user()->id;
         $today  = Carbon::now();
         try {
             if ($create == 'BANNER') {
@@ -284,9 +285,9 @@ class AdminController extends Controller
                     'name'      => $name,
                     'email'     => $email,
                     'message'   => $message,
-                    'created_by'    => $user,
+                    'created_by'    => 1,
                     'created_at'    => $today,
-                    'updated_by'    => $user,
+                    'updated_by'    => 1,
                     'updated_at'    => $today,
                 ]);
             } 

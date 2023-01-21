@@ -1,13 +1,13 @@
 @extends('layouts.layout1')
 
 @section('content')
-    <<form action="{{url("/vintari/admin/store")}}" id="form-add" enctype="multipart/form-data" method="POST">
+    <form action="{{route("admin.vintari.store")}}" id="form-add" enctype="multipart/form-data" method="POST">
         {{csrf_field()}}
         <div class="card">
             <input type="hidden" name="_method" value="POST" />
             <div class="card-header">
                 <div class="form-group">
-                    <button onclick="location.replace('{{route('vintari.admin.index')}}');" title="back to previous page" type='button' class="btn btn-secondary"><i class="fa fa-arrow-left"></i> {{__('back')}}</button>
+                    <button onclick="location.replace('{{ route('admin.vintari.index') }}');" title="back to previous page" type='button' class="btn btn-secondary"><i class="fa fa-arrow-left"></i> {{__('back')}}</button>
                     @if (!$show)
                         <button title="save" id="submitBtn" type='submit' class="btn btn-simpan btn-primary" hidden><i class="fa fa-save"></i></button>
                         <button title="save" id="saveBtn" type='button' onclick="showConfirmTest();" class="btn btn-primary"><i class="fa fa-save"></i> {{ucwords(__('save'))}}</button>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="card-body">
-                @if($create == 'BANNER')
+                @if($create_1 == 'BANNER')
                     {{-- header --}}
                         {{-- ID --}}
                             <div class="col-sm-5">
@@ -49,7 +49,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.desc1'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.desc1'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="desc1" name="desc1" rows="3" cols="50" maxlength="100" class="form-control text-uppercase" required></textarea>
@@ -62,7 +62,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.desc1_en'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.desc1_en'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="desc1_en" name="desc1_en" rows="3" cols="50" maxlength="100" class="form-control text-uppercase" required></textarea>
@@ -75,7 +75,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.desc2'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.desc2'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="desc2" name="desc2" rows="3" cols="50" maxlength="100" class="form-control text-uppercase"></textarea>
@@ -88,7 +88,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.desc2_en'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.desc2_en'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="desc2_en" name="desc2_en" rows="3" cols="50" maxlength="100" class="form-control text-uppercase"></textarea>
@@ -101,7 +101,9 @@
                     {{-- upload --}}
                         <div class="col-sm-5">
                             <div class="row mb-3">
-                                <div class="col-sm-4">{!!Form::label(Str::title(__('file')))!!}</div>
+                                <div class="col-sm-4">
+                                    <label class="control-label" >{{ucwords(__('vintari.file'))}}</label>
+                                </div>
                                 <div class="col-sm-8">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="banner" name="banner" title="{{__('file select input, for upload file')}} ({{__('required')}})" required>
@@ -111,7 +113,8 @@
                             </div>
                         </div>
                     {{-- end upload --}}
-                @elseif($create == 'BRAND')
+                @endif
+                @if($create_1 == 'BRAND')
                     {{-- name --}}
                         <div class="col-sm-5">
                             <div class="row mb-3">
@@ -128,7 +131,9 @@
                     {{-- upload --}}
                         <div class="col-sm-5">
                             <div class="row mb-3">
-                                <div class="col-sm-4">{!!Form::label(Str::title(__('file')))!!}</div>
+                                <div class="col-sm-4">
+                                    <label class="control-label" >{{ucwords(__('vintari.file'))}}</label>
+                                </div>
                                 <div class="col-sm-8">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="brand" name="brand" title="{{__('file select input, for upload file')}} ({{__('required')}})" required>
@@ -138,13 +143,14 @@
                             </div>
                         </div>
                     {{-- end upload --}}
-                @elseif($create == 'ABOUT')
+                @endif
+                @if($create_1 == 'ABOUT')
                     {{-- history --}}
                         {{-- ID --}}
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.history'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.history'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="history" name="history" rows="3" cols="50" maxlength="255" class="form-control text-uppercase" required></textarea>
@@ -157,7 +163,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.history_en'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.history_en'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="history_en" name="history_en" rows="3" cols="50" maxlength="255" class="form-control text-uppercase" required></textarea>
@@ -172,7 +178,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.visi'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.visi'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="visi" name="visi" rows="3" cols="50" maxlength="255" class="form-control text-uppercase" required></textarea>
@@ -185,7 +191,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.visi_en'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.visi_en'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="visi_en" name="visi_en" rows="3" cols="50" maxlength="255" class="form-control text-uppercase" required></textarea>
@@ -200,7 +206,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.misi'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.misi'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="misi" name="misi" rows="3" cols="50" maxlength="255" class="form-control text-uppercase" required></textarea>
@@ -213,7 +219,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.misi_en'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.misi_en'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="misi_en" name="misi_en" rows="3" cols="50" maxlength="255" class="form-control text-uppercase" required></textarea>
@@ -226,7 +232,9 @@
                     {{-- upload --}}
                         <div class="col-sm-5">
                             <div class="row mb-3">
-                                <div class="col-sm-4">{!!Form::label(Str::title(__('file')))!!}</div>
+                                <div class="col-sm-4">
+                                    <label class="control-label" >{{ucwords(__('vintari.file'))}}</label>
+                                </div>
                                 <div class="col-sm-8">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="about" name="about" title="{{__('file select input, for upload file')}} ({{__('required')}})" required>
@@ -284,8 +292,10 @@
 
                     {{-- client --}}
                     {{-- end client --}}
-                @elseif($create == 'PRODUCT')
-                @elseif($create == 'CATEGORY')
+                @endif
+                @if($create_1 == 'PRODUCT')
+                @endif
+                @if($create_1 == 'CATEGORY')
                     {{-- name --}}
                         {{-- ID --}}
                             <div class="col-sm-5">
@@ -314,7 +324,8 @@
                             </div>
                         {{-- END EN --}}
                     {{-- end name --}}
-                @elseif($create == 'COUNTRY')
+                @endif
+                @if($create_1 == 'COUNTRY')
                     {{-- name --}}
                         <div class="col-sm-5">
                             <div class="row mb-3">
@@ -331,7 +342,9 @@
                     {{-- upload --}}
                         <div class="col-sm-5">
                             <div class="row mb-3">
-                                <div class="col-sm-4">{!!Form::label(Str::title(__('file')))!!}</div>
+                                <div class="col-sm-4">
+                                    <label class="control-label" >{{ucwords(__('vintari.file'))}}</label>
+                                </div>
                                 <div class="col-sm-8">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="country" name="country" title="{{__('file select input, for upload file')}} ({{__('required')}})" required>
@@ -341,14 +354,16 @@
                             </div>
                         </div>
                     {{-- end upload --}}
-                @elseif($create == 'ACTIVITY')
-                @elseif($create == 'FAQ')
+                @endif
+                @if($create_1 == 'ACTIVITY')
+                @endif
+                @if($create_1 == 'FAQ')
                     {{-- question --}}
                         {{-- ID --}}
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.question'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.question'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="question" name="question" rows="3" cols="50" maxlength="50" class="form-control text-uppercase"></textarea>
@@ -361,7 +376,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.question_en'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.question_en'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="question_en" name="question_en" rows="3" cols="50" maxlength="50" class="form-control text-uppercase"></textarea>
@@ -376,7 +391,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.answer'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.answer'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="answer" name="answer" rows="3" cols="50" maxlength="255" class="form-control text-uppercase"></textarea>
@@ -389,7 +404,7 @@
                             <div class="col-sm-5">
                                 <div class="row mb-3">
                                     <div class="col-sm-4">
-                                        <label class="control-label" >{{ucwords(__('vintar.answer_en'))}}</label>
+                                        <label class="control-label" >{{ucwords(__('vintari.answer_en'))}}</label>
                                     </div>
                                     <div class="col-sm-8">
                                         <textarea id="answer_en" name="answer_en" rows="3" cols="50" maxlength="255" class="form-control text-uppercase"></textarea>
@@ -399,7 +414,8 @@
                             </div>
                         {{-- END ID --}}
                     {{-- end answer --}}
-                @elseif($create == 'CONTACT')
+                @endif
+                @if($create_1 == 'CONTACT')
                     {{-- name --}}
                         <div class="col-sm-5">
                             <div class="row mb-3">
@@ -430,7 +446,7 @@
                         <div class="col-sm-5">
                             <div class="row mb-3">
                                 <div class="col-sm-4">
-                                    <label class="control-label" >{{ucwords(__('vintar.message'))}}</label>
+                                    <label class="control-label" >{{ucwords(__('vintari.message'))}}</label>
                                 </div>
                                 <div class="col-sm-8">
                                     <textarea id="message" name="message" rows="3" cols="50" maxlength="255" class="form-control text-uppercase"></textarea>
@@ -557,7 +573,7 @@
             var create1 = {!! json_encode($create_1) !!};
             $.ajax({
                 method: "POST", // Type of response and matches what we said in the route
-                url: '{!! route('vintari.admin.load-data') !!}', // This is the url we gave in the route
+                url: '{!! route('admin.vintari.load-data') !!}', // This is the url we gave in the route
                 data: {
                     "_token": "{{ csrf_token() }}",
                     "id": "{{ $id }}",
@@ -636,10 +652,12 @@
             if(isError)
             {
                 // artLoadingDialogClose();
+                $("#backBtn").attr("disabled", false);
+                $("#saveBtn").attr("disabled", false);
                 return false;
             }
             
-            artConfirmationDo('{{ucwords(__('confirmation'))}}', '{{ucfirst(__('vintar.save_data'))}}', function(){
+            artConfirmationDo('{{ucwords(__('confirmation'))}}', '{{ucfirst(__('vintari.save_data'))}}', function(){
                 artConfirmationClose();
                 saveData();
             });
@@ -649,40 +667,39 @@
         function saveData() {
             @if($create)
                 var fd = new FormData(this.form);
-                artLoadingDialongDo("loading", function() {
-                    $.ajax({
-                        method: "POST", // Type of response and matches what we said in the route
-                        url: '{!! route('vintari.admin.store') !!}',
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        success: function(data) { // What to do if we succeed
-                            artLoadingDialogClose();
-                            $("#backBtn").prop("disabled", false);
-                            $("#saveBtn").prop("disabled", false);
-                            if (data.error) {
-                                artCreateFlashMsg(data.message, 'error', true);
-                            }
-
-                            if (data.success) {
-                                artAllFlashMsgClose();
-                                setTimeout(function(){ window.location.href = '{!! route('vintari.admin.index') !!}'; }, 1);
-                            }
-                        },
-                        error: function(jqXHR, textStatus, errorThrown) {
-                            artLoadingDialogClose();
-                            $("#backBtn").prop("disabled", false);
-                            $("#saveBtn").prop("disabled", false);
-                            artCreateFlashMsg("{{ucfirst(__('vintari.error_save'))}}",'error',true);
+                $.ajax({
+                    method: "POST", // Type of response and matches what we said in the route
+                    url: '{!! route('admin.vintari.store') !!}',
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) { // What to do if we succeed
+                        artLoadingDialogClose();
+                        $("#backBtn").prop("disabled", false);
+                        $("#saveBtn").prop("disabled", false);
+                        if (data.error) {
+                            artCreateFlashMsg(data.message, 'error', true);
                         }
-                    });
+
+                        if (data.success) {
+                            artAllFlashMsgClose();
+                            setTimeout(function(){ window.location.href = '{!! route('admin.vintari.index') !!}'; }, 1);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        artLoadingDialogClose();
+                        $("#backBtn").prop("disabled", false);
+                        $("#saveBtn").prop("disabled", false);
+                        artCreateFlashMsg("{{ucfirst(__('vintari.error_save'))}}",'error',true);
+                    }
                 });
+               
             @elseif($edit)
                 var fd = new FormData(this.form);
                 artLoadingDialongDo("loading", function() {
                     $.ajax({
                         method: "PATCH", // Type of response and matches what we said in the route
-                        url: '{!! route('vintari.admin.update')!!}, $id',
+                        url: '{!! route('admin.vintari.update')!!}, $id',
                         data: fd,
                         processData: false,
                         contentType: false,
@@ -696,7 +713,7 @@
 
                             if (data.success) {
                                 artAllFlashMsgClose();
-                                setTimeout(function(){ window.location.href = '{!! route('vintari.admin.index') !!}'; }, 1);
+                                setTimeout(function(){ window.location.href = '{!! route('admin.vintari.index') !!}'; }, 1);
                             }
                         },
                         error: function(jqXHR, textStatus, errorThrown) {

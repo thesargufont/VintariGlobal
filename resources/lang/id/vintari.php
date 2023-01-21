@@ -5,8 +5,10 @@ return [
     "success_update_data"   => "Data berhasil diubah",
     "success_delete_data"   => "Data berhasil dihapus",
     "about"                 => "Tentang",
+    "action"                => "Tindakan",
     "activity"              => "Aktivitas",
     "banner"                => "Banner",
+    "file"                  => "File",
     "brand"                 => "Brand",
     "category"              => "Kategori",
     "contact"               => "Contact",
@@ -15,7 +17,7 @@ return [
     "product"               => "Produk",
     "user"                  => "User",
     "history"               => "History",
-    "histroy_en"            => "History EN",
+    "history_en"            => "History EN",
     "visi"                  => "Visi",
     "visi_en"               => "Visi EN",
     "misi"                  => "Misi",
@@ -51,5 +53,6 @@ return [
     "error_save"            => "Terjadi kesalahan saat simpan",
     "file_corrupt"          => "file corrupt 0KB or file > 2MB",
     "file_max"              => "file max 2MB",
-    "success_add_photo"     => "berhasil tambah foto"
+    "success_add_photo"     => "berhasil tambah foto",
+    "url_alibaba"           => "URL Alibaba"
 ];

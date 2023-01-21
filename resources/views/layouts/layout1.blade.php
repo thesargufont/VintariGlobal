@@ -11,17 +11,12 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
     <META HTTP-EQUIV="Expires" CONTENT="0">
-    @if(isset($artemistimeout))
-      <META http-equiv="refresh" content="{{$artemistimeout}}" >
-    @elseif((session('artemistimeout')!='')&&(session('artemistimeout')!=0))
-      <META http-equiv="refresh" content="{{session('artemistimeout')}}" >
-    @endif
     <link rel="icon" href="{{ asset('favicon.png') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.title', 'Artemis') }}</title>
+    <title>{{ config('app.title', 'Vintari') }}</title>
 
     <!-- Fonts: -->
     <!-- Font Awesome Icons -->
@@ -361,7 +356,7 @@
         }
     </style>
     @yield('content_headscript')
-    @livewireStyles
+    
 </head>
 <body class="hold-transition sidebar-collapse">
     <div class="wrapper">
@@ -369,13 +364,13 @@
         <nav class="main-header navbar navbar-expand bg-danger navbar-light border-bottom">
             <!-- Left navbar links -->
 
-            <ul class="navbar-nav">
+            {{-- <ul class="navbar-nav">
               <li class="nav-item">
                 <a role="button" class="nav-link sidebar-toggle art-sidebar-toggle" data-widget="pushmenu" href="#" title="{{ucwords(__('Artemis application menu'))}}">
                        <i class="fas fa-bars"></i>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
     
             <!-- SEARCH FORM -->
             <form id="art_app_search_form" class="form-inline ml-3">
@@ -392,65 +387,7 @@
             </form>
     
             <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                @guest
-                <!-- Authentication Links -->
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}" title="{{ucwords(__('sign in'))}}">
-                    <i class="fas fa-sign-in-alt"></i>
-                  </a>
-                </li>
-                @else
-                <!-- Messages Dropdown Menu -->
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown" id="art_notifs">
-                  <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="fas fa-bell"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <span class="dropdown-header">0 {{ucwords(__('notification'))}}</span>
-                    <div class="dropdown-divider"></div>
-                    <span class="dropdown-item dropdown-footer">
-                      <div class="dropdown-item-text">
-                          &nbsp;
-                      </div>
-                    </span>
-                  </div>
-                </li>
-                <!-- Authentication Links -->
-                <li class="nav-item dropdown user user-menu">
-                  <a class="nav-link" data-toggle="dropdown" href="#">
-                    <img src="{{url('/avatars/'.Auth::user()->id)}}" class="user-image" alt="User Image" title="{{ucwords(strtolower(Auth::user()->name))}}">
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <li class="user-header">
-                      <img src="{{url('/avatars/'.Auth::user()->id)}}" width="32px" class="img-circle" alt="User Image">
-                      <p>
-                        {{Auth::user()->salutation}} {{ucwords(strtolower(Auth::user()->name))}}<br/>
-                        {{strtoupper(Auth::user()->current_nik)}}<br/>
-                      </p>
-                    </li>
-                    <li class="user-footer">
-                        {{--
-                        <div class="pull-left">
-                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                        </div>
-                        --}}
-                        <div class="pull-right">
-                            <a id="art-sign-out-btn" class="btn btn-default btn-flat" href="#">
-                              <span class="fas fa-sign-out-alt"></span> {{ ucwords(__('sign out')) }}
-                            </a>
-                        </div>
-                      </li>
-                    </ul>
-                </li>
-                @endguest
-                <li class="nav-item">
-                  <a class="nav-link" href="#" title="{{ucwords(__('documentation'))}}" onclick="window.open('{{url('/docs/userdoc')}}');return false;">
-                    <i class="fas fa-book"></i>
-                  </a>
-                </li>
-            </ul>
+            
           </nav>
         <!-- /.navbar -->
     
@@ -562,9 +499,9 @@
           <section class="content" height="100%">
             <div class="row" height="100%">
               <div class="col-12" id="art-main-contents" height="100%">
-                <div id='art-flash-msg-container'>
+                {{-- <div id='art-flash-msg-container'>
                   @include('flash::message')
-                </div>
+                </div> --}}
                 @yield('content')
               </div>
             </div>
@@ -593,7 +530,7 @@
               </div>
             @endif
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2019 ESD, PT. Hartono Istana Teknologi.</strong>
+            <strong>Copyright &copy; 2023 VINTARI.</strong>
         </footer>
     </div>
     <!-- ./wrapper -->
@@ -790,126 +727,7 @@
         @endguest
 
         function sysMnu() {
-          $.ajax({
-						url: "{{url("/artemis/menu")}}/"+sessionStorage.getItem("art_sys_mi"),
-						type: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': '{!!csrf_token()!!}'
-            },
-						data: {
-						},
-						success: function(result) {
-							if(result.success) {
-                if(result.nav_main!=null) {
-                  $('ul#art_main_menu').empty().html(result.nav_main);
-                } else {
-                  $('ul#art_main_menu').empty().html("<li class=\"nav-item\"><i class=\"text-muted\">{{ucwords(__('empty'))}}</i></li>");
-                }
-                @guest
-                  // nothing
-                @else
-                if(result.nav_fav!=null) {
-                  $('ul#art_fav_menu').empty().html(result.nav_fav);
-                }
-                @endguest                
-                $('#art_breadcrumb').html("<ol class=\"breadcrumb float-sm-right\">"+result.breadcrumb+"</ol>");
-                @guest
-                  // nothing
-                @else
-                if(!artFavMenu) {
-                  artFavMenu = document.getElementById('art_fav_menu');
-                  Sortable.create(artFavMenu, {
-                    animation: 200,
-                    group: {
-                      name: 'artemis-fav-navigation',
-                      put: ["artemis-main-navigation"],
-                    },
-                    invertSwap: true,
-                    onStart: function(evt) {
-                      dropped = false;
-                      item = evt.item;
-                      item.addEventListener('dragend', dragEnd);
-                    },
-                    onAdd: function (/**Event*/evt) {
-                      // check same element on the list
-                      var container = document.querySelector("#art_fav_menu");
-                      var items = container.querySelectorAll("a[data-mi='"+evt.item.getElementsByTagName('A')[0].dataset.mi+"']");
-                      var jumlah = items.length;
-                      last_added_nav = evt.item;
-                      if(jumlah>1) {
-                        evt.item.parentNode.removeChild(evt.item);
-                      } else if(evt.item.getElementsByTagName('A')[0].dataset.mi) {
-                        $.ajax({
-					              	url: "{{url("/home/addtofav")}}",
-					              	type: 'POST',
-                          headers: {
-                              'X-CSRF-TOKEN': '{!!csrf_token()!!}'
-                          },
-					              	data: {
-                            'id': evt.item.getElementsByTagName('A')[0].dataset.mi,
-                            'favorder': evt.newIndex
-					              	}
-					              });
-                      } else {
-                            evt.item.parentNode.removeChild(evt.item);
-                      }
-                    },
-                    onUpdate: function (evt) {
-                      $.ajax({
-					              	url: "{{url("/home/updatefav")}}",
-					              	type: 'POST',
-                          headers: {
-                              'X-CSRF-TOKEN': '{!!csrf_token()!!}'
-                          },
-					              	data: {
-                            'id': evt.item.getElementsByTagName('A')[0].dataset.mi,
-                            'neworder': evt.newIndex,
-                            'oldorder': evt.oldIndex
-					              	}
-					            });
-                    }
-                  });
-                  artFavMenu.addEventListener('drop', function() {
-	                  dropped = true;
-                  });
-                }
-                if(!artMainMenu) {
-                  artMainMenu = document.getElementById('art_main_menu');
-                  Sortable.create(artMainMenu, {
-                    animation: 200,
-                    group: {
-                      name: 'artemis-main-navigation',
-                      pull: "clone",
-                      revertClone: true,
-                      put : false
-                    },
-                    sort: false,
-                    dragoverBubble: true,
-                    draggable: ".art-main-nav-item"
-                  });
-                  // create children draggable nav
-                  var main_child = document.getElementsByClassName('art-main-nav-child');
-                  for(var i = 0;i < main_child.length;i++){
-                      Sortable.create(main_child[i], {
-                      animation: 200,
-                      group: {
-                        name: 'artemis-main-navigation',
-                        pull: "clone",
-                        revertClone: true,
-                        put : false
-                      },
-                      sort: false,
-                      dragoverBubble: true
-                    });
-                  }
-                }
-                @endguest
-                aHrefToReplaceLoc();
-							} else {
-                location.reload();
-							}
-						}
-					});
+         
         }
 
         function sysGetNotif() {
@@ -1457,20 +1275,7 @@
             $('#artNotifBody').load('{{url('/sysadmin/notification/detail')}}/'+ decodeURIComponent(notifid));
           });
 
-          $('#art-sign-out-btn').click(function(event){
-            event.preventDefault();
-            $.ajax({
-					  	url: "{{route("logout")}}",
-					  	type: 'POST',
-              headers: {
-                  'X-CSRF-TOKEN': '{!!csrf_token()!!}'
-              },
-					  	success: function(result) {
-                  location.replace('{{url('/')}}');
-					  	}
-					  });
-            return false;
-          });
+          
 
           $('#flash-overlay-modal').modal();
           $('div.alert').not('.alert-important').delay(5000).fadeOut(350);
@@ -1557,6 +1362,6 @@
         });
     </script>
     @yield('content_tailscript')
-    @livewireScripts
+    {{-- @livewireScripts --}}
 </body>
 </html>

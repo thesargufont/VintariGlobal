@@ -8,7 +8,7 @@
                     <a class="nav-link active" href="#about"   data-toggle="tab">{{ucwords(__('vintari.about'))}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"        href="#activty" data-toggle="tab">{{ucwords(__('vintari.activty'))}}</a>
+                    <a class="nav-link"        href="#activity" data-toggle="tab">{{ucwords(__('vintari.activity'))}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"        href="#banner"  data-toggle="tab">{{ucwords(__('vintari.banner'))}}</a>
@@ -44,7 +44,7 @@
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create') }}.abouts');">About</a></li>
+                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'about']) }}');">About</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                         </thead>
                     </table>
                 </div>
-                <div class="tab-pane" id="activty">
+                <div class="tab-pane" id="activity">
                     <div class="form-group my-2">
                         <div class="btn-group" role="group">
                             <div class="dropdown">
@@ -88,7 +88,7 @@
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create') }}.activity');">Activty</a></li>
+                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create',['var' => 'activity']) }}');">activity</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -98,12 +98,12 @@
                                     <i class="fa fa-download"></i> {{__('download')}} {{__('as')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" id="btn_download_activty_xlsx" title="download as XLSX file"><i class="fa fa-fw fa-file-excel-o"></i>Xlsx</a></li>
+                                    <li><a href="#" class="dropdown-item" id="btn_download_activity_xlsx" title="download as XLSX file"><i class="fa fa-fw fa-file-excel-o"></i>Xlsx</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <table class="table table-hover compact table-condensed table-striped" id="activty-table" width="100%">
+                    <table class="table table-hover compact table-condensed table-striped" id="activity-table" width="100%">
                         <thead>
                             <tr>
                                 <th>{{ucwords(__('vintari.action'))}}</th>
@@ -125,7 +125,7 @@
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create') }}.banner');">Banner</a></li>
+                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'banner']) }}');">Banner</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create') }}.brand');">Brand</a></li>
+                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'brand']) }}');">Brand</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -198,7 +198,7 @@
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create') }}.category');">Category</a></li>
+                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'category']) }}');">Category</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -233,7 +233,7 @@
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create') }}.contact');">Contact</a></li>
+                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'contact']) }}');">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -269,7 +269,7 @@
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create') }}.country');">Country</a></li>
+                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'country']) }}');">Country</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -303,7 +303,7 @@
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create') }}.faq');">FAQ</a></li>
+                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'faq']) }}');">FAQ</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -340,7 +340,7 @@
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create') }}.product');">Product</a></li>
+                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'product']) }}');">Product</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -379,7 +379,7 @@
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create') }}.user');">User</a></li>
+                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create',['var' => 'user']) }}');">User</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -504,7 +504,7 @@
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
                         },
                         'data': function (d) {
-                            d.create = about
+                            d.create = 'about'
                         }
                     },
                     columns: [
@@ -578,7 +578,7 @@
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
                         },
                         'data': function (d) {
-                            d.create = activity
+                            d.create = 'activity'
                         }
                     },
                     columns: [
@@ -610,7 +610,7 @@
                 });
                 
                 // ACTION DOWNLOAD ACTIVITY
-                    $('#btn_download_activty_xlsx').on('click', function() {
+                    $('#btn_download_activity_xlsx').on('click', function() {
                         // /aftersales/inventory/serial-number-report
                         window.open('{{ url('/admin/vintari/download-excel')}}/activity', '_blank');
                     });
@@ -645,7 +645,7 @@
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
                         },
                         'data': function (d) {
-                            d.create = banner
+                            d.create = 'banner'
                         }
                     },
                     columns: [
@@ -714,7 +714,7 @@
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
                         },
                         'data': function (d) {
-                            d.create = brand
+                            d.create = 'brand'
                         }
                     },
                     columns: [
@@ -778,7 +778,7 @@
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
                         },
                         'data': function (d) {
-                            d.create = category
+                            d.create = 'category'
                         }
                     },
                     columns: [
@@ -843,7 +843,7 @@
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
                         },
                         'data': function (d) {
-                            d.create = contact
+                            d.create = 'contact'
                         }
                     },
                     columns: [
@@ -909,7 +909,7 @@
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
                         },
                         'data': function (d) {
-                            d.create = country
+                            d.create = 'country'
                         }
                     },
                     columns: [
@@ -973,7 +973,7 @@
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
                         },
                         'data': function (d) {
-                            d.create = faq
+                            d.create = 'faq'
                         }
                     },
                     columns: [
@@ -1040,7 +1040,7 @@
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
                         },
                         'data': function (d) {
-                            d.create = product
+                            d.create = 'product'
                         }
                     },
                     columns: [
@@ -1109,7 +1109,7 @@
                             'X-CSRF-TOKEN': '{!! csrf_token() !!}'
                         },
                         'data': function (d) {
-                            d.create = user
+                            d.create = 'user'
                         }
                     },
                     columns: [

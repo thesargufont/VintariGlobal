@@ -5,7 +5,9 @@ return [
     "success_update_data"   => "Data successfully update",
     "success_delete_data"   => "Data successfully delete",
     "about"                 => "About",
+    "action"                => "Action",
     "activity"              => "Activity",
+    "file"                  => "File",
     "banner"                => "Banner",
     "brand"                 => "Brand",
     "category"              => "Category",
@@ -15,7 +17,7 @@ return [
     "product"               => "Product",
     "user"                  => "User",
     "history"               => "History",
-    "histroy_en"            => "History EN",
+    "history_en"            => "History EN",
     "visi"                  => "Visi",
     "visi_en"               => "Visi EN",
     "misi"                  => "Misi",
@@ -51,6 +53,7 @@ return [
     "error_save"            => "Error save",
     "file_corrupt"          => "file corrupt 0KB or file > 2MB",
     "file_max"              => "file max 2MB",
-    "success_add_photo"     => "success add photo"
+    "success_add_photo"     => "success add photo",
+    "url_alibaba"           => "URL Alibaba"
 
 ];
