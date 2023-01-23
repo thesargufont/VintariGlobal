@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 
 use Log;
 use Excel;
+use Storage;
 use Datatables;
-
 use Carbon\Carbon;
 
 use App\Models\User;
@@ -65,7 +65,6 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->create, $request->name);
         $create = strtoupper($request->create);
         DB::beginTransaction();
         // $user   = Auth::user()->id;
@@ -78,49 +77,29 @@ class AdminController extends Controller
                 $desc1En        = $request->desc1_en;
                 $desc2          = $request->desc2;
                 $desc2En        = $request->desc2_en;
-                $hasFile        = $request->hasFile('banner');
-                $file           = $request->file('banner');
-                $uploadPhoto    = $this->uploadFile($hasFile, $file, $create);
-                if ($uploadPhoto['errors']) {
-                    DB::rollback();
-                    return response()->json([
-                        'errors'    => true,
-                        'success'   => false,
-                        'message'   => $uploadPhoto['message']
-                    ]);
-                }
+                $imagePath      = $request->image_path;
                 $insert = new Banner([
                     'header'        => $header,
                     'header_en'     => $headerEn,
                     'desc1'         => $desc1,
                     'desc1_en'      => $desc1En,
-                    'desc2'         => $desc2,
-                    'desc2_en'      => $desc2En,
-                    'image_path'    => $uploadPhoto['image_path'],
-                    'created_by'    => $user,
+                    'desc2'         => $desc2?$desc2:'',
+                    'desc2_en'      => $desc2En?$desc2En:'',
+                    'image_path'    => $imagePath,
+                    'created_by'    => 1,
                     'created_at'    => $today,
-                    'updated_by'    => $user,
+                    'updated_by'    => 1,
                     'updated_at'    => $today,
                 ]);    
             } else if ($create == 'BRAND') {
                 $name   = $request->name;
-                $hasFile        = $request->hasFile('brand');
-                $file           = $request->file('brand');
-                $uploadPhoto    = $this->uploadFile($hasFile, $file, $create);
-                if ($uploadPhoto['errors']) {
-                    DB::rollback();
-                    return response()->json([
-                        'errors'    => true,
-                        'success'   => false,
-                        'message'   => $uploadPhoto['message']
-                    ]);
-                }
+                $imagePath      = $request->image_path;
                 $insert = new Brand([
-                    'name'        => $name,
-                    'image_path'    => '',
-                    'created_by'    => $user,
+                    'name'          => $name,
+                    'image_path'    => $imagePath,
+                    'created_by'    => 1,
                     'created_at'    => $today,
-                    'updated_by'    => $user,
+                    'updated_by'    => 1,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'ABOUT') {
@@ -136,17 +115,7 @@ class AdminController extends Controller
                $productSold     = $request->product_sold;
                $countriesSold   = $request->countries_sold;
                $client          = $request->client;
-               $hasFile        = $request->hasFile('about');
-               $file           = $request->file('about');
-               $uploadPhoto    = $this->uploadFile($hasFile, $file, $create);
-               if ($uploadPhoto['errors']) {
-                   DB::rollback();
-                   return response()->json([
-                       'errors'    => true,
-                       'success'   => false,
-                       'message'   => $uploadPhoto['message']
-                   ]);
-               }
+               $imagePath      = $request->image_path;
                $insert = new About([
                     'history'       => $history,
                     'history_en'    => $historyEn,
@@ -154,16 +123,16 @@ class AdminController extends Controller
                     'visi_en'       => $visiEn,
                     'misi'          => $misi,
                     'misi_en'       => $misiEn,
-                    'image_path'    => $uploadPhoto['image_path'],
+                    'image_path'    => $imagePath,
                     'url_alibaba'   => $urlAlibaba,
                     'telp'          => $telpon,
                     'email'         => $email,
-                    'product_sold'  => $productSold,
-                    'countries_sold'=> $countriesSold,
-                    'client'        => $client,
-                    'created_by'    => $user,
+                    'product_sold'  => $productSold?$productSold:0,
+                    'countries_sold'=> $countriesSold?$countriesSold:0,
+                    'client'        => $client?$client:0,
+                    'created_by'    => 1,
                     'created_at'    => $today,
-                    'updated_by'    => $user,
+                    'updated_by'    => 1,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'PRODUCT') {
@@ -207,30 +176,20 @@ class AdminController extends Controller
                 $insert = new Category([
                     'name'          => $name,
                     'name_en'       => $nameEn,
-                    'created_by'    => $user,
+                    'created_by'    => 1,
                     'created_at'    => $today,
-                    'updated_by'    => $user,
+                    'updated_by'    => 1,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'COUNTRY') {
-                $name   = $request->name;
-                $hasFile        = $request->hasFile('country');
-                $file           = $request->file('country');
-                $uploadPhoto    = $this->uploadFile($hasFile, $file, $create);
-                if ($uploadPhoto['errors']) {
-                    DB::rollback();
-                    return response()->json([
-                        'errors'    => true,
-                        'success'   => false,
-                        'message'   => $uploadPhoto['message']
-                    ]);
-                }
+                $name       = $request->name;
+                $imagePath  = $request->image_path;
                 $insert = new Country([
                     'name'          => $name,
-                    'image_path'    => $uploadPhoto['imgae_path'],
-                    'created_by'    => $user,
+                    'image_path'    => $imagePath,
+                    'created_by'    => 1,
                     'created_at'    => $today,
-                    'updated_by'    => $user,
+                    'updated_by'    => 1,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'ACTIVITY') {
@@ -272,9 +231,9 @@ class AdminController extends Controller
                     'question_en'   => $questionEn,
                     'answer'        => $answer,
                     'answer_en'     => $answerEn,
-                    'created_by'    => $user,
+                    'created_by'    => 1,
                     'created_at'    => $today,
-                    'updated_by'    => $user,
+                    'updated_by'    => 1,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'CONTACT') {
@@ -344,7 +303,7 @@ class AdminController extends Controller
             $data = Contact::with(['createdBy']);
             $datatables = DataTables::of($data);
         } else if ($create == 'USER') {
-            $data = User::with(['createdBy']);
+            $data = User::orderBy('id');
             $datatables = DataTables::of($data);
         }
         $datatables = $datatables->addColumn('action', function ($item) use ($request){
@@ -355,6 +314,9 @@ class AdminController extends Controller
                 $txt .= "<a href=\"#\" onclick=\"deleteItem('$item->id|$request->create');\" title=\"" . ucfirst(__('delete')) . "\" class=\"btn btn-xs btn-danger\"><i class=\"fa fa-trash fa-fw fa-xs\"></i></a>";
             }
             return $txt;
+        })
+        ->editColumn('created_by', function($item) {
+            return strtoupper(optional($item->createdBy)->name);
         });
         return $datatables->make(TRUE);
     }
@@ -368,8 +330,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $var = explode('|', $id);
-            
+        $var = explode('|', $id);   
         return view('vintari.admin.form_input', [
             'create'        => false,
             'show'          => true,
@@ -409,14 +370,14 @@ class AdminController extends Controller
     {
         $create = strtoupper($request->create);
         DB::beginTransaction();
-        $user   = Auth::user()->id;
+        // $user   = Auth::user()->id;
         $today  = Carbon::now();
         try {
             if ($create == 'BANNER') {
                 $update = Banner::find($id);
 
                 $header     = $request->header;
-                $headerEn   = $request->header;
+                $headerEn   = $request->header_en;
                 $desc1      = $request->desc1;
                 $desc1En    = $request->desc1_en;
                 $desc2      = $request->desc2;
@@ -425,9 +386,9 @@ class AdminController extends Controller
                 $update->header     = $header;
                 $update->header_en  = $headerEn;
                 $update->desc1      = $desc1;
-                $update->desc1En    = $desc1En;
+                $update->desc1_en   = $desc1En;
                 $update->desc2      = $desc2;
-                $update->desc2En    = $desc2En;                
+                $update->desc2_en   = $desc2En;                
             } else if ($create == 'BRAND') {
                 $update     = Brand::find($id);
                 $name       = $request->name;
@@ -526,7 +487,7 @@ class AdminController extends Controller
                 $update->email      = $email;
                 $update->message    = $message;
             }
-            $update->updated_by  = $user;
+            $update->updated_by  = 1;
             $update->updated_at  = $today;
             $update->save();
         } catch (Execption $e) {
@@ -558,23 +519,35 @@ class AdminController extends Controller
         DB::beginTransaction();
         try {
             if ($create == 'BANNER') {
-                $delete = Banner::find($id);              
+                $delete = Banner::find($var[0]); 
+                $exists = Storage::disk('public')->exists($delete->image_path);
+                if ($exists) {
+                    Storage::disk('public')->delete($delete->image_path);
+                }             
             } else if ($create == 'BRAND') {
-                $delete     = Brand::find($id);
+                $delete     = Brand::find($var[0]);
+                $exists = Storage::disk('public')->exists($delete->image_path);
+                if ($exists) {
+                    Storage::disk('public')->delete($delete->image_path);
+                }     
             } else if ($create == 'ABOUT') {
-                $delete  = About::find($id);               
+                $delete  = About::find($var[0]);     
+                $exists = Storage::disk('public')->exists($delete->image_path);
+                if ($exists) {
+                    Storage::disk('public')->delete($delete->image_path);
+                }               
             } else if ($create == 'PRODUCT') {
-                $delete     = Product::find($id);
+                $delete     = Product::find($var[0]);
             } else if ($create == 'CATEGORY') {
-                $delete = Category::find($id);
+                $delete = Category::find($var[0]);
             } else if ($create == 'COUNTRY') {
-                $delete = Country::find($id);
+                $delete = Country::find($var[0]);
             } else if ($create == 'ACTIVITY') {
-                $delete     = Activity::find($id);
+                $delete     = Activity::find($var[0]);
             } else if ($create == 'FAQ') {
-                $delete     = Faq::find($id);
+                $delete     = Faq::find($var[0]);
             } else if ($create == 'CONTACT') {
-                $delete     = Contact::find($id);
+                $delete     = Contact::find($var[0]);
             }
             $delete->delete();
         } catch (Execption $e) {
@@ -589,23 +562,13 @@ class AdminController extends Controller
         return response()->json([
             'errors'    => false,
             'success'   => true,
-            'message'   => ucfirst(__('vintari.success_delete_data'))
+            'message'   => ucfirst(__('vintari.success_delete_data')),
+            'create_1'  => $var[1]
         ]);
     }
 
-    public function uploadFile($hasFile, $file, $create) {
-        $data = [
-            'errors'        => true,
-            'success'       => false,
-            'message'       => '',
-            'image_path'    => '',
-            'image_path1'   => '',
-            'image_path2'   => '',
-            'image_path3'   => '',
-            'image_path4'   => ''
-        ];
+    public function uploadFile($create,Request $request) {
         $files = [];
-        
         $ext = [
             'jpg',
             'jpeg',
@@ -615,26 +578,33 @@ class AdminController extends Controller
             $ext[] = strtoupper($item);
         }
 
-        if (!$hasFile) {
-            $data['message']    = ucfirst(__('vintari.file_not_found'));
-            return $data;  
+        if (!$request->fileupload) {
+            return response()->json([
+                'errors'    => ucfirst(__('vintari.file_not_found'))
+            ]);
         }
         $counter = 1;
         $today = Carbon::now()->format('Ymd');
         $today1 = Carbon::now()->format('Y/m/d');
         if ($create != 'PRODUCT' && $create != 'ACTIVITY') {
-            $name       = $file->getClientOriginalName();
+            $name       = $request->fileupload->getClientOriginalName();
             $extension  = pathinfo($name, PATHINFO_EXTENSION);
             if (!in_array($extension, $ext)) {
-                $data['message']    = ucfirst(__('vintari.file_format_not_allowed'));
-                return $data;
+                return response()->json([
+                    'errors'    => ucfirst(__('vintari.file_format_not_allowed'))
+                ]);
             }
             
             $name = $create.$today.'-'.$counter.'.'.$extension;
             $imagePath = '';
             $exists = Storage::disk('public')->exists($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR);
+            
+            if (!Storage::disk('public')->exists($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR)) {
+                Storage::makeDirectory('public'.DIRECTORY_SEPARATOR.$create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR);
+            }
+            $exists = Storage::disk('public')->exists($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR);
             if ($exists) {
-                $allFiles = Storage::files($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR);
+                $allFiles = Storage::files('public'.DIRECTORY_SEPARATOR.$create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR);
                 foreach ($allFiles as $allFile) {
                     $exists = Storage::disk('public')->exists($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR.$name);
                     if ($exists) {
@@ -642,8 +612,8 @@ class AdminController extends Controller
                         $name =  $name = $create.$today.'-'.$counter.'.'.$extension;
                     }
                 }
-                $fileStore = $file->storeAs($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR,$name);
-                $imagePath = $create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR.$name;
+                $fileStore = $request->fileupload->storeAs('public'.DIRECTORY_SEPARATOR.$create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR,$name);
+                $imagePath = $create.'/'.$today1.'/'.$name;
                 // for check size file
                 if (round(Storage::size($fileStore) / 1024, 2 ) <= 0) {
                     Storage::delete($fileStore);
@@ -651,17 +621,19 @@ class AdminController extends Controller
                     return $data;
                 }
     
-                if (round(Storage::size($filename) / 1024, 2) > pow(1024,2)) {
+                if (round(Storage::size($fileStore) / 1024, 2) > pow(1024,2)) {
                     Storage::delete($fileStore);
                     $data['message']    = ucfirst(__('vintari.file_max'));
                     return $data;
                 }
             }
-            $data['errors']     = false;
-            $data['success']    = true;
-            $data['message']    = ucfirst(__('vintari.success_add_photo'));
-            $data['image_path'] = $imagePath;
-            return $data;
+            $file_object = new \stdClass();
+            $file_object->name = $request->fileupload->getClientOriginalName();
+            $file_object->size = round(Storage::size($fileStore) / 1024, 2);
+            $file_object->url  = $imagePath;
+            
+            $files[] = $file_object;
+            return response()->json(['files'=>$files], 200);
         } else {
             $name = $create.$today.'-'.$counter.'.'.$extension;
             foreach ($file as $item) {
@@ -708,6 +680,7 @@ class AdminController extends Controller
             $data['message']    = ucfirst(__('vintari.success_add_photo'));
             return $data;
         }
+
     }
 
     public function loadData(Request $request) {
@@ -720,7 +693,11 @@ class AdminController extends Controller
             $desc1En    = $banner->desc1_en;
             $desc2      = $banner->desc2;
             $desc2En    = $banner->desc2_en;
-            $imagePath  = $banner->image_path;
+            if ($banner->image_path != '') {
+                $imagePath  = url('storage/'.$banner->image_path);
+            } else {
+                $imagePath = '';
+            }
             return response()->json([
                 'success'       => true,
                 'create'        => $create,
@@ -729,13 +706,17 @@ class AdminController extends Controller
                 'desc1'         => $desc1,
                 'desc1_en'      => $desc1En,
                 'desc2'         => $desc2,
-                'desc2_en'      => $desv2En,
+                'desc2_en'      => $desc2En,
                 'image_path'    => $imagePath
             ]);
         } else if ($create == 'BRAND') {
             $brand = Brand::find($request->id);
             $name  = $brand->name;
-            $imagePath  = $brand->image_path;
+            if ($brand->image_path != '') {
+                $imagePath  = url('storage/'.$brand->image_path);
+            } else {
+                $imagePath = '';
+            }
             return response()->json([
                 'success'       => true,
                 'create'        => $create,
@@ -753,9 +734,14 @@ class AdminController extends Controller
             $urlAlibaba     = $about->url_alibaba;
             $telpon         = $about->telp;
             $email          = $about->email;
-            $proudctSold    = $about->product_sold;
+            $productSold    = $about->product_sold;
             $countriesSold  = $about->countries_sold;
             $client         = $about->client;
+            if ($about->image_path != '') {
+                $imagePath  = url('storage/'.$about->image_path);
+            } else {
+                $imagePath = '';
+            }
             return response()->json([
                 'success'       => true,
                 'create'        => $create,
@@ -770,7 +756,8 @@ class AdminController extends Controller
                 'email'         => $email,
                 'product_sold'  => $productSold,
                 'countries_sold'=> $countriesSold,
-                'client'        => $client
+                'client'        => $client,
+                'image_path'    => $imagePath
             ]);
         } else if ($create == 'PRODUCT') {
             $product        = Product::find($request->id);
@@ -803,10 +790,16 @@ class AdminController extends Controller
         } else if ($create == 'COUNTRY') {
             $country = Country::find($request->id);
             $name    = $country->name;
+            if ($country->image_path != '') {
+                $imagePath  = url('storage/'.$country->image_path);
+            } else {
+                $imagePath = '';
+            }
             return response()->json([
-                'success'   => true,
-                'create'    => $create,
-                'name'      => $name
+                'success'       => true,
+                'create'        => $create,
+                'name'          => $name,
+                'image_path'    => $imagePath
             ]);
         } else if ($create == 'ACTIVITY') {
             $activity = Activity::find($request->id);
