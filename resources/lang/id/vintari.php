@@ -54,5 +54,9 @@ return [
     "file_corrupt"          => "file corrupt 0KB or file > 2MB",
     "file_max"              => "file max 2MB",
     "success_add_photo"     => "berhasil tambah foto",
-    "url_alibaba"           => "URL Alibaba"
+    "url_alibaba"           => "URL Alibaba",
+    "ok"                    => "simpan",
+    "cancel"                => "batal",
+    "delete_data"           => "Apakah anda yakin akan menghapus data?",
+    "confirmation"          => "Konfirmasi",
 ];

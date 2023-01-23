@@ -105,10 +105,28 @@
                                     <label class="control-label" >{{ucwords(__('vintari.file'))}}</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="banner" name="banner" title="{{__('file select input, for upload file')}} ({{__('required')}})" required>
-                                        <label class="custom-file-label" for="banner">{{__('choose')}} {{__('file')}}...</label>
-                                    </div>
+                                    @if(!$create)
+                                        <input class="btn btn-info" type="button" id="output_image" onclick="PreviewImage();" value="Preview Image"/>
+                                    @endif
+                                    @if($create)
+                                        <div class="custom-file">
+                                            <span class="btn btn-secondary fileinput-button" id="fileinputbtn">
+                                                <i class="fa fa-photo" ></i>
+                                                <span>{{__('Pilih file Gambar')}}</span>
+                                                <!-- The file input field used as target for the file upload widget -->
+                                                <input id="fileupload" type="file" name="fileupload" onclick="uploadPhoto();">
+                                            </span>
+                                            {{-- <small class="text-danger"> * file size max 2MB</small> --}}
+                                           
+                                            <!-- The global progress bar -->
+                                            <div id="progress" class="progress">
+                                                <div class="progress-bar progress-bar-success"></div>
+                                            </div>
+                                            <!-- The container for the uploaded files -->
+                                            <ul id="files" class="files list-group list-group-flush"></ul>
+                                            <input id="image_path" type="text" name="image_path" hidden>
+                                        </div>                       
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -135,10 +153,28 @@
                                     <label class="control-label" >{{ucwords(__('vintari.file'))}}</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="brand" name="brand" title="{{__('file select input, for upload file')}} ({{__('required')}})" required>
-                                        <label class="custom-file-label" for="brand">{{__('choose')}} {{__('file')}}...</label>
-                                    </div>
+                                    @if(!$create)
+                                        <input class="btn btn-info" type="button" id="output_image" onclick="PreviewImage();" value="Preview Image"/>
+                                    @endif
+                                    @if($create)
+                                        <div class="custom-file">
+                                            <span class="btn btn-secondary fileinput-button" id="fileinputbtn">
+                                                <i class="fa fa-photo" ></i>
+                                                <span>{{__('Pilih file Gambar')}}</span>
+                                                <!-- The file input field used as target for the file upload widget -->
+                                                <input id="fileupload" type="file" name="fileupload" onclick="uploadPhoto();">
+                                            </span>
+                                            {{-- <small class="text-danger"> * file size max 2MB</small> --}}
+                                           
+                                            <!-- The global progress bar -->
+                                            <div id="progress" class="progress">
+                                                <div class="progress-bar progress-bar-success"></div>
+                                            </div>
+                                            <!-- The container for the uploaded files -->
+                                            <ul id="files" class="files list-group list-group-flush"></ul>
+                                            <input id="image_path" type="text" name="image_path" hidden>
+                                        </div>                       
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -236,10 +272,28 @@
                                     <label class="control-label" >{{ucwords(__('vintari.file'))}}</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="about" name="about" title="{{__('file select input, for upload file')}} ({{__('required')}})" required>
-                                        <label class="custom-file-label" for="about">{{__('choose')}} {{__('file')}}...</label>
-                                    </div>
+                                    @if(!$create)
+                                        <input class="btn btn-info" type="button" id="output_image" onclick="PreviewImage();" value="Preview Image"/>
+                                    @endif
+                                    @if($create)
+                                        <div class="custom-file">
+                                            <span class="btn btn-secondary fileinput-button" id="fileinputbtn">
+                                                <i class="fa fa-photo" ></i>
+                                                <span>{{__('Pilih file Gambar')}}</span>
+                                                <!-- The file input field used as target for the file upload widget -->
+                                                <input id="fileupload" type="file" name="fileupload" onclick="uploadPhoto();">
+                                            </span>
+                                            {{-- <small class="text-danger"> * file size max 2MB</small> --}}
+                                           
+                                            <!-- The global progress bar -->
+                                            <div id="progress" class="progress">
+                                                <div class="progress-bar progress-bar-success"></div>
+                                            </div>
+                                            <!-- The container for the uploaded files -->
+                                            <ul id="files" class="files list-group list-group-flush"></ul>
+                                            <input id="image_path" type="text" name="image_path" hidden>
+                                        </div>                       
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -326,7 +380,7 @@
                     {{-- end name --}}
                 @endif
                 @if($create_1 == 'COUNTRY')
-                    {{-- name --}}
+                    {{-- country --}}
                         <div class="col-sm-5">
                             <div class="row mb-3">
                                 <div class="col-sm-4">
@@ -338,7 +392,7 @@
                                 </div>
                             </div> 
                         </div>
-                    {{-- end name --}}
+                    {{-- end country --}}
                     {{-- upload --}}
                         <div class="col-sm-5">
                             <div class="row mb-3">
@@ -346,10 +400,28 @@
                                     <label class="control-label" >{{ucwords(__('vintari.file'))}}</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="country" name="country" title="{{__('file select input, for upload file')}} ({{__('required')}})" required>
-                                        <label class="custom-file-label" for="country">{{__('choose')}} {{__('file')}}...</label>
-                                    </div>
+                                    @if(!$create)
+                                        <input class="btn btn-info" type="button" id="output_image" onclick="PreviewImage();" value="Preview Image"/>
+                                    @endif
+                                    @if($create)
+                                        <div class="custom-file">
+                                            <span class="btn btn-secondary fileinput-button" id="fileinputbtn">
+                                                <i class="fa fa-photo" ></i>
+                                                <span>{{__('Pilih file Gambar')}}</span>
+                                                <!-- The file input field used as target for the file upload widget -->
+                                                <input id="fileupload" type="file" name="fileupload" onclick="uploadPhoto();">
+                                            </span>
+                                            {{-- <small class="text-danger"> * file size max 2MB</small> --}}
+                                           
+                                            <!-- The global progress bar -->
+                                            <div id="progress" class="progress">
+                                                <div class="progress-bar progress-bar-success"></div>
+                                            </div>
+                                            <!-- The container for the uploaded files -->
+                                            <ul id="files" class="files list-group list-group-flush"></ul>
+                                            <input id="image_path" type="text" name="image_path" hidden>
+                                        </div>                       
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -475,6 +547,8 @@
         <script type='text/javascript' src='{{ asset('js/datetimepicker/moment.min.js') }}'></script>
         <script type='text/javascript' src='{{ asset('js/datetimepicker/bootstrap-datetimepicker.min.js') }}'></script>
         <script type='text/javascript' src='{{ asset('js/datetimepicker/id.js') }}'></script>
+        <script src="{{asset('js/jQuery-File-Upload-10.7.0/js/vendor/jquery.ui.widget.js')}}"></script>
+        <script src="{{asset('js/jQuery-File-Upload-10.7.0/js/jquery.fileupload.js')}}"></script>
     <!-- colorpicker -->
         {{-- <script type='text/javascript' src='{{ asset('js/colorpicker/bootstrap-colorpicker.js') }}'></script> --}}
     <!-- selectize -->
@@ -529,6 +603,9 @@
     <script type="text/javascript" src="{!! asset('js/selectize/selectize.js') !!}"></script>
     <script>
         var create1 = '';
+        var filename_array = [];
+        var fileName = '';
+        var preview = '';    
         @if(!$create)
             loadData();
             @if($show)
@@ -589,20 +666,52 @@
                             $('#desc1_en').html(data.desc1_en);
                             $('#desc2').html(data.desc2);
                             $('#desc2_en').html(data.desc2_en);
+                            preview = data.image_path;
+                            if (preview != '') {
+                                $('#output_image').prop('disabled', false);
+                            }
                         } else if (data.create == 'BRAND') {
-
+                            $('#name').val(data.name);
+                            preview = data.image_path;
+                            if (preview != '') {
+                                $('#output_image').prop('disabled', false);
+                            }
                         } else if (data.create == 'ABOUT') {
-
+                            $('#history').html(data.history);
+                            $('#history_en').html(data.history_en);
+                            $('#visi').html(data.visi);
+                            $('#visi_en').html(data.visi_en);
+                            $('#misi').html(data.misi);
+                            $('#misi_en').html(data.misi_en);
+                            $('#url_alibaba').val(data.url_alibaba);
+                            $('#telpon').val(data.telpon);
+                            $('#email').val(data.email);
+                            $('#url_alibaba').val(data.url_alibaba);
+                            $('#product_sold').val(data.product_sold);
+                            $('#countries_sold').val(data.countries_sold);
+                            $('#client').val(data.client);
+                            preview = data.image_path;
+                            if (preview != '') {
+                                $('#output_image').prop('disabled', false);
+                            }
                         } else if (data.create == 'PRODUCT') {
 
                         } else if (data.create == 'CATEGORY') {
-
+                            $('#name').val(data.name);
+                            $('#name_en').val(data.name_en);
                         } else if (data.create == 'COUNTRY') {
-
+                            $('#country').val(data.name);
+                            preview = data.image_path;
+                            if (preview != '') {
+                                $('#output_image').prop('disabled', false);
+                            }
                         } else if (data.create == 'ACTIVITY') {
 
                         } else if (data.create =='FAQ') {
-
+                            $('#question').val(data.question);
+                            $('#question_en').val(data.question_en);
+                            $('#answer').val(data.answer);
+                            $('#answer_en').val(data.answer_en);
                         } else if (data.create == 'CONTACT') {
 
                         }
@@ -656,53 +765,183 @@
                 $("#saveBtn").attr("disabled", false);
                 return false;
             }
-            
-            artConfirmationDo('{{ucwords(__('confirmation'))}}', '{{ucfirst(__('vintari.save_data'))}}', function(){
+            $("#backBtn").prop("disabled", false);
+            $("#saveBtn").prop("disabled", false);
+            artConfirmationDo('{{ucwords(__('vintari.confirmation'))}}', '{{ucfirst(__('vintari.save_data'))}}', function(){
                 artConfirmationClose();
                 saveData();
             });
         });
-
+        
         // saveData create atau edit
         function saveData() {
+            var url = $('#form-add').attr("action");
             @if($create)
-                var fd = new FormData(this.form);
-                $.ajax({
-                    method: "POST", // Type of response and matches what we said in the route
-                    url: '{!! route('admin.vintari.store') !!}',
-                    data: fd,
-                    processData: false,
-                    contentType: false,
-                    success: function(data) { // What to do if we succeed
-                        artLoadingDialogClose();
-                        $("#backBtn").prop("disabled", false);
-                        $("#saveBtn").prop("disabled", false);
-                        if (data.error) {
-                            artCreateFlashMsg(data.message, 'error', true);
-                        }
+                artLoadingDialogDo('Loading...', function(){
+                    $.ajax({
+                        type: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{!!csrf_token()!!}'
+                        },
+                        url : '{!! route('admin.vintari.store') !!}',
+                        dataType:"json",
+                        @if($create_1 == 'CATEGORY')
+                            data: {
+                                'name'      : $('#name').val().toUpperCase(),
+                                'name_en'   : $('#name_en').val().toUpperCase(),
+                                'create'    : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'BANNER')
+                            data: {
+                                'header'    : $('#header').val().toUpperCase(),
+                                'header_en' : $('#header_en').val().toUpperCase(),
+                                'desc1'     : $('#desc1').val().toUpperCase(),
+                                'desc1_en'  : $('#desc1_en').val().toUpperCase(),
+                                'desc2'     : $('#desc2').val().toUpperCase(),
+                                'desc2_en'  : $('#desc2_en').val().toUpperCase(),
+                                'image_path': $('#image_path').val().toUpperCase(),
+                                'create'    : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'BRAND')
+                            data: {
+                                'name'    : $('#name').val().toUpperCase(),
+                                'image_path': $('#image_path').val().toUpperCase(),
+                                'create'  : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'ABOUT')
+                            data: {
+                                'history'       : $('#history').val().toUpperCase(),
+                                'history_en'    : $('#history_en').val().toUpperCase(),
+                                'visi'          : $('#visi').val().toUpperCase(),
+                                'visi_en'       : $('#visi_en').val().toUpperCase(),
+                                'misi'          : $('#misi').val().toUpperCase(),
+                                'misi_en'       : $('#misi_en').val().toUpperCase(),
+                                'image_path': $('#image_path').val().toUpperCase(),
+                                'url_alibaba'   : $('#url_alibaba').val().toUpperCase(),
+                                'telpon'        : $('#telpon').val().toUpperCase(),
+                                'email'         : $('#email').val().toUpperCase(),
+                                'create'        : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'COUNTRY')
+                            data: {
+                                'name'    : $('#country').val().toUpperCase(),
+                                'image_path': $('#image_path').val().toUpperCase(),
+                                'create'  : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'FAQ')
+                            data: {
+                                'question'      : $('#question').val().toUpperCase(),
+                                'question_en'   : $('#question_en').val().toUpperCase(),
+                                'answer'        : $('#answer').val().toUpperCase(),
+                                'answer_en'     : $('#answer_en').val().toUpperCase(),
+                                'create'        : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'CONTACT')
+                            data: {
+                                'name'      : $('#name').val().toUpperCase(),
+                                'email'     : $('#email').val().toUpperCase(),
+                                'message'   : $('#message').val().toUpperCase(),
+                                'create'    : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        success: function(data) { // What to do if we succeed
+                            artLoadingDialogClose();
+                            $("#backBtn").prop("disabled", false);
+                            $("#saveBtn").prop("disabled", false);
+                            if (data.error) {
+                                artCreateFlashMsg(data.message, 'error', true);
+                            }
 
-                        if (data.success) {
-                            artAllFlashMsgClose();
-                            setTimeout(function(){ window.location.href = '{!! route('admin.vintari.index') !!}'; }, 1);
+                            if (data.success) {
+                                artAllFlashMsgClose();
+                                setTimeout(function(){ window.location.href = '{!! route('admin.vintari.index') !!}'; }, 1);
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            artLoadingDialogClose();
+                            $("#backBtn").prop("disabled", false);
+                            $("#saveBtn").prop("disabled", false);
+                            artCreateFlashMsg("{{ucfirst(__('vintari.error_save'))}}",'error',true);
                         }
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        artLoadingDialogClose();
-                        $("#backBtn").prop("disabled", false);
-                        $("#saveBtn").prop("disabled", false);
-                        artCreateFlashMsg("{{ucfirst(__('vintari.error_save'))}}",'error',true);
-                    }
+                    });
                 });
                
             @elseif($edit)
-                var fd = new FormData(this.form);
-                artLoadingDialongDo("loading", function() {
+                artLoadingDialogDo('Loading...', function(){
                     $.ajax({
                         method: "PATCH", // Type of response and matches what we said in the route
-                        url: '{!! route('admin.vintari.update')!!}, $id',
-                        data: fd,
-                        processData: false,
-                        contentType: false,
+                        headers: {
+                            'X-CSRF-TOKEN': '{!!csrf_token()!!}'
+                        },
+                        url: "{{ url('/admin/vintari') }}/"+"{{ $id }}",
+                        dataType:"json",
+                        @if($create_1 == 'CATEGORY')
+                            data: {
+                                'name'      : $('#name').val().toUpperCase(),
+                                'name_en'   : $('#name_en').val().toUpperCase(),
+                                'create'    : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'BANNER')
+                            data: {
+                                'header'    : $('#header').val().toUpperCase(),
+                                'header_en' : $('#header_en').val().toUpperCase(),
+                                'desc1'     : $('#desc1').val().toUpperCase(),
+                                'desc1_en'  : $('#desc1_en').val().toUpperCase(),
+                                'desc2'     : $('#desc2').val().toUpperCase(),
+                                'desc2_en'  : $('#desc2_en').val().toUpperCase(),
+                                'create'    : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'BRAND')
+                            data: {
+                                'name'    : $('#name').val().toUpperCase(),
+                                'create'  : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'ABOUT')
+                            data: {
+                                'history'       : $('#history').val().toUpperCase(),
+                                'history_en'    : $('#history_en').val().toUpperCase(),
+                                'visi'          : $('#visi').val().toUpperCase(),
+                                'visi_en'       : $('#visi_en').val().toUpperCase(),
+                                'misi'          : $('#misi').val().toUpperCase(),
+                                'misi_en'       : $('#misi_en').val().toUpperCase(),
+                                'url_alibaba'   : $('#url_alibaba').val().toUpperCase(),
+                                'telpon'        : $('#telpon').val().toUpperCase(),
+                                'email'         : $('#email').val().toUpperCase(),
+                                'create'        : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'COUNTRY')
+                            data: {
+                                'name'    : $('#country').val().toUpperCase(),
+                                'create'  : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'FAQ')
+                            data: {
+                                'question'      : $('#question').val().toUpperCase(),
+                                'question_en'   : $('#question_en').val().toUpperCase(),
+                                'answer'        : $('#answer').val().toUpperCase(),
+                                'answer_en'     : $('#answer_en').val().toUpperCase(),
+                                'create'        : {!! json_encode($create_1) !!}
+                            },
+                        @endif
+                        @if($create_1 == 'CONTACT')
+                            data: {
+                                'name'      : $('#name').val().toUpperCase(),
+                                'email'     : $('#email').val().toUpperCase(),
+                                'message'   : $('#message').val().toUpperCase(),
+                                'create'    : {!! json_encode($create_1) !!}
+                            },
+                        @endif
                         success: function(data) { // What to do if we succeed
                             artLoadingDialogClose();
                             $("#backBtn").prop("disabled", false);
@@ -725,6 +964,98 @@
                     });
                 });
             @endif
+        }
+
+        // upload photo
+        function uploadPhoto() {
+            urlGlobal = "{{url('/admin/vintari/create/upload-photo')}}/"+{!! json_encode($create_1) !!};;
+            var html = '';
+            if (filename_array.length <= 2) {
+                $('#fileupload').fileupload({
+                    url: urlGlobal,
+                    headers: {
+                        'X-CSRF-TOKEN': '{!! csrf_token() !!}'
+                    },
+                    dataType: 'json',
+                    add: function (e, data) {
+                        artAllFlashMsgClose();
+                        if((data._progress.loaded/1048576) >(2)){
+                            artCreateFlashMsg('file max 2MB', 'error',true);
+                            return false;
+                        }
+                        upload_error_msg = "";
+                        data.files = data.files.filter(function(file) {
+                            if ($.inArray(file.name,filename_array) >= 0) { 
+                                upload_error_msg = upload_error_msg + file.name+" ";
+                                return false; // skip
+                            }
+                            return true;
+                        }).map(function(file) { return file; });
+
+                        if(upload_error_msg!=""){
+                            alert("{{__('globals/efactureverification.upload_failed_exists_in_list_prefix')}}"+upload_error_msg+"{{__('globals/efactureverification.upload_failed_exists_in_list_sufix')}}");
+                            return true;
+                        }
+                        if (data.autoUpload || (data.autoUpload !== false &&
+                            $(this).fileupload('option', 'autoUpload'))) {
+                            data.process().done(function () {
+                                data.submit();
+                            });
+                        }
+                    },
+                    done: function (e, data) {
+                        // console.log(data.total);
+                        var html = '';
+                        artAllFlashMsgClose();
+                        if((data.total/1048576) > (2)){
+                            artCreateFlashMsg('file max 2MB', 'error',true);
+                            return false;
+                        }
+                        // console.log(data.result.errors);
+                        if(data.result.errors){
+                            html = '<div class="alert alert-danger">'+data.result.errors+'</div>';
+                            // html = ;
+                            // artCreateFlashMsg(data.result.errors, 'error',true);
+                            $('#progress .progress-bar').css(
+                                'width',
+                                0 + '%'
+                            );
+                            // console.log(html);
+                            artCreateFlashMsg(data.result.errors, 'error',true);
+                            // $("#form_result").html(html);
+                            return false;
+                        }
+                        
+                        $.each(data.result.files, function (index, file) {
+                            filename_array.push(file.name);
+                            fileName = file.name;
+                            $('#image_path').val(file.url);
+                        });
+                    },
+                    progressall: function (e, data) {
+                        artAllFlashMsgClose();
+                        if((data.total/1048576) > (2)){
+                            artCreateFlashMsg('file max 2MB', 'error',true);
+                            $('#progress .progress-bar').css(
+                                'width',
+                                0 + '%'
+                            );
+                            return false;
+                        }
+                        var progress = parseInt(data.loaded / data.total * 100, 10);
+                        $('#progress .progress-bar').css(
+                            'width',
+                            progress + '%'
+                        );
+                    }
+                }).prop('disabled', !$.support.fileInput)
+                    .parent().addClass($.support.fileInput ? undefined : 'disabled');
+            }
+        }
+
+        // preview image
+        function PreviewImage() {
+            window.open(preview,'_blank');
         }
     </script>
 @endsection

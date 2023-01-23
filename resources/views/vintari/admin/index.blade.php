@@ -515,7 +515,7 @@
                         { data: 'visi_en', name: 'visi_en'},
                         { data: 'misi', name: 'misi'},
                         { data: 'misi_en', name: 'misi_en'},
-                        { data: 'telpon', name: 'telpon'},
+                        { data: 'telp', name: 'telp'},
                         { data: 'email', name: 'email'},
                         { data: 'product_sold', name: 'product_sold'},
                         { data: 'countries_sold', name: 'countries_sold'},
@@ -529,6 +529,10 @@
                             }
                         }}
                     ],
+                    columnDefs: [
+                        { type: 'date-eu', targets: 13 },
+                    ],
+                    order: [ [13, 'desc'] ],
                     rowCallback: function( row, data, iDisplayIndex ) {
                         var api = this.api();    
                         var info = api.page.info();
@@ -596,6 +600,10 @@
                             }
                         }}
                     ],
+                    columnDefs: [
+                        { type: 'date-eu', targets: 6 },
+                    ],
+                    order: [ [6, 'desc'] ],
                     rowCallback: function( row, data, iDisplayIndex ) {
                         var api = this.api();    
                         var info = api.page.info();
@@ -665,6 +673,10 @@
                             }
                         }}
                     ],
+                    columnDefs: [
+                        { type: 'date-eu', targets: 8 },
+                    ],
+                    order: [ [8, 'desc'] ],
                     rowCallback: function( row, data, iDisplayIndex ) {
                         var api = this.api();    
                         var info = api.page.info();
@@ -729,6 +741,10 @@
                             }
                         }}
                     ],
+                    columnDefs: [
+                        { type: 'date-eu', targets: 3 },
+                    ],
+                    order: [ [3, 'desc'] ],
                     rowCallback: function( row, data, iDisplayIndex ) {
                         var api = this.api();    
                         var info = api.page.info();
@@ -794,6 +810,10 @@
                             }
                         }}
                     ],
+                    columnDefs: [
+                        { type: 'date-eu', targets: 4 },
+                    ],
+                    order: [ [4, 'desc'] ],
                     rowCallback: function( row, data, iDisplayIndex ) {
                         var api = this.api();    
                         var info = api.page.info();
@@ -860,6 +880,10 @@
                             }
                         }}
                     ],
+                    columnDefs: [
+                        { type: 'date-eu', targets: 5 },
+                    ],
+                    order: [ [5, 'desc'] ],
                     rowCallback: function( row, data, iDisplayIndex ) {
                         var api = this.api();    
                         var info = api.page.info();
@@ -924,6 +948,10 @@
                             }
                         }}
                     ],
+                    columnDefs: [
+                        { type: 'date-eu', targets: 3 },
+                    ],
+                    order: [ [3, 'desc'] ],
                     rowCallback: function( row, data, iDisplayIndex ) {
                         var api = this.api();    
                         var info = api.page.info();
@@ -991,6 +1019,10 @@
                             }
                         }}
                     ],
+                    columnDefs: [
+                        { type: 'date-eu', targets: 6 },
+                    ],
+                    order: [ [6, 'desc'] ],
                     rowCallback: function( row, data, iDisplayIndex ) {
                         var api = this.api();    
                         var info = api.page.info();
@@ -1060,6 +1092,10 @@
                             }
                         }}
                     ],
+                    columnDefs: [
+                        { type: 'date-eu', targets: 8 },
+                    ],
+                    order: [ [8, 'desc'] ],
                     rowCallback: function( row, data, iDisplayIndex ) {
                         var api = this.api();    
                         var info = api.page.info();
@@ -1117,6 +1153,7 @@
                         { data: 'name', name: 'name'},
                         { data: 'email', name: 'email'}
                     ],
+                    order: [ [1, 'desc'] ],
                     rowCallback: function( row, data, iDisplayIndex ) {
                         var api = this.api();    
                         var info = api.page.info();
@@ -1138,5 +1175,57 @@
                 // CLOSE ACTION DOWNLOAD PRODUCT
             });
         // CLOSE TABLE USER
+
+        // function showItem()
+            function showItem(id) {
+                var uriComponent = encodeURIComponent(id);
+                location.replace('{{ url('/admin/vintari') }}/'+uriComponent);
+            }
+        // end function showItem()
+        // function editItem()
+            function editItem(id) {
+                var uriComponent = encodeURIComponent(id);
+                location.replace('{{ url('/admin/vintari') }}/'+uriComponent+'/edit');
+            }
+        // end function editItem()
+        // function deleteItem()
+            function deleteItem(id) {
+                artConfirmationDo('{{ucfirst(__('vintari.confirmation'))}}', '{{ucfirst(__('vintari.delete_data'))}}', function(){
+                artConfirmationClose();
+                artLoadingDialogDo('Loading...', function(){
+                    $.ajax({
+                        url: "{{ url('/admin/vintari') }}/"+id,
+                        type: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': '{!! csrf_token() !!}'
+                        },
+                        dataType:'json',
+                        success:function(data)
+                        {
+                            if(data.errors)
+                            {
+                                artLoadingDialogClose();
+                                artAllFlashMsgClose();
+                                artCreateFlashMsg(data.message, 'error',true);
+                            }
+                            if(data.success)
+                            {
+                                artLoadingDialogClose();
+                                artAllFlashMsgClose();
+                                artCreateFlashMsg(data.message, 'success',true);
+                                
+                                $('#'+data.create_1+'-table').DataTable().ajax.reload();
+                                
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            artLoadingDialogClose();
+                            artCreateFlashMsg("{{ucfirst(__('textStatus'))}}",'error',true);
+                        }
+                    });
+                });
+            });
+            }
+        // end function deleteItem()
     </script>
 @endsection

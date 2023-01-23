@@ -54,6 +54,10 @@ return [
     "file_corrupt"          => "file corrupt 0KB or file > 2MB",
     "file_max"              => "file max 2MB",
     "success_add_photo"     => "success add photo",
-    "url_alibaba"           => "URL Alibaba"
+    "url_alibaba"           => "URL Alibaba",
+    "ok"                    => "Ok",
+    "cancel"                => "Cancel",
+    "delete_data"           => "Delete Data",
+    "confirmation"          => "Confirmation",
 
 ];
