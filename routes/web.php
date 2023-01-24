@@ -21,7 +21,9 @@ Route::prefix('admin/vintari/')->name('admin.vintari.')->group(function () {
     Route::post('data', 'Vintari\AdminController@dataTable')->name('data');
     Route::post('load-data', 'Vintari\AdminController@loadData')->name('load-data');
     Route::get('create/{var}', 'Vintari\AdminController@create')->name('create');
+    Route::get('download-excel/{var}', 'Vintari\AdminController@exportExcel')->name('download-excel');
     Route::post('create/upload-photo/{var}', 'Vintari\AdminController@uploadFile')->name('upload-photo');
+    Route::post('get-select-option', 'Vintari\AdminController@getSelectOption')->name('get-select-option');
 });
   
 Route::prefix('admin')->name('admin.')->group(function () {
