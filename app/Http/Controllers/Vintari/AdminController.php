@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Log;
 use Excel;
 use Storage;
+use ArtHelper;
 use Datatables;
 use Carbon\Carbon;
 
@@ -28,6 +29,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+
+use Rap2hpoutre\FastExcel\FastExcel;
+use Rap2hpoutre\FastExcel\SheetCollection;
 
 class AdminController extends Controller
 {
@@ -141,33 +145,27 @@ class AdminController extends Controller
                 $title          = $request->title;
                 $description    = $request->description;
                 $descriptionEn  = $request->description_en;
-                $bestSelling    = $request->best_selling;
-                $hasFile        = $request->hasFile('product');
-                $file           = $request->file('product');
-                $uploadPhoto    = $this->uploadFile($hasFile, $file, $create);
-                if ($uploadPhoto['errors']) {
-                    DB::rollback();
-                    return response()->json([
-                        'errors'    => true,
-                        'success'   => false,
-                        'message'   => $uploadPhoto['message']
-                    ]);
-                }
+                $imagePath      = $request->image_path;
+                $imagePath1     = $request->image_path1?$request->image_path1:'';
+                $imagePath2     = $request->image_path2?$request->image_path2:'';
+                $imagePath3     = $request->image_path3?$request->image_path3:'';
+                $imagePath4     = $request->image_path4?$request->image_path4:'';
+                
                 $insert = new Product([
                     'categories_id'     => $category,
                     'countries_id'      => $country,
                     'title'             => $title,
                     'description'       => $description,
                     'description_en'    => $descriptionEn,
-                    'best_selling'      => $bestSelling,
-                    'image_path1'       => $uploadPhoto['image_path'],
-                    'image_path2'       => $uploadPhoto['image_path1'],
-                    'image_path3'       => $uploadPhoto['image_path2'],
-                    'image_path4'       => $uploadPhoto['image_path3'],
-                    'image_path5'       => $uploadPhoto['image_path4'],
-                    'created_by'        => $user,
+                    'best_selling'      => 1,
+                    'image_path1'       => $imagePath,
+                    'image_path2'       => $imagePath1,
+                    'image_path3'       => $imagePath2,
+                    'image_path4'       => $imagePath3,
+                    'image_path5'       => $imagePath4,
+                    'created_by'        => 1,
                     'created_at'        => $today,
-                    'updated_by'        => $user,
+                    'updated_by'        => 1,
                     'updated_at'        => $today,
                 ]);
             } else if ($create == 'CATEGORY') {
@@ -195,30 +193,22 @@ class AdminController extends Controller
             } else if ($create == 'ACTIVITY') {
                 $title      = $request->title;
                 $titleEn    = $request->title_en;
-                $article    = $request->article;
-                $articleEn  = $request->article_en;
-                $hasFile        = $request->hasFile('activity');
-                $file           = $request->file('activity');
-                $uploadPhoto    = $this->uploadFile($hasFile, $file, $create);
-                if ($uploadPhoto['errors']) {
-                    DB::rollback();
-                    return response()->json([
-                        'errors'    => true,
-                        'success'   => false,
-                        'message'   => $uploadPhoto['message']
-                    ]);
-                }
+                $article    = $request->articles;
+                $articleEn  = $request->articles_en;
+                $imagePath  = $request->image_path;
+                $imagePath1 = $request->image_path1;
+                $imagePath2 = $request->image_path2;
                 $insert = new Activity([
                     'title'         => $title,
                     'title_en'      => $titleEn,
                     'articles'      => $article,
                     'articles_en'   => $articleEn,
-                    'image_path1'   => $uploadPhoto['image_path'],
-                    'image_path2'   => $uploadPhoto['image_path1'],
-                    'image_path3'   => $uploadPhoto['image_path2'],
-                    'created_by'    => $user,
+                    'image_path1'   => $imagePath,
+                    'image_path2'   => $imagePath1,
+                    'image_path3'   => $imagePath2,
+                    'created_by'    => 1,
                     'created_at'    => $today,
-                    'updated_by'    => $user,
+                    'updated_by'    => 1,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'FAQ') {
@@ -306,18 +296,42 @@ class AdminController extends Controller
             $data = User::orderBy('id');
             $datatables = DataTables::of($data);
         }
-        $datatables = $datatables->addColumn('action', function ($item) use ($request){
-            $txt = "";
-            $txt .= "<a href=\"#\" onclick=\"showItem('$item->id|$request->create');\" title=\"" . ucfirst(__('detail')) . "\" class=\"btn btn-xs btn-secondary\"><i class=\"fa fa-eye fa-fw fa-xs\"></i></a>";
-            $txt .= "<a href=\"#\" onclick=\"editItem('$item->id|$request->create');\" title=\"" . ucfirst(__('edit')) . "\" class=\"btn btn-xs btn-secondary\"><i class=\"fa fa-edit fa-fw fa-xs\"></i></a>";
-            if (strtoupper($request->create) != 'USER') {
+        
+        if ($create == 'PRODUCT') {
+            $datatables = $datatables->addColumn('action', function ($item) use ($request){
+                $txt = "";
+                $txt .= "<a href=\"#\" onclick=\"showItem('$item->id|$request->create');\" title=\"" . ucfirst(__('detail')) . "\" class=\"btn btn-xs btn-secondary\"><i class=\"fa fa-eye fa-fw fa-xs\"></i></a>";
+                $txt .= "<a href=\"#\" onclick=\"editItem('$item->id|$request->create');\" title=\"" . ucfirst(__('edit')) . "\" class=\"btn btn-xs btn-secondary\"><i class=\"fa fa-edit fa-fw fa-xs\"></i></a>";
                 $txt .= "<a href=\"#\" onclick=\"deleteItem('$item->id|$request->create');\" title=\"" . ucfirst(__('delete')) . "\" class=\"btn btn-xs btn-danger\"><i class=\"fa fa-trash fa-fw fa-xs\"></i></a>";
-            }
-            return $txt;
-        })
-        ->editColumn('created_by', function($item) {
-            return strtoupper(optional($item->createdBy)->name);
-        });
+                return $txt;
+            })
+            ->editColumn('categories_id', function($item) {
+                return optional($item->category)->name;
+            })
+            ->editColumn('countries_id', function($item) {
+                return optional($item->country)->name;
+            })
+            ->editColumn('best_selling', function($item) {
+                return $item->best_selling?'YES':'NO';
+            })
+            ->editColumn('created_by', function($item) {
+                return strtoupper(optional($item->createdBy)->name);
+            });
+        } else {
+            $datatables = $datatables->addColumn('action', function ($item) use ($request){
+                $txt = "";
+                if (strtoupper($request->create) != 'USER') {
+                    $txt .= "<a href=\"#\" onclick=\"showItem('$item->id|$request->create');\" title=\"" . ucfirst(__('detail')) . "\" class=\"btn btn-xs btn-secondary\"><i class=\"fa fa-eye fa-fw fa-xs\"></i></a>";
+                    $txt .= "<a href=\"#\" onclick=\"editItem('$item->id|$request->create');\" title=\"" . ucfirst(__('edit')) . "\" class=\"btn btn-xs btn-secondary\"><i class=\"fa fa-edit fa-fw fa-xs\"></i></a>";
+                    $txt .= "<a href=\"#\" onclick=\"deleteItem('$item->id|$request->create');\" title=\"" . ucfirst(__('delete')) . "\" class=\"btn btn-xs btn-danger\"><i class=\"fa fa-trash fa-fw fa-xs\"></i></a>";
+                }
+                return $txt;
+            })
+            ->editColumn('created_by', function($item) {
+                return strtoupper(optional($item->createdBy)->name);
+            });
+        }
+        
         return $datatables->make(TRUE);
     }
 
@@ -617,14 +631,16 @@ class AdminController extends Controller
                 // for check size file
                 if (round(Storage::size($fileStore) / 1024, 2 ) <= 0) {
                     Storage::delete($fileStore);
-                    $data['message']    = ucfirst(__('vintari.file_corrupt'));
-                    return $data;
+                    return response()->json([
+                        'errors'    => ucfirst(__('vintari.file_corrupt'))
+                    ]);
                 }
     
                 if (round(Storage::size($fileStore) / 1024, 2) > pow(1024,2)) {
                     Storage::delete($fileStore);
-                    $data['message']    = ucfirst(__('vintari.file_max'));
-                    return $data;
+                    return response()->json([
+                        'errors'    => ucfirst(__('vintari.file_max'))
+                    ]);
                 }
             }
             $file_object = new \stdClass();
@@ -635,52 +651,54 @@ class AdminController extends Controller
             $files[] = $file_object;
             return response()->json(['files'=>$files], 200);
         } else {
-            $name = $create.$today.'-'.$counter.'.'.$extension;
-            foreach ($file as $item) {
-                $name = $item->getClientOriginalName();
-                $extension = pathinfo($name, PATHINFO_EXTENSION);
-                if (!in_array($extension, $ext)) {
-                    $data['message']    = ucfirst(__('vintari.file_format_not_allowed'));
-                    return $data;
-                }
-                $exists = Storage::disk('public')->exists($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR.$name);
-                if ($exists) {
-                    $counter++;
-                    $name = $create.$today.'-'.$counter.'.'.$extension;
-                } else {
-                    $fileStore = $item->storeAs($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR.$name);
-                    $imagePath = $create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR.$name;
-                    if(round(Storage::size($fileStore) / 1024, 2) <= 0){
-                        Storage::delete($fileStore);
-                        $data['message']    = ucfirst(__('vintari.file_corrupt'));
-                        return $data;
-                    }
-                    if(round(Storage::size($fileStore) / 1024, 2) > pow(1024,2)){
-                        Storage::delete($fileStore);
-                        $data['message']    = ucfirst(__('vintari.file_max'));
-                        return $data;
-                    }
-                }
-                if (isset($fileStore)) {
-                    if ($data['image_path'] == '') {
-                        $data['image_path'] = $imagePath;
-                    } else if ($data['image_path1'] == '') {
-                        $data['image_path1'] = $imagePath;
-                    } else if ($data['image_path2'] == '') {
-                        $data['image_path2'] = $imagePath;
-                    } else if ($data['image_path3'] == '') {
-                        $data['image_path3'] = $imagePath;
-                    } else if ($data['image_path4'] == '') {
-                        $data['image_path4'] = $imagePath;
-                    }
-                }
+            $files  = [];
+            $exists = Storage::disk('public')->exists($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR);
+            if (!Storage::disk('public')->exists($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR)) {
+                Storage::makeDirectory('public'.DIRECTORY_SEPARATOR.$create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR);
             }
-            $data['errors']     = false;
-            $data['success']    = true;
-            $data['message']    = ucfirst(__('vintari.success_add_photo'));
-            return $data;
+            foreach ($request->fileupload as $item) {
+                $name       = $item->getClientOriginalName();
+                $extension  = pathinfo($name, PATHINFO_EXTENSION);
+                $name       = $create.$today.'-'.$counter.'.'.$extension;
+                if (!in_array($extension, $ext)) {
+                    return response()->json([
+                        'errors'    => ucfirst(__('vintari.file_format_not_allowed'))
+                    ]);
+                }
+                $allFiles = Storage::files('public'.DIRECTORY_SEPARATOR.$create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR);
+                foreach ($allFiles as $allFile) {
+                    $exists = Storage::disk('public')->exists($create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR.$name);
+                    if ($exists) {
+                        $counter++;
+                        $name = $create.$today.'-'.$counter.'.'.$extension;
+                    } 
+                }
+                $fileStore = $item->storeAs('public'.DIRECTORY_SEPARATOR.$create.DIRECTORY_SEPARATOR.$today1.DIRECTORY_SEPARATOR,$name);
+                $imagePath = $create.'/'.$today1.'/'.$name;
+                // for check size file
+                if (round(Storage::size($fileStore) / 1024, 2 ) <= 0) {
+                    Storage::delete($fileStore);
+                    return response()->json([
+                        'errors'    => ucfirst(__('vintari.file_corrupt'))
+                    ]);
+                }
+    
+                if (round(Storage::size($fileStore) / 1024, 2) > pow(1024,2)) {
+                    Storage::delete($fileStore);
+                    return response()->json([
+                        'errors'    => ucfirst(__('vintari.file_max'))
+                    ]);
+                }
+                $file_object = new \stdClass();
+                $file_object->name = $item->getClientOriginalName();
+                $file_object->size = round(Storage::size($fileStore) / 1024, 2);
+                $file_object->url  = $imagePath;
+                
+                $files[] = $file_object;
+               
+            }
+            return response()->json(['files'=>$files], 200);
         }
-
     }
 
     public function loadData(Request $request) {
@@ -761,12 +779,39 @@ class AdminController extends Controller
             ]);
         } else if ($create == 'PRODUCT') {
             $product        = Product::find($request->id);
-            $category       = optional($product->category)->name;
-            $country        = optional($product->country)->name;
+            
+            $category       = '<option value="'.$product->categories_id.'">'.optional($product->category)->name.'</option>';
+            $country        = '<option value="'.$product->countries_id.'">'.optional($product->country)->name.'</option>';;
             $title          = $product->title;
             $description    = $product->description;
             $descriptionEn  = $product->description_en;
-            $bestSelling    = $proudct->best_selling;
+            $bestSelling    = $product->best_selling;
+            $imagePath1 = '';
+            $imagePath2 = '';
+            $imagePath3 = '';
+            $imagePath5 = '';
+            $imagePath4 = '';
+            $imagePath = [];
+            if ($product->image_path1 != '') {
+                $imagePath1 = url('storage/'.$product->image_path1);
+                $imagePath[] = $imagePath1;
+            } 
+            if ($product->image_path2 != '') {
+                $imagePath2 = url('storage/'.$product->image_path2);
+                $imagePath[] = $imagePath2;
+            } 
+            if ($product->image_path3 != '') {
+                $imagePath3 = url('storage/'.$product->image_path3);
+                $imagePath[] = $imagePath3;
+            } 
+            if ($product->image_path4 != '') {
+                $imagePath4 = url('storage/'.$product->image_path4);
+                $imagePath[] = $imagePath4;
+            } 
+            if ($product->image_path5 != '') {
+                $imagePath5 = url('storage/'.$product->image_path5);
+                $imagePath[] = $imagePath5;
+            } 
             return response()->json([
                 'success'       => true,
                 'create'        => $create,
@@ -775,7 +820,8 @@ class AdminController extends Controller
                 'title'         => $title,
                 'description'   => $description,
                 'description_en'=> $descriptionEn,
-                'best_selling'  => $bestSelling
+                'best_selling'  => $bestSelling,
+                'image_path'    => $imagePath
             ]);
         } else if ($create == 'CATEGORY') {
             $category   = Category::find($request->id);
@@ -807,13 +853,31 @@ class AdminController extends Controller
             $titleEn    = $activity->title_en;
             $article    = $activity->articles;
             $articleEn  = $activity->articles_en;
+            $imagePath1 = '';
+            $imagePath2 = '';
+            $imagePath3 = '';
+            $imagePath = [];
+            if ($activity->image_path1 != '') {
+                $imagePath1 = url('storage/'.$activity->image_path1);
+                $imagePath[] = $imagePath1;
+            } 
+            if ($activity->image_path2 != '') {
+                $imagePath2 = url('storage/'.$activity->image_path2);
+                $imagePath[] = $imagePath2;
+            } 
+            if ($activity->image_path3 != '') {
+                $imagePath3 = url('storage/'.$activity->image_path3);
+                $imagePath[] = $imagePath3;
+            } 
+        
             return response()->json([
                 'success'       => true,
                 'create'        => $create,
                 'title'         => $title,
                 'title_en'      => $titleEn,
                 'articles'      => $article,
-                'articles_en'   => $articleEn
+                'articles_en'   => $articleEn,
+                'image_path'    => $imagePath
             ]);
         } else if ($create == 'FAQ') {
             $faq        = Faq::find($request->id);
@@ -845,5 +909,111 @@ class AdminController extends Controller
             flash(ucfirst(__('vintari.menu_not_found')))->error()->important();
             return redirect()->back();
         }
+    }
+
+    public function getSelectOption(Request $request) {
+        $country    = Country::orderBy('name');
+        $category   = Category::orderBy('name');
+
+        $select     = '';
+        $select1    = '';
+
+        foreach ($country->cursor() as $item) {
+            $select .= '<option value="'.$item->id.'">'.$item->name.'</option>';
+        }
+
+        foreach ($category->cursor() as $item) {
+            $select1 .= '<option value="'.$item->id.'">'.$item->name.'</option>';
+        }
+
+        return response()->json([
+            'success'   => true,
+            'country'   => $select,
+            'category'  => $select1
+        ]);
+    }
+
+    public function exportExcel($var) {
+        $create = strtoupper($var);
+        $dataCsv = [];
+        if ($create == 'BANNER') {
+            $data = Banner::with(['createdBy']);
+            foreach ($data->cursor() as $item) {
+                $itemData = [
+                    ucwords(__('vintari.header'))       => $item->header,
+                    ucwords(__('vintari.header_en'))    => $item->header_en,
+                    ucwords(__('vintari.desc1'))        => $item->desc1,
+                    ucwords(__('vintari.desc1_en'))     => $item->desc1_en,
+                    ucwords(__('vintari.desc2'))        => $item->desc2,
+                    ucwords(__('vintari.desc2_en'))     => $item->desc2_en,
+                    ucwords(__('vintari.created_by'))   => optional($item->createdBy)->name,
+                    ucwords(__('vintari.created_at'))   => Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->format('d/m/Y H:i:s'),
+                    ucwords(__('vintari.updated_by'))   => optional($item->updatedBy)->name,
+                    ucwords(__('vintari.updated_at'))   => Carbon::createFromFormat('Y-m-d H:i:s',$item->updated_at)->format('d/m/Y H:i:s'),
+                ];
+                $dataCsv[] = $itemData;
+            }
+        } else if ($create == 'BRAND') {
+            $data = Brand::with(['createdBy']);
+            foreach ($data->cursor() as $item) {
+                $itemData = [
+                    ucwords(__('vintari.name'))       => $item->name,
+                    ucwords(__('vintari.created_by'))   => optional($item->createdBy)->name,
+                    ucwords(__('vintari.created_at'))   => Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->format('d/m/Y H:i:s'),
+                    ucwords(__('vintari.updated_by'))   => optional($item->updatedBy)->name,
+                    ucwords(__('vintari.updated_at'))   => Carbon::createFromFormat('Y-m-d H:i:s',$item->updated_at)->format('d/m/Y H:i:s'),
+                ];
+                $dataCsv[] = $itemData;
+            }
+        } else if ($create == 'ABOUT') {
+            $data = About::with(['createdBy']);
+            foreach ($data->cursor() as $item) {
+                $itemData = [
+                    ucwords(__('vintari.history'))          => $item->history,
+                    ucwords(__('vintari.history_en'))       => $item->history_en,
+                    ucwords(__('vintari.visi'))             => $item->visi,
+                    ucwords(__('vintari.visi_en'))          => $item->visi_en,
+                    ucwords(__('vintari.misi'))             => $item->misi,
+                    ucwords(__('vintari.misi_en'))          => $item->misi_en,
+                    ucwords(__('vintari.url_alibaba'))      => $item->url_alibaba,
+                    ucwords(__('vintari.telp'))             => $item->telp,
+                    ucwords(__('vintari.email'))            => $item->email,
+                    ucwords(__('vintari.product_sold'))     => $item->product_sold,
+                    ucwords(__('vintari.countries_sold'))   => $item->countries_sold,
+                    ucwords(__('vintari.client'))           => $item->client,
+                    ucwords(__('vintari.created_by'))       => optional($item->createdBy)->name,
+                    ucwords(__('vintari.created_at'))       => Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->format('d/m/Y H:i:s'),
+                    ucwords(__('vintari.updated_by'))       => optional($item->updatedBy)->name,
+                    ucwords(__('vintari.updated_at'))       => Carbon::createFromFormat('Y-m-d H:i:s',$item->updated_at)->format('d/m/Y H:i:s'),
+                ];
+                $dataCsv[] = $itemData;
+            }
+        } else if ($create == 'PRODUCT') {
+            $data = Product::with(['createdBy']);
+        } else if ($create == 'CATEGORY') {
+            $data = Category::with(['createdBy']);
+        } else if ($create == 'COUNTRY') {
+            $data = Country::with(['createdBy']);
+            foreach ($data->cursor() as $item) {
+                $itemData = [
+                    ucwords(__('vintari.name'))       => $item->name,
+                    ucwords(__('vintari.created_by'))   => optional($item->createdBy)->name,
+                    ucwords(__('vintari.created_at'))   => Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->format('d/m/Y H:i:s'),
+                    ucwords(__('vintari.updated_by'))   => optional($item->updatedBy)->name,
+                    ucwords(__('vintari.updated_at'))   => Carbon::createFromFormat('Y-m-d H:i:s',$item->updated_at)->format('d/m/Y H:i:s'),
+                ];
+                $dataCsv[] = $itemData;
+            }
+        } else if ($create == 'ACTIVITY') {
+            $data = Activity::with(['createdBy']);
+        } else if ($create == 'FAQ') {
+            $data = Faq::with(['createdBy']);
+        } else if ($create == 'CONTACT') {
+            $data = Contact::with(['createdBy']);
+        } else if ($create == 'USER') {
+            $data = User::orderBy('id');
+        }
+        $sheets = new SheetCollection([$dataCsv]);
+        return (new FastExcel($sheets))->download($create.'.xlsx');
     }
 }

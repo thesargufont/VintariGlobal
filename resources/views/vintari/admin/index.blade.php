@@ -1149,7 +1149,7 @@
                         }
                     },
                     columns: [
-                        { data: 'action', name: 'action', orderable: false, searchable: false, width: '140px'},
+                        { data: 'action', name: 'action', orderable: false, searchable: false, width: '140px', visible:false},
                         { data: 'name', name: 'name'},
                         { data: 'email', name: 'email'}
                     ],
