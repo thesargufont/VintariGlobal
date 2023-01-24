@@ -499,9 +499,9 @@
           <section class="content" height="100%">
             <div class="row" height="100%">
               <div class="col-12" id="art-main-contents" height="100%">
-                {{-- <div id='art-flash-msg-container'>
-                  @include('flash::message')
-                </div> --}}
+                <div id='art-flash-msg-container'>
+                  {{-- @include('flash::message') --}}
+                </div>
                 @yield('content')
               </div>
             </div>
@@ -1029,7 +1029,7 @@
           
         }
 
-        function artConfirmationDo(title, text, okCallback,modalWidth=600, okText='{{ucwords(__('form.ok'))}}', cancelText='{{ucwords(__('form.cancel'))}}', cancelCallback=null) {
+        function artConfirmationDo(title, text, okCallback,modalWidth=600, okText='{{ucwords(__('vintari.ok'))}}', cancelText='{{ucwords(__('vintari.cancel'))}}', cancelCallback=null) {
           $('#artConfirmationTitle').text(title);
           $('#artConfirmationBody').html(text);
           $('#artConfirmationBtnOk').html(okText);

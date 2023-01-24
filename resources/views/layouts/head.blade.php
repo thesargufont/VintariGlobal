@@ -1,3 +1,4 @@
+
 <header id="header-top">
     <div class="container clearfix">
         <div class="row">
@@ -19,12 +20,12 @@
 
         <nav class="navigation">
             <ul>
-                {{-- <li class="current_page_item"><a href="index.php">Home</a></li>
+                <li class="current_page_item"><a href="index.php">Home</a></li>
                 <li class=""><a href="about.php">Tentang Kami</a></li>
                 <li class=""><a href="product-list.php">Products</a></li>
                 <li class=""><a href="blog-list.php">Aktifitas</a></li>
                 <li class=""><a href="faq.php">FAQ</a></li>
-                <li class=""><a href="contact.php">Contact</a></li> --}}
+                <li class=""><a href="contact.php">Contact</a></li>
             </ul>
         </nav><!-- End navigation -->
     </div><!-- End container -->
