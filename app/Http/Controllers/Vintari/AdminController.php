@@ -90,9 +90,9 @@ class AdminController extends Controller
                     'desc2'         => $desc2?$desc2:'',
                     'desc2_en'      => $desc2En?$desc2En:'',
                     'image_path'    => $imagePath,
-                    'created_by'    => 1,
+                    'created_by'    => Auth::user()->id,
                     'created_at'    => $today,
-                    'updated_by'    => 1,
+                    'updated_by'    => Auth::user()->id,
                     'updated_at'    => $today,
                 ]);    
             } else if ($create == 'BRAND') {
@@ -101,9 +101,9 @@ class AdminController extends Controller
                 $insert = new Brand([
                     'name'          => $name,
                     'image_path'    => $imagePath,
-                    'created_by'    => 1,
+                    'created_by'    => Auth::user()->id,
                     'created_at'    => $today,
-                    'updated_by'    => 1,
+                    'updated_by'    => Auth::user()->id,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'ABOUT') {
@@ -134,9 +134,9 @@ class AdminController extends Controller
                     'product_sold'  => $productSold?$productSold:0,
                     'countries_sold'=> $countriesSold?$countriesSold:0,
                     'client'        => $client?$client:0,
-                    'created_by'    => 1,
+                    'created_by'    => Auth::user()->id,
                     'created_at'    => $today,
-                    'updated_by'    => 1,
+                    'updated_by'    => Auth::user()->id,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'PRODUCT') {
@@ -157,15 +157,15 @@ class AdminController extends Controller
                     'title'             => $title,
                     'description'       => $description,
                     'description_en'    => $descriptionEn,
-                    'best_selling'      => 1,
+                    'best_selling'      => Auth::user()->id,
                     'image_path1'       => $imagePath,
                     'image_path2'       => $imagePath1,
                     'image_path3'       => $imagePath2,
                     'image_path4'       => $imagePath3,
                     'image_path5'       => $imagePath4,
-                    'created_by'        => 1,
+                    'created_by'        => Auth::user()->id,
                     'created_at'        => $today,
-                    'updated_by'        => 1,
+                    'updated_by'        => Auth::user()->id,
                     'updated_at'        => $today,
                 ]);
             } else if ($create == 'CATEGORY') {
@@ -174,9 +174,9 @@ class AdminController extends Controller
                 $insert = new Category([
                     'name'          => $name,
                     'name_en'       => $nameEn,
-                    'created_by'    => 1,
+                    'created_by'    => Auth::user()->id,
                     'created_at'    => $today,
-                    'updated_by'    => 1,
+                    'updated_by'    => Auth::user()->id,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'COUNTRY') {
@@ -185,9 +185,9 @@ class AdminController extends Controller
                 $insert = new Country([
                     'name'          => $name,
                     'image_path'    => $imagePath,
-                    'created_by'    => 1,
+                    'created_by'    => Auth::user()->id,
                     'created_at'    => $today,
-                    'updated_by'    => 1,
+                    'updated_by'    => Auth::user()->id,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'ACTIVITY') {
@@ -206,9 +206,9 @@ class AdminController extends Controller
                     'image_path1'   => $imagePath,
                     'image_path2'   => $imagePath1,
                     'image_path3'   => $imagePath2,
-                    'created_by'    => 1,
+                    'created_by'    => Auth::user()->id,
                     'created_at'    => $today,
-                    'updated_by'    => 1,
+                    'updated_by'    => Auth::user()->id,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'FAQ') {
@@ -221,9 +221,9 @@ class AdminController extends Controller
                     'question_en'   => $questionEn,
                     'answer'        => $answer,
                     'answer_en'     => $answerEn,
-                    'created_by'    => 1,
+                    'created_by'    => Auth::user()->id,
                     'created_at'    => $today,
-                    'updated_by'    => 1,
+                    'updated_by'    => Auth::user()->id,
                     'updated_at'    => $today,
                 ]);
             } else if ($create == 'CONTACT') {
@@ -234,9 +234,9 @@ class AdminController extends Controller
                     'name'      => $name,
                     'email'     => $email,
                     'message'   => $message,
-                    'created_by'    => 1,
+                    'created_by'    => Auth::user()->id,
                     'created_at'    => $today,
-                    'updated_by'    => 1,
+                    'updated_by'    => Auth::user()->id,
                     'updated_at'    => $today,
                 ]);
             } 

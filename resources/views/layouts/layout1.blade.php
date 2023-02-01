@@ -276,6 +276,11 @@
             font-size:1rem;
         }
 
+        .right{
+          /* margin-right: 0px; */
+          float:right;
+        }
+
         /* HTML Base style for global adjustment */
         html {
           font-size:75%; /* 12/16 */
@@ -302,6 +307,9 @@
 
         .card-header {
           padding: .2rem 1.25rem;
+        }
+        #box-right{
+          float: right;
         }
         
         .fa-blank
@@ -387,7 +395,23 @@
             </form>
     
             <!-- Right navbar links -->
-            
+              <li class="nav-item dropdown float-right d-none d-sm-inline" >
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }} <span class="caret"></span>
+                </a>
+  
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <span style="padding-left: -100px;">
+                    <a class="dropdown-item" href="#"
+                      onclick="document.getElementById('logout-form').submit();">
+                      {{ __('sign out') }}
+                    </a>
+                  </span>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                        @csrf
+                    </form>
+                </div>
+              </li>
           </nav>
         <!-- /.navbar -->
     
@@ -547,7 +571,7 @@
           <div id="artNotifBody" class="modal-body" style="width : 100%; height : 400px; overflow : auto;">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" onclick="location.replace('{{url('/sysadmin/notification/userpage/all')}}');">{{ucwords(__('All notifications'))}}</button>
+            
             <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ucwords(__('close'))}}</button>
           </div>
         </div>
@@ -731,91 +755,15 @@
         }
 
         function sysGetNotif() {
-          $.ajax({
-						url: "{{url("/sysadmin/notification/list")}}",
-						type: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': '{!!csrf_token()!!}'
-            },
-						data: {
-						},
-						success: function(result) {
-							if(result.success) {
-                if(result.data!="") {
-                  $('li#art_notifs').empty().html(result.data);
-                } else {
-                  $('li#art_notifs').empty().html("<a class=\"nav-link\" data-toggle=\"dropdown\" href=\"#\"><i class=\"fas fa-bell\"></i></a><div class=\"dropdown-menu dropdown-menu-lg dropdown-menu-right\"><span class=\"dropdown-header\">0 {{ucwords(__('notification'))}}</span><div class=\"dropdown-divider\"></div><span class=\"dropdown-item dropdown-footer\"><div class=\"dropdown-item-text\">&nbsp;</div></span></div>");
-                }
-                aHrefToReplaceLoc();
-							}
-						}
-					});
         }
 
         function openSearchPage() {
-          $.ajax({
-					  	url: "{{url("/home/search/post")}}",
-					  	type: 'POST',
-              headers: {
-                  'X-CSRF-TOKEN': '{!!csrf_token()!!}'
-              },
-					  	data: {
-                'searchtext': $('#art_app_search_input').val(),
-					  	},
-					  	success: function(result) {
-					  		if(result.success) {
-                  location.replace('{{url('/home/search')}}');
-					  		}
-					  	}
-					  });
         }
 
         function aHrefToReplaceLoc() {
-          var links = document.getElementsByTagName('a');
-          for(var i=0;i<links.length;i++) {
-            if((!links[i].hasAttribute('onclick'))&&(links[i].getAttribute('href')!="#")&&(links[i].getAttribute('href')!=null)&&(links[i].getAttribute('href')!="")) {
-              links[i].addEventListener('click', function(event){
-                const link = this;
-                event.preventDefault();
-                location.replace(link.getAttribute('href'));
-              });
-            }
-          }
         }
 
-        @if(session('home_sidebar-toggle-collapsed')=='Y')
-          sessionStorage.setItem("sidebar-toggle-collapsed", "Y");
-        @elseif(session('sidebar-toggle-collapsed')=='N')
-          sessionStorage.setItem("sidebar-toggle-collapsed", "N");
-        @endif
-        if (sessionStorage.getItem("sidebar-toggle-collapsed")=="Y") {
-          $("body").removeClass('sidebar-collapse');
-        }
 
-        $('.sidebar-toggle').click(function(event) {
-          event.preventDefault();
-          if (sessionStorage.getItem("sidebar-toggle-collapsed")=="Y") {
-            sessionStorage.setItem("sidebar-toggle-collapsed", "N");
-          } else {
-            sessionStorage.setItem("sidebar-toggle-collapsed", "Y");
-          }
-          @guest
-          
-          @else
-          $.ajax({
-						url: "{{url("/home/userpref/save")}}",
-						type: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': '{!!csrf_token()!!}'
-            },
-						data: {
-              's': 'home',
-              'v': 'sidebar-toggle-collapsed',
-              'vl': sessionStorage.getItem("sidebar-toggle-collapsed")
-						}
-					});
-          @endguest
-        });
 
         var artChooserResult = null; // single string or coma separated string
         var artChooserResultId = null; // single string or coma separated string
