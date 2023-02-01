@@ -229,9 +229,12 @@ return array(
     'Carbon\\Translator' => $vendorDir . '/nesbot/carbon/src/Carbon/Translator.php',
     'Carbon\\TranslatorImmutable' => $vendorDir . '/nesbot/carbon/src/Carbon/TranslatorImmutable.php',
     'Carbon\\TranslatorStrongTypeInterface' => $vendorDir . '/nesbot/carbon/src/Carbon/TranslatorStrongTypeInterface.php',
+<<<<<<< HEAD
     'CategorySeeder' => $baseDir . '/database/seeds/CategorySeeder.php',
     'ContactSeeder' => $baseDir . '/database/seeds/ContactSeeder.php',
     'CountrySeeder' => $baseDir . '/database/seeds/CountrySeeder.php',
+=======
+>>>>>>> e4acf5970dc1cb9288004bfdd6ba920e58e23fd0
     'Cron\\AbstractField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
     'Cron\\DayOfMonthField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
