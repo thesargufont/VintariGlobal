@@ -447,6 +447,7 @@ class ComposerStaticInit9762322dafb40eaf33820f39b390f0b0
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Vintari\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Vintari/AdminController.php',
+        'App\\Http\\Controllers\\Vintari\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Vintari/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
