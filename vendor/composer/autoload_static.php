@@ -447,6 +447,7 @@ class ComposerStaticInit9762322dafb40eaf33820f39b390f0b0
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Vintari\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Vintari/AdminController.php',
+        'App\\Http\\Controllers\\Vintari\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Vintari/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -658,12 +659,9 @@ class ComposerStaticInit9762322dafb40eaf33820f39b390f0b0
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'Carbon\\TranslatorImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorImmutable.php',
         'Carbon\\TranslatorStrongTypeInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorStrongTypeInterface.php',
-<<<<<<< HEAD
         'CategorySeeder' => __DIR__ . '/../..' . '/database/seeds/CategorySeeder.php',
         'ContactSeeder' => __DIR__ . '/../..' . '/database/seeds/ContactSeeder.php',
         'CountrySeeder' => __DIR__ . '/../..' . '/database/seeds/CountrySeeder.php',
-=======
->>>>>>> e4acf5970dc1cb9288004bfdd6ba920e58e23fd0
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',

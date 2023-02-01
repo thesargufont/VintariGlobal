@@ -65,5 +65,7 @@ return [
     "product_upload_photo_max"              => "Maksimal 5 Photo",
     "upload_failed_exists_in_list_prefix"   => "Upload Failed, already exists in list prefix",
     "upload_photo_max"                      => "Maksimal 1 Photo",
-    "best_selling"                          => "Best Selling"
+    "best_selling"                          => "Best Selling",
+    "home"                                  => "Home",
+    "about_us"                              => "Tentang Kami",
 ];
