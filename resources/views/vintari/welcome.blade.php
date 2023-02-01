@@ -69,7 +69,7 @@
                         </li>
                         <li data-transition="random" data-slotamount="7" data-masterspeed="1000">
                             <!-- MAIN IMAGE -->
-                            <img src="images/banner2.jpg" alt="" data-bgfit="cover" data-bgposition="left top"
+                            <img src="{{ asset("vintari/images/banner2.jpg") }}" alt="" data-bgfit="cover" data-bgposition="left top"
                                 data-bgrepeat="no-repeat">
 
                             <div class="slideshow-bg" data-y="310" data-x="center" data-start="0"></div>
@@ -78,7 +78,8 @@
                             <!-- LAYER NR. 1 -->
                             <div class="tp-caption lfl start" data-x="600" data-y="100" data-speed="400"
                                 data-start="1300" data-easing="easeOut" data-endspeed="500"><img
-                                    src="images/products.png" alt="products">
+                                    src="" alt="products">
+                                    {{-- {{ asset("vintari/images/products.png") }} --}}
                             </div>
 
                             <!-- Layer NR. 2 -->
@@ -532,7 +533,7 @@
                                     <div class="client"><a href="#"><img alt="" src="{{ asset("vintari/images/pg.png") }}"></a></div>
                                 </div>
                                 <div class="col-md-2 client-item">
-                                    <div class="client"><a href="#"><img alt="" src="{{ asset("vintari/images/pocari.jpg") }}"></a></div>
+                                    <div class="client"><a href="#"><img alt="" src="{{ asset("vintari/images/pocari.png") }}"></a></div>
                                 </div>
                                 <div class="col-md-2 client-item">
                                     <div class="client"><a href="#"><img alt="" src="{{ asset("vintari/images/redbull.png") }}"></a></div>

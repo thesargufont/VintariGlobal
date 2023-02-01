@@ -6,8 +6,8 @@
             <div class="col-md-12">
                 <div class="social-ul">
                     <ul>
-                        <li class="social-google"><a href="#"><i class="fa"><img src="images/id.png"><span></span></img></i></a></li>
-                        <li class="social-google"><a href="#"><i class="fa"><img src="images/en.png"><span></span></img></i></a></li>
+                        <li class="social-google"><a href="{{ route('lang') }}?lang=id"><img src="{{ asset("vintari/images/id.png") }}"></i></a></li>
+                        <li class="social-google"><a href="{{ route('lang') }}?lang=en"><img src="{{ asset("vintari/images/en.png") }}"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -16,13 +16,7 @@
 </header><!-- End header -->
 <header id="header">
     <div class="container clearfix">
-        <div class="logo"><a href="index.php"><img alt="" src="images/V-logo.jpg"></a><span></span></div>
-        <div class="col-md-8">
-            <select class="form-control Langchange">
-                <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
-                <option value="id" {{ session()->get('locale') == 'id' ? 'selected' : '' }}>Indonesia</option>                    
-            </select>
-        </div>
+        <div class="logo"><a href="index.php"><img alt="" src="{{ asset("vintari/images/V-logo.jpg") }}"></a><span></span></div>
         <nav class="navigation">
             <ul>
                 <li class="current_page_item"><a href="index.php">{{ucwords(__('vintari.home'))}}</a></li>
@@ -38,7 +32,8 @@
 <script src="{{asset('js/jquery/jquery-3.3.1.min.js')}}"></script>
 <script>
       var url = "{{ route('lang') }}";
-     $(".Langchange").change(function(){
+      function change() {
+        console.log($(this).val());
         window.location.href = url + "?lang="+ $(this).val();
-    });
+      }
 </script>
