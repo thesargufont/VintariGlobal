@@ -6,8 +6,12 @@
 <!--<![endif]-->
 
 <head>
+<<<<<<< HEAD
     @include('layouts.header')
     
+=======
+   @include('layouts.header')
+>>>>>>> 9925fcc6cdf5c02b0dca303aca08e0d4e342a285
 </head>
 
 <body>
@@ -17,6 +21,10 @@
     </div>
 
     <div id="wrap" class="grid_1200">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9925fcc6cdf5c02b0dca303aca08e0d4e342a285
         @include('layouts.head')
 
         <div class="clearfix"></div>

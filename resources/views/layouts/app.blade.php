@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.title', 'Artemis') }}</title>
+    <title>{{ config('app.title', 'Vintari') }}</title>
 
     <!-- Fonts: -->
     <!-- Font Awesome Icons -->
