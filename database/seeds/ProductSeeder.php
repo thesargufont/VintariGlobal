@@ -61,5 +61,73 @@ class ProductSeeder extends Seeder
             'updated_by'    => 1,
             'updated_at'    => Carbon::now()
         ]);
+        DB::table('products')->insert([
+            'categories_id' => 1,
+            'countries_id'  => 3,
+            'title'         => 'RAMEN',
+            'description'   => 'Enak mie ini',
+            'description_en'=> 'This noodle is delicious',
+            'best_selling'  => 1,
+            'image_path1'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path2'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path3'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path4'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path5'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'created_by'    => 1,
+            'created_at'    => Carbon::now(),
+            'updated_by'    => 1,
+            'updated_at'    => Carbon::now()
+        ]);
+        DB::table('products')->insert([
+            'categories_id' => 1,
+            'countries_id'  => 3,
+            'title'         => 'SOTO KUDUS',
+            'description'   => 'Enak mie ini',
+            'description_en'=> 'This noodle is delicious',
+            'best_selling'  => 1,
+            'image_path1'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path2'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path3'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path4'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path5'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'created_by'    => 1,
+            'created_at'    => Carbon::now(),
+            'updated_by'    => 1,
+            'updated_at'    => Carbon::now()
+        ]);
+        DB::table('products')->insert([
+            'categories_id' => 1,
+            'countries_id'  => 2,
+            'title'         => 'NASI PADANG',
+            'description'   => 'Enak mie ini',
+            'description_en'=> 'This noodle is delicious',
+            'best_selling'  => 1,
+            'image_path1'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path2'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path3'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path4'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path5'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'created_by'    => 1,
+            'created_at'    => Carbon::now(),
+            'updated_by'    => 1,
+            'updated_at'    => Carbon::now()
+        ]);
+        DB::table('products')->insert([
+            'categories_id' => 1,
+            'countries_id'  => 1,
+            'title'         => 'RAMEN 123',
+            'description'   => 'Enak mie ini',
+            'description_en'=> 'This noodle is delicious',
+            'best_selling'  => 1,
+            'image_path1'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path2'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path3'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path4'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'image_path5'   => 'PRODUCT'.Carbon::now()->format('Y/m/d').'/',
+            'created_by'    => 1,
+            'created_at'    => Carbon::now(),
+            'updated_by'    => 1,
+            'updated_at'    => Carbon::now()
+        ]);
     }
 }

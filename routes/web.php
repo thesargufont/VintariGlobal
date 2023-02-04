@@ -10,15 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function() {
-    return view('vintari.welcome');
-});
+// Route::get('/', function() {
+//     return view('vintari.welcome');
+// });
 Route::get('/', 'Vintari\HomeController@langChange')->name('lang');
 Route::get('/about', 'Vintari\HomeController@about')->name('about');
 Route::get('/product', 'Vintari\HomeController@product')->name('product');
 Route::get('/activity', 'Vintari\HomeController@activity')->name('activity');
 Route::get('/faq', 'Vintari\HomeController@faq')->name('faq');
 Route::get('/contact', 'Vintari\HomeController@contact')->name('contact');
+Route::get('/single-product/{var}', 'Vintari\HomeController@singleProduct')->name('single-product');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
