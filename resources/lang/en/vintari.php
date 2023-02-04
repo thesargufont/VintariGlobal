@@ -92,5 +92,14 @@ return [
     "distribution_export"                   => "Distribution and Export of Food & Beverages Products",
     "products_update"                       => "Products Update",
     "check_our_product"                     => "Check Our Product",
-
+    "contact_form"                          => "Contact Form",
+    "send_message"                          => "Send Message",
+    "message"                               => "Message",
+    "your_name"                             => "Your Name",
+    "monday_friday"                         => "Monday - Friday",
+    "saturday"                              => "Saturday",
+    "sunday"                                => "Sunday",
+    "closed"                                => "Closed",
+    "contact_information"                   => "Contact Information",
+    "business_hours"                        => "Business Hours",
 ];

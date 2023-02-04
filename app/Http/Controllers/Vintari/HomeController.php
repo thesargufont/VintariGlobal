@@ -28,6 +28,7 @@ class HomeController extends Controller
             $locale = $request->lang;
         }else{
             $locale = session()->get('locale');
+            App::setLocale($locale);
         }
         
         if ($locale == 'en') {
@@ -44,7 +45,7 @@ class HomeController extends Controller
             'Activetab'      => 'Home',
             'Banners'        => $Banners,
             'About'          => $About,
-            'BrandsArr'         => $Brands,
+            'BrandsArr'      => $Brands,
             'Products'       => $Products
         ]);
         
@@ -52,17 +53,18 @@ class HomeController extends Controller
 
     public function about() {
         $locale = session()->get('locale');
+        App::setLocale($locale);
         if ($locale == 'en') {
 
         } else {
 
         }
-        
        return view('vintari.about');        
     }
 
     public function product() {
         $locale = session()->get('locale');
+        App::setLocale($locale);
         if ($locale == 'en') {
 
         } else {
@@ -82,22 +84,30 @@ class HomeController extends Controller
     }
     public function faq() {
         $locale = session()->get('locale');
+        App::setLocale($locale);
         if ($locale == 'en') {
-
+            $Faqs = Faq::select('question_en as question', 'answer_en as answer')->get();
         } else {
-
-        }
-        return view('vintari.faq');
+            $Faqs = Faq::select('question as question', 'answer as answer')->get();
+        }   
+        return view('vintari.faq', [
+            'Activetab'      => 'Faq',
+            'Faqs'        => $Faqs
+            ]); 
     }
 
     public function contact() {
         $locale = session()->get('locale');
+        App::setLocale($locale);
         if ($locale == 'en') {
-
+            $About = About::select('history_en as history', 'visi_en as visi', 'misi_en as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
         } else {
-
+            $About = About::select('history as history', 'visi as visi', 'misi as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
         }
-        return view('vintari.contact');
+        return view('vintari.contact',[
+            'Activetab' => 'Contact',
+            'About'     => $About,
+        ]);
     }
 
 }

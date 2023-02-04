@@ -78,7 +78,7 @@ return [
     "other_product"                         => "Produk Lain",
     "brands"                                => "Daftar Merk",
     "about_vintari"                         => "Tentang Vintari Global Abadi",
-    "contact_us"                            => "Kontak Kami",
+    "contact_us"                            => "Hubungi Kami",
     "telephone_no"                          => "Nomor Telepon",
     "sales_email"                           =>  "Email Penjualan",
     "price"                                 => "Harga Bersaing",
@@ -92,4 +92,15 @@ return [
     "distribution_export"                   => "Distribusi dan Ekspor Produk Makanan & Minuman",
     "products_update"                       => "Pembaruan Produk",
     "check_our_product"                     => "Cek Produk ",
+    "contact_form"                          => "Form Kontak",
+    "send_message"                          => "Kirim Pesan",
+    "Message"                               => "Pesan",
+    "your_name"                             => "Nama Anda",
+    "monday_friday"                         => "Senin - Jumat",
+    "saturday"                              => "Sabtu",
+    "sunday"                                => "Minggu",
+    "closed"                                => "Tutup",
+    "contact_information"                   => "Informasi Kontak",
+    "business_hours"                        => "Jam Kerja"
+
 ];
