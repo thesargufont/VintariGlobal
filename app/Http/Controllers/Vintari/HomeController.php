@@ -28,6 +28,9 @@ class HomeController extends Controller
             $locale = $request->lang;
         }else{
             $locale = session()->get('locale');
+            if (empty($locale)){
+                $locale = 'id';
+            }
             App::setLocale($locale);
         }
         
@@ -75,12 +78,17 @@ class HomeController extends Controller
 
     public function activity() {
         $locale = session()->get('locale');
+        App::setLocale($locale);
         if ($locale == 'en') {
-
+            $Activities = Activity::select('id','title_en as title', 'articles_en as articles', 'image_path1' , 'image_path2' , 'image_path3' , 'created_at')->paginate(10);
         } else {
-
+            $Activities = Activity::select('id' ,'title as title', 'articles as articles', 'image_path1' , 'image_path2' , 'image_path3' , 'created_at')->paginate(10);
         }
-        return view('vintari.activity');
+        // dd($Activities->links()	);
+        return view('vintari.activity', [
+            'Activetab'      => 'Activity',
+            'Activities'     => $Activities
+        ]); 
     }
     public function faq() {
         $locale = session()->get('locale');
@@ -107,6 +115,21 @@ class HomeController extends Controller
         return view('vintari.contact',[
             'Activetab' => 'Contact',
             'About'     => $About,
+        ]);
+    }
+
+    public function singleActivity($var) {
+        $locale = session()->get('locale');
+        App::setLocale($locale);
+        if ($locale == 'en') {
+            $Activity = Activity::select('id','title_en as title', 'articles_en as articles', 'image_path1' , 'image_path2' , 'image_path3' , 'created_at')->find($var);
+        } else {
+            $Activity = Activity::select('id','title as title', 'articles as articles', 'image_path1' , 'image_path2' , 'image_path3' , 'created_at')->find($var);
+        }
+
+        return view('vintari.activitySingle',[
+            'Activetab' => 'Activity',
+            'Activity'     => $Activity,
         ]);
     }
 

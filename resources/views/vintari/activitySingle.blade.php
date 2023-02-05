@@ -22,8 +22,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4>{{ucwords(__('vintari.activities'))}}</h4>
-                        <span>{{ucwords(__('vintari.our_activities'))}}</span>
+                        <h4>{{ ucwords(__('vintari.activities'))}}</h4>
+                        <span>{{ ucwords(__('vintari.our_activities'))}} </span>
                     </div>
                     <div class="col-md-6">
                         
@@ -38,40 +38,37 @@
                     <div class="col-md-12 main-content">
                         <div class="row">
                             <div class="col-md-12">
-                                @foreach ($Activities as $activity)
-                                <div class="blog-item blog-item-2">
-                                        <div class="blog-img">
+                                <div class="blog-item single-post">
+                                    <div class="blog-img">
                                         <div class="bxslider-slide">
-                                                <ul>
-                                                    @if ($activity->image_path1 !== '')
-                                                        <li><img alt="" src="{{ $activity->image_path1 }}"></li>
+                                            <ul>
+                                                @if ($Activity->image_path1 !== '')
+                                                        <li><img alt="" src="{{ $Activity->image_path1 }}"></li>
                                                     @endif
-                                                    @if ($activity->image_path1 !== '')
-                                                        <li><img alt="" src="{{ $activity->image_path2 }}"></li>
+                                                    @if ($Activity->image_path1 !== '')
+                                                        <li><img alt="" src="{{ $Activity->image_path2 }}"></li>
                                                     @endif
-                                                    @if ($activity->image_path1 !== '')
-                                                        <li><img alt="" src="{{ $activity->image_path3 }}"></li>
+                                                    @if ($Activity->image_path1 !== '')
+                                                        <li><img alt="" src="{{ $Activity->image_path3 }}"></li>
                                                     @endif
-                                                </ul>
-                                            </div>
-                                            <div class="blog-date"><span>{{ $activity->created_at->format('m') }}</span><span>{{ $activity->created_at->format('M') }}, {{ $activity->created_at->format('Y') }}</span></div>
-                                        </div><!-- End blog-img -->
-                                        <div class="blog-content">
-                                            <h6><a href="single-blog.php">{{ $activity->title }}</a></h6>
-                                            <p>{{ $activity->articles }}</p>
-                                        </div><!-- End blog-content -->
-                                        <div class="blog-meta">
-                                            <a class="button-3" href="{{ route('single-activity', $activity->id) }}">{{ ucwords(__('vintari.read_more'))}}</a>
-                                            <div class="clearfix"></div>
-                                        </div><!-- End blog-meta -->
+                                            </ul>
+                                        </div>
+                                        <div class="blog-date"><span>{{ $Activity->created_at->format('m') }}</span><span>{{ $Activity->created_at->format('M') }}, {{ $Activity->created_at->format('Y') }}</span></div>
+                                    </div><!-- End blog-img -->
+                                    <div class="blog-content">
+                                        <h6>{{ $Activity->title }}</h6>
                                         <div class="clearfix"></div>
-                                    </div><!-- End blog-item -->
-                               
-                                @endforeach
-                            </div>    
+                                        <div class="post-content">
+                                            <p>{{ $Activity->articles }}</p>
+                                        </div><!-- End post-content -->
+                                        <div class="clearfix"></div>
+                                    </div><!-- End blog-content -->
+                                    
+                                </div><!-- End blog-item -->
+                                
+                                
+                            </div>
                         </div><!-- End row -->
-
-                        {{ $Activities->links() }}
                     </div><!-- End main-content -->
                 </div><!-- End row -->
                 

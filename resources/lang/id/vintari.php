@@ -101,6 +101,11 @@ return [
     "sunday"                                => "Minggu",
     "closed"                                => "Tutup",
     "contact_information"                   => "Informasi Kontak",
-    "business_hours"                        => "Jam Kerja"
+    "business_hours"                        => "Jam Kerja",
+    "go_to_alibaba"                         => "Pergi ke Toko Alibaba",
+    "alibaba_store"                         => "Toko Alibaba",
+    "read_more"                             => "Baca Selengkapnya",
+    "activities"                            => "Aktifitas",
+    "our_activities"                        => "Aktifitas Kami",
 
 ];

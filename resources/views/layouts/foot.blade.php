@@ -1,7 +1,7 @@
 <footer id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="footer-widget">
                     <div class="widget-title"><h6>{{ucwords(__('vintari.about_vintari'))}}</h6></div>
                     <div class="widget-about">
@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="footer-widget">
                     <div class="widget-title"><h6>{{ucwords(__('vintari.contact_us'))}}</h6></div>
                     <div class="widget-about-2">
@@ -35,6 +35,20 @@
                             <li>
                                 <i class="fa fa-envelope"></i>
                                 <div>{{ucwords(__('vintari.sales_email'))}} : {{ $About->email }}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="footer-widget">
+                    <div class="widget-title"><h6>{{ucwords(__('vintari.alibaba_store'))}}</h6></div>
+                    <div class="widget-about-2">
+                        <ul>
+                            <li>
+                                <i class="fa fa-globe"></i>
+                                <div>URL Alibaba</div>
+                                <div><a href="{{ $About->url_alibaba }}">{{ucwords(__('vintari.go_to_alibaba'))}}</a></div>
                             </li>
                         </ul>
                     </div>

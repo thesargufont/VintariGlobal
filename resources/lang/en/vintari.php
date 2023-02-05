@@ -102,4 +102,9 @@ return [
     "closed"                                => "Closed",
     "contact_information"                   => "Contact Information",
     "business_hours"                        => "Business Hours",
+    "go_to_alibaba"                         => "Go To Alibaba Store",
+    "alibaba_store"                         => "Alibaba Store",
+    "read_more"                             => "Read More",
+    "activities"                            => "Activities",
+    "our_activities"                        => "Our Activities",
 ];
