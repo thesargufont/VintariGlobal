@@ -136,7 +136,34 @@ class HomeController extends Controller
             ]); 
     }
 
-    public function contact() {
+    public function contact(Request $request) {
+        $message = '';
+        $success = '';
+        if($request->isMethod('post')){
+            $today  = Carbon::now();
+            try {
+                $insert = new contact([
+                    'name'          => $request->post('mail'),
+                    'email'         => $request->post('name'),
+                    'message'       => $request->post('message'),
+                    'created_by'    => '',
+                    'created_at'    => $today,
+                    'updated_by'    => '',
+                    'updated_at'    => $today,
+                ]);
+                $insert->save();
+            } catch (Execption $e) {
+                DB::rollback();
+                $message   = $e->getMessage();
+                $success   = false;
+            }
+            DB::commit();
+            $message   = ucfirst(__('vintari.success_send_message'));
+            $success   = true;
+        }
+
+
+        
         $locale = session()->get('locale');
         App::setLocale($locale);
         if ($locale == 'en') {
@@ -147,8 +174,8 @@ class HomeController extends Controller
         return view('vintari.contact',[
             'Activetab' => 'Contact',
             'About'     => $About,
-            'Message'   => '',
-            'Success'   => ''
+            'Message'   => $message,
+            'Success'   => $success
         ]);
     }
 
@@ -216,43 +243,6 @@ class HomeController extends Controller
             'Product'               => $Product
         ]);
     }
-    public function sendMessage(Request $request) {
-        $today  = Carbon::now();
-        try {
-            $insert = new contact([
-                'name'          => $request->post('mail'),
-                'email'         => $request->post('name'),
-                'message'       => $request->post('message'),
-                'created_by'    => '',
-                'created_at'    => $today,
-                'updated_by'    => '',
-                'updated_at'    => $today,
-            ]);
-            $insert->save();
-        } catch (Execption $e) {
-            DB::rollback();
-            $message   = $e->getMessage();
-            $success   = false;
-        }
-        DB::commit();
-        $message   = ucfirst(__('vintari.success_send_message'));
-        $success   = true;
-
-        $locale = session()->get('locale');
-        App::setLocale($locale);
-        if ($locale == 'en') {
-            $About = About::select('history_en as history', 'visi_en as visi', 'misi_en as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
-        } else {
-            $About = About::select('history as history', 'visi as visi', 'misi as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
-        }
-        return view('vintari.contact',[
-            'Activetab' => 'Contact',
-            'About'     => $About,
-            'Message'   => $message,
-            'Success'   => $success
-        ]);
-        
-
-    }
+    
 
 }
