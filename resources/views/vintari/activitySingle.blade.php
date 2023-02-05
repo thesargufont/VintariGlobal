@@ -42,7 +42,7 @@
                                     <div class="blog-img">
                                         <div class="bxslider-slide">
                                             <ul>
-                                                @if ($Activity->image_path1 !== '')
+                                                    @if ($Activity->image_path1 !== '')
                                                         <li><img alt="" src="{{ $Activity->image_path1 }}"></li>
                                                     @endif
                                                     @if ($Activity->image_path1 !== '')

@@ -112,4 +112,10 @@ return [
     "vision"                                => "Vision",
     "mission"                               => "Mission",
     "distributed_countries"                 => "Distributed Countries",
+    "search"                                => "Search",
+    "desc_product"                          => "Product Description",
+    "product_detail"                        => "Product Detail",
+    "product_name"                        => "Product Name",
+    "origin"                                => "Origin",
+    "best_selling_product"                          => "Best Selling Product",
 ];
