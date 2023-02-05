@@ -291,6 +291,7 @@
     <script src="{{asset("vintari/js/jquery.themepunch.revolution.min.js")}}"></script>
     <script src="{{asset("vintari/js/custom.js")}}"></script>
     <script src="{{asset("vintari/js/apps.js")}}"></script>
+
     </body>
     
     </body>

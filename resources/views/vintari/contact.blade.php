@@ -40,7 +40,8 @@
                             <div class="col-md-9">
                                 <div class="section-title section-title-2"><h6>{{ucwords(__('vintari.contact_form'))}} :</h6></div>
                                 <div class="comment-form">
-                                    <form method="post" class="form-js" action="#">
+
+                                    <form method="post" action="{{ route('send_message') }}">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-input">
@@ -64,6 +65,7 @@
                                                 <input type="submit" class="button-3" value="{{ucwords(__('vintari.send_message'))}}">
                                             </div>
                                         </div><!-- End row -->
+                                        {{ csrf_field() }}
                                     </form>
                                 </div><!-- End comment-form -->
                             </div>
@@ -94,6 +96,21 @@
         
     
     </div><!-- End wrap -->
+
+    <script>
+        $( document ).ready(function() {
+        @if(!empty($Message))
+            @if($Success == false)
+                alertify.error("{{ $Message }}");
+            @elseif($Success == true)
+                alertify.success("{{ $Message }}");
+            @endif
+        @endif
+        });
+    </script>
+    @php
+        $Message = '';
+    @endphp
     
     <div class="go-up"><i class="fa fa-chevron-up"></i></div>
     <script src="{{ asset("vintari/js/jquery.min.js") }}"></script>
@@ -110,6 +127,7 @@
     <script src="{{asset("vintari/js/jquery.themepunch.revolution.min.js")}}"></script>
     <script src="{{asset("vintari/js/custom.js")}}"></script>
     <script src="{{asset("vintari/js/apps.js")}}"></script>
+    <script src="{{asset("vintari/js/alertify/alertify.min.js")}}"></script>
     </body>
     
     </body>

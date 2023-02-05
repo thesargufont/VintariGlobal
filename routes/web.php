@@ -22,6 +22,7 @@ Route::get('/faq', 'Vintari\HomeController@faq')->name('faq');
 Route::get('/contact', 'Vintari\HomeController@contact')->name('contact');
 Route::get('/single-product/{var}', 'Vintari\HomeController@singleProduct')->name('single-product');
 Route::get('/single-activity/{var}', 'Vintari\HomeController@singleActivity')->name('single-activity');
+Route::post('/contact', 'Vintari\HomeController@sendMessage')->name('send_message');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Vintari;
-
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App;
 use Illuminate\Support\Facades\Input;
@@ -145,6 +147,8 @@ class HomeController extends Controller
         return view('vintari.contact',[
             'Activetab' => 'Contact',
             'About'     => $About,
+            'Message'   => '',
+            'Success'   => ''
         ]);
     }
 
@@ -211,6 +215,44 @@ class HomeController extends Controller
             'BestSellProdArr'       => $bestSellProds,
             'Product'               => $Product
         ]);
+    }
+    public function sendMessage(Request $request) {
+        $today  = Carbon::now();
+        try {
+            $insert = new contact([
+                'name'          => $request->post('mail'),
+                'email'         => $request->post('name'),
+                'message'       => $request->post('message'),
+                'created_by'    => '',
+                'created_at'    => $today,
+                'updated_by'    => '',
+                'updated_at'    => $today,
+            ]);
+            $insert->save();
+        } catch (Execption $e) {
+            DB::rollback();
+            $message   = $e->getMessage();
+            $success   = false;
+        }
+        DB::commit();
+        $message   = ucfirst(__('vintari.success_send_message'));
+        $success   = true;
+
+        $locale = session()->get('locale');
+        App::setLocale($locale);
+        if ($locale == 'en') {
+            $About = About::select('history_en as history', 'visi_en as visi', 'misi_en as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
+        } else {
+            $About = About::select('history as history', 'visi as visi', 'misi as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
+        }
+        return view('vintari.contact',[
+            'Activetab' => 'Contact',
+            'About'     => $About,
+            'Message'   => $message,
+            'Success'   => $success
+        ]);
+        
+
     }
 
 }

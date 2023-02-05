@@ -115,7 +115,8 @@ return [
     "search"                                => "Search",
     "desc_product"                          => "Product Description",
     "product_detail"                        => "Product Detail",
-    "product_name"                        => "Product Name",
+    "product_name"                          => "Product Name",
     "origin"                                => "Origin",
-    "best_selling_product"                          => "Best Selling Product",
+    "best_selling_product"                  => "Best Selling Product",
+    "success_send_message"                  => "Data successfully sent",
 ];
