@@ -107,4 +107,9 @@ return [
     "read_more"                             => "Read More",
     "activities"                            => "Activities",
     "our_activities"                        => "Our Activities",
+    "visi_mission_vintari"                  => "Vintari Global Abadi Vision & Mission",
+    "visi_mission"                          => "Vision & Mission",
+    "vision"                                => "Vision",
+    "mission"                               => "Mission",
+    "distributed_countries"                 => "Distributed Countries",
 ];

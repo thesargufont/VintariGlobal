@@ -58,11 +58,16 @@ class HomeController extends Controller
         $locale = session()->get('locale');
         App::setLocale($locale);
         if ($locale == 'en') {
-
+            $About = About::select('history_en as history', 'visi_en as visi', 'misi_en as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
         } else {
-
+            $About = About::select('history as history', 'visi as visi', 'misi as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
         }
-       return view('vintari.about');        
+        $Countries = Country::All()->chunk(6);
+        return view('vintari.about',[
+            'Activetab'     => 'About',
+            'About'         => $About,
+            'CountriesArr'     => $Countries,
+        ]);       
     }
 
     public function product() {

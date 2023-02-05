@@ -107,5 +107,9 @@ return [
     "read_more"                             => "Baca Selengkapnya",
     "activities"                            => "Aktifitas",
     "our_activities"                        => "Aktifitas Kami",
-
+    "visi_mission_vintari"                  => "Visi & Misi Vintari Global Abadi",
+    "visi_mission"                          => "Visi & Misi",
+    "vision"                                => "Visi",
+    "mission"                               => "Misi",
+    "distributed_countries"                 => "Negara Distribusi",
 ];
