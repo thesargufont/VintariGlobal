@@ -13,5 +13,10 @@
 <link rel="stylesheet" href="{{ asset("vintari/css/skins/skins.css") }}">
 <!-- Responsive Style -->
 <link rel="stylesheet" href="{{ asset("vintari/css/responsive.css") }}">
+
+<link rel="stylesheet" href="{{ asset("vintari/css/alertify/alertify.min.css") }}">
+
+<link rel="stylesheet" href="{{ asset("vintari/css/alertify/default.min.css") }}">
+<link rel="stylesheet" href="{{ asset("vintari/css/alertify/semantic.min.css") }}">
 <!-- Favicons -->
 <link rel="shortcut icon" href="{{ asset("vintari/images/favicon.png") }}">

@@ -250,7 +250,7 @@
                                                     <div class="portfolio-head">
                                                         <div class="portfolio-img"><img alt="" src="{{ asset($Prod->image_path1) }}"></div>
                                                         <div class="portfolio-hover">
-                                                            <a class="portfolio-link" href="single-product.php"><i
+                                                            <a class="portfolio-link" href="{{ route('single-product',$Prod->id) }}"><i
                                                                     class="fa fa-link"></i></a>
                                                             <a class="portfolio-zoom prettyPhoto" href="{{ asset($Prod->image_path1) }}"><i
                                                                     class="fa fa-search"></i></a>
@@ -260,7 +260,7 @@
                                                         <i class="fa fa-list"></i>
                                                         <div class="portfolio-meta">
                                                             <div class="portfolio-name">
-                                                                <h6><a href="single-product.php">{{ $Prod->title }}</a></h6>
+                                                                <h6><a href="{{ route('single-product',$Prod->id) }}">{{ $Prod->title }}</a></h6>
                                                             </div>
                                                             <div class="portfolio-cat"><a href="#">{{ $Prod->category->name }}</a></div>
                                                         </div><!-- End portfolio-meta -->

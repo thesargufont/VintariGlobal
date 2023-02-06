@@ -35,7 +35,7 @@
         <div class="sections">
             <div class="container">
                 <div class="sections-title">
-                    <div class="sections-title-h3"><h3>Sejarah</h3></div>
+                    <div class="sections-title-h3"><h3>{{ucwords(__('vintari.history'))}}</h3></div>
                 </div><!-- End sections-title -->
                 <div class="row">
                     <div class="col-md-4">

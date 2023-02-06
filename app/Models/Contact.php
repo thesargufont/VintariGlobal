@@ -14,15 +14,11 @@ class Contact extends Model
         'name',
         'email',
         'message',
-        'created_by',
         'created_at',
-        'updated_by',
-        'updated_at',
     ];
 
     protected $dates = [
         'created_at',
-        'updated_at',
     ];
 
     public function createdBy(){

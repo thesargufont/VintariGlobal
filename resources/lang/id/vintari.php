@@ -112,4 +112,11 @@ return [
     "vision"                                => "Visi",
     "mission"                               => "Misi",
     "distributed_countries"                 => "Negara Distribusi",
+    "search"                                => "Cari",
+    "desc_product"                          => "Deskripsi Produk",
+    "product_detail"                        => "Detil Produk",
+    "product_name"                          => "Nama Produk",
+    "origin"                                => "Asal Produk",
+    "best_selling_product"                   => "Produk Terlaris",
+    "success_send_message"                   => "Pesan Berhasil di kirim",
 ];

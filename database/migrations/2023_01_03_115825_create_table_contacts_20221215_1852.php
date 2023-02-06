@@ -18,10 +18,10 @@ class CreateTableContacts202212151852 extends Migration
             $table->string('name', 50)->default('');
             $table->string('email', 100)->default('');
             $table->text('message');
-            $table->unsignedBigInteger('created_by');
+            // $table->unsignedBigInteger('created_by');
             $table->datetime('created_at');
-            $table->unsignedBigInteger('updated_by');
-            $table->datetime('updated_at');
+            // $table->unsignedBigInteger('updated_by');
+            // $table->datetime('updated_at');
         });
     }
 
