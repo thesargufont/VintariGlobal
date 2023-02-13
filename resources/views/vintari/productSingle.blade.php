@@ -42,19 +42,19 @@
                         <div class="single-portfolio-slide single-portfolio-slide-2 bxslider-slide">
                             <ul>
                                 @if ($Product->image_path1 !== '')
-                                    <li><img alt="" src="{{ $Product->image_path1 }}"></li>
+                                    <li><img alt="" src="{{ url('storage/'.$Product->image_path1) }}"></li>
                                 @endif
                                 @if ($Product->image_path2 !== '')
-                                    <<li><img alt="" src="{{ $Product->image_path2 }}"></li>
+                                    <li><img alt="" src="{{ url('storage/'.$Product->image_path2) }}"></li>
                                 @endif
                                 @if ($Product->image_path3 !== '')
-                                    <li><img alt="" src="{{ $Product->image_path3 }}"></li>
+                                    <li><img alt="" src="{{ url('storage/'.$Product->image_path3) }}"></li>
                                 @endif
                                 @if ($Product->image_path4 !== '')
-                                    <li><img alt="" src="{{ $Product->image_path4 }}"></li>
+                                    <li><img alt="" src="{{ url('storage/'.$Product->image_path4) }}"></li>
                                 @endif
                                 @if ($Product->image_path5 !== '')
-                                    <li><img alt="" src="{{ $Product->image_path5 }}"></li>
+                                    <li><img alt="" src="{{ url('storage/'.$Product->image_path5) }}"></li>
                                 @endif
                             </ul>
                         </div><!-- End single-portfolio-slide -->
@@ -93,10 +93,10 @@
                                 <div class="col-md-3 portfolio-item">
                                     <div class="portfolio-one">
                                         <div class="portfolio-head">
-                                            <div class="portfolio-img"><img alt="" src="{{ $Product->image_path1 }}"></div>
+                                            <div class="portfolio-img"><img alt="" src="{{ url('storage/'.$Product->image_path1) }}"></div>
                                             <div class="portfolio-hover">
                                                 <a class="portfolio-link" href="{{ route('single-product',$Product->id) }}"><i class="fa fa-link"></i></a>
-                                                <a class="portfolio-zoom prettyPhoto" href="{{ $Product->image_path1 }}"><i class="fa fa-search"></i></a>
+                                                <a class="portfolio-zoom prettyPhoto" href="{{ url('storage/'.$Product->image_path1) }}"><i class="fa fa-search"></i></a>
                                             </div>
                                         </div><!-- End portfolio-head -->
                                         <div class="portfolio-content">
@@ -290,7 +290,7 @@
     <script src="{{asset("vintari/js/jquery.themepunch.plugins.min.js")}}"></script>
     <script src="{{asset("vintari/js/jquery.themepunch.revolution.min.js")}}"></script>
     <script src="{{asset("vintari/js/custom.js")}}"></script>
-    <script src="{{asset("vintari/js/apps.js")}}"></script>
+    {{-- <script src="{{asset("vintari/js/apps.js")}}"></script> --}}
 
     </body>
     

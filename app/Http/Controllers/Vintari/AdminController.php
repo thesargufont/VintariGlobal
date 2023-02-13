@@ -52,6 +52,12 @@ class AdminController extends Controller
      */
     public function create($var)
     {
+        if (strtoupper($var) == 'ABOUT') {
+            $about = About::count();
+            if ($about >= 1) {
+                return redirect()->back();
+            }
+        }
         return view('vintari.admin.form_input', [
             'create'        => true,
             'show'          => false,
@@ -143,6 +149,7 @@ class AdminController extends Controller
                 $category       = $request->category;
                 $country        = $request->country;
                 $title          = $request->title;
+                $bestSelling    = $request->best_selling;
                 $description    = $request->description;
                 $descriptionEn  = $request->description_en;
                 $imagePath      = $request->image_path;
@@ -157,7 +164,7 @@ class AdminController extends Controller
                     'title'             => $title,
                     'description'       => $description,
                     'description_en'    => $descriptionEn,
-                    'best_selling'      => Auth::user()->id,
+                    'best_selling'      => $bestSelling,
                     'image_path1'       => $imagePath,
                     'image_path2'       => $imagePath1,
                     'image_path3'       => $imagePath2,
@@ -195,9 +202,9 @@ class AdminController extends Controller
                 $titleEn    = $request->title_en;
                 $article    = $request->articles;
                 $articleEn  = $request->articles_en;
-                $imagePath  = $request->image_path;
-                $imagePath1 = $request->image_path1;
-                $imagePath2 = $request->image_path2;
+                $imagePath  = $request->image_path?$request->image_path:'';
+                $imagePath1 = $request->image_path1?$request->image_path1:'';
+                $imagePath2 = $request->image_path2?$request->image_path2:'';
                 $insert = new Activity([
                     'title'         => $title,
                     'title_en'      => $titleEn,
@@ -239,7 +246,22 @@ class AdminController extends Controller
                     'updated_by'    => Auth::user()->id,
                     'updated_at'    => $today,
                 ]);
-            } 
+            } else if ($create == 'USER') {
+                $name       = $request->name;
+                $email      = $request->email;
+                $password   = bcrypt($request->password);
+                $insert = new User([
+                    'name'      => $name,
+                    'email'     => $email,
+                    'password'  => $password,
+                    'email_verified_at' => null,
+                    'remember_token' => null,
+                    'created_by'    => Auth::user()->id,
+                    'created_at'    => $today,
+                    'updated_by'    => Auth::user()->id,
+                    'updated_at'    => $today,
+                ]);
+            }
             $insert->save();
         } catch (Execption $e) {
             DB::rollback();
@@ -322,8 +344,10 @@ class AdminController extends Controller
                 $txt = "";
                 if (strtoupper($request->create) != 'USER') {
                     $txt .= "<a href=\"#\" onclick=\"showItem('$item->id|$request->create');\" title=\"" . ucfirst(__('detail')) . "\" class=\"btn btn-xs btn-secondary\"><i class=\"fa fa-eye fa-fw fa-xs\"></i></a>";
-                    $txt .= "<a href=\"#\" onclick=\"editItem('$item->id|$request->create');\" title=\"" . ucfirst(__('edit')) . "\" class=\"btn btn-xs btn-secondary\"><i class=\"fa fa-edit fa-fw fa-xs\"></i></a>";
-                    $txt .= "<a href=\"#\" onclick=\"deleteItem('$item->id|$request->create');\" title=\"" . ucfirst(__('delete')) . "\" class=\"btn btn-xs btn-danger\"><i class=\"fa fa-trash fa-fw fa-xs\"></i></a>";
+                    if (strtoupper($request->create) != 'CONTACT') {
+                        $txt .= "<a href=\"#\" onclick=\"editItem('$item->id|$request->create');\" title=\"" . ucfirst(__('edit')) . "\" class=\"btn btn-xs btn-secondary\"><i class=\"fa fa-edit fa-fw fa-xs\"></i></a>";
+                        $txt .= "<a href=\"#\" onclick=\"deleteItem('$item->id|$request->create');\" title=\"" . ucfirst(__('delete')) . "\" class=\"btn btn-xs btn-danger\"><i class=\"fa fa-trash fa-fw fa-xs\"></i></a>";
+                    }
                 }
                 return $txt;
             })
@@ -447,7 +471,7 @@ class AdminController extends Controller
                 $bestSelling    = $request->best_selling;
 
                 $update->categories_id  = $category;
-                $update->countires_id   = $country;
+                $update->countries_id   = $country;
                 $update->title          = $title;
                 $update->description    = $description;
                 $update->description_en = $descriptionEn;
@@ -556,6 +580,10 @@ class AdminController extends Controller
                 $delete = Category::find($var[0]);
             } else if ($create == 'COUNTRY') {
                 $delete = Country::find($var[0]);
+                $exists = Storage::disk('public')->exists($delete->image_path);
+                if ($exists) {
+                    Storage::disk('public')->delete($delete->image_path);
+                }   
             } else if ($create == 'ACTIVITY') {
                 $delete     = Activity::find($var[0]);
             } else if ($create == 'FAQ') {
@@ -779,9 +807,10 @@ class AdminController extends Controller
             ]);
         } else if ($create == 'PRODUCT') {
             $product        = Product::find($request->id);
-            
-            $category       = '<option value="'.$product->categories_id.'">'.optional($product->category)->name.'</option>';
-            $country        = '<option value="'.$product->countries_id.'">'.optional($product->country)->name.'</option>';;
+            $category       = $product->categories_id;
+            $country       = $product->countries_id;
+            // $category       = '<option value="'.$product->categories_id.'" selected>'.optional($product->category)->name.'</option>';
+            // $country        = '<option value="'.$product->countries_id.'" selected>'.optional($product->country)->name.'</option>';;
             $title          = $product->title;
             $description    = $product->description;
             $descriptionEn  = $product->description_en;
@@ -906,7 +935,7 @@ class AdminController extends Controller
                 'message'   => $message
             ]);
         } else {
-            flash(ucfirst(__('vintari.menu_not_found')))->error()->important();
+            // flash(ucfirst(__('vintari.menu_not_found')))->error()->important();
             return redirect()->back();
         }
     }
@@ -919,11 +948,19 @@ class AdminController extends Controller
         $select1    = '';
 
         foreach ($country->cursor() as $item) {
-            $select .= '<option value="'.$item->id.'">'.$item->name.'</option>';
+            if ($item->id == $request->country) {
+                $select .= '<option value="'.$item->id.'" selected>'.$item->name.'</option>';    
+            } else {
+                $select .= '<option value="'.$item->id.'">'.$item->name.'</option>';
+            }
         }
 
         foreach ($category->cursor() as $item) {
-            $select1 .= '<option value="'.$item->id.'">'.$item->name.'</option>';
+            if ($item->id == $request->category) {
+                $select1 .= '<option value="'.$item->id.'" selected>'.$item->name.'</option>';    
+            } else {
+                $select1 .= '<option value="'.$item->id.'">'.$item->name.'</option>';
+            }
         }
 
         return response()->json([

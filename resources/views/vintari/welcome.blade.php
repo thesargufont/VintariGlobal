@@ -74,9 +74,9 @@
 
                             <!-- LAYER NR. 1 -->
                             <div class="tp-caption lfl start" data-x="600" data-y="100" data-speed="400"
-                                data-start="1300" data-easing="easeOut" data-endspeed="500"><img
-                                    src="" alt="products">
-                                    {{-- {{ asset("vintari/images/products.png") }} --}}
+                                data-start="1300" data-easing="easeOut" data-endspeed="500">
+                                {{-- <img src="" alt="products">
+                                    {{ asset("vintari/images/products.png") }} --}}
                             </div>
 
                             <!-- Layer NR. 2 -->
@@ -115,7 +115,8 @@
                             @foreach ($Banners as $Banner) 
                                 <li data-transition="random" data-slotamount="7" data-masterspeed="1000">
                                     <!-- MAIN IMAGE -->
-                                    <img src="{{ asset($Banner->image_path) }}" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                                    {{-- url('storage/'.$banner->image_path); --}}
+                                    <img src="{{ url('storage/'.$Banner->image_path) }}" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                                     
                                     <div class="slideshow-bg"
                                     data-y="310"
@@ -248,11 +249,12 @@
                                             <div class="col-md-3 portfolio-item">
                                                 <div class="portfolio-one">
                                                     <div class="portfolio-head">
-                                                        <div class="portfolio-img"><img alt="" src="{{ asset($Prod->image_path1) }}"></div>
+                                                        {{-- url('storage/'.$Banner->image_path) --}}
+                                                        <div class="portfolio-img"><img alt="" src="{{ url('storage/'.$Prod->image_path1) }}"></div>
                                                         <div class="portfolio-hover">
                                                             <a class="portfolio-link" href="{{ route('single-product',$Prod->id) }}"><i
                                                                     class="fa fa-link"></i></a>
-                                                            <a class="portfolio-zoom prettyPhoto" href="{{ asset($Prod->image_path1) }}"><i
+                                                            <a class="portfolio-zoom prettyPhoto" href="{{ url('storage/'.$Prod->image_path1) }}"><i
                                                                     class="fa fa-search"></i></a>
                                                         </div>
                                                     </div><!-- End portfolio-head -->
@@ -384,7 +386,7 @@
                         <li>
                             @foreach ($Brands as $Brand )
                                 <div class="col-md-2 client-item">
-                                    <div class="client"><a href="#"><img alt="" src="{{ asset($Brand->image_path) }}"></a></div>
+                                    <div class="client"><a href="#"><img alt="" src="{{ url('storage/'.$Brand->image_path) }}"></a></div>
                                 </div>
                             @endforeach
                         </li>
@@ -462,7 +464,7 @@
     <script src="{{asset("vintari/js/jquery.themepunch.plugins.min.js")}}"></script>
     <script src="{{asset("vintari/js/jquery.themepunch.revolution.min.js")}}"></script>
     <script src="{{asset("vintari/js/custom.js")}}"></script>
-    <script src="{{asset("vintari/js/apps.js")}}"></script>
+    {{-- <script src="{{asset("vintari/js/apps.js")}}"></script> --}}
     
 </body>
 

@@ -112,7 +112,7 @@
                                 <div class="col-md-2 portfolio-item">
                                     <div class="portfolio-one">
                                         <div class="portfolio-head">
-                                            <div class="portfolio-img"><img alt="" src="{{ $country->image_path }}"></div>
+                                            <div class="portfolio-img"><img alt="" src="{{ url('storage/'.$country->image_path) }}"></div>
                                         </div><!-- End portfolio-head -->
                                         <div class="portfolio-content">
                                             <div class="portfolio-meta">
@@ -152,7 +152,7 @@
     <script src="{{asset("vintari/js/jquery.themepunch.plugins.min.js")}}"></script>
     <script src="{{asset("vintari/js/jquery.themepunch.revolution.min.js")}}"></script>
     <script src="{{asset("vintari/js/custom.js")}}"></script>
-    <script src="{{asset("vintari/js/apps.js")}}"></script>
+    {{-- <script src="{{asset("vintari/js/apps.js")}}"></script> --}}
     </body>
     
     </body>
