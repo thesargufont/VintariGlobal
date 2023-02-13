@@ -44,17 +44,17 @@
                                         <div class="bxslider-slide">
                                                 <ul>
                                                     @if ($activity->image_path1 !== '')
-                                                        <li><img alt="" src="{{ $activity->image_path1 }}"></li>
+                                                        <li><img alt="" src="{{ url('storage/'.$activity->image_path1) }}"></li>
                                                     @endif
-                                                    @if ($activity->image_path1 !== '')
-                                                        <li><img alt="" src="{{ $activity->image_path2 }}"></li>
+                                                    @if ($activity->image_path2 !== '')
+                                                        <li><img alt="" src="{{ url('storage/'.$activity->image_path2) }}"></li>
                                                     @endif
-                                                    @if ($activity->image_path1 !== '')
-                                                        <li><img alt="" src="{{ $activity->image_path3 }}"></li>
+                                                    @if ($activity->image_path3 !== '')
+                                                        <li><img alt="" src="{{ url('storage/'.$activity->image_path3) }}"></li>
                                                     @endif
                                                 </ul>
                                             </div>
-                                            <div class="blog-date"><span>{{ $activity->created_at->format('m') }}</span><span>{{ $activity->created_at->format('M') }}, {{ $activity->created_at->format('Y') }}</span></div>
+                                            <div class="blog-date"><span>{{ $activity->created_at->format('d') }}</span><span>{{ $activity->created_at->format('M') }}, {{ $activity->created_at->format('Y') }}</span></div>
                                         </div><!-- End blog-img -->
                                         <div class="blog-content">
                                             <h6><a href="single-blog.php">{{ $activity->title }}</a></h6>
@@ -96,7 +96,7 @@
     <script src="{{asset("vintari/js/jquery.themepunch.plugins.min.js")}}"></script>
     <script src="{{asset("vintari/js/jquery.themepunch.revolution.min.js")}}"></script>
     <script src="{{asset("vintari/js/custom.js")}}"></script>
-    <script src="{{asset("vintari/js/apps.js")}}"></script>
+    {{-- <script src="{{asset("vintari/js/apps.js")}}"></script> --}}
     </body>
     
     </body>

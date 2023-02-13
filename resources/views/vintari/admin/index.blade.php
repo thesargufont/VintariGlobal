@@ -40,12 +40,9 @@
                     <div class="form-group my-2">
                         <div class="btn-group" role="group">
                             <div class="dropdown">
-                                <a href="#" title="{{__('create new item')}} " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" title="{{__('create new item')}} " onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'about']) }}');" class="btn btn-secondary" type="button" id="dropdownMenuButton" >
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'about']) }}');">About</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="btn-group" role="group">
@@ -84,12 +81,9 @@
                     <div class="form-group my-2">
                         <div class="btn-group" role="group">
                             <div class="dropdown">
-                                <a href="#" title="{{__('create new item')}} " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" title="{{__('create new item')}} " onclick="location.replace('{{ route('admin.vintari.create',['var' => 'activity']) }}');" class="btn btn-secondary" type="button" id="dropdownMenuButton">
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create',['var' => 'activity']) }}');">activity</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="btn-group" role="group">
@@ -121,12 +115,9 @@
                     <div class="form-group my-2">
                         <div class="btn-group" role="group">
                             <div class="dropdown">
-                                <a href="#" title="{{__('create new item')}} " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" title="{{__('create new item')}} " onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'banner']) }}');" class="btn btn-secondary" type="button" id="dropdownMenuButton">
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'banner']) }}');">Banner</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="btn-group" role="group">
@@ -160,12 +151,9 @@
                     <div class="form-group my-2">
                         <div class="btn-group" role="group">
                             <div class="dropdown">
-                                <a href="#" title="{{__('create new item')}} " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" title="{{__('create new item')}} " onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'brand']) }}');" class="btn btn-secondary" type="button" id="dropdownMenuButton">
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'brand']) }}');">Brand</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="btn-group" role="group">
@@ -194,12 +182,9 @@
                     <div class="form-group my-2">
                         <div class="btn-group" role="group">
                             <div class="dropdown">
-                                <a href="#" title="{{__('create new item')}} " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" title="{{__('create new item')}} " onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'category']) }}');" class="btn btn-secondary " type="button" id="dropdownMenuButton">
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'category']) }}');">Category</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="btn-group" role="group">
@@ -227,16 +212,13 @@
                 </div>
                 <div class="tab-pane" id="contact">
                     <div class="form-group my-2">
-                        <div class="btn-group" role="group">
+                        {{-- <div class="btn-group" role="group">
                             <div class="dropdown">
-                                <a href="#" title="{{__('create new item')}} " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" title="{{__('create new item')}} " onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'contact']) }}');" class="btn btn-secondary" type="button" id="dropdownMenuButton">
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'contact']) }}');">Contact</a></li>
-                                </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="btn-group" role="group">
                             <div class="dropdown">
                                 <a href="#" title="{{__('download')}} {{__('current filtered data')}} {{__('as')}}.." class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -265,12 +247,9 @@
                     <div class="form-group my-2">
                         <div class="btn-group" role="group">
                             <div class="dropdown">
-                                <a href="#" title="{{__('create new item')}} " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" title="{{__('create new item')}} " onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'country']) }}');" class="btn btn-secondary" type="button" id="dropdownMenuButton">
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'country']) }}');">Country</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="btn-group" role="group">
@@ -299,12 +278,9 @@
                     <div class="form-group my-2">
                         <div class="btn-group" role="group">
                             <div class="dropdown">
-                                <a href="#" title="{{__('create new item')}} " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" title="{{__('create new item')}} " onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'faq']) }}');" class="btn btn-secondary" type="button" id="dropdownMenuButton">
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'faq']) }}');">FAQ</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="btn-group" role="group">
@@ -336,12 +312,9 @@
                     <div class="form-group my-2">
                         <div class="btn-group" role="group">
                             <div class="dropdown">
-                                <a href="#" title="{{__('create new item')}} " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" title="{{__('create new item')}} " onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'product']) }}');" class="btn btn-secondary" type="button" id="dropdownMenuButton">
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create', ['var' => 'product']) }}');">Product</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="btn-group" role="group">
@@ -375,12 +348,9 @@
                     <div class="form-group my-2">
                         <div class="btn-group" role="group">
                             <div class="dropdown">
-                                <a href="#" title="{{__('create new item')}} " class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" title="{{__('create new item')}} " onclick="location.replace('{{ route('admin.vintari.create',['var' => 'user']) }}');" class="btn btn-secondary" type="button" id="dropdownMenuButton">
                                     <i class="fa fa-plus"></i> {{__('new')}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a href="#" class="dropdown-item" title="Product" onclick="location.replace('{{ route('admin.vintari.create',['var' => 'user']) }}');">User</a></li>
-                                </ul>
                             </div>
                         </div>
                         <div class="btn-group" role="group">
@@ -871,7 +841,7 @@
                         { data: 'name', name: 'name'},
                         { data: 'email', name: 'email'},
                         { data: 'message', name: 'message'},
-                        { data: 'created_by', name: 'created_by'},
+                        { data: 'created_by', name: 'created_by', visible:false},
                         { data: 'created_at', name: 'created_at', render: function(data, type) {
                             if (data) {
                                 return type === 'sort' ? data : moment(data).format('DD/MM/YYYY HH:mm:ss');

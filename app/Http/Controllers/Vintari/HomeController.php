@@ -143,8 +143,8 @@ class HomeController extends Controller
             $today  = Carbon::now();
             try {
                 $insert = new contact([
-                    'name'          => $request->post('mail'),
-                    'email'         => $request->post('name'),
+                    'name'          => $request->post('name'),
+                    'email'         => $request->post('mail'),
                     'message'       => $request->post('message'),
                     'created_by'    => '',
                     'created_at'    => $today,

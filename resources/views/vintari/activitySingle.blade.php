@@ -43,17 +43,17 @@
                                         <div class="bxslider-slide">
                                             <ul>
                                                     @if ($Activity->image_path1 !== '')
-                                                        <li><img alt="" src="{{ $Activity->image_path1 }}"></li>
+                                                        <li><img alt="" src="{{ url('storage/'.$Activity->image_path1) }}"></li>
                                                     @endif
-                                                    @if ($Activity->image_path1 !== '')
-                                                        <li><img alt="" src="{{ $Activity->image_path2 }}"></li>
+                                                    @if ($Activity->image_path2 !== '')
+                                                        <li><img alt="" src="{{ url('storage/'.$Activity->image_path2) }}"></li>
                                                     @endif
-                                                    @if ($Activity->image_path1 !== '')
-                                                        <li><img alt="" src="{{ $Activity->image_path3 }}"></li>
+                                                    @if ($Activity->image_path3 !== '')
+                                                        <li><img alt="" src="{{ url('storage/'.$Activity->image_path3) }}"></li>
                                                     @endif
                                             </ul>
                                         </div>
-                                        <div class="blog-date"><span>{{ $Activity->created_at->format('m') }}</span><span>{{ $Activity->created_at->format('M') }}, {{ $Activity->created_at->format('Y') }}</span></div>
+                                        <div class="blog-date"><span>{{ $Activity->created_at->format('d') }}</span><span>{{ $Activity->created_at->format('M') }}, {{ $Activity->created_at->format('Y') }}</span></div>
                                     </div><!-- End blog-img -->
                                     <div class="blog-content">
                                         <h6>{{ $Activity->title }}</h6>
@@ -93,7 +93,7 @@
     <script src="{{asset("vintari/js/jquery.themepunch.plugins.min.js")}}"></script>
     <script src="{{asset("vintari/js/jquery.themepunch.revolution.min.js")}}"></script>
     <script src="{{asset("vintari/js/custom.js")}}"></script>
-    <script src="{{asset("vintari/js/apps.js")}}"></script>
+    {{-- <script src="{{asset("vintari/js/apps.js")}}"></script> --}}
     </body>
     
     </body>

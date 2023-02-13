@@ -109,11 +109,11 @@
             <!-- Left navbar links -->
 
             <ul class="navbar-nav">
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#">
                        <i class="fa fa-bars"></i>
                 </a>
-              </li>
+              </li> --}}
 
               {{-- <li class="nav-item d-none d-sm-inline-block">
                 <a href="index3.html" class="nav-link">Home</a>
@@ -164,11 +164,11 @@
                         </div>
                     </li>
                 @endguest
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                 <a class="nav-link" href="{{url('/docs')}}" title="{{__('Documentation')}}">
                         <i class="fa fa-question"></i>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <!-- /.navbar -->

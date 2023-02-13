@@ -419,7 +419,7 @@
         <aside class="main-sidebar sidebar-light-danger elevation-4">
             <!-- Brand Logo -->
             <a href="{{url('/')}}" class="brand-link bg-danger d-flex">
-              <span class="brand-text font-weight-bold"><img src="{{asset('img/artemis_logo.png')}}" alt="Artemis Logo" class="brand-image" style="opacity: .8"> {{ config('app.title', 'Artemis') }}</span>
+              <span class="brand-text font-weight-bold"><img src="{{asset('vintari/images/V-logo.jpg')}}" alt="Artemis Logo" class="brand-image" style="opacity: .8"> {{ config('app.title', 'Artemis') }}</span>
             </a>
     
             <!-- Sidebar -->

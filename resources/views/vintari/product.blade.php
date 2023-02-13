@@ -45,10 +45,10 @@
                                 <li class="col-md-4 term-design portfolio-item isotope-item">
                                     <div class="portfolio-one">
                                         <div class="portfolio-head">
-                                            <div class="portfolio-img"><img alt="" src="{{ $Product->image_path1 }}"></div>
+                                            <div class="portfolio-img"><img alt="" src="{{ url('storage/'.$Product->image_path1) }}"></div>
                                             <div class="portfolio-hover">
                                                 <a class="portfolio-link" href="{{ route('single-product',$Product->id) }}"><i class="fa fa-link"></i></a>
-                                                <a class="portfolio-zoom prettyPhoto" href="{{ $Product->image_path1 }}"><i class="fa fa-search"></i></a>
+                                                <a class="portfolio-zoom prettyPhoto" href="{{ url('storage/'.$Product->image_path1) }}"><i class="fa fa-search"></i></a>
                                             </div>
                                         </div><!-- End portfolio-head -->
                                         <div class="portfolio-content">
@@ -123,7 +123,7 @@
     <script src="{{asset("vintari/js/jquery.themepunch.plugins.min.js")}}"></script>
     <script src="{{asset("vintari/js/jquery.themepunch.revolution.min.js")}}"></script>
     <script src="{{asset("vintari/js/custom.js")}}"></script>
-    <script src="{{asset("vintari/js/apps.js")}}"></script>
+    {{-- <script src="{{asset("vintari/js/apps.js")}}"></script> --}}
     </body>
     
     </body>
