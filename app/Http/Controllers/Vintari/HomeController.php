@@ -32,7 +32,7 @@ class HomeController extends Controller
         }else{
             $locale = session()->get('locale');
             if (empty($locale)){
-                $locale = 'id';
+                $locale = 'en';
                 session()->put('locale', 'id');  
             }
             App::setLocale($locale);
@@ -43,11 +43,11 @@ class HomeController extends Controller
         if ($locale == 'en') {
             $Banners = Banner::select('header_en as header', 'desc1_en as desc1' , 'desc2_en as desc2', 'image_path as image_path')->get();
             $About = About::select('history_en as history', 'visi_en as visi', 'misi_en as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
-            $Products = Product::select('id' , 'title as title', 'description_en as description', 'image_path1', 'countries_id', 'categories_id')->where('best_selling', '=', '1')->get()->chunk(4)->take(3);
+            $Products = Product::select('id' , 'title as title', 'description_en as description', 'image_path1', 'countries_id', 'categories_id')->where('best_selling', '=', '1')->get()->chunk(4)->take(5);
         } else {
             $Banners = Banner::select('header as header', 'desc1 as desc1' , 'desc2 as desc2', 'image_path as image_path')->get();
             $About = About::select('history as history', 'visi as visi', 'misi as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
-            $Products = Product::select('id' , 'title as title', 'description as description', 'image_path1', 'countries_id','categories_id')->where('best_selling', '=', '1')->get()->chunk(4)->take(3);
+            $Products = Product::select('id' , 'title as title', 'description as description', 'image_path1', 'countries_id','categories_id')->where('best_selling', '=', '1')->get()->chunk(4)->take(53);
         }
         $Brands = Brand::all()->chunk(6);
         return view('vintari.welcome', [
@@ -88,7 +88,7 @@ class HomeController extends Controller
                 $Products = Product::select('id' , 'title', 'description_en as description' , 'image_path1', 'categories_id', 'countries_id')->paginate(12);
             }
             $Categories = Category::select('id', 'name_en as name' )->get();
-            $Countries = Country::All();
+            $Countries = Country::select('id', 'name_en as name' , 'image_path' ,'created_by','created_at','updated_by','updated_at')->get();;
         } else {
             if (!empty($Country_id)){
                 $Products = Product::select('id' , 'title', 'description as description' , 'image_path1', 'categories_id', 'countries_id')->where('countries_id', $Country_id)->paginate(12);
@@ -96,7 +96,7 @@ class HomeController extends Controller
                 $Products = Product::select('id' , 'title', 'description as description' , 'image_path1', 'categories_id', 'countries_id')->paginate(12);
             }
             $Categories = Category::select('id', 'name as name' )->get();
-            $Countries = Country::All();
+            $Countries = Country::select('id', 'name as name' , 'image_path' ,'created_by','created_at','updated_by','updated_at')->get();;
         }
         $Categories_post = [];
         return view('vintari.product',[
@@ -206,7 +206,7 @@ class HomeController extends Controller
                 $Products = Product::select('id' , 'title', 'description_en as description' , 'image_path1', 'categories_id', 'countries_id')->whereIn('categories_id',$Categories_post)->paginate(12);
             }
             $Categories = Category::select('id', 'name_en as name' )->get();
-            $Countries = Country::All();
+            $Countries = Country::select('id', 'name as name' , 'image_path' ,'created_by','created_at','updated_by','updated_at')->get();;
         } else {
             if (!empty($Country_id)){
                 $Products = Product::select('id' , 'title', 'description as description' , 'image_path1', 'categories_id', 'countries_id')->where('countries_id', $Country_id)->whereIn('categories_id',$Categories_post)->paginate(12);
@@ -214,7 +214,7 @@ class HomeController extends Controller
                 $Products = Product::select('id' , 'title', 'description as description' , 'image_path1', 'categories_id', 'countries_id')->whereIn('categories_id',$Categories_post)->paginate(12);
             }
             $Categories = Category::select('id', 'name as name' )->get();
-            $Countries = Country::All();
+            $Countries = Country::select('id', 'name as name' , 'image_path' ,'created_by','created_at','updated_by','updated_at')->get();;
         }
 
         return view('vintari.product',[
@@ -230,12 +230,12 @@ class HomeController extends Controller
         $locale = session()->get('locale');
         App::setLocale($locale);
         if ($locale == 'en') {
-            $Product = Product::select('products.categories_id','products.countries_id', 'products.title', 'products.description_en as description' , 'products.image_path1' , 'products.image_path2' , 'products.image_path3' , 'products.image_path4' , 'products.image_path5', 'categories.name_en as categoryname', 'countries.name as countryname')->join('categories', 'products.categories_id', '=', 'categories.id')->join('countries', 'products.countries_id', '=', 'countries.id')->find($var);
+            $Product = Product::select('products.categories_id','products.countries_id', 'products.title', 'products.description_en as description' , 'products.image_path1' , 'products.image_path2' , 'products.image_path3' , 'products.image_path4' , 'products.image_path5', 'categories.name_en as categoryname', 'countries.name_en as countryname')->join('categories', 'products.categories_id', '=', 'categories.id')->join('countries', 'products.countries_id', '=', 'countries.id')->find($var);
         } else {
             $Product = Product::select('products.categories_id','products.countries_id', 'products.title', 'products.description as description' , 'products.image_path1' , 'products.image_path2' , 'products.image_path3' , 'products.image_path4' , 'products.image_path5', 'categories.name as categoryname', 'countries.name as countryname')->join('categories', 'products.categories_id', '=', 'categories.id')->join('countries', 'products.countries_id', '=', 'countries.id')->find($var);
         }
         
-        $bestSellProds = Product::select('id' , 'title as title', 'description_en as description', 'image_path1', 'countries_id', 'categories_id')->where('best_selling', '=', '1')->get()->chunk(4)->take(3);
+        $bestSellProds = Product::select('id' , 'title as title', 'description_en as description', 'image_path1', 'countries_id', 'categories_id')->where('best_selling', '=', '1')->get()->chunk(4)->take(5);
    
         return view('vintari.productSingle',[
             'Activetab'             => 'Products',

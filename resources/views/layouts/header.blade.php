@@ -18,5 +18,6 @@
 
 <link rel="stylesheet" href="{{ asset("vintari/css/alertify/default.min.css") }}">
 <link rel="stylesheet" href="{{ asset("vintari/css/alertify/semantic.min.css") }}">
+<link rel="stylesheet" href="{{ asset("vintari/css/style.css") }}">
 <!-- Favicons -->
 <link rel="shortcut icon" href="{{ asset("vintari/images/favicon.png") }}">

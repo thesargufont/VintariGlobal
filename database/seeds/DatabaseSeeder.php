@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserSeeder::class);
+        // $this->call(UserSeeder::class);
         // $this->call(CountrySeeder::class);
         // $this->call(CategorySeeder::class);
         // $this->call(ContactSeeder::class);
@@ -32,6 +32,6 @@ class DatabaseSeeder extends Seeder
         //     ActivitySeeder::class,
         //     FaqSeeder::class,
         // ]);
-        // $this->call(UsersTableSeeder::class);
+        // $this->call(UserSeeder::class);
     }
 }

@@ -16,6 +16,7 @@ class CreateTableCountries202212151850 extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 50)->default('');
+            $table->string('name_en', 50)->default('');
             $table->string('image_path', 100)->default('');
             $table->unsignedBigInteger('created_by');
             $table->datetime('created_at');

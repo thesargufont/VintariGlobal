@@ -53,7 +53,7 @@
                                 data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none"
                                 data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="500"
                                 style="z-index: 6;white-space: pre-line;max-width: 1170px;text-align: center;">
-                                <p class="white">{{ $About->history }}</p>
+                                <p class="white">{{ $About->history ?? '' }}</p>
                             </div>
 
                             <!-- LAYER NR. 4 -->
@@ -179,7 +179,7 @@
                     <div class="sections-title-h3">
                         <h3>{{ucwords(__('vintari.why_choose_us'))}}</h3>
                     </div>
-                    <p>{{ $About['history'] }}</p>
+                    <p>{{ $About['history'] ?? ''}}</p>
                 </div><!-- End sections-title -->
                 <div class="row">
                     <div class="bxslider-slide box-icon-slide">
@@ -340,7 +340,7 @@
                         <div class="box-icon box-icon-number">
                             <div class="box-icon-i box-icon-i-2 box-icon-i-4"><i class="fa fa-coffee"></i></div>
                             <div class="box-icon-content">
-                                <h5>{{ $About->product_sold }}</h5>
+                                <h5>{{ $About->product_sold ?? '' }}</h5>
                                 <p>{{ucwords(__('vintari.product_sold'))}}</p>
                             </div>
                         </div>
@@ -349,7 +349,7 @@
                         <div class="box-icon box-icon-number">
                             <div class="box-icon-i box-icon-i-2 box-icon-i-4"><i class="fa fa-flag"></i></div>
                             <div class="box-icon-content">
-                                <h5>{{ $About->countries_sold }}</h5>
+                                <h5>{{ $About->countries_sold ?? '' }}</h5>
                                 <p>{{ucwords(__('vintari.countries'))}}</p>
                             </div>
                         </div>
@@ -358,7 +358,7 @@
                         <div class="box-icon box-icon-number">
                             <div class="box-icon-i box-icon-i-2 box-icon-i-4"><i class="fa fa-user"></i></div>
                             <div class="box-icon-content">
-                                <h5>{{ $About->client }}</h5>
+                                <h5>{{ $About->client ?? '' }}</h5>
                                 <p>{{ucwords(__('vintari.our_client'))}}</p>
                             </div>
                         </div>

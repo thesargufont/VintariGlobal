@@ -12,6 +12,7 @@ class Country extends Model
     protected $fillable = [
         'id',
         'name',
+        'name_en',
         'image_path',
         'created_by',
         'created_at',

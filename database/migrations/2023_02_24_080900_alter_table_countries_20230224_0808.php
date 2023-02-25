@@ -11,22 +11,22 @@ class AlterTableCountries202302240808 extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::table('countries', function (Blueprint $table) {
-            $table->table('name_en', 50)->default('')->after('name');
-        });
-    }
+    // public function up()
+    // {
+    //     Schema::table('countries', function (Blueprint $table) {
+    //         $table->table('name_en', 50)->default('')->after('name');
+    //     });
+    // }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('countries', function (Blueprint $table) {
-            $table->dropColumn('name_en');
-        });
-    }
+    // /**
+    //  * Reverse the migrations.
+    //  *
+    //  * @return void
+    //  */
+    // public function down()
+    // {
+    //     Schema::table('countries', function (Blueprint $table) {
+    //         $table->dropColumn('name_en');
+    //     });
+    // }
 }

@@ -41,16 +41,16 @@
                                 @foreach ($Activities as $activity)
                                 <div class="blog-item blog-item-2">
                                         <div class="blog-img">
-                                        <div class="bxslider-slide">
+                                        <div class="bxslider-slide" >
                                                 <ul>
                                                     @if ($activity->image_path1 !== '')
-                                                        <li><img alt="" src="{{ url('storage/'.$activity->image_path1) }}"></li>
+                                                        <li  ><img alt="" src="{{ url('storage/'.$activity->image_path1) }}"></li>
                                                     @endif
                                                     @if ($activity->image_path2 !== '')
-                                                        <li><img alt="" src="{{ url('storage/'.$activity->image_path2) }}"></li>
+                                                        <li  ><img alt="" src="{{ url('storage/'.$activity->image_path2) }}"></li>
                                                     @endif
                                                     @if ($activity->image_path3 !== '')
-                                                        <li><img alt="" src="{{ url('storage/'.$activity->image_path3) }}"></li>
+                                                        <li  ><img alt="" src="{{ url('storage/'.$activity->image_path3) }}"></li>
                                                     @endif
                                                 </ul>
                                             </div>
@@ -58,7 +58,7 @@
                                         </div><!-- End blog-img -->
                                         <div class="blog-content">
                                             <h6><a href="single-blog.php">{{ $activity->title }}</a></h6>
-                                            <p>{{ $activity->articles }}</p>
+                                            <p class="justify">{{ $activity->articles }}</p>
                                         </div><!-- End blog-content -->
                                         <div class="blog-meta">
                                             <a class="button-3" href="{{ route('single-activity', $activity->id) }}">{{ ucwords(__('vintari.read_more'))}}</a>
