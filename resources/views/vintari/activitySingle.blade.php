@@ -59,7 +59,7 @@
                                         <h6>{{ $Activity->title }}</h6>
                                         <div class="clearfix"></div>
                                         <div class="post-content">
-                                            <p>{{ $Activity->articles }}</p>
+                                            <p class="justify">{{ $Activity->articles }}</p>
                                         </div><!-- End post-content -->
                                         <div class="clearfix"></div>
                                     </div><!-- End blog-content -->

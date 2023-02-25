@@ -12,9 +12,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'ADMIN',
-            'email' => 'admin@vintariglobal.com',
-            'password' => bcrypt('123456'),
+            'name' => 'Admin Vintari',
+            'email' => 'info@vintariglobalabadi.com',
+            'password' => bcrypt('PGA02022022'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);

@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <p>{{ $About->history }}</p>
+                        <p class="justify">{{ $About->history ?? '' }}</p>
                     </div>
                 </div><!-- End row -->
             </div><!-- End container -->
@@ -71,7 +71,7 @@
                                         </div><!-- End member-head -->
                                         <div class="member-content">
                                             <h5>{{ucwords(__('vintari.vision'))}}</h5>
-                                            <p>{{ $About->visi }}</p>
+                                            <p>{{ $About->visi ?? '' }}</p>
                                         </div><!-- End member-content -->
                                     </div><!-- End member-item -->
                                 </div>
@@ -82,7 +82,7 @@
                                         </div><!-- End member-head -->
                                         <div class="member-content">
                                             <h5>{{ucwords(__('vintari.mission'))}}</h5>
-                                            <p>{{ $About->misi }}</p>
+                                            <p>{{ $About->misi ?? '' }}</p>
                                         </div><!-- End member-content -->
                                     </div><!-- End member-item -->
                                 </div>

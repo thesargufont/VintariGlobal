@@ -5,7 +5,7 @@
                 <div class="footer-widget">
                     <div class="widget-title"><h6>{{ucwords(__('vintari.about_vintari'))}}</h6></div>
                     <div class="widget-about">
-                        <p>{{ $About->history }}</p>
+                        <p class="justify">{{ $About->history ?? ''  }}</p>
                         {{-- <div class="social-ul"> --}}
                             {{-- <ul>
                                 <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -30,11 +30,11 @@
                             </li>
                             <li>
                                 <i class="fa fa-phone"></i>
-                                <div>{{ucwords(__('vintari.contact_us'))}} : {{ $About->telp }}</div>
+                                <div>{{ucwords(__('vintari.contact_us'))}} : {{ $About->telp ?? '' }}</div>
                             </li>
                             <li>
                                 <i class="fa fa-envelope"></i>
-                                <div>{{ucwords(__('vintari.sales_email'))}} : {{ $About->email }}</div>
+                                <div>{{ucwords(__('vintari.sales_email'))}} : {{ $About->email ?? ''}}</div>
                             </li>
                         </ul>
                     </div>
@@ -48,7 +48,7 @@
                             <li>
                                 <i class="fa fa-globe"></i>
                                 <div>URL Alibaba</div>
-                                <div><a href="{{ $About->url_alibaba }}">{{ucwords(__('vintari.go_to_alibaba'))}}</a></div>
+                                <div><a href="{{ $About->url_alibaba ?? '' }}">{{ucwords(__('vintari.go_to_alibaba'))}}</a></div>
                             </li>
                         </ul>
                     </div>

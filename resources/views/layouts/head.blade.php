@@ -5,14 +5,8 @@
             <div class="col-md-12">
                 <div class="social-ul">
                     <ul>
-                        @php
-                            $locale = session()->get('locale');
-                        @endphp
-                        @if ($locale =='en')
                             <li class="social-google"><a href="{{ route('lang') }}?lang=id"><img src="{{ asset("vintari/images/id.png") }}"></i></a></li>
-                        @else
                             <li class="social-google"><a href="{{ route('lang') }}?lang=en"><img src="{{ asset("vintari/images/en.png") }}"></i></a></li>
-                        @endif
                     </ul>
                 </div>
             </div>
