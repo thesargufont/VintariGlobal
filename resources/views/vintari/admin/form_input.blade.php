@@ -546,6 +546,17 @@
                                 </div>
                             </div> 
                         </div>
+                        <div class="col-sm-5">
+                            <div class="row mb-3">
+                                <div class="col-sm-4">
+                                    <label class="control-label" >{{ucwords(__('vintari.country'))}} En</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input class="form-control" maxlength="50" type="text" name="country_en" id="country_en" title="{{ucwords(__('vintari.country'))}}" placeholder="{{ucwords(__('vintari.country'))}}" required/>
+                                    <small class="text-danger" id="country_en_error"></small>
+                                </div>
+                            </div> 
+                        </div>
                     {{-- end country --}}
                     {{-- upload --}}
                         <div class="col-sm-5">
@@ -1011,6 +1022,7 @@
                             $('#name_en').val(data.name_en);
                         } else if (data.create == 'COUNTRY') {
                             $('#country').val(data.name);
+                            $('#country_en').val(data.name_en);
                             preview = data.image_path;
                             if (preview != '') {
                                 $('#output_image').prop('disabled', false);
@@ -1174,6 +1186,7 @@
                         @if($create_1 == 'COUNTRY')
                             data: {
                                 'name'    : $('#country').val(),
+                                'name_en' : $('#country_en').val(),
                                 'image_path': $('#image_path').val(),
                                 'create'  : {!! json_encode($create_1) !!}
                             },
@@ -1306,6 +1319,7 @@
                         @if($create_1 == 'COUNTRY')
                             data: {
                                 'name'    : $('#country').val(),
+                                'name_en'    : $('#country_en').val(),
                                 'create'  : {!! json_encode($create_1) !!}
                             },
                         @endif

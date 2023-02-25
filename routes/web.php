@@ -26,6 +26,9 @@ Route::post('/contact', 'Vintari\HomeController@contact')->name('send_message');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/storage-link', function() {
+    Artisan::call('storage:link');
+});
 Route::group(['middleware' => 'auth'], function () {
     Route::prefix('admin/vintari/')->name('admin.vintari.')->group(function () {
         Route::post('data', 'Vintari\AdminController@dataTable')->name('data');

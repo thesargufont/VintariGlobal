@@ -188,9 +188,11 @@ class AdminController extends Controller
                 ]);
             } else if ($create == 'COUNTRY') {
                 $name       = $request->name;
+                $nameEn     = $request->name_en;
                 $imagePath  = $request->image_path;
                 $insert = new Country([
                     'name'          => $name,
+                    'name_en'       => $nameEn,
                     'image_path'    => $imagePath,
                     'created_by'    => Auth::user()->id,
                     'created_at'    => $today,
@@ -488,8 +490,10 @@ class AdminController extends Controller
                 $update = Country::find($id);
 
                 $name   = $request->name;
+                $nameEn     = $request->name_en;
 
                 $update->name   = $name;
+                $update->name_en= $nameEn;
             } else if ($create == 'ACTIVITY') {
                 $update     = Activity::find($id);
 
