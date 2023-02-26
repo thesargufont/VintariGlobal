@@ -38,25 +38,29 @@ class HomeController extends Controller
             App::setLocale($locale);
             
         }
+        $url = url()->previous();
+        $route = app('router')->getRoutes($url)->match(app('request')->create($url))->getName();
+        return redirect()->route($route);
+
+
         
-        
-        if ($locale == 'en') {
-            $Banners = Banner::select('header_en as header', 'desc1_en as desc1' , 'desc2_en as desc2', 'image_path as image_path')->get();
-            $About = About::select('history_en as history', 'visi_en as visi', 'misi_en as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
-            $Products = Product::select('id' , 'title as title', 'description_en as description', 'image_path1', 'countries_id', 'categories_id')->where('best_selling', '=', '1')->get()->chunk(4)->take(5);
-        } else {
-            $Banners = Banner::select('header as header', 'desc1 as desc1' , 'desc2 as desc2', 'image_path as image_path')->get();
-            $About = About::select('history as history', 'visi as visi', 'misi as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
-            $Products = Product::select('id' , 'title as title', 'description as description', 'image_path1', 'countries_id','categories_id')->where('best_selling', '=', '1')->get()->chunk(4)->take(53);
-        }
-        $Brands = Brand::all()->chunk(6);
-        return view('vintari.welcome', [
-            'Activetab'      => 'Home',
-            'Banners'        => $Banners,
-            'About'          => $About,
-            'BrandsArr'      => $Brands,
-            'Products'       => $Products
-        ]);
+        // if ($locale == 'en') {
+        //     $Banners = Banner::select('header_en as header', 'desc1_en as desc1' , 'desc2_en as desc2', 'image_path as image_path')->get();
+        //     $About = About::select('history_en as history', 'visi_en as visi', 'misi_en as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
+        //     $Products = Product::select('id' , 'title as title', 'description_en as description', 'image_path1', 'countries_id', 'categories_id')->where('best_selling', '=', '1')->get()->chunk(4)->take(5);
+        // } else {
+        //     $Banners = Banner::select('header as header', 'desc1 as desc1' , 'desc2 as desc2', 'image_path as image_path')->get();
+        //     $About = About::select('history as history', 'visi as visi', 'misi as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
+        //     $Products = Product::select('id' , 'title as title', 'description as description', 'image_path1', 'countries_id','categories_id')->where('best_selling', '=', '1')->get()->chunk(4)->take(53);
+        // }
+        // $Brands = Brand::all()->chunk(6);
+        // return view('vintari.welcome', [
+        //     'Activetab'      => 'Home',
+        //     'Banners'        => $Banners,
+        //     'About'          => $About,
+        //     'BrandsArr'      => $Brands,
+        //     'Products'       => $Products
+        // ]);
         
     }
 

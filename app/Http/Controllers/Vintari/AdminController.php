@@ -11,7 +11,9 @@ use Excel;
 use Storage;
 use ArtHelper;
 use Datatables;
+
 use Carbon\Carbon;
+use Session;
 
 use App\Models\User;
 use App\Models\About;
@@ -42,7 +44,15 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('vintari.admin.index');
+        if(Session::has('lastActive')){
+            $lastActive = Session::get('lastActive');
+        }else{
+            $lastActive = '';
+        }
+        
+        return view('vintari.admin.index', [
+            'lastActive'        => $lastActive,
+        ]);
     }
 
     /**
@@ -288,6 +298,7 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function dataTable(Request $request) {
+       
         $create = strtoupper($request->create);
         if ($create == 'BANNER') {
             $data = Banner::with(['createdBy']);
@@ -734,6 +745,7 @@ class AdminController extends Controller
     }
 
     public function loadData(Request $request) {
+        
         $create = strtoupper($request->create);
         if ($create == 'BANNER') {
             $banner = Banner::find($request->id);
@@ -869,15 +881,18 @@ class AdminController extends Controller
         } else if ($create == 'COUNTRY') {
             $country = Country::find($request->id);
             $name    = $country->name;
+            $name_en    = $country->name_en;
             if ($country->image_path != '') {
                 $imagePath  = url('storage/'.$country->image_path);
             } else {
                 $imagePath = '';
             }
+            
             return response()->json([
                 'success'       => true,
                 'create'        => $create,
                 'name'          => $name,
+                'name_en'       => $name_en,
                 'image_path'    => $imagePath
             ]);
         } else if ($create == 'ACTIVITY') {
