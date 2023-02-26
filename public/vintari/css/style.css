@@ -1,3 +1,9 @@
 .justify {
 	text-align: justify;
 }
+
+.img-brand{
+	width: 300px;
+    height: 150px;
+	object-fit: scale-down;
+}
