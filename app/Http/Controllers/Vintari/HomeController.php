@@ -29,6 +29,10 @@ class HomeController extends Controller
             App::setLocale($request->lang);
             session()->put('locale', $request->lang);  
             $locale = $request->lang;
+
+            $url = url()->previous();
+            $route = app('router')->getRoutes($url)->match(app('request')->create($url))->getName();
+            return redirect()->route($route);
         }else{
             $locale = session()->get('locale');
             if (empty($locale)){
@@ -36,12 +40,6 @@ class HomeController extends Controller
                 session()->put('locale', 'id');  
             }
             App::setLocale($locale);
-            
-        }
-        $url = url()->previous();
-        $route = app('router')->getRoutes($url)->match(app('request')->create($url))->getName();
-        // dd($route);
-        if($route == 'admin.vintari.index' || $route == 'lang'){
             if ($locale == 'en') {
                 $Banners = Banner::select('header_en as header', 'desc1_en as desc1' , 'desc2_en as desc2', 'image_path as image_path')->get();
                 $About = About::select('history_en as history', 'visi_en as visi', 'misi_en as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
@@ -59,9 +57,12 @@ class HomeController extends Controller
                 'BrandsArr'      => $Brands,
                 'Products'       => $Products
             ]);
-        }else{
-            return redirect()->route($route);
+
+            
+            
         }
+        
+        
     }
 
     public function about() {

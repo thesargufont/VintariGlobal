@@ -1061,7 +1061,7 @@ input,textarea {
 }
 .portfolio-img img {
 	width: 100%;
-	height: 250px;
+	height: auto;
 	object-fit: scale-down;
 }
 .portfolio-hover {
