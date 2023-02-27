@@ -3,36 +3,36 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs" id='tabs'>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#about"   data-toggle="tab">{{ucwords(__('vintari.about'))}}</a>
+                    <a class="nav-link  active  " href="#about"   data-toggle="tab">{{ucwords(__('vintari.about'))}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"        href="#activity" data-toggle="tab">{{ucwords(__('vintari.activity'))}}</a>
+                    <a class="nav-link    "  href="#activity" data-toggle="tab">{{ucwords(__('vintari.activity'))}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"        href="#banner"  data-toggle="tab">{{ucwords(__('vintari.banner'))}}</a>
+                    <a class="nav-link    "        href="#banner"  data-toggle="tab">{{ucwords(__('vintari.banner'))}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"        href="#brand"   data-toggle="tab">{{ucwords(__('vintari.brand'))}}</a>
+                    <a class="nav-link    "        href="#brand"   data-toggle="tab">{{ucwords(__('vintari.brand'))}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"        href="#category"data-toggle="tab">{{ucwords(__('vintari.category'))}}</a>
+                    <a class="nav-link    "        href="#category"data-toggle="tab">{{ucwords(__('vintari.category'))}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"        href="#contact" data-toggle="tab">{{ucwords(__('vintari.contact'))}}</a>
+                    <a class="nav-link   "        href="#contact" data-toggle="tab">{{ucwords(__('vintari.contact'))}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"        href="#country" data-toggle="tab">{{ucwords(__('vintari.country'))}}</a>
+                    <a class="nav-link   "        href="#country" data-toggle="tab">{{ucwords(__('vintari.country'))}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"        href="#faq"     data-toggle="tab">{{ucwords(__('vintari.faq'))}}</a>
+                    <a class="nav-link   "        href="#faq"     data-toggle="tab">{{ucwords(__('vintari.faq'))}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"        href="#product" data-toggle="tab">{{ucwords(__('vintari.product'))}}</a>
+                    <a class="nav-link    "        href="#product" data-toggle="tab">{{ucwords(__('vintari.product'))}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"        href="#user"    data-toggle="tab">{{ucwords(__('vintari.user'))}}</a>
+                    <a class="nav-link    "        href="#user"    data-toggle="tab">{{ucwords(__('vintari.user'))}}</a>
                 </li>
             </ul>
             <div class="tab-content">
@@ -1155,6 +1155,7 @@
         // function editItem()
             function editItem(id) {
                 var uriComponent = encodeURIComponent(id);
+                console.log(id);
                 location.replace('{{ url('/admin/vintari') }}/'+uriComponent+'/edit');
             }
         // end function editItem()
@@ -1197,5 +1198,11 @@
             });
             }
         // end function deleteItem()
+    </script>
+    <script>
+        @isset($lastActive)
+            var triggerEl = document.querySelector('#tabs a[href="#{{ Str::lower($lastActive) }}"]');
+            triggerEl.click();
+        @endisset
     </script>
 @endsection

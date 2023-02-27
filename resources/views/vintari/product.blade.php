@@ -45,7 +45,7 @@
                                 <li class="col-md-4 term-design portfolio-item isotope-item">
                                     <div class="portfolio-one">
                                         <div class="portfolio-head">
-                                            <div class="portfolio-img"><img alt="" src="{{ url('storage/'.$Product->image_path1) }}"></div>
+                                            <div class=""><img class='img-product' alt="" width="500px" height="500px" src="{{ url('storage/'.$Product->image_path1) }}"></div>
                                             <div class="portfolio-hover">
                                                 <a class="portfolio-link" href="{{ route('single-product',$Product->id) }}"><i class="fa fa-link"></i></a>
                                                 <a class="portfolio-zoom prettyPhoto" href="{{ url('storage/'.$Product->image_path1) }}"><i class="fa fa-search"></i></a>

@@ -386,7 +386,7 @@
                         <li>
                             @foreach ($Brands as $Brand )
                                 <div class="col-md-2 client-item">
-                                    <div class="client"><a href="#"><img alt="" src="{{ url('storage/'.$Brand->image_path) }}"></a></div>
+                                    <div class="client"><a href="#"><img class='img-brand' alt="" src="{{ url('storage/'.$Brand->image_path) }}"></a></div>
                                 </div>
                             @endforeach
                         </li>

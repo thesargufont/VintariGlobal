@@ -74,8 +74,8 @@
                                 <div class="contact-information">
                                     <ul>
                                         <li>Jl. Permata Taman Palem, RW.3, Pegadungan, Kec. Kalideres, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11830</li>
-                                        <li>- {{ $About->email }}</li>
-                                        <li>- {{ $About->telp }}</li>
+                                        <li>- {{ $About->email ?? ''}}</li>
+                                        <li>- {{ $About->telp ?? ''}}</li>
                                     </ul>
                                 </div><!-- End contact-information -->
                                 <div class="section-title section-title-2 section-title-3"><h6>{{ ucwords(__('vintari.business_hours')) }} :</h6></div>

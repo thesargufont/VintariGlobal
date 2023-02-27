@@ -905,6 +905,7 @@
         var preview = '';   
         var country = '';
         var category = ''; 
+
         @if(!$create)
             loadData();
             @if($show)
@@ -951,6 +952,7 @@
         });
 
         function loadData() {
+           
             var show    = {!! json_encode($show) !!};
             var edit    = {!! json_encode($edit) !!};
             var create  = {!! json_encode($create) !!};
@@ -1254,6 +1256,9 @@
 
                             if (data.success) {
                                 artAllFlashMsgClose();
+                                @php
+                                    Session::put('lastActive', $create_1);
+                                @endphp
                                 setTimeout(function(){ window.location.href = '{!! route('admin.vintari.index') !!}'; }, 1);
                             }
                         },
@@ -1366,6 +1371,10 @@
 
                             if (data.success) {
                                 artAllFlashMsgClose();
+                                @php
+                                    Session::put('lastActive', $create_1);
+                                @endphp
+                                 
                                 setTimeout(function(){ window.location.href = '{!! route('admin.vintari.index') !!}'; }, 1);
                             }
                         },
