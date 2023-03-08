@@ -225,7 +225,6 @@
                 <a href="sitemap.html">Sitemap</a> | <a href="feedback.html">Umpan balik</a> | <a href="contact.html">Hubungi kami</a> | <a href="privacy.html">Pernyataan privasi</a> | <a href="usage.html">Persyaratan penggunaan</a> | <a href="attribution.html">Attributions</a>
             </div> --}}
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2019 ESD, PT. Hartono Istana Teknologi.</strong>
         </footer>
     </div>
     <!-- ./wrapper -->

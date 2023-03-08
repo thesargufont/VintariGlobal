@@ -60,7 +60,7 @@
                             <div class="slide-a tp-caption customin" data-x="center" data-y="390" data-hoffset="0"
                                 data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                                 data-speed="500" data-start="1800" data-easing="Power3.easeInOut" data-endspeed="500"
-                                style="z-index: 4"><a href="#" class="button-4">{{ucwords(__('vintari.about_us'))}}</a>
+                                style="z-index: 4"><a href="{{ route('about') }}" class="button-4">{{ucwords(__('vintari.about_us'))}}</a>
                             </div>
 
                         </li>

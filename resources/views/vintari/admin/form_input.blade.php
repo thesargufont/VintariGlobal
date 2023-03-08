@@ -318,7 +318,7 @@
                                     <label class="control-label" >{{ucwords(__('vintari.telpon'))}}</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input class="form-control  positiveOnlyTextBox" maxlength="20" type="text" name="telpon" id="telpon" title="{{ucwords(__('vintari.telpon'))}}" placeholder="{{ucwords(__('vintari.telpon'))}}" required>
+                                    <input class="form-control " maxlength="20" type="text" name="telpon" id="telpon" title="{{ucwords(__('vintari.telpon'))}}" placeholder="{{ucwords(__('vintari.telpon'))}}" required>
                                     <small class="text-danger" id="telpon_error"></small>
                                 </div>
                             </div> 

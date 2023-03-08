@@ -71,10 +71,12 @@ class HomeController extends Controller
         App::setLocale($locale);
         if ($locale == 'en') {
             $About = About::select('history_en as history', 'visi_en as visi', 'misi_en as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
+            $Countries = Country::select('name_en as name', 'image_path')->get()->chunk(6);
         } else {
             $About = About::select('history as history', 'visi as visi', 'misi as misi' , 'image_path', 'url_alibaba', 'telp', 'email', 'product_sold', 'countries_sold', 'client')->first();
+            $Countries = Country::select('name as name', 'image_path')->get()->chunk(6);
         }
-        $Countries = Country::All()->chunk(6);
+        // $Countries = Country::All()->chunk(6);
         return view('vintari.about',[
             'Activetab'     => 'About',
             'About'         => $About,
@@ -104,6 +106,7 @@ class HomeController extends Controller
             $Countries = Country::select('id', 'name as name' , 'image_path' ,'created_by','created_at','updated_by','updated_at')->get();;
         }
         $Categories_post = [];
+        
         return view('vintari.product',[
             'Activetab'         => 'Product',
             'Products'          => $Products,

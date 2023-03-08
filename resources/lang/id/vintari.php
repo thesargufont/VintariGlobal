@@ -98,7 +98,7 @@ return [
     "your_name"                             => "Nama Anda",
     "monday_friday"                         => "Senin - Jumat",
     "saturday"                              => "Sabtu",
-    "sunday"                                => "Minggu",
+    "sunday"                                => "Sabtu - Minggu",
     "closed"                                => "Tutup",
     "contact_information"                   => "Informasi Kontak",
     "business_hours"                        => "Jam Kerja",

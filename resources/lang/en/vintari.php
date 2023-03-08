@@ -98,7 +98,7 @@ return [
     "your_name"                             => "Your Name",
     "monday_friday"                         => "Monday - Friday",
     "saturday"                              => "Saturday",
-    "sunday"                                => "Sunday",
+    "sunday"                                => "Saturday - Sunday",
     "closed"                                => "Closed",
     "contact_information"                   => "Contact Information",
     "business_hours"                        => "Business Hours",
