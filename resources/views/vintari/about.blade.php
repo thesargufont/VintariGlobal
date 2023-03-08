@@ -41,9 +41,10 @@
                     <div class="col-md-4">
                         <div class="bxslider-slide about-slide">
                             <ul>
-                                <li><img alt="" src="images/building.jpg"></li>
-                                <li><img alt="" src="images/history.jpg"></li>
-                                <li><img alt="" src="images/office.jpg"></li>
+                                @isset($About->image_path))
+                                <li><img alt="" src=" {{ url('storage/'.$About->image_path) }}"></li>
+                                @endisset
+                                
                             </ul>
                         </div>
                     </div>

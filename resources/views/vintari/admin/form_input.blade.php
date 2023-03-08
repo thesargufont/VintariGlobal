@@ -305,7 +305,7 @@
                                     <label class="control-label" >{{ucwords(__('vintari.url_alibaba'))}}</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input class="form-control" maxlength="255" type="text" name="url_alibaba" id="url_alibaba" title="{{ucwords(__('vintari.url_alibaba'))}}" placeholder="{{ucwords(__('vintari.url_alibaba'))}}">
+                                    <input class="form-control" maxlength="255" type="text" name="url_alibaba" id="url_alibaba" title="{{ucwords(__('vintari.url_alibaba'))}}" placeholder="{{ucwords(__('vintari.url_alibaba'))}} required">
                                     <small class="text-danger" id="url_alibaba_error"></small>
                                 </div>
                             </div> 
