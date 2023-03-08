@@ -41,9 +41,10 @@
                     <div class="col-md-4">
                         <div class="bxslider-slide about-slide">
                             <ul>
-                                <li><img alt="" src="images/building.jpg"></li>
-                                <li><img alt="" src="images/history.jpg"></li>
-                                <li><img alt="" src="images/office.jpg"></li>
+                                @isset($About->image_path))
+                                <li><img alt="" src=" {{ url('storage/'.$About->image_path) }}"></li>
+                                @endisset
+                                
                             </ul>
                         </div>
                     </div>
@@ -142,7 +143,7 @@
     <script src="{{ asset("vintari/js/jquery.min.js") }}"></script>
     <script src="{{ asset("vintari/js/html5.js") }}"></script>
     <script src="{{ asset("vintari/js/jquery.isotope.min.js") }}"></script>
-    <script src="{{ asset("vintari/js/jquery.nicescroll.min.js") }}"></script>
+    {{-- <script src="{{ asset("vintari/js/jquery.nicescroll.min.js") }}"></script> --}}
     <script src="{{asset("vintari/js/jquery.appear.js")}}"></script>
     <script src="{{asset("vintari/js/count-to.js")}}"></script>
     <script src="{{asset("vintari/js/twitter/jquery.tweet.js")}}"></script>
