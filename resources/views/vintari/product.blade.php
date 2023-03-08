@@ -73,7 +73,10 @@
                                 
                             </ul>
                         </div><!-- End portfolio-0 -->
-                        {{ $Products->links() }}
+                        
+
+                        {{ $Products->appends(['category' => Request::get('category')])->links() }}
+                        
                     </div><!-- End main-content -->
                     <div class="col-md-3 sidebar">
                         <div class="widget">
@@ -88,17 +91,21 @@
                             <div class="widget">
                                 <div class="widget-title"><h6>{{ucwords(__('vintari.category'))}}</h6></div>
                                 <ul>
-                                    @foreach ($Categories as $Category)
-                                        @if(in_array($Category->id,  $Categories_post))
-                                            <li><input type="checkbox" name="categories[]" value="{{ $Category->id }}" checked/> {{ $Category->name }}<br/></li>
+                                    @php
+                                        $categ = Request::get("category");
+                                        $arrs = explode('-', $categ);
+                                    @endphp
+                                    @foreach ($Categories as $Category)  
+                                        @if(in_array($Category->id,  $arrs))
+                                            <li><input class='valCheckbox' type="checkbox" name="categories[]" value="{{ $Category->id }}" checked onclick="clickCheckbox()"/> {{ $Category->name }}<br/></li>
                                         @else    
-                                            <li><input type="checkbox" name="categories[]" value="{{ $Category->id }}"/> {{ $Category->name }}<br/></li>
+                                            <li><input class='valCheckbox' type="checkbox" name="categories[]" value="{{ $Category->id }}" onclick="clickCheckbox()"/> {{ $Category->name }}<br/></li>
                                         @endif 
                                     @endforeach
                                 </ul>
                             <br>
-                            {{ csrf_field() }}
-                                <input class ='mx-auto button-1' type="submit" value="{{ucwords(__('vintari.search'))}}">
+                             {{-- {{ csrf_field() }} 
+                            <input class ='mx-auto button-1' type="submit" value="{{ucwords(__('vintari.search'))}}"> --}}
                             </div>
                         </form>
                         
@@ -125,6 +132,35 @@
     <script src="{{asset("vintari/js/custom.js")}}"></script>
     {{-- <script src="{{asset("vintari/js/apps.js")}}"></script> --}}
     </body>
-    
+    <script>
+        function clickCheckbox() {
+            var checked = [];
+            var indc = '';
+            var categConcat = '';
+            var url =new URL(window.location.href);
+            $("input[name='categories[]']:checked").each(function (){
+                checked.push($(this).val());
+            });
+            for (let index = 0; index < checked.length; index++) {
+                indc++;
+                if(indc == checked.length){
+                    categConcat += checked[index];
+                }else{
+                    categConcat += checked[index] + '-';
+                }
+            }
+            var newUrl = new URL(url.protocol.concat('//',url.host,url.pathname));
+            let params = new URLSearchParams(newUrl.search);
+            console.log(newUrl);
+            if(categConcat != null && categConcat != '' ){
+                newUrl.searchParams.append("category", categConcat);
+            }
+            if(url.searchParams.get('page') != null && url.searchParams.get('page') != '' ){
+                // newUrl.searchParams.append("page", url.searchParams.get('page'));
+                newUrl.searchParams.append("page", '1');
+            }
+            window.location.href = newUrl;
+        }
+    </script>
     </body>
     </html>
