@@ -85,6 +85,7 @@ class HomeController extends Controller
     }
 
     public function product($Country_id = '') {
+        
         $locale = session()->get('locale');
         $Categories_post ='';
         if (!empty(request()->get('category'))) {
@@ -92,28 +93,35 @@ class HomeController extends Controller
         }
         
         App::setLocale($locale);
+        
         if ($locale == 'en') {
             if (!empty($Country_id)){
                 $Products = Product::select('id' , 'title', 'description_en as description' , 'image_path1', 'categories_id', 'countries_id')->where('countries_id', $Country_id);
             }else{
-                $Products = Product::select('id' , 'title', 'description_en as description' , 'image_path1', 'categories_id', 'countries_id')->paginate(12);
+                $Products = Product::select('id' , 'title', 'description_en as description' , 'image_path1', 'categories_id', 'countries_id');
             }
             $Categories = Category::select('id', 'name_en as name' )->get();
-            $Countries = Country::select('id', 'name_en as name' , 'image_path' ,'created_by','created_at','updated_by','updated_at')->get();;
+            $Countries = Country::select('id', 'name_en as name' , 'image_path' ,'created_by','created_at','updated_by','updated_at')->get();
+            
+            $CountryName = Country::select('name_en as name')->where('id',$Country_id)->first();
         } else {
             if (!empty($Country_id)){
                 $Products = Product::select('id' , 'title', 'description as description' , 'image_path1', 'categories_id', 'countries_id')->where('countries_id', $Country_id);
             }else{
-                $Products = Product::select('id' , 'title', 'description as description' , 'image_path1', 'categories_id', 'countries_id')->paginate(12);
+                $Products = Product::select('id' , 'title', 'description as description' , 'image_path1', 'categories_id', 'countries_id');
             }
 
-            if (!empty($Categories_post)) {
-                $Products = $Products->whereIn('categories_id',$Categories_post);
-            }
-            $Products = $Products->paginate(12);
+           
+            
             $Categories = Category::select('id', 'name as name' )->get();
             $Countries = Country::select('id', 'name as name' , 'image_path' ,'created_by','created_at','updated_by','updated_at')->get();;
+            $CountryName = Country::select('name as name')->where('id',$Country_id)->first();
+            
         }
+        if (!empty($Categories_post)) {
+            $Products = $Products->whereIn('categories_id',$Categories_post);
+        }
+        $Products = $Products->paginate(12);
         
         return view('vintari.product',[
             'Activetab'         => 'Product',
@@ -121,6 +129,7 @@ class HomeController extends Controller
             'Categories'        => $Categories,
             'Countries'         => $Countries,
             'Countries_id'      => $Country_id,
+            'Country_name'      => $CountryName,
             'Categories_post'   => $Categories_post
         ]);
     }

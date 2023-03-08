@@ -34,7 +34,7 @@
         <div class="sections sections-left-sidebar">
             <div class="container">
                 <div class="sections-title">
-                    <div class="sections-title-h3"><h3>{{ucwords(__('vintari.our_product'))}}</h3></div>
+                    <div class="sections-title-h3"><h3>{{ucwords(__('vintari.our_product'))}} {{ $Country_name->name ?? ''}}</h3></div>
                     <p>{{ucwords(__('vintari.our_product'))}}</p>
                 </div><!-- End sections-title -->
                 <div class="row">
@@ -120,7 +120,7 @@
     <script src="{{ asset("vintari/js/jquery.min.js") }}"></script>
     <script src="{{ asset("vintari/js/html5.js") }}"></script>
     <script src="{{ asset("vintari/js/jquery.isotope.min.js") }}"></script>
-    <script src="{{ asset("vintari/js/jquery.nicescroll.min.js") }}"></script>
+    {{-- <script src="{{ asset("vintari/js/jquery.nicescroll.min.js") }}"></script> --}}
     <script src="{{asset("vintari/js/jquery.appear.js")}}"></script>
     <script src="{{asset("vintari/js/count-to.js")}}"></script>
     <script src="{{asset("vintari/js/twitter/jquery.tweet.js")}}"></script>

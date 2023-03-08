@@ -15,7 +15,7 @@
 </header><!-- End header -->
 <header id="header">
     <div class="container clearfix">
-        <div class="logo"><a href="/"><img alt="" src="{{ asset("vintari/images/V-logo.jpg") }}"></a><span></span></div>
+        <div class="logo"><a href="/"><img alt="" src="{{ asset("storage/V-logo.jpg") }}"></a><span></span></div>
         <nav class="navigation">
             <ul>
                 <li class="@if($Activetab =='Home') current_page_item  @endif"><a href="/">{{ucwords(__('vintari.home'))}}</a></li>
